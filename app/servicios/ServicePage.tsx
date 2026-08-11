@@ -1,5 +1,6 @@
 import Link from "next/link";
 import MotionEffects from "../MotionEffects";
+import SiteFooter from "../SiteFooter";
 
 type Fact = {
   label: string;
@@ -232,11 +233,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
         >
           CONSULTAR POR WHATSAPP <span>↗</span>
         </a>
-        <footer>
-          <span>AQUABON</span>
-          <p>Gascón 2189 · Mar del Plata</p>
-          <p>Ropa limpia · Cabeza liviana</p>
-        </footer>
+        <SiteFooter />
       </section>
     </main>
   );

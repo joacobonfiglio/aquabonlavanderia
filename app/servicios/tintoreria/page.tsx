@@ -17,9 +17,9 @@ const data: ServicePageData = {
     "Recibimos las prendas que necesitan un cuidado especializado",
     "Y coordinamos su recorrido hasta que vuelven a vos",
   ],
-  heroImage: "/tintoreria-hero.png",
+  heroImage: "/laundry-hero-v2.webp",
   heroAlt: "Blazer marfil y prenda azul preparados para tintorería",
-  detailImage: "/tintoreria-detail.png",
+  detailImage: "/laundry-detail-v2.webp",
   detailAlt: "Manos vaporizando y revisando la solapa de un blazer",
   detailLabel: "PRENDAS QUE PIDEN OTRAS MANOS",
   facts: [

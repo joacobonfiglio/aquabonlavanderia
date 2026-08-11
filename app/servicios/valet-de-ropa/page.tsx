@@ -17,9 +17,9 @@ const data: ServicePageData = {
     "Tu ropa de todos los días lavada, secada y doblada",
     "Lista para volver al placard",
   ],
-  heroImage: "/valet-hero.png",
+  heroImage: "/laundry-hero-v2.webp",
   heroAlt: "Ropa limpia y doblada junto a un canasto azul",
-  detailImage: "/folded-detail.png",
+  detailImage: "/laundry-detail-v2.webp",
   detailAlt: "Manos doblando cuidadosamente una camisa recién lavada",
   detailLabel: "CUIDADO EN CADA DOBLEZ",
   facts: [

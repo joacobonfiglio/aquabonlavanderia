@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import LocationBlock from "../LocationBlock";
 import MotionEffects from "../MotionEffects";
+import SiteFooter from "../SiteFooter";
 
 export const metadata: Metadata = {
   title: "Aquabon | Lavandería en Mar del Plata",
@@ -190,11 +191,7 @@ export default function Nosotros() {
         >
           ESCRIBINOS POR WHATSAPP <span>↗</span>
         </a>
-        <footer>
-          <span>AQUABON</span>
-          <p>Gascón 2189 · Mar del Plata</p>
-          <p>Ropa limpia · Cabeza liviana</p>
-        </footer>
+        <SiteFooter />
       </section>
     </main>
   );

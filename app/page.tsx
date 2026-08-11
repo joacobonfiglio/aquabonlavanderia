@@ -1,5 +1,6 @@
 import MotionEffects from "./MotionEffects";
 import LocationBlock from "./LocationBlock";
+import SiteFooter from "./SiteFooter";
 
 const services = [
   {
@@ -131,7 +132,7 @@ export default function Home() {
       <figure className="campaign-image" data-reveal>
         <img
           data-parallax
-          src="/service-still.png"
+          src="/service-still-v2.webp"
           alt="Composición editorial de ropa limpia y doblada en tonos Aquabon"
         />
         <figcaption>
@@ -298,11 +299,7 @@ export default function Home() {
             <strong>Valet · Acolchados<br />Tintorería</strong>
           </div>
         </div>
-        <footer>
-          <span>AQUABON</span>
-          <p>Lavandería · Mar del Plata</p>
-          <p>Ropa limpia · Cabeza liviana</p>
-        </footer>
+        <SiteFooter />
       </section>
     </main>
   );

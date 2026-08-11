@@ -17,9 +17,9 @@ const data: ServicePageData = {
     "Limpieza profunda para lo que abraza tus noches",
     "Cuidado según el tamaño, el tejido y el relleno",
   ],
-  heroImage: "/acolchados-hero.png",
+  heroImage: "/laundry-hero-v2.webp",
   heroAlt: "Acolchados marfil doblados en ondas con un detalle azul",
-  detailImage: "/acolchados-detail.png",
+  detailImage: "/laundry-detail-v2.webp",
   detailAlt: "Manos revisando y alisando un acolchado limpio",
   detailLabel: "CUIDADO EN TODO SU VOLUMEN",
   facts: [

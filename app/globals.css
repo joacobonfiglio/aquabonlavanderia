@@ -1397,28 +1397,71 @@ nav > a:hover::after {
   line-height: 1.6;
 }
 
-footer {
-  align-items: end;
+.site-footer {
   border-top: 1px solid #5c5d60;
   display: grid;
-  grid-template-columns: 1fr auto auto;
-  gap: 40px;
-  padding-top: 26px;
+  gap: 34px;
+  grid-template-columns: minmax(220px, 1fr) auto;
+  margin-top: 88px;
+  padding-top: 30px;
 }
 
-footer > span {
+.site-footer-brand {
+  align-self: start;
+}
+
+.site-footer-brand > a {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(36px, 5vw, 70px);
   letter-spacing: 0.12em;
   line-height: 0.8;
+  text-decoration: none;
 }
 
-footer p {
+.site-footer p {
   color: #999a9c;
   font-size: 9px;
   letter-spacing: 0.12em;
   margin: 0;
   text-transform: uppercase;
+}
+
+.site-footer-brand p {
+  margin-top: 14px;
+}
+
+.site-footer-links {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(2, minmax(128px, 1fr));
+}
+
+.site-footer-links div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.site-footer-links span {
+  color: #999a9c;
+  font-size: 9px;
+  letter-spacing: 0.17em;
+  margin-bottom: 5px;
+}
+
+.site-footer-links a {
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+}
+
+.site-footer-links a:hover,
+.site-footer-brand > a:hover {
+  color: var(--blue-pale);
+}
+
+.site-footer-tagline {
+  grid-column: 1 / -1;
 }
 
 /* Service detail */
@@ -2628,9 +2671,14 @@ footer p {
     margin-bottom: 70px;
   }
 
-  footer {
+  .site-footer {
     align-items: start;
     grid-template-columns: 1fr;
+  }
+
+  .site-footer-links {
+    gap: 28px;
+    max-width: 360px;
   }
 
   .service-hero {
