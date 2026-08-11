@@ -4,7 +4,7 @@ import LocationBlock from "../LocationBlock";
 import MotionEffects from "../MotionEffects";
 
 export const metadata: Metadata = {
-  title: "Nosotros | Aquabon Lavandería",
+  title: "Aquabon | Lavandería en Mar del Plata",
   description:
     "Conocé la misión, la visión y el propósito de Aquabon, una lavandería de barrio en Gascón 2189, Mar del Plata.",
   alternates: {
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 const whatsappMessage = encodeURIComponent(
   "Hola Aquabon, quisiera consultar por sus servicios de lavandería."
 );
+const whatsappUrl = `https://wa.me/5492235607738?text=${whatsappMessage}`;
 
 const principles = [
   {
@@ -51,13 +52,27 @@ export default function Nosotros() {
           <a href="#ubicacion">Ubicación</a>
           <a
             className="nav-cta"
-            href={`https://wa.me/?text=${whatsappMessage}`}
+            href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
           >
             Escribinos <span aria-hidden="true">↗</span>
           </a>
         </nav>
+        <details className="mobile-menu">
+          <summary aria-label="Abrir menú de navegación">
+            <span />
+            <span />
+          </summary>
+          <div>
+            <Link href="/#servicios">Servicios</Link>
+            <a href="#ubicacion">Ubicación</a>
+            <Link href="/">Inicio</Link>
+            <a href={whatsappUrl} target="_blank" rel="noreferrer">
+              WhatsApp ↗
+            </a>
+          </div>
+        </details>
       </header>
 
       <section className="about-page-hero">
@@ -169,7 +184,7 @@ export default function Nosotros() {
           <em>nosotros la cuidamos</em>
         </h2>
         <a
-          href={`https://wa.me/?text=${whatsappMessage}`}
+          href={whatsappUrl}
           target="_blank"
           rel="noreferrer"
         >
