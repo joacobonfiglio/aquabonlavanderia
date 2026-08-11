@@ -202,6 +202,7 @@ nav > a:hover::after {
   animation: heroCopyIn 0.95s cubic-bezier(0.2, 0.75, 0.25, 1) both;
   padding-top: clamp(70px, 10vh, 120px);
   position: relative;
+  width: 58%;
   z-index: 5;
 }
 
@@ -215,10 +216,10 @@ nav > a:hover::after {
 
 .hero h1 {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(76px, 10vw, 156px);
+  font-size: clamp(72px, 8vw, 124px);
   font-weight: 400;
   letter-spacing: -0.07em;
-  line-height: 0.73;
+  line-height: 0.8;
   margin: 0;
 }
 
@@ -226,14 +227,14 @@ nav > a:hover::after {
   color: var(--blue);
   display: block;
   font-style: italic;
-  margin-left: 9vw;
+  margin-left: 4vw;
 }
 
 .hero-intro {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(17px, 1.45vw, 23px);
   line-height: 1.55;
-  margin: 42px 0 0 10vw;
+  margin: 42px 0 0 6vw;
 }
 
 .round-button {
@@ -250,9 +251,10 @@ nav > a:hover::after {
   letter-spacing: 0.18em;
   line-height: 1.55;
   position: absolute;
-  right: 39vw;
+  bottom: 100px;
+  right: 6vw;
   text-align: center;
-  top: min(58vh, 520px);
+  top: auto;
   transform: rotate(-7deg);
   transition: transform 0.25s ease, background 0.25s ease;
   width: 126px;
@@ -267,14 +269,14 @@ nav > a:hover::after {
 .hero-art {
   align-items: center;
   display: flex;
-  height: 590px;
+  height: 510px;
   justify-content: center;
   position: absolute;
-  right: 3vw;
-  top: 125px;
+  right: 2vw;
+  top: 185px;
   transform: translate3d(var(--pointer-x), var(--pointer-y), 0);
   transition: transform 0.45s cubic-bezier(0.2, 0.75, 0.25, 1);
-  width: 39vw;
+  width: 32vw;
   will-change: transform;
   z-index: 3;
 }
@@ -285,10 +287,10 @@ nav > a:hover::after {
   border: 1px solid var(--ink);
   border-radius: 43% 57% 48% 52% / 54% 42% 58% 46%;
   box-shadow: 22px 24px 0 var(--ink);
-  height: min(34vw, 430px);
+  height: min(29vw, 390px);
   position: relative;
   transform: rotate(7deg);
-  width: min(32vw, 410px);
+  width: min(27vw, 360px);
 }
 
 .washer-dot {
@@ -2401,6 +2403,7 @@ nav > a:hover::after {
 
   .hero-copy {
     padding-top: 58px;
+    width: 100%;
   }
 
   .hero h1 {
@@ -2418,11 +2421,11 @@ nav > a:hover::after {
   }
 
   .hero-art {
-    height: 380px;
-    left: 20%;
-    right: auto;
-    top: 385px;
-    width: 80%;
+    height: 330px;
+    left: auto;
+    right: 6vw;
+    top: 500px;
+    width: 70%;
   }
 
   .washer {
@@ -2447,10 +2450,11 @@ nav > a:hover::after {
   }
 
   .round-button {
+    bottom: 48px;
     height: 100px;
-    left: 5vw;
-    right: auto;
-    top: 480px;
+    left: auto;
+    right: 8vw;
+    top: auto;
     width: 100px;
     z-index: 8;
   }
@@ -2885,10 +2889,10 @@ nav > a:hover::after {
   }
 
   .hero-art {
-    height: 300px;
-    left: 30%;
-    top: 570px;
-    width: 68%;
+    height: 290px;
+    right: 4vw;
+    top: 535px;
+    width: 72%;
   }
 
   .washer {
