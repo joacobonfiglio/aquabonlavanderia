@@ -87,12 +87,13 @@ export default function Home() {
             <br />
             En el corazón del barrio.
           </p>
-          <a className="round-button" href="#servicios">
-            <span>CONOCÉ</span>
-            <span>NUESTROS</span>
-            <span>SERVICIOS ↓</span>
-          </a>
         </div>
+
+        <a className="round-button" href="#servicios">
+          <span>CONOCÉ</span>
+          <span>NUESTROS</span>
+          <span>SERVICIOS ↓</span>
+        </a>
 
         <div className="hero-art" aria-label="Ilustración abstracta de una lavadora">
           <span className="orbit orbit-one" />
