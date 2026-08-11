@@ -251,10 +251,10 @@ nav > a:hover::after {
   letter-spacing: 0.18em;
   line-height: 1.55;
   position: absolute;
-  bottom: 100px;
-  right: 6vw;
+  bottom: auto;
+  right: 38vw;
   text-align: center;
-  top: auto;
+  top: min(62vh, 560px);
   transform: rotate(-7deg);
   transition: transform 0.25s ease, background 0.25s ease;
   width: 126px;
