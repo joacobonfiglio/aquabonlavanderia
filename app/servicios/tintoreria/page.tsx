@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import ServicePage, { type ServicePageData } from "../ServicePage";
 
 export const metadata: Metadata = {
-  title: "Recepción de tintorería | Aquabon Lavandería",
+  title: "Tintorería en Mar del Plata | Aquabon",
   description:
     "Recepción y gestión de prendas para tintorería en Aquabon, Gascón 2189, Mar del Plata.",
+  alternates: {
+    canonical: "/servicios/tintoreria",
+  },
 };
 
 const data: ServicePageData = {
