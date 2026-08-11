@@ -25,27 +25,10 @@ const services = [
   },
 ];
 
-const reviewSamples = [
-  {
-    service: "VALET DE ROPA",
-    quote:
-      "Dejé la bolsa camino al trabajo y volvió limpia, seca y doblada. Justo la tranquilidad que buscaba.",
-  },
-  {
-    service: "ACOLCHADOS",
-    quote:
-      "Me explicaron qué cuidado necesitaba el acolchado y me avisaron apenas estuvo listo para retirar.",
-  },
-  {
-    service: "ATENCIÓN EN EL LOCAL",
-    quote:
-      "Todo fue simple y claro desde que entré. Se nota el cuidado en la atención y en cada prenda.",
-  },
-];
-
 const whatsappMessage = encodeURIComponent(
   "Hola Aquabon, quisiera consultar por un servicio de lavandería."
 );
+const whatsappUrl = `https://wa.me/5492235607738?text=${whatsappMessage}`;
 const mapsUrl =
   "https://www.google.com/maps/dir/?api=1&destination=Gasc%C3%B3n+2189%2C+Mar+del+Plata%2C+Argentina";
 
@@ -65,6 +48,20 @@ export default function Home() {
             Vení a vernos <span aria-hidden="true">↘</span>
           </a>
         </nav>
+        <details className="mobile-menu">
+          <summary aria-label="Abrir menú de navegación">
+            <span />
+            <span />
+          </summary>
+          <div>
+            <a href="#servicios">Servicios</a>
+            <a href="/nosotros">Nosotros</a>
+            <a href="#ubicacion">Ubicación</a>
+            <a href={whatsappUrl} target="_blank" rel="noreferrer">
+              WhatsApp ↗
+            </a>
+          </div>
+        </details>
       </header>
 
       <section className="hero" id="inicio">
@@ -260,33 +257,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="reviews-section" id="resenas" data-reveal>
-        <div className="reviews-heading">
-          <p className="eyebrow">RESEÑAS</p>
-          <h2>
-            Voces del barrio,
-            <em>muy pronto acá</em>
-          </h2>
-          <p>
-            Este espacio está preparado para incorporar opiniones reales. Por
-            ahora, los textos están identificados como ejemplos para mostrar
-            cómo se verá.
-          </p>
-        </div>
-        <div className="reviews-grid">
-          {reviewSamples.map((review, index) => (
-            <article key={review.service}>
-              <div>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <strong>TEXTO DE MUESTRA</strong>
-              </div>
-              <blockquote>“{review.quote}”</blockquote>
-              <p>{review.service}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <LocationBlock />
 
       <section className="contact" id="contacto" data-reveal>
@@ -300,7 +270,7 @@ export default function Home() {
         </div>
         <div className="contact-actions">
           <a
-            href={`https://wa.me/?text=${whatsappMessage}`}
+            href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
           >
@@ -318,6 +288,10 @@ export default function Home() {
           <div>
             <span>HORARIO</span>
             <strong>8:00–13:30<br />16:00–20:30</strong>
+          </div>
+          <div>
+            <span>WHATSAPP</span>
+            <strong><a href={whatsappUrl} target="_blank" rel="noreferrer">+54 9 223 560-7738</a></strong>
           </div>
           <div>
             <span>SERVICIOS</span>
