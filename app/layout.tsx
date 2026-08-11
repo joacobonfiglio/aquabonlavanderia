@@ -16,14 +16,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.aquabonlavanderia.com"),
   title: "Lavandería en Mar del Plata | Aquabon",
   description:
-    "Lavandería de barrio en Gascón 2189, Mar del Plata. Valet de ropa, acolchados y recepción de tintorería con atención cercana.",
+    "Lavandería y tintorería en Mar del Plata. Lavado, secado y doblado de ropa, acolchados y recepción de prendas especiales en Gascón 2189.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "Lavandería en Mar del Plata | Aquabon",
     description:
-      "Valet de ropa, acolchados y recepción de tintorería en Gascón 2189, Mar del Plata.",
+      "Lavado de ropa, acolchados y recepción de tintorería en Gascón 2189, Mar del Plata.",
     type: "website",
     locale: "es_AR",
     url: "/",
@@ -63,6 +63,26 @@ export default function RootLayout({
               },
               areaServed: "Mar del Plata",
               priceRange: "$$",
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                  ],
+                  opens: "08:30",
+                  closes: "20:00",
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: "Saturday",
+                  opens: "09:00",
+                  closes: "14:00",
+                },
+              ],
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
                 name: "Servicios de lavandería",

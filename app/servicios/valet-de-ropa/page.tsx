@@ -4,7 +4,7 @@ import ServicePage, { type ServicePageData } from "../ServicePage";
 export const metadata: Metadata = {
   title: "Valet de ropa en Mar del Plata | Aquabon",
   description:
-    "Lavado, secado y doblado de tu ropa de todos los días en Aquabon, Gascón 2189, Mar del Plata.",
+    "Servicio para lavar ropa en Mar del Plata: lavado, secado y doblado de ropa cotidiana en Aquabon, Gascón 2189.",
   alternates: {
     canonical: "/servicios/valet-de-ropa",
   },
@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 
 const data: ServicePageData = {
   number: "01",
-  title: ["Valet", "de ropa"],
+  title: ["Lavar ropa", "en Mar del Plata"],
   intro: [
-    "Tu ropa de todos los días lavada, secada y doblada",
+    "Valet de ropa con lavado, secado y doblado para tu ropa de todos los días",
     "Lista para volver al placard",
   ],
   heroImage: "/laundry-hero-v2.webp",
@@ -27,7 +27,7 @@ const data: ServicePageData = {
     { label: "INCLUYE", value: "Lavado · Secado · Doblado" },
     { label: "ENTREGA", value: "Lista para guardar" },
   ],
-  storyEyebrow: "MENOS TAREAS PENDIENTES",
+  storyEyebrow: "LAVANDERÍA PARA TU ROPA DE TODOS LOS DÍAS",
   storyHeading: [
     "Tu semana no debería girar alrededor",
     "del lavarropas",

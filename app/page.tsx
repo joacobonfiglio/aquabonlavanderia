@@ -78,11 +78,12 @@ export default function Home() {
             GASCÓN 2189 · MAR DEL PLATA
           </p>
           <h1>
-            Tu ropa
-            <span>vuelve a vos</span>
+            Lavandería
+            <span>en Mar del Plata</span>
           </h1>
           <p className="hero-intro">
-            Más limpia. Más cuidada. Lista para seguirte el ritmo.
+            Lavamos, secamos y doblamos tu ropa para que vuelva limpia,
+            cuidada y lista para seguirte el ritmo.
             <br />
             En el corazón del barrio.
           </p>
@@ -144,11 +145,12 @@ export default function Home() {
       <section className="services" id="servicios" data-reveal>
         <div className="section-heading">
           <p className="eyebrow">LO QUE HACEMOS</p>
-          <h2>Cuidamos lo tuyo</h2>
+          <h2>Lavandería, valet y tintorería en Mar del Plata</h2>
           <p>
-            Cada prenda tiene su historia.
+            Soluciones simples para lavar ropa en Mar del Plata, desde la
+            ropa cotidiana hasta acolchados y prendas especiales.
             <br />
-            Y también su manera de ser cuidada.
+            Cada prenda tiene su historia y su manera de ser cuidada.
           </p>
         </div>
 
@@ -288,7 +290,7 @@ export default function Home() {
           </div>
           <div>
             <span>HORARIO</span>
-            <strong>8:00–13:30<br />16:00–20:30</strong>
+            <strong>Lun–Vie 8:30–20:00<br />Sáb 9:00–14:00</strong>
           </div>
           <div>
             <span>WHATSAPP</span>

@@ -4,7 +4,7 @@ import ServicePage, { type ServicePageData } from "../ServicePage";
 export const metadata: Metadata = {
   title: "Lavado de acolchados en Mar del Plata | Aquabon",
   description:
-    "Lavado y secado cuidado de acolchados en Aquabon, Gascón 2189, Mar del Plata.",
+    "Lavado y secado de acolchados en Mar del Plata. Cuidado según tejido, relleno y tamaño en Aquabon, Gascón 2189.",
   alternates: {
     canonical: "/servicios/acolchados",
   },
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const data: ServicePageData = {
   number: "02",
-  title: ["Acolchados", "que respiran"],
+  title: ["Lavado de acolchados", "en Mar del Plata"],
   intro: [
     "Limpieza profunda para lo que abraza tus noches",
     "Cuidado según el tamaño, el tejido y el relleno",
@@ -27,7 +27,7 @@ const data: ServicePageData = {
     { label: "CUIDADO", value: "Según tejido y relleno" },
     { label: "RESULTADO", value: "Limpio · Seco · Fresco" },
   ],
-  storyEyebrow: "MÁS QUE UNA PRENDA GRANDE",
+  storyEyebrow: "LAVANDERÍA PARA ACOLCHADOS EN MAR DEL PLATA",
   storyHeading: ["El descanso también empieza por", "un acolchado fresco"],
   storyParagraphs: [
     "Un acolchado necesita espacio para moverse, agua en la medida correcta y un secado que llegue hasta el interior. Por eso lo tratamos como un servicio propio, no como una prenda más.",

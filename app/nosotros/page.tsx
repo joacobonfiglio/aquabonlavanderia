@@ -7,7 +7,7 @@ import SiteFooter from "../SiteFooter";
 export const metadata: Metadata = {
   title: "Aquabon | Lavandería en Mar del Plata",
   description:
-    "Conocé la misión, la visión y el propósito de Aquabon, una lavandería de barrio en Gascón 2189, Mar del Plata.",
+    "Conocé Aquabon, lavandería de barrio en Mar del Plata. Lavado de ropa, acolchados y recepción de tintorería en Gascón 2189.",
   alternates: {
     canonical: "/nosotros",
   },

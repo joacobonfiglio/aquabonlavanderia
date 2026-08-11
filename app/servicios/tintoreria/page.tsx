@@ -4,7 +4,7 @@ import ServicePage, { type ServicePageData } from "../ServicePage";
 export const metadata: Metadata = {
   title: "Tintorería en Mar del Plata | Aquabon",
   description:
-    "Recepción y gestión de prendas para tintorería en Aquabon, Gascón 2189, Mar del Plata.",
+    "Tintorería en Mar del Plata: recepción, seguimiento y entrega de prendas que necesitan cuidado especializado en Aquabon, Gascón 2189.",
   alternates: {
     canonical: "/servicios/tintoreria",
   },
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const data: ServicePageData = {
   number: "03",
-  title: ["Recepción", "de tintorería"],
+  title: ["Tintorería", "en Mar del Plata"],
   intro: [
     "Recibimos las prendas que necesitan un cuidado especializado",
     "Y coordinamos su recorrido hasta que vuelven a vos",
@@ -27,7 +27,7 @@ const data: ServicePageData = {
     { label: "SERVICIO", value: "Recepción · Gestión · Entrega" },
     { label: "SEGUIMIENTO", value: "Un solo punto de contacto" },
   ],
-  storyEyebrow: "CUANDO LAVAR NO ALCANZA",
+  storyEyebrow: "CUANDO LAVAR EN CASA NO ALCANZA",
   storyHeading: ["Hay prendas que necesitan", "otras manos"],
   storyParagraphs: [
     "Sacos, vestidos, tapados y textiles con indicaciones especiales no deberían improvisarse en casa. En Aquabon los recibimos, revisamos la información disponible y gestionamos su envío a tratamiento especializado.",
