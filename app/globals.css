@@ -181,6 +181,10 @@ nav > a:hover::after {
   font-size: 16px;
 }
 
+.mobile-menu {
+  display: none;
+}
+
 .hero {
   --lens-x: 74%;
   --lens-y: 46%;
@@ -1370,7 +1374,7 @@ nav > a:hover::after {
 .contact-details {
   display: grid;
   gap: 40px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   margin: 90px 0 100px 37%;
 }
 
@@ -1483,7 +1487,7 @@ footer p {
   height: min(33vw, 420px);
   justify-content: center;
   position: absolute;
-  right: 7vw;
+  right: 3vw;
   top: 180px;
   transform: rotate(7deg);
   width: min(31vw, 395px);
@@ -2274,12 +2278,74 @@ footer p {
     height: 76px;
   }
 
-  nav > a:not(.nav-cta) {
+  .nav-shell nav {
     display: none;
   }
 
-  .nav-cta {
-    font-size: 9px;
+  .mobile-menu {
+    display: block;
+    position: relative;
+  }
+
+  .mobile-menu summary {
+    align-items: center;
+    background: var(--ink);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: 46px;
+    justify-content: center;
+    list-style: none;
+    width: 46px;
+  }
+
+  .mobile-menu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-menu summary span {
+    background: white;
+    display: block;
+    height: 1px;
+    transition: transform 0.2s ease;
+    width: 17px;
+  }
+
+  .mobile-menu[open] summary span:first-child {
+    transform: translateY(3.5px) rotate(45deg);
+  }
+
+  .mobile-menu[open] summary span:last-child {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }
+
+  .mobile-menu > div {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    box-shadow: 8px 8px 0 var(--blue);
+    display: grid;
+    gap: 0;
+    min-width: 240px;
+    padding: 8px 18px;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 12px);
+    z-index: 30;
+  }
+
+  .mobile-menu > div a {
+    border-bottom: 1px solid rgba(11, 13, 16, 0.18);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    padding: 18px 0;
+    text-transform: uppercase;
+  }
+
+  .mobile-menu > div a:last-child {
+    border-bottom: 0;
+    color: var(--blue);
   }
 
   .hero {
