@@ -13,23 +13,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aquabon-lavanderia.canellaenrama.chatgpt.site"),
-  title: "Aquabon | Lavandería en Mar del Plata",
+  metadataBase: new URL("https://www.aquabonlavanderia.com"),
+  title: "Lavandería en Mar del Plata | Aquabon",
   description:
     "Lavandería de barrio en Gascón 2189, Mar del Plata. Valet de ropa, acolchados y recepción de tintorería con atención cercana.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Aquabon | Lavandería en Mar del Plata",
+    title: "Lavandería en Mar del Plata | Aquabon",
     description:
       "Valet de ropa, acolchados y recepción de tintorería en Gascón 2189, Mar del Plata.",
     type: "website",
     locale: "es_AR",
     url: "/",
-  },
-  other: {
-    "codex-preview": "development",
   },
   icons: {
     icon: "/favicon.svg",
@@ -54,9 +51,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "DryCleaningOrLaundry",
               name: "Aquabon Lavandería",
-              url: "https://aquabon-lavanderia.canellaenrama.chatgpt.site",
-              image:
-                "https://aquabon-lavanderia.canellaenrama.chatgpt.site/aquabon-fachada.png",
+              url: "https://www.aquabonlavanderia.com",
+              image: "https://www.aquabonlavanderia.com/aquabon-fachada.png",
+              telephone: "+54 9 223 560-7738",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Gascón 2189",
