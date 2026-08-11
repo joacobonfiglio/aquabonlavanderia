@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import ServicePage, { type ServicePageData } from "../ServicePage";
 
 export const metadata: Metadata = {
-  title: "Lavado de acolchados | Aquabon Lavandería",
+  title: "Lavado de acolchados en Mar del Plata | Aquabon",
   description:
     "Lavado y secado cuidado de acolchados en Aquabon, Gascón 2189, Mar del Plata.",
+  alternates: {
+    canonical: "/servicios/acolchados",
+  },
 };
 
 const data: ServicePageData = {
