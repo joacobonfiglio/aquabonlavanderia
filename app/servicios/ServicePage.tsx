@@ -48,6 +48,7 @@ export type ServicePageData = {
 
 export default function ServicePage({ data }: { data: ServicePageData }) {
   const whatsappMessage = encodeURIComponent(data.whatsappText);
+  const whatsappUrl = `https://wa.me/5492235607738?text=${whatsappMessage}`;
 
   return (
     <main className="service-page">
@@ -60,10 +61,24 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
         <nav aria-label="Navegación principal">
           <Link href="/#servicios">Servicios</Link>
           <Link href="/nosotros">Nosotros</Link>
-          <a className="nav-cta" href={`https://wa.me/?text=${whatsappMessage}`}>
+          <a className="nav-cta" href={whatsappUrl} target="_blank" rel="noreferrer">
             Consultar <span aria-hidden="true">↗</span>
           </a>
         </nav>
+        <details className="mobile-menu">
+          <summary aria-label="Abrir menú de navegación">
+            <span />
+            <span />
+          </summary>
+          <div>
+            <Link href="/#servicios">Servicios</Link>
+            <Link href="/nosotros">Nosotros</Link>
+            <Link href="/#ubicacion">Ubicación</Link>
+            <a href={whatsappUrl} target="_blank" rel="noreferrer">
+              WhatsApp ↗
+            </a>
+          </div>
+        </details>
       </header>
 
       <section className="service-hero">
@@ -211,7 +226,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
           <em>{data.ctaHeading[1]}</em>
         </h2>
         <a
-          href={`https://wa.me/?text=${whatsappMessage}`}
+          href={whatsappUrl}
           target="_blank"
           rel="noreferrer"
         >
