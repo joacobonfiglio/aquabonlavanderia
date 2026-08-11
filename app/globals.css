@@ -1754,25 +1754,26 @@ nav > a:hover::after {
 
 .service-hero-image {
   height: calc(100% - 92px);
-  inset: 92px 0 0;
+  inset: 92px 0 0 auto;
   object-fit: cover;
+  object-position: center;
   position: absolute;
   transform: translate3d(var(--pointer-x), var(--pointer-y), 0) scale(1.055);
   transition: transform 0.7s cubic-bezier(0.2, 0.75, 0.25, 1);
-  width: 100%;
+  width: 46%;
   will-change: transform;
 }
 
 .service-hero::after {
   background: linear-gradient(
-    90deg,
-    rgba(245, 240, 232, 0.95) 0%,
-    rgba(245, 240, 232, 0.68) 37%,
-    rgba(245, 240, 232, 0) 62%
+    180deg,
+    rgba(11, 13, 16, 0.04) 0%,
+    rgba(11, 13, 16, 0.18) 100%
   );
   content: "";
-  inset: 92px 0 0;
+  inset: 92px 0 0 auto;
   position: absolute;
+  width: 46%;
 }
 
 .service-hero-copy {
@@ -1780,6 +1781,7 @@ nav > a:hover::after {
   left: 4vw;
   position: absolute;
   top: clamp(170px, 22vh, 240px);
+  width: 49%;
   z-index: 2;
 }
 
@@ -1794,10 +1796,10 @@ nav > a:hover::after {
 
 .service-hero-copy h1 {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(86px, 11vw, 164px);
+  font-size: clamp(76px, 7.4vw, 126px);
   font-weight: 400;
   letter-spacing: -0.075em;
-  line-height: 0.72;
+  line-height: 0.82;
   margin: 0;
 }
 
@@ -2688,25 +2690,28 @@ nav > a:hover::after {
   }
 
   .service-hero-image {
-    height: calc(100% - 76px);
-    inset: 76px 0 0;
+    height: 36%;
+    inset: auto 0 0;
     object-position: 62% center;
     transform: scale(1.04);
+    width: 100%;
   }
 
   .service-hero::after {
     background: linear-gradient(
       180deg,
-      rgba(245, 240, 232, 0.96) 0%,
-      rgba(245, 240, 232, 0.75) 42%,
-      rgba(245, 240, 232, 0) 72%
+      rgba(11, 13, 16, 0.04) 0%,
+      rgba(11, 13, 16, 0.2) 100%
     );
-    inset: 76px 0 0;
+    inset: auto 0 0;
+    height: 36%;
+    width: 100%;
   }
 
   .service-hero-copy {
     left: 5vw;
     top: 120px;
+    width: min(680px, 90vw);
   }
 
   .back-link {
@@ -2714,7 +2719,8 @@ nav > a:hover::after {
   }
 
   .service-hero-copy h1 {
-    font-size: clamp(68px, 19vw, 112px);
+    font-size: clamp(58px, 15vw, 92px);
+    line-height: 0.85;
   }
 
   .service-hero-copy > p:last-child {
