@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import ServicePage, { type ServicePageData } from "../ServicePage";
 
 export const metadata: Metadata = {
-  title: "Valet de ropa | Aquabon Lavandería",
+  title: "Valet de ropa en Mar del Plata | Aquabon",
   description:
     "Lavado, secado y doblado de tu ropa de todos los días en Aquabon, Gascón 2189, Mar del Plata.",
+  alternates: {
+    canonical: "/servicios/valet-de-ropa",
+  },
 };
 
 const data: ServicePageData = {
