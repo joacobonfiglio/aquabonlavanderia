@@ -10,9 +10,9 @@ const mapsUrl =
   "https://www.google.com/maps/dir/?api=1&destination=Gasc%C3%B3n+2189%2C+Mar+del+Plata%2C+Argentina";
 
 const services = [
-  { number: "01", title: "Valet de ropa", copy: "Lavamos, secamos y doblamos tu ropa de todos los días. Vos solo pasás a buscarla.", price: "Desde $8.000", detail: "LAVADO · SECADO · DOBLADO", href: "/servicios/valet-de-ropa" },
-  { number: "02", title: "Acolchados", copy: "Lavado y secado cuidado según el tamaño, el tejido y el relleno.", price: "Desde $16.000", detail: "1 PLAZA · 2 PLAZAS · PLUMA", href: "/servicios/acolchados" },
-  { number: "03", title: "Tintorería", copy: "Recibimos tus prendas especiales y coordinamos su tratamiento especializado.", price: "Consultar valor", detail: "RECEPCIÓN EN LOCAL", href: "/servicios/tintoreria" },
+  { number: "01", title: "Valet de ropa", copy: "Lavamos, secamos y doblamos tu ropa de todos los días. Vos solo pasás a buscarla.", price: "Desde $8.000", detail: "LAVADO · SECADO · DOBLADO", href: "/servicios/valet-de-ropa", external: false },
+  { number: "02", title: "Acolchados", copy: "Lavado y secado cuidado según el tamaño, el tejido y el relleno.", price: "Desde $16.000", detail: "1 PLAZA · 2 PLAZAS · PLUMA", href: "/servicios/acolchados", external: false },
+  { number: "03", title: "Tintorería", copy: "Recibimos tus prendas especiales y coordinamos su tratamiento especializado.", price: "Consultar valor", detail: "RECEPCIÓN EN LOCAL", href: "/servicios/tintoreria", external: false },
   { number: "04", title: "Otros cuidados", copy: "Camperas, zapatillas, planchado y arreglos. Consultanos según la prenda.", price: "Consultar disponibilidad", detail: "ATENCIÓN PERSONALIZADA", href: whatsappUrl, external: true },
 ];
 
