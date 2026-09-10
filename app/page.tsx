@@ -5,7 +5,7 @@ import SiteFooter from "./SiteFooter";
 const whatsappMessage = encodeURIComponent(
   "Hola Aquabon, quisiera consultar por un servicio de lavandería."
 );
-const whatsappUrl = \`https://wa.me/5492235607738?text=\${whatsappMessage}\`;
+const whatsappUrl = "https://wa.me/5492235607738?text=" + whatsappMessage;
 const mapsUrl =
   "https://www.google.com/maps/dir/?api=1&destination=Gasc%C3%B3n+2189%2C+Mar+del+Plata%2C+Argentina";
 
@@ -86,7 +86,7 @@ export default function Home() {
         <div className="section-heading"><p className="eyebrow">LO QUE HACEMOS</p><h2>Lavandería, valet y tintorería en Mar del Plata</h2><p>Elegí el servicio que necesitás o escribinos por WhatsApp y te orientamos según la prenda.</p></div>
         <div className="service-list">
           {services.map((service) => (
-            <a className={\`service-card\${service.external ? " service-card-extra" : ""}\`} href={service.href} key={service.number} target={service.external ? "_blank" : undefined} rel={service.external ? "noreferrer" : undefined}>
+            <a className={"service-card" + (service.external ? " service-card-extra" : "")} href={service.href} key={service.number} target={service.external ? "_blank" : undefined} rel={service.external ? "noreferrer" : undefined}>
               <span className="service-number">{service.number}</span><h3>{service.title}</h3><p>{service.copy}</p><span className="service-price">{service.price}</span><span className="service-detail">{service.detail}</span><span className="service-arrow" aria-hidden="true">↗</span>
             </a>
           ))}
