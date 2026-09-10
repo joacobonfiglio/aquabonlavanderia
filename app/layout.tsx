@@ -45,7 +45,7 @@ const localBusinessSchema = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-      <body className={\`\${geistSans.variable} \${geistMono.variable} antialiased\`}>
+      <body className={geistSans.variable + " " + geistMono.variable + " antialiased"}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
         {children}
       </body>
