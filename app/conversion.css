@@ -1,4 +1,6 @@
 /* Aquabon conversion layer: clarity, local trust and mobile actions. */
+.nav-shell { top: 34px; }
+
 .conversion-strip {
   align-items: center; background: var(--ink); color: var(--white); display: flex; font-size: 11px; gap: 26px;
   justify-content: center; letter-spacing: .12em; min-height: 34px; padding: 8px 4vw; text-transform: uppercase;
