@@ -33,13 +33,9 @@
 .proof-strip article:first-child { border-left: 0; padding-left: 0; }
 .proof-strip span { display: block; font-family: "Geist Mono", monospace; font-size: 11px; letter-spacing: .12em; margin-bottom: 9px; opacity: .65; }
 .proof-strip strong { font-size: 17px; font-weight: 500; }
-.service-price { color: var(--blue); display: block; font-family: "Geist Mono", monospace; font-size: 14px; font-weight: 700; letter-spacing: .02em; margin-top: 17px; }
 .service-card-extra { background: rgba(199, 213, 234, .2); }
 .service-card-extra .service-detail { color: var(--blue); }
-.pricing-note { align-items: center; border-top: 1px solid rgba(11, 13, 16, .24); display: flex; gap: 18px; justify-content: space-between; margin-top: 18px; padding: 19px 0 0; }
-.pricing-note p { font-size: 13px; margin: 0; max-width: 660px; }
-.pricing-note strong { font-weight: 700; }
-.pricing-note a, .delivery-strip a { border-bottom: 1px solid currentColor; font-size: 11px; font-weight: 700; letter-spacing: .1em; padding-bottom: 4px; text-transform: uppercase; white-space: nowrap; }
+.delivery-strip a { border-bottom: 1px solid currentColor; font-size: 11px; font-weight: 700; letter-spacing: .1em; padding-bottom: 4px; text-transform: uppercase; white-space: nowrap; }
 .delivery-strip { background: var(--blue); color: white; padding: 44px 4vw; }
 .delivery-strip-inner { align-items: center; display: flex; gap: 34px; justify-content: space-between; margin: auto; max-width: 1180px; }
 .delivery-strip .eyebrow { color: var(--blue-pale); margin-bottom: 13px; }
@@ -80,7 +76,6 @@
   .hero-actions { align-items: stretch; flex-direction: column; }
   .action-button { justify-content: center; width: 100%; }
   .hero-availability { bottom: 77px; flex-direction: column; gap: 8px; left: 18px; }
-  .pricing-note { align-items: flex-start; flex-direction: column; gap: 13px; }
   .delivery-strip { padding: 42px 18px; }
   .home-faq { padding: 72px 18px; }
   .home-faq-list summary { font-size: 16px; gap: 15px; }
@@ -92,4 +87,46 @@
   }
   .mobile-action-bar a { color: white; font-size: 10px; font-weight: 700; letter-spacing: .08em; padding: 10px 6px; text-align: center; text-transform: uppercase; }
   .mobile-action-bar a:first-child { border-right: 1px solid rgba(255,255,255,.35); color: var(--blue-pale); }
+}
+
+/* Header service menu and mobile tap targets. */
+.services-menu { position: relative; }
+.services-menu > summary {
+  cursor: pointer; list-style: none; padding: 12px 0; position: relative;
+}
+.services-menu > summary::-webkit-details-marker { display: none; }
+.services-menu > summary span { display: inline-block; font-size: 14px; margin-left: 4px; transition: transform .2s ease; }
+.services-menu[open] > summary span { transform: rotate(180deg); }
+.services-dropdown {
+  background: var(--paper); border: 1px solid var(--ink); box-shadow: 8px 8px 0 var(--blue);
+  display: grid; gap: 0; left: 50%; min-width: 238px; padding: 8px 18px;
+  position: absolute; top: calc(100% + 12px); transform: translateX(-50%); z-index: 40;
+}
+.services-dropdown a {
+  border-bottom: 1px solid rgba(11, 13, 16, .18); font-size: 11px; letter-spacing: .1em;
+  padding: 14px 0; text-transform: uppercase;
+}
+.services-dropdown a:last-child { border-bottom: 0; color: var(--blue); }
+.mobile-services { border-bottom: 1px solid rgba(11, 13, 16, .18); }
+.mobile-services > summary {
+  align-items: center; cursor: pointer; display: flex; justify-content: space-between;
+  list-style: none; padding: 18px 0; text-transform: uppercase;
+}
+.mobile-services > summary::-webkit-details-marker { display: none; }
+.mobile-services > summary span { color: var(--blue); font-size: 18px; transition: transform .2s ease; }
+.mobile-services[open] > summary span { transform: rotate(45deg); }
+.mobile-services > div { border-left: 1px solid rgba(11, 13, 16, .2); display: grid; gap: 0; padding: 0 0 6px 14px; }
+.mobile-services > div a { border-bottom: 1px solid rgba(11, 13, 16, .12); font-size: 11px; padding: 12px 0; }
+.mobile-services > div a:last-child { border-bottom: 0; color: var(--blue); }
+.service-card:hover .service-detail { color: white; }
+
+@media (max-width: 900px) {
+  .service-card { grid-template-columns: 34px 1fr 34px; }
+  .hero-actions { max-width: 460px; }
+}
+@media (max-width: 520px) {
+  .action-button { min-height: 54px; }
+  .hero-actions { max-width: 340px; }
+  .hero-availability { max-width: 260px; }
+  .contact { padding-bottom: 120px; }
 }
