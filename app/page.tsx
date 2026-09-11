@@ -91,7 +91,6 @@ export default function Home() {
               <span className="orbit orbit-one" /><span className="orbit orbit-two" />
               <div className="washer"><span className="washer-dot" /><span className="washer-line" /><div className="washer-door"><div className="water"><span /><span /><span /></div></div></div>
             </div>
-            <p className="hero-visual-caption"><span>LAVAR</span><span>SECAR</span><span>DOBLAR</span><span>REPETIR</span></p>
           </div>
         </div>
       </section>
@@ -101,10 +100,6 @@ export default function Home() {
         <article><span>02</span><strong>Revisión de cada prenda antes de empezar</strong></article>
         <article><span>03</span><strong>Aviso por WhatsApp cuando está listo</strong></article>
       </section>
-
-      <section className="statement" data-reveal><div className="statement-ripples" aria-hidden="true"><span /><span /><span /></div><p>NO ES SOLO ROPA LIMPIA</p><h2>Es abrir el placard<br /><em>y sentir que todo está en orden</em></h2></section>
-
-      <figure className="campaign-image" data-reveal><img data-parallax src="/laundry-hero-v2.webp" alt="Toallas, ropa y prendas dobladas después de un lavado profesional" /><figcaption><span>ROPA LIMPIA</span><span>CABEZA LIVIANA</span></figcaption></figure>
 
       <section className="services" id="servicios" data-reveal>
         <div className="section-heading"><p className="eyebrow">LO QUE HACEMOS</p><h2>Lavandería, valet y tintorería en Mar del Plata</h2><p>Elegí el servicio que necesitás o escribinos por WhatsApp y te orientamos según la prenda.</p></div>
@@ -116,6 +111,11 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+
+      <section className="statement" data-reveal><div className="statement-ripples" aria-hidden="true"><span /><span /><span /></div><p>NO ES SOLO ROPA LIMPIA</p><h2>Es abrir el placard<br /><em>y sentir que todo está en orden</em></h2></section>
+
+      <figure className="campaign-image" data-reveal><img data-parallax src="/laundry-hero-v2.webp" alt="Toallas, ropa y prendas dobladas después de un lavado profesional" /><figcaption><span>ROPA LIMPIA</span><span>CABEZA LIVIANA</span></figcaption></figure>
 
       <section className="process" data-reveal>
         <div className="marquee" aria-hidden="true"><span>MENOS ROPA PENDIENTE · MÁS TIEMPO PARA VOS · </span><span>MENOS ROPA PENDIENTE · MÁS TIEMPO PARA VOS · </span></div>
