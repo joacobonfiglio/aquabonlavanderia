@@ -72,25 +72,28 @@ export default function Home() {
       </header>
 
       <section className="hero" id="inicio">
-        <div className="hero-bubbles" aria-hidden="true"><span className="bubble bubble-one" /><span className="bubble bubble-two" /><span className="bubble bubble-three" /><span className="bubble bubble-four" /><span className="bubble bubble-five" /></div>
-        <div className="hero-copy">
-          <p className="eyebrow">GASCÓN 2189 · MAR DEL PLATA</p>
-          <h1>Lavandería<span>en Mar del Plata</span></h1>
-          <p className="hero-intro">Lavamos, secamos y doblamos tu ropa para que vuelva limpia, cuidada y lista para guardar.<br />También recibimos acolchados y prendas especiales.</p>
-          <p className="hero-note">Servicio atendido · Te avisamos por WhatsApp</p>
-          <div className="hero-actions">
-            <a className="action-button primary" href={whatsappUrl} target="_blank" rel="noreferrer">Consultar por WhatsApp <span aria-hidden="true">↗</span></a>
-            <a className="action-button secondary" href="#servicios">Ver servicios <span aria-hidden="true">↓</span></a>
+        <div className="hero-shell">
+          <div className="hero-copy">
+            <p className="eyebrow">GASCÓN 2189 · MAR DEL PLATA</p>
+            <h1>Lavandería<span>en Mar del Plata</span></h1>
+            <p className="hero-intro">Lavamos, secamos y doblamos tu ropa para que vuelva limpia, cuidada y lista para guardar. También recibimos acolchados y prendas especiales.</p>
+            <div className="hero-meta">
+              <p className="hero-note">Servicio atendido · Te avisamos por WhatsApp</p>
+              <div className="hero-availability" aria-label="Información de atención"><span>Atención personalizada</span><span>Retiro y entrega: consultar zonas</span></div>
+            </div>
+            <div className="hero-actions">
+              <a className="action-button primary" href={whatsappUrl} target="_blank" rel="noreferrer">Consultar por WhatsApp <span aria-hidden="true">↗</span></a>
+              <a className="action-button secondary" href="#servicios">Ver servicios <span aria-hidden="true">↓</span></a>
+            </div>
           </div>
-          <div className="hero-availability" aria-label="Información de atención"><span>Atención personalizada</span><span>Retiro y entrega: consultar zonas</span></div>
+          <div className="hero-visual" aria-label="Ilustración de una lavadora">
+            <div className="hero-art" aria-hidden="true">
+              <span className="orbit orbit-one" /><span className="orbit orbit-two" />
+              <div className="washer"><span className="washer-dot" /><span className="washer-line" /><div className="washer-door"><div className="water"><span /><span /><span /></div></div></div>
+            </div>
+            <p className="hero-visual-caption"><span>LAVAR</span><span>SECAR</span><span>DOBLAR</span><span>REPETIR</span></p>
+          </div>
         </div>
-        <a className="round-button" href="#servicios"><span>CONOCÉ</span><span>NUESTROS</span><span>SERVICIOS ↓</span></a>
-        <div className="hero-art" aria-label="Ilustración abstracta de una lavadora">
-          <span className="orbit orbit-one" /><span className="orbit orbit-two" />
-          <div className="washer"><span className="washer-dot" /><span className="washer-line" /><div className="washer-door"><div className="water"><span /><span /><span /></div></div></div>
-          <p className="art-note">LAVAR · SECAR · DOBLAR · REPETIR</p>
-        </div>
-        <div className="wave wave-light" /><div className="wave wave-mid" /><div className="wave wave-deep" />
       </section>
 
       <section className="proof-strip" aria-label="Por qué elegir Aquabon">
