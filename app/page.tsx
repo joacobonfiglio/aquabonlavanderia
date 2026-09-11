@@ -34,7 +34,7 @@ export default function Home() {
       </div>
 
       <header className="nav-shell">
-        <a className="brand" href="#inicio" aria-label="Aquabon, ir al inicio">
+        <a className="brand" href="/" aria-label="Aquabon, ir al inicio">
           <span className="brand-main">AQUABON</span><span className="brand-sub">LAVANDERÍA</span>
         </a>
         <nav aria-label="Navegación principal">
@@ -115,8 +115,6 @@ export default function Home() {
 
       <section className="statement" data-reveal><div className="statement-ripples" aria-hidden="true"><span /><span /><span /></div><p>NO ES SOLO ROPA LIMPIA</p><h2>Es abrir el placard<br /><em>y sentir que todo está en orden</em></h2></section>
 
-      <figure className="campaign-image" data-reveal><img data-parallax src="/laundry-hero-v2.webp" alt="Toallas, ropa y prendas dobladas después de un lavado profesional" /><figcaption><span>ROPA LIMPIA</span><span>CABEZA LIVIANA</span></figcaption></figure>
-
       <section className="process" data-reveal>
         <div className="marquee" aria-hidden="true"><span>MENOS ROPA PENDIENTE · MÁS TIEMPO PARA VOS · </span><span>MENOS ROPA PENDIENTE · MÁS TIEMPO PARA VOS · </span></div>
         <div className="process-grid"><div className="process-title"><p className="eyebrow">ASÍ DE SIMPLE</p><h2>Tres pasos,<br />cero vueltas</h2></div><ol>
@@ -132,10 +130,6 @@ export default function Home() {
         <div className="photo-frame" data-parallax><img src="/laundry-detail-v2.webp" alt="Ropa, toallas y prendas dobladas después de un lavado profesional" /><span>ROPA LIMPIA</span></div>
         <div className="about-copy"><p className="eyebrow">AQUABON, MAR DEL PLATA</p><h2>Del barrio,<br /><em>hecha para el barrio</em></h2><p>Nacimos con una idea sencilla: hacerte la vida un poco más liviana. Somos una lavandería cercana, cuidada y sin complicaciones. De esas donde sabés quién recibe tu ropa y cómo vuelve a tus manos.</p><p className="promise">CUIDAMOS TU ROPA COMO CUIDARÍAMOS LA NUESTRA</p><a className="about-link" href="/nosotros">CONOCÉ NUESTRA HISTORIA <span aria-hidden="true">↗</span></a></div>
       </section>
-
-      <section className="trust-section" data-reveal><div className="trust-heading"><p className="eyebrow">CONFIANZA ANTES QUE PROMESAS</p><h2>Se construye<em>prenda a prenda</em></h2><p>Mostramos cómo trabajamos y te orientamos antes de empezar. Cuando tengas tu experiencia, también podés recomendarnos en Google.</p></div><div className="trust-grid">
-        <article><span>01</span><h3>Te atendemos de verdad</h3><p>Escuchamos qué necesitás y te orientamos antes de empezar.</p></article><article><span>02</span><h3>Revisamos cada prenda</h3><p>Elegimos el proceso adecuado y te avisamos si necesita otro cuidado.</p></article><article><span>03</span><h3>Sabés cuándo volver</h3><p>Te confirmamos cuando todo está listo para retirar, sin vueltas.</p></article>
-      </div></section>
 
       <section className="home-faq" aria-labelledby="faq-title" data-reveal><div className="home-faq-inner"><div><p className="eyebrow">ANTES DE VENIR</p><h2 id="faq-title">Lo que suele <em>preguntarse</em></h2></div><div className="home-faq-list">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span aria-hidden="true">＋</span></summary><p>{faq.answer}</p></details>)}</div></div></section>
 
