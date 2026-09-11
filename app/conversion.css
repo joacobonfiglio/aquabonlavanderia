@@ -1,5 +1,5 @@
 /* Aquabon conversion layer: clarity, local trust and mobile actions. */
-.nav-shell { top: 34px; }
+.nav-shell { position: sticky; top: 0; height: 92px; z-index: 50; }
 
 .conversion-strip {
   align-items: center; background: var(--ink); color: var(--white); display: flex; font-size: 11px; gap: 26px;
@@ -129,4 +129,38 @@
   .hero-actions { max-width: 340px; }
   .hero-availability { max-width: 260px; }
   .contact { padding-bottom: 120px; }
+}
+
+/* Desktop header and hero composition: keep navigation in the flow and actions readable. */
+.hero {
+  padding-top: 0;
+  scroll-margin-top: 92px;
+}
+.hero-copy {
+  padding-top: clamp(42px, 6vh, 72px);
+}
+.hero-availability {
+  bottom: auto;
+  left: auto;
+  margin: 20px 0 0 6vw;
+  position: static;
+}
+@media (max-width: 900px) {
+  .nav-shell { height: 76px; position: sticky; top: 0; }
+  .hero { padding-top: 0; scroll-margin-top: 76px; }
+  .hero-copy { padding-top: 50px; }
+  .hero-availability {
+    bottom: 95px;
+    left: 4vw;
+    margin: 0;
+    position: absolute;
+  }
+}
+@media (max-width: 520px) {
+  .hero-copy { padding-top: 56px; }
+  .hero-availability {
+    bottom: 78px;
+    left: 18px;
+    margin: 0;
+  }
 }
