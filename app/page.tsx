@@ -82,6 +82,7 @@ export default function Home() {
             <a className="action-button primary" href={whatsappUrl} target="_blank" rel="noreferrer">Consultar por WhatsApp <span aria-hidden="true">↗</span></a>
             <a className="action-button secondary" href="#servicios">Ver servicios <span aria-hidden="true">↓</span></a>
           </div>
+          <div className="hero-availability" aria-label="Información de atención"><span>Atención personalizada</span><span>Retiro y entrega: consultar zonas</span></div>
         </div>
         <a className="round-button" href="#servicios"><span>CONOCÉ</span><span>NUESTROS</span><span>SERVICIOS ↓</span></a>
         <div className="hero-art" aria-label="Ilustración abstracta de una lavadora">
@@ -89,7 +90,6 @@ export default function Home() {
           <div className="washer"><span className="washer-dot" /><span className="washer-line" /><div className="washer-door"><div className="water"><span /><span /><span /></div></div></div>
           <p className="art-note">LAVAR · SECAR · DOBLAR · REPETIR</p>
         </div>
-        <div className="hero-availability" aria-label="Información de atención"><span>Atención personalizada</span><span>Retiro y entrega: consultar zonas</span></div>
         <div className="wave wave-light" /><div className="wave wave-mid" /><div className="wave wave-deep" />
       </section>
 
