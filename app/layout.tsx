@@ -15,16 +15,16 @@ export const metadata: Metadata = {
     title: "Lavandería en Mar del Plata | Aquabon",
     description: "Lavado, secado y doblado de ropa, acolchados y recepción de tintorería en Gascón 2189, Mar del Plata.",
     type: "website", locale: "es_AR", url: "/",
-    images: [{ url: "/aquabon-fachada.png", width: 1200, height: 800, alt: "Fachada de Aquabon Lavandería en Mar del Plata" }],
+    images: [{ url: "/laundry-hero-v2.webp", width: 1200, height: 800, alt: "Ropa limpia y prendas dobladas de Aquabon Lavandería" }],
   },
-  twitter: { card: "summary_large_image", title: "Lavandería en Mar del Plata | Aquabon", description: "Valet de ropa, acolchados y tintorería en Gascón 2189, Mar del Plata.", images: ["/aquabon-fachada.png"] },
+  twitter: { card: "summary_large_image", title: "Lavandería en Mar del Plata | Aquabon", description: "Valet de ropa, acolchados y tintorería en Gascón 2189, Mar del Plata.", images: ["/laundry-hero-v2.webp"] },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 
 const localBusinessSchema = {
   "@context": "https://schema.org", "@type": "DryCleaningOrLaundry", "@id": "https://www.aquabonlavanderia.com/#business",
-  name: "Aquabon Lavandería", url: "https://www.aquabonlavanderia.com", image: "https://www.aquabonlavanderia.com/aquabon-fachada.png",
-  telephone: "+54 9 223 560-7738", priceRange: "$$", areaServed: { "@type": "City", name: "Mar del Plata" },
+  name: "Aquabon Lavandería", url: "https://www.aquabonlavanderia.com", image: "https://www.aquabonlavanderia.com/laundry-hero-v2.webp",
+  telephone: "+54 9 223 560-7738", areaServed: { "@type": "City", name: "Mar del Plata" },
   address: { "@type": "PostalAddress", streetAddress: "Gascón 2189", addressLocality: "Mar del Plata", addressRegion: "Buenos Aires", addressCountry: "AR" },
   hasMap: "https://www.google.com/maps/dir/?api=1&destination=Gasc%C3%B3n+2189%2C+Mar+del+Plata%2C+Argentina",
   openingHoursSpecification: [
