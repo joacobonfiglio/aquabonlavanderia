@@ -126,7 +126,7 @@ export default function Home() {
       <section className="delivery-strip" data-reveal><div className="delivery-strip-inner"><div><p className="eyebrow">¿NO PODÉS ACERCARTE?</p><h2>Consultá por retiro y <em>entrega a domicilio</em></h2></div><a href={whatsappUrl} target="_blank" rel="noreferrer">Consultar zonas y disponibilidad ↗</a></div></section>
 
       <section className="about" id="nosotros" data-reveal>
-        <div className="photo-frame" data-parallax><img src="/aquabon-fachada.png" alt="Fachada azul de Lavandería Aquabon en Gascón 2189" /><span>GASCÓN 2189</span></div>
+        <div className="photo-frame" data-parallax><img src="/laundry-detail-v2.webp" alt="Ropa, toallas y prendas dobladas después de un lavado profesional" /><span>ROPA LIMPIA</span></div>
         <div className="about-copy"><p className="eyebrow">AQUABON, MAR DEL PLATA</p><h2>Del barrio,<br /><em>hecha para el barrio</em></h2><p>Nacimos con una idea sencilla: hacerte la vida un poco más liviana. Somos una lavandería cercana, cuidada y sin complicaciones. De esas donde sabés quién recibe tu ropa y cómo vuelve a tus manos.</p><p className="promise">CUIDAMOS TU ROPA COMO CUIDARÍAMOS LA NUESTRA</p><a className="about-link" href="/nosotros">CONOCÉ NUESTRA HISTORIA <span aria-hidden="true">↗</span></a></div>
       </section>
 
