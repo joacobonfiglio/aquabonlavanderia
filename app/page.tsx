@@ -10,10 +10,10 @@ const mapsUrl =
   "https://www.google.com/maps/dir/?api=1&destination=Gasc%C3%B3n+2189%2C+Mar+del+Plata%2C+Argentina";
 
 const services = [
-  { number: "01", title: "Valet de ropa", copy: "Lavamos, secamos y doblamos tu ropa de todos los días. Vos solo pasás a buscarla.", price: "Desde $8.000", detail: "LAVADO · SECADO · DOBLADO", href: "/servicios/valet-de-ropa", external: false },
-  { number: "02", title: "Acolchados", copy: "Lavado y secado cuidado según el tamaño, el tejido y el relleno.", price: "Desde $16.000", detail: "1 PLAZA · 2 PLAZAS · PLUMA", href: "/servicios/acolchados", external: false },
-  { number: "03", title: "Tintorería", copy: "Recibimos tus prendas especiales y coordinamos su tratamiento especializado.", price: "Consultar valor", detail: "RECEPCIÓN EN LOCAL", href: "/servicios/tintoreria", external: false },
-  { number: "04", title: "Otros cuidados", copy: "Camperas, zapatillas, planchado y arreglos. Consultanos según la prenda.", price: "Consultar disponibilidad", detail: "ATENCIÓN PERSONALIZADA", href: whatsappUrl, external: true },
+  { number: "01", title: "Valet de ropa", copy: "Lavamos, secamos y doblamos tu ropa de todos los días. Vos solo pasás a buscarla.", detail: "LAVADO · SECADO · DOBLADO", href: "/servicios/valet-de-ropa", external: false },
+  { number: "02", title: "Acolchados", copy: "Lavado y secado cuidado según el tamaño, el tejido y el relleno.", detail: "1 PLAZA · 2 PLAZAS · PLUMA", href: "/servicios/acolchados", external: false },
+  { number: "03", title: "Tintorería", copy: "Recibimos tus prendas especiales y coordinamos su tratamiento especializado.", detail: "RECEPCIÓN EN LOCAL", href: "/servicios/tintoreria", external: false },
+  { number: "04", title: "Otros cuidados", copy: "Camperas, zapatillas, planchado y arreglos. Consultanos según la prenda.", detail: "ATENCIÓN PERSONALIZADA", href: whatsappUrl, external: true },
 ];
 
 const faqs = [
@@ -38,13 +38,34 @@ export default function Home() {
           <span className="brand-main">AQUABON</span><span className="brand-sub">LAVANDERÍA</span>
         </a>
         <nav aria-label="Navegación principal">
-          <a href="#servicios">Servicios</a><a href="#precios">Precios</a><a href="/nosotros">Nosotros</a>
+          <details className="services-menu">
+            <summary>Servicios <span aria-hidden="true">⌄</span></summary>
+            <div className="services-dropdown">
+              <a href="#servicios">Todos los servicios</a>
+              <a href="/servicios/valet-de-ropa">Valet de ropa</a>
+              <a href="/servicios/acolchados">Acolchados</a>
+              <a href="/servicios/tintoreria">Tintorería</a>
+              <a href={whatsappUrl} target="_blank" rel="noreferrer">Otros cuidados ↗</a>
+            </div>
+          </details>
+          <a href="/nosotros">Nosotros</a>
           <a className="nav-cta" href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp <span aria-hidden="true">↗</span></a>
         </nav>
         <details className="mobile-menu">
           <summary aria-label="Abrir menú de navegación"><span /><span /></summary>
           <div>
-            <a href="#servicios">Servicios</a><a href="#precios">Precios</a><a href="/nosotros">Nosotros</a><a href="#ubicacion">Ubicación</a>
+            <details className="mobile-services">
+              <summary>Servicios <span aria-hidden="true">＋</span></summary>
+              <div>
+                <a href="#servicios">Todos los servicios</a>
+                <a href="/servicios/valet-de-ropa">Valet de ropa</a>
+                <a href="/servicios/acolchados">Acolchados</a>
+                <a href="/servicios/tintoreria">Tintorería</a>
+                <a href={whatsappUrl} target="_blank" rel="noreferrer">Otros cuidados ↗</a>
+              </div>
+            </details>
+            <a href="/nosotros">Nosotros</a>
+            <a href="#ubicacion">Ubicación</a>
             <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp ↗</a>
           </div>
         </details>
@@ -59,7 +80,7 @@ export default function Home() {
           <p className="hero-note">Servicio atendido · Te avisamos por WhatsApp</p>
           <div className="hero-actions">
             <a className="action-button primary" href={whatsappUrl} target="_blank" rel="noreferrer">Consultar por WhatsApp <span aria-hidden="true">↗</span></a>
-            <a className="action-button secondary" href="#precios">Ver servicios y precios <span aria-hidden="true">↓</span></a>
+            <a className="action-button secondary" href="#servicios">Ver servicios <span aria-hidden="true">↓</span></a>
           </div>
         </div>
         <a className="round-button" href="#servicios"><span>CONOCÉ</span><span>NUESTROS</span><span>SERVICIOS ↓</span></a>
@@ -80,18 +101,17 @@ export default function Home() {
 
       <section className="statement" data-reveal><div className="statement-ripples" aria-hidden="true"><span /><span /><span /></div><p>NO ES SOLO ROPA LIMPIA</p><h2>Es abrir el placard<br /><em>y sentir que todo está en orden</em></h2></section>
 
-      <figure className="campaign-image" data-reveal><img data-parallax src="/service-still-v2.webp" alt="Ropa limpia y doblada, lista para guardar" /><figcaption><span>ROPA LIMPIA</span><span>CABEZA LIVIANA</span></figcaption></figure>
+      <figure className="campaign-image" data-reveal><img data-parallax src="/laundry-hero-v2.webp" alt="Toallas, ropa y prendas dobladas después de un lavado profesional" /><figcaption><span>ROPA LIMPIA</span><span>CABEZA LIVIANA</span></figcaption></figure>
 
       <section className="services" id="servicios" data-reveal>
         <div className="section-heading"><p className="eyebrow">LO QUE HACEMOS</p><h2>Lavandería, valet y tintorería en Mar del Plata</h2><p>Elegí el servicio que necesitás o escribinos por WhatsApp y te orientamos según la prenda.</p></div>
         <div className="service-list">
           {services.map((service) => (
             <a className={"service-card" + (service.external ? " service-card-extra" : "")} href={service.href} key={service.number} target={service.external ? "_blank" : undefined} rel={service.external ? "noreferrer" : undefined}>
-              <span className="service-number">{service.number}</span><h3>{service.title}</h3><p>{service.copy}</p><span className="service-price">{service.price}</span><span className="service-detail">{service.detail}</span><span className="service-arrow" aria-hidden="true">↗</span>
+              <span className="service-number">{service.number}</span><h3>{service.title}</h3><p>{service.copy}</p><span className="service-detail">{service.detail}</span><span className="service-arrow" aria-hidden="true">↗</span>
             </a>
           ))}
         </div>
-        <div className="pricing-note" id="precios"><p><strong>Valores orientativos:</strong> los precios pueden variar según tamaño, material y estado de la prenda.</p><a href={whatsappUrl} target="_blank" rel="noreferrer">Confirmar valor vigente ↗</a></div>
       </section>
 
       <section className="process" data-reveal>
@@ -126,7 +146,7 @@ export default function Home() {
       </section>
 
       <a className="whatsapp-float" href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="Consultar por WhatsApp">WhatsApp <span aria-hidden="true">↗</span></a>
-      <div className="mobile-action-bar" aria-label="Acciones rápidas"><a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp ↗</a><a href="#precios">Ver precios ↓</a></div>
+      <div className="mobile-action-bar" aria-label="Acciones rápidas"><a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp ↗</a><a href="#servicios">Ver servicios ↓</a></div>
     </main>
   );
 }
