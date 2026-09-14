@@ -27,3 +27,74 @@
 @media(max-width:980px){.seo-hero-visual{grid-template-columns:1fr}.laundry-visual{margin:auto;max-width:610px;min-height:380px;width:100%}.seo-process{grid-template-columns:1fr}.seo-process>.laundry-visual{display:none}.seo-footer{grid-template-columns:1fr}.seo-footer .site-footer-brand{min-height:auto}.seo-footer .site-footer-links{grid-template-columns:1fr 1fr}.seo-footer .site-footer-links>div:nth-child(3){border-top:1px solid rgba(255,255,255,.24)}.seo-footer .site-footer-links>div:nth-child(4){border-top:1px solid rgba(255,255,255,.24)}}
 @media(max-width:560px){.laundry-visual{border-radius:34px;min-height:330px}.mini-washer{height:235px;transform:scale(.84);width:205px}.washer-drum{height:130px;margin-top:12px;width:130px}.wash-ring.r1{height:270px;width:270px}.wash-ring.r2{height:310px;width:310px}.seo-footer{gap:34px;padding:55px 18px 35px}.seo-footer .site-footer-links{grid-template-columns:1fr}.seo-footer .site-footer-links>div{border-left:0;border-right:0!important;border-top:1px solid rgba(255,255,255,.24);min-height:auto;padding:22px 0}.seo-footer .site-footer-links span{min-height:auto}.legal-page{padding:60px 18px 80px}.legal-page::after{height:85px;right:18px;top:35px;width:85px}}
 @media(prefers-reduced-motion:reduce){.washer-drum,.wash-bubble,.wash-ring,.wash-marquee>div,.final-bubble{animation:none!important}.card-bubble{transition:none}}
+
+
+/* Refinement: persistent hover menu, per-page identity and responsive rhythm. */
+.services-menu{margin:-18px 0;padding:30px 0}
+.services-menu .services-dropdown{margin:0;top:100%;transform:translate(-50%,0)}
+.services-menu .services-dropdown::before{content:"";height:14px;left:0;position:absolute;right:0;top:-14px}
+.services-menu:hover .services-dropdown,.services-menu:focus-within .services-dropdown{display:grid}
+.contextual-nav{border-top:3px solid var(--nav-accent,var(--blue));height:92px}
+.contextual-nav[data-context*="home"]{--nav-accent:var(--ink)}
+.contextual-nav[data-context*="valet"]{--nav-accent:#2862b0}
+.contextual-nav[data-context*="acolchados"]{--nav-accent:#7895bc}
+.contextual-nav[data-context*="tintoreria"]{--nav-accent:#182238}
+.contextual-nav[data-context*="tenido"]{--nav-accent:#795989}
+.contextual-nav[data-context*="costura"]{--nav-accent:#b06e4c}
+.contextual-nav[data-context*="zapatillas"]{--nav-accent:#3d776b}
+.contextual-nav[data-context*="airbnb"]{--nav-accent:#4a83a6}
+.contextual-nav[data-context*="hoteles"]{--nav-accent:#2d4b75}
+.contextual-nav[data-context*="restaurantes"]{--nav-accent:#8a5a3c}
+.contextual-nav[data-context*="deportes"]{--nav-accent:#3d7053}
+.contextual-nav .nav-cta{background:var(--nav-accent,var(--ink))}
+.seo-hero-visual{--hero-accent:var(--blue);--hero-surface:var(--blue-pale);background:linear-gradient(115deg,var(--paper) 0 68%,color-mix(in srgb,var(--hero-surface) 64%,white) 68%);padding-left:max(5vw,calc((100vw - 1480px)/2));padding-right:max(5vw,calc((100vw - 1480px)/2))}
+.variant-home{--hero-accent:#2862b0;--hero-surface:#cfdbeb}
+.variant-servicios{--hero-accent:#2862b0;--hero-surface:#dbe6f2}
+.variant-valet-de-ropa{--hero-accent:#2862b0;--hero-surface:#c9dbef}
+.variant-lavado-de-acolchados{--hero-accent:#718bb2;--hero-surface:#dde5ef}
+.variant-tintoreria{--hero-accent:#182238;--hero-surface:#cbd1dc;background:linear-gradient(115deg,#eef0f4 0 68%,#cbd1dc 68%)}
+.variant-tenido-de-prendas{--hero-accent:#795989;--hero-surface:#e0d3e4}
+.variant-arreglos-y-costura{--hero-accent:#a56343;--hero-surface:#ecd8ca}
+.variant-lavado-de-zapatillas{--hero-accent:#397568;--hero-surface:#d1e3de}
+.variant-lavanderia-mar-del-plata{--hero-accent:#2862b0;--hero-surface:#cbddee}
+.variant-lavanderia-centro-mar-del-plata{--hero-accent:#17345c;--hero-surface:#c8d4e2}
+.variant-empresas{--hero-accent:#324d6f;--hero-surface:#d0d9e4}
+.variant-lavanderia-airbnb{--hero-accent:#4a83a6;--hero-surface:#d1e5ef}
+.variant-lavanderia-hoteles{--hero-accent:#2d4b75;--hero-surface:#ccd6e4}
+.variant-lavanderia-restaurantes{--hero-accent:#8a5a3c;--hero-surface:#ead8ca}
+.variant-lavado-ropa-deportiva{--hero-accent:#3d7053;--hero-surface:#d2e1d7}
+.seo-hero-visual .action-button.primary{background:var(--hero-accent);border-color:var(--hero-accent)}
+.seo-hero-visual .laundry-visual{background:linear-gradient(145deg,var(--hero-surface),#fff);box-shadow:24px 24px 0 color-mix(in srgb,var(--hero-accent) 16%,transparent)}
+.seo-hero-visual .mini-washer{box-shadow:16px 16px 0 color-mix(in srgb,var(--hero-accent) 22%,transparent)}
+.seo-hero-visual .washer-panel i{background:var(--hero-accent)}
+.seo-hero-visual .visual-index{color:var(--hero-accent)}
+.seo-hero-visual.is-reversed .seo-hero-copy{grid-column:2;grid-row:1}
+.seo-hero-visual.is-reversed .laundry-visual{grid-column:1;grid-row:1}
+.variant-tintoreria .laundry-visual{border-radius:6px 48% 6px 48%}
+.variant-tenido-de-prendas .laundry-visual{border-radius:58% 42% 36% 64%/42% 62% 38% 58%}
+.variant-arreglos-y-costura .laundry-visual{border-radius:5px 80px 5px 80px}
+.variant-lavado-de-zapatillas .laundry-visual{border-radius:52% 48% 18% 82%/55% 44% 56% 45%}
+.variant-lavanderia-airbnb .laundry-visual,.variant-lavanderia-hoteles .laundry-visual{border-radius:24px}
+.variant-lavanderia-restaurantes .laundry-visual{border-radius:80px 8px}
+.variant-lavado-ropa-deportiva .laundry-visual{border-radius:50% 50% 12px 12px}
+.visual-index{font-family:Georgia,"Times New Roman",serif;font-size:clamp(58px,7vw,105px);font-style:italic;left:24px;line-height:1;opacity:.22;position:absolute;top:18px;z-index:1}
+.visual-service-name{bottom:20px;font-family:"Geist Mono",monospace;font-size:9px;letter-spacing:.2em;position:absolute;right:25px;writing-mode:vertical-rl}
+.seo-hero-copy h1{overflow-wrap:anywhere;text-wrap:balance}
+.seo-hero-copy>p:not(.eyebrow){max-width:690px}
+.home-hero .seo-hero-copy h1{font-size:clamp(54px,6.5vw,100px);max-width:900px}
+.home-services,.reviews-section,.photo-cta,.seo-items,.seo-process,.seo-related,.seo-final{padding-left:max(5vw,calc((100vw - 1480px)/2));padding-right:max(5vw,calc((100vw - 1480px)/2))}
+.home-service-grid a,.seo-items article,.reviews-section article{transition:transform .28s ease,box-shadow .28s ease}
+.home-service-grid a:hover,.seo-items article:hover{box-shadow:0 16px 32px rgba(11,13,16,.10);transform:translateY(-6px);z-index:2}
+.reviews-section>h2{max-width:760px;text-wrap:balance}
+.reviews-section article{box-shadow:0 12px 28px rgba(29,55,91,.09)}
+.reviews-section article:nth-child(2),.reviews-section article:nth-child(5){transform:translateY(18px)}
+.reviews-section>div{margin-bottom:18px}
+.seo-footer{padding-left:max(5vw,calc((100vw - 1480px)/2));padding-right:max(5vw,calc((100vw - 1480px)/2))}
+.seo-footer .site-footer-brand,.seo-footer .site-footer-links>div{box-sizing:border-box;height:100%;min-height:300px}
+.seo-footer .site-footer-links{grid-auto-rows:1fr}
+.service-faq{padding-bottom:clamp(80px,9vw,140px);padding-top:clamp(80px,9vw,140px)}
+.seo-sections article{padding-bottom:clamp(58px,7vw,100px);padding-top:clamp(58px,7vw,100px)}
+.seo-items,.seo-process,.home-services,.reviews-section{padding-bottom:clamp(78px,9vw,138px);padding-top:clamp(78px,9vw,138px)}
+@media(max-width:980px){.seo-hero-visual{background:linear-gradient(180deg,var(--paper) 0 58%,color-mix(in srgb,var(--hero-surface) 60%,white) 58%);padding-left:5vw;padding-right:5vw}.seo-hero-visual.is-reversed .seo-hero-copy,.seo-hero-visual.is-reversed .laundry-visual{grid-column:auto;grid-row:auto}.seo-hero-visual.is-reversed .seo-hero-copy{order:1}.seo-hero-visual.is-reversed .laundry-visual{order:2}.reviews-section article:nth-child(2),.reviews-section article:nth-child(5){transform:none}.seo-footer .site-footer-brand,.seo-footer .site-footer-links>div{min-height:250px}}
+@media(max-width:560px){.contextual-nav{height:76px}.seo-hero-visual{gap:38px;padding:52px 18px 48px}.seo-hero-copy h1,.home-hero .seo-hero-copy h1{font-size:clamp(44px,13vw,62px);line-height:.94;margin:14px 0 22px}.seo-hero-copy>p:not(.eyebrow){font-size:16px;line-height:1.55;margin-bottom:24px}.seo-hero-visual .laundry-visual{box-shadow:10px 10px 0 color-mix(in srgb,var(--hero-accent) 16%,transparent);min-height:300px}.home-services,.reviews-section,.photo-cta,.seo-items,.seo-process,.seo-related,.seo-final{padding-left:18px;padding-right:18px}.home-service-grid a{min-height:210px}.reviews-section article{min-height:210px}.seo-footer .site-footer-brand,.seo-footer .site-footer-links>div{height:auto;min-height:0}.visual-service-name{display:none}.wash-marquee span{font-size:9px}.service-faq{gap:38px;padding-top:70px}.service-faq h2{font-size:clamp(42px,12vw,58px)}}
+@media(prefers-reduced-motion:reduce){.home-service-grid a,.seo-items article,.reviews-section article{transition:none}.home-service-grid a:hover,.seo-items article:hover{transform:none}}
