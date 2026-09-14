@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css"; import "./conversion.css"; import "./seo.css";
+import "./globals.css"; import "./conversion.css"; import "./seo.css"; import "./home.css";
 const geistSans=Geist({variable:"--font-geist-sans",subsets:["latin"]});const geistMono=Geist_Mono({variable:"--font-geist-mono",subsets:["latin"]});
 export const metadata:Metadata={metadataBase:new URL("https://www.aquabonlavanderia.com"),title:"Lavandería y tintorería en Mar del Plata | Aquabon",description:"Valet, acolchados, tintorería y cuidado de prendas en Gascón 2189, Mar del Plata.",alternates:{canonical:"/"},openGraph:{title:"Aquabon Lavandería",description:"Lavandería y tintorería en Gascón 2189, Mar del Plata.",type:"website",locale:"es_AR",url:"/"},icons:{icon:"/favicon.svg"}};
 const schema={"@context":"https://schema.org","@type":"DryCleaningOrLaundry","@id":"https://www.aquabonlavanderia.com/#business",name:"Aquabon Lavandería",url:"https://www.aquabonlavanderia.com/",telephone:"+54 9 223 560-7738",logo:"https://www.aquabonlavanderia.com/favicon.svg",image:"https://www.aquabonlavanderia.com/aquabon-fachada.png",address:{"@type":"PostalAddress",streetAddress:"Gascón 2189",addressLocality:"Mar del Plata",addressRegion:"Buenos Aires",addressCountry:"AR"},openingHours:["Mo-Fr 08:30-20:00","Sa 09:00-14:00"]};
