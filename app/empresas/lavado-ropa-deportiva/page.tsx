@@ -1,0 +1,1 @@
+import{businessData,landingMetadata,SeoLanding}from"../../BusinessLanding";const data=businessData("deportes");export const metadata=landingMetadata(data);export default function Page(){return <SeoLanding data={data}/>}

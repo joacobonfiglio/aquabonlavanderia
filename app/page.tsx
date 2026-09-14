@@ -1,149 +1,16 @@
-import MotionEffects from "./MotionEffects";
-import LocationBlock from "./LocationBlock";
+import Link from "next/link";
+import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
+import LocationBlock from "./LocationBlock";
+import WhatsAppLink from "./WhatsAppLink";
 
-const whatsappMessage = encodeURIComponent(
-  "Hola Aquabon, quisiera consultar por un servicio de lavandería."
-);
-const whatsappUrl = "https://wa.me/5492235607738?text=" + whatsappMessage;
-const mapsUrl =
-  "https://www.google.com/maps/dir/?api=1&destination=Gasc%C3%B3n+2189%2C+Mar+del+Plata%2C+Argentina";
-
-const services = [
-  { number: "01", title: "Valet de ropa", copy: "Lavamos, secamos y doblamos tu ropa de todos los días. Vos solo pasás a buscarla.", detail: "LAVADO · SECADO · DOBLADO", href: "/servicios/valet-de-ropa", external: false },
-  { number: "02", title: "Acolchados", copy: "Lavado y secado cuidado según el tamaño, el tejido y el relleno.", detail: "1 PLAZA · 2 PLAZAS · PLUMA", href: "/servicios/acolchados", external: false },
-  { number: "03", title: "Tintorería", copy: "Recibimos tus prendas especiales y coordinamos su tratamiento especializado.", detail: "RECEPCIÓN EN LOCAL", href: "/servicios/tintoreria", external: false },
-  { number: "04", title: "Otros cuidados", copy: "Camperas, zapatillas, planchado y arreglos. Consultanos según la prenda.", detail: "ATENCIÓN PERSONALIZADA", href: whatsappUrl, external: true },
-];
-
-const faqs = [
-  { question: "¿Dónde está Aquabon?", answer: "Estamos en Gascón 2189, Mar del Plata. Podés venir al local o escribirnos antes por WhatsApp." },
-  { question: "¿Qué incluye el valet de ropa?", answer: "Incluye lavado, secado y doblado de ropa cotidiana. Si necesitás planchado u otro cuidado, consultanos al recibir las prendas." },
-  { question: "¿Me avisan cuando el pedido está listo?", answer: "Sí. Te avisamos por WhatsApp cuando tus prendas están listas para retirar." },
-  { question: "¿Tienen retiro y entrega a domicilio?", answer: "Consultanos por zonas, disponibilidad y condiciones del retiro o la entrega a domicilio." },
-];
-
-export default function Home() {
-  return (
-    <main>
-      <MotionEffects />
-      <div className="conversion-strip" aria-label="Información rápida">
-        <span><strong>Gascón 2189</strong> · Mar del Plata</span>
-        <span>Lun–Vie 8:30–20:00</span>
-        <span>Sáb 9:00–14:00</span>
-      </div>
-
-      <header className="nav-shell">
-        <a className="brand" href="/" aria-label="Aquabon, ir al inicio">
-          <span className="brand-main">AQUABON</span><span className="brand-sub">LAVANDERÍA</span>
-        </a>
-        <nav aria-label="Navegación principal">
-          <details className="services-menu">
-            <summary>Servicios <span aria-hidden="true">⌄</span></summary>
-            <div className="services-dropdown">
-              <a href="#servicios">Todos los servicios</a>
-              <a href="/servicios/valet-de-ropa">Valet de ropa</a>
-              <a href="/servicios/acolchados">Acolchados</a>
-              <a href="/servicios/tintoreria">Tintorería</a>
-              <a href={whatsappUrl} target="_blank" rel="noreferrer">Otros cuidados ↗</a>
-            </div>
-          </details>
-          <a href="/nosotros">Nosotros</a>
-          <a className="nav-cta" href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp <span aria-hidden="true">↗</span></a>
-        </nav>
-        <details className="mobile-menu">
-          <summary aria-label="Abrir menú de navegación"><span /><span /></summary>
-          <div>
-            <details className="mobile-services">
-              <summary>Servicios <span aria-hidden="true">＋</span></summary>
-              <div>
-                <a href="#servicios">Todos los servicios</a>
-                <a href="/servicios/valet-de-ropa">Valet de ropa</a>
-                <a href="/servicios/acolchados">Acolchados</a>
-                <a href="/servicios/tintoreria">Tintorería</a>
-                <a href={whatsappUrl} target="_blank" rel="noreferrer">Otros cuidados ↗</a>
-              </div>
-            </details>
-            <a href="/nosotros">Nosotros</a>
-            <a href="#ubicacion">Ubicación</a>
-            <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp ↗</a>
-          </div>
-        </details>
-      </header>
-
-      <section className="hero" id="inicio">
-        <div className="hero-shell">
-          <div className="hero-copy">
-            <p className="eyebrow">GASCÓN 2189 · MAR DEL PLATA</p>
-            <h1>Lavandería<span>en Mar del Plata</span></h1>
-            <p className="hero-intro">Lavamos, secamos y doblamos tu ropa para que vuelva limpia, cuidada y lista para guardar. También recibimos acolchados y prendas especiales.</p>
-            <div className="hero-meta">
-              <p className="hero-note">Servicio atendido · Te avisamos por WhatsApp</p>
-              <div className="hero-availability" aria-label="Información de atención"><span>Atención personalizada</span><span>Retiro y entrega: consultar zonas</span></div>
-            </div>
-            <div className="hero-actions">
-              <a className="action-button primary" href={whatsappUrl} target="_blank" rel="noreferrer">Consultar por WhatsApp <span aria-hidden="true">↗</span></a>
-              <a className="action-button secondary" href="#servicios">Ver servicios <span aria-hidden="true">↓</span></a>
-            </div>
-          </div>
-          <div className="hero-visual" aria-label="Ilustración de una lavadora">
-            <div className="hero-art" aria-hidden="true">
-              <span className="orbit orbit-one" /><span className="orbit orbit-two" />
-              <div className="washer"><span className="washer-dot" /><span className="washer-line" /><div className="washer-door"><div className="water"><span /><span /><span /></div></div></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="proof-strip" aria-label="Por qué elegir Aquabon">
-        <article><span>01</span><strong>Servicio atendido, sin autoservicio</strong></article>
-        <article><span>02</span><strong>Revisión de cada prenda antes de empezar</strong></article>
-        <article><span>03</span><strong>Aviso por WhatsApp cuando está listo</strong></article>
-      </section>
-
-      <section className="services" id="servicios" data-reveal>
-        <div className="section-heading"><p className="eyebrow">LO QUE HACEMOS</p><h2>Lavandería, valet y tintorería en Mar del Plata</h2><p>Elegí el servicio que necesitás o escribinos por WhatsApp y te orientamos según la prenda.</p></div>
-        <div className="service-list">
-          {services.map((service) => (
-            <a className={"service-card" + (service.external ? " service-card-extra" : "")} href={service.href} key={service.number} target={service.external ? "_blank" : undefined} rel={service.external ? "noreferrer" : undefined}>
-              <span className="service-number">{service.number}</span><h3>{service.title}</h3><p>{service.copy}</p><span className="service-detail">{service.detail}</span><span className="service-arrow" aria-hidden="true">↗</span>
-            </a>
-          ))}
-        </div>
-      </section>
-
-
-      <section className="statement" data-reveal><div className="statement-ripples" aria-hidden="true"><span /><span /><span /></div><p>NO ES SOLO ROPA LIMPIA</p><h2>Es abrir el placard<br /><em>y sentir que todo está en orden</em></h2></section>
-
-      <section className="process" data-reveal>
-        <div className="marquee" aria-hidden="true"><span>MENOS ROPA PENDIENTE · MÁS TIEMPO PARA VOS · </span><span>MENOS ROPA PENDIENTE · MÁS TIEMPO PARA VOS · </span></div>
-        <div className="process-grid"><div className="process-title"><p className="eyebrow">ASÍ DE SIMPLE</p><h2>Tres pasos,<br />cero vueltas</h2></div><ol>
-          <li><strong>01</strong><span>Traés</span><p>Nos contás qué necesitás y recibimos tus prendas.</p></li>
-          <li><strong>02</strong><span>Nosotros cuidamos</span><p>Elegimos el proceso indicado y revisamos cada prenda.</p></li>
-          <li><strong>03</strong><span>Te llevás</span><p>Te avisamos por WhatsApp cuando todo está limpio, seco y listo.</p></li>
-        </ol></div>
-      </section>
-
-      <section className="delivery-strip" data-reveal><div className="delivery-strip-inner"><div><p className="eyebrow">¿NO PODÉS ACERCARTE?</p><h2>Consultá por retiro y <em>entrega a domicilio</em></h2></div><a href={whatsappUrl} target="_blank" rel="noreferrer">Consultar zonas y disponibilidad ↗</a></div></section>
-
-      <section className="about" id="nosotros" data-reveal>
-        <div className="photo-frame" data-parallax><img src="/laundry-detail-v2.webp" alt="Ropa, toallas y prendas dobladas después de un lavado profesional" /><span>ROPA LIMPIA</span></div>
-        <div className="about-copy"><p className="eyebrow">AQUABON, MAR DEL PLATA</p><h2>Del barrio,<br /><em>hecha para el barrio</em></h2><p>Nacimos con una idea sencilla: hacerte la vida un poco más liviana. Somos una lavandería cercana, cuidada y sin complicaciones. De esas donde sabés quién recibe tu ropa y cómo vuelve a tus manos.</p><p className="promise">CUIDAMOS TU ROPA COMO CUIDARÍAMOS LA NUESTRA</p><a className="about-link" href="/nosotros">CONOCÉ NUESTRA HISTORIA <span aria-hidden="true">↗</span></a></div>
-      </section>
-
-      <section className="home-faq" aria-labelledby="faq-title" data-reveal><div className="home-faq-inner"><div><p className="eyebrow">ANTES DE VENIR</p><h2 id="faq-title">Lo que suele <em>preguntarse</em></h2></div><div className="home-faq-list">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span aria-hidden="true">＋</span></summary><p>{faq.answer}</p></details>)}</div></div></section>
-
-      <LocationBlock />
-
-      <section className="contact" id="contacto" data-reveal>
-        <div className="contact-top"><p className="eyebrow">¿TENÉS ROPA PENDIENTE?</p><h2>Que deje de<br />ser pendiente</h2></div>
-        <div className="contact-actions"><a href={whatsappUrl} target="_blank" rel="noreferrer">CONSULTAR POR WHATSAPP <span>↗</span></a><a href={mapsUrl} target="_blank" rel="noreferrer">CÓMO LLEGAR <span>↗</span></a></div>
-        <div className="contact-details"><div><span>DÓNDE</span><strong>Gascón 2189<br />Mar del Plata</strong></div><div><span>HORARIO</span><strong>Lun–Vie 8:30–20:00<br />Sáb 9:00–14:00</strong></div><div><span>WHATSAPP</span><strong><a href={whatsappUrl} target="_blank" rel="noreferrer">+54 9 223 560-7738</a></strong></div><div><span>SERVICIOS</span><strong>Valet · Acolchados<br />Tintorería · Planchado</strong></div></div>
-        <SiteFooter />
-      </section>
-
-      <a className="whatsapp-float" href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="Consultar por WhatsApp">WhatsApp <span aria-hidden="true">↗</span></a>
-      <div className="mobile-action-bar" aria-label="Acciones rápidas"><a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp ↗</a><a href="#servicios">Ver servicios ↓</a></div>
-    </main>
-  );
-}
+const services=[["Valet de ropa","Lavamos, secamos y doblamos tu ropa de todos los días.","/servicios/valet-de-ropa"],["Lavado de acolchados","Lavado cuidado según tamaño, tejido y relleno.","/servicios/lavado-de-acolchados"],["Tintorería","Recepción y seguimiento para prendas que requieren cuidados específicos.","/servicios/tintoreria"],["Teñido de prendas","Recuperación o cambio de color según tejido y estado.","/servicios/tenido-de-prendas"],["Arreglos y costura","Ajustes, reparaciones y pequeñas modificaciones.","/servicios/arreglos-y-costura"],["Lavado de zapatillas","Limpieza según material, color y estado.","/servicios/lavado-de-zapatillas"]];
+/* TESTIMONIOS TEMPORALES DE DISEÑO: sustituir por reseñas reales antes de presentarlos como definitivos. No usar Review/AggregateRating schema. */
+const reviews=[["★★★★★","Mariana G.","El acolchado quedó impecable y lo tuvieron listo cuando me habían dicho. Muy buena atención."],["★★★★★","Nicolás R.","Llevé varias bolsas porque se me había roto el lavarropas. Me resolvieron todo y me avisaron por WhatsApp."],["★★★★☆","Carolina M.","Muy buen servicio y buena atención. Tuve que esperar un poco más, pero la ropa quedó muy bien."],["★★★★★","Florencia P.","Mandé una campera que no me animaba a lavar en casa y quedó perfecta."],["★★★★☆","Martín A.","Buen servicio. Llevé un acolchado grande y quedó muy bien. Volvería."]];
+export default function Home(){return <main><div className="conversion-strip"><span><strong>Gascón 2189</strong> · Mar del Plata</span><span>Lun–Vie 8:30–20 · Sáb 9–14</span></div><SiteHeader event="whatsapp_home_header"/>
+<section className="seo-hero home-hero"><p className="eyebrow">GASCÓN 2189 · MAR DEL PLATA</p><h1>Lavandería y tintorería en Mar del Plata</h1><p>Lavamos, secamos y cuidamos tu ropa para que vos no tengas que preocuparte. Valet, acolchados, tintorería y otros cuidados para prendas de uso diario y prendas especiales.</p><div className="hero-actions"><WhatsAppLink className="action-button primary" message="Hola Aquabon, quería consultar por un servicio de lavandería." event="whatsapp_home_hero">Consultar por WhatsApp ↗</WhatsAppLink><Link className="action-button secondary" href="/servicios">Ver servicios ↓</Link></div></section>
+<section className="home-services"><div><p className="eyebrow">LO QUE HACEMOS</p><h2>Elegí el cuidado que necesitás</h2></div><div className="home-service-grid">{services.map((s,i)=><Link href={s[2]} key={s[2]}><span>{String(i+1).padStart(2,"0")}</span><h3>{s[0]}</h3><p>{s[1]}</p><i>↗</i></Link>)}</div></section>
+<section className="photo-cta"><div><p className="eyebrow">TE ORIENTAMOS</p><h2>¿No sabés qué servicio necesita tu prenda?</h2><p>Mandanos una foto por WhatsApp y te orientamos.</p></div><WhatsAppLink className="action-button primary" message="Hola Aquabon, quería enviar una foto para saber qué servicio necesita mi prenda." event="whatsapp_home_foto">Enviar foto por WhatsApp ↗</WhatsAppLink></section>
+<section className="delivery-strip"><div className="delivery-strip-inner"><div><p className="eyebrow">¿NO PODÉS ACERCARTE AL LOCAL?</p><h2>Consultanos por retiro y entrega <em>según zona y disponibilidad</em></h2></div><WhatsAppLink message="Hola Aquabon, quería consultar si tienen retiro y entrega en mi zona." event="whatsapp_retiro_entrega">Consultar mi zona ↗</WhatsAppLink></div></section>
+<section className="reviews-section"><p className="eyebrow">EXPERIENCIAS · CONTENIDO TEMPORAL</p><h2>Así se verá la sección de reseñas</h2><div>{reviews.map(r=><article key={r[1]}><span>{r[0]}</span><h3>{r[1]}</h3><p>“{r[2]}”</p></article>)}</div></section>
+<LocationBlock/><section className="seo-final"><h2>¿Tenés ropa pendiente?</h2><p>Escribinos y te contamos cuál es el servicio indicado.</p><WhatsAppLink className="action-button primary" message="Hola Aquabon, quería consultar por un servicio." event="whatsapp_home_final">Consultar por WhatsApp ↗</WhatsAppLink></section><SiteFooter/><WhatsAppLink className="whatsapp-float" message="Hola Aquabon, quería consultar por un servicio." event="whatsapp_home_float">WhatsApp ↗</WhatsAppLink></main>}

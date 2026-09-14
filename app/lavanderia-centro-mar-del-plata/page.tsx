@@ -1,0 +1,1 @@
+import SeoLanding,{landingMetadata}from"../SeoLanding";import{localData}from"../LocalLanding";const data=localData("centro");export const metadata=landingMetadata(data);export default function Page(){return <SeoLanding data={data}/>}
