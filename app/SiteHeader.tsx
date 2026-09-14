@@ -2,7 +2,6 @@ import Link from "next/link";
 import WhatsAppLink from "./WhatsAppLink";
 
 const services = [
-  ["Todos los servicios", "/servicios"],
   ["Valet de ropa", "/servicios/valet-de-ropa"],
   ["Lavado de acolchados", "/servicios/lavado-de-acolchados"],
   ["Tintorería", "/servicios/tintoreria"],
@@ -17,9 +16,10 @@ export default function SiteHeader({ event = "whatsapp_header" }: { event?: stri
       <span className="brand-main">AQUABON</span><span className="brand-sub">LAVANDERÍA</span>
     </Link>
     <nav aria-label="Navegación principal">
-      <details className="services-menu"><summary>Servicios <span aria-hidden="true">⌄</span></summary>
+      <div className="services-menu">
+        <span className="services-trigger" tabIndex={0}>Servicios <span aria-hidden="true">⌄</span></span>
         <div className="services-dropdown">{services.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>
-      </details>
+      </div>
       <WhatsAppLink className="nav-cta" message="Hola Aquabon, quería consultar por un servicio." event={event}>Contactar <span aria-hidden="true">↗</span></WhatsAppLink>
     </nav>
     <details className="mobile-menu"><summary aria-label="Abrir menú"><span /><span /></summary>
