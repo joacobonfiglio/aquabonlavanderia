@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 
 const title="¿Cómo lavar un acolchado de plumas sin dañarlo?";
 const description="Primero revisá la etiqueta, el estado de las costuras y la capacidad real del lavarropas. Si el acolchado queda apretado, no puede moverse ni enjuagarse bien: en ese caso conviene usar una máquina de mayor capacidad o consultar un servicio profesional. El secado completo y uniforme es tan importante como el lavado.";
 
-export const metadata:Metadata={title:"Cómo lavar un acolchado de plumas sin dañarlo | Aquabon",description:"Guía para revisar, lavar y secar un acolchado de plumas sin apelmazar el relleno ni dañar el tejido.",alternates:{canonical:"/blog/como-lavar-un-acolchado-de-plumas"},openGraph:{title,description,type:"article",locale:"es_AR",url:"/blog/como-lavar-un-acolchado-de-plumas",publishedTime:"2026-09-15"}};
+export const metadata:Metadata={title:"Cómo lavar un acolchado de plumas sin dañarlo | Aquabon",description:"Guía para revisar, lavar y secar un acolchado de plumas sin apelmazar el relleno ni dañar el tejido.",alternates:{canonical:"/blog/como-lavar-un-acolchado-de-plumas"},openGraph:{title,description,type:"article",locale:"es_AR",url:"/blog/como-lavar-un-acolchado-de-plumas",publishedTime:"2026-09-15",images:[{url:"/blog/revisar-etiqueta-acolchado-plumas.webp",width:1400,height:933,alt:"Revisión de la etiqueta y las costuras de un acolchado de plumas"}]}};
 
 export default function Page(){return <ArticleLayout title={title} description={description} slug="como-lavar-un-acolchado-de-plumas" date="2026-09-15" readingTime="8 MIN DE LECTURA" cluster="Acolchados">
   <p className="article-lead"><strong>Respuesta corta:</strong> un acolchado de plumas puede lavarse en casa únicamente si su etiqueta permite lavado con agua, no tiene roturas y entra holgado en el tambor. Usá el programa y la temperatura indicados por el fabricante. Después, asegurate de secar por completo el relleno y desarmar los grupos de plumas durante el proceso. Si queda comprimido, tarda demasiado en secar o la etiqueta exige limpieza profesional, no lo fuerces.</p>
@@ -16,6 +17,10 @@ export default function Page(){return <ArticleLayout title={title} description={
   <p>La decisión no empieza en el lavarropas, sino en la etiqueta. Ahí se indica el tratamiento máximo permitido: si admite lavado con agua, cuál es la temperatura límite, si puede centrifugarse y si acepta secadora. Esas instrucciones tienen prioridad sobre cualquier consejo general.</p>
   <p>Después extendé el acolchado y revisá la tela por ambos lados. Buscá costuras abiertas, pequeños cortes o zonas donde asomen plumas. Una abertura puede agrandarse durante el movimiento del tambor y provocar pérdida de relleno. También conviene mirar si hay manchas localizadas, humedad acumulada o sectores con el relleno ya agrupado.</p>
   <div className="article-callout"><strong>No lo laves todavía si:</strong><ul><li>la etiqueta indica únicamente limpieza profesional;</li><li>hay costuras abiertas o tela debilitada;</li><li>el relleno tiene olor persistente a humedad o señales de moho;</li><li>el acolchado no puede moverse con libertad dentro del tambor.</li></ul></div>
+  <figure className="article-image">
+    <Image src="/blog/revisar-etiqueta-acolchado-plumas.webp" alt="Manos revisando la etiqueta y las costuras de un acolchado de plumas antes del lavado" width={1400} height={933} sizes="(max-width: 900px) 100vw, 760px"/>
+    <figcaption>Antes de lavarlo, revisá la etiqueta, las costuras y el estado general del relleno.</figcaption>
+  </figure>
 
   <h2 id="lavarropas">¿Cómo saber si el acolchado entra en el lavarropas?</h2>
   <p>No alcanza con que la puerta cierre. El acolchado necesita espacio para moverse, absorber agua de manera pareja y enjuagarse. Cuando se comprime para hacerlo entrar, algunas zonas pueden quedar mal lavadas, retener jabón y dificultar mucho el secado.</p>
