@@ -8,7 +8,7 @@ const commonSteps = [
 const rel = [
   {label:"Valet de ropa",href:"/servicios/valet-de-ropa"},{label:"Lavado de acolchados",href:"/servicios/lavado-de-acolchados"},
   {label:"Tintorería",href:"/servicios/tintoreria"},{label:"Teñido de prendas",href:"/servicios/tenido-de-prendas"},
-  {label:"Arreglos y costura",href:"/servicios/arreglos-y-costura"},{label:"Lavado de zapatillas",href:"/servicios/lavado-de-zapatillas"},
+  {label:"Planchado",href:"/servicios/planchado"},{label:"Arreglos y costura",href:"/servicios/arreglos-y-costura"},{label:"Lavado de zapatillas",href:"/servicios/lavado-de-zapatillas"},
 ];
 const base = (path:string,h1:string,intro:string,event:string,message:string,items:LandingData["items"],faqs:LandingData["faqs"],extra:Partial<LandingData>={}):LandingData => ({
   path, h1, intro, event, message, items, faqs, steps: commonSteps, related: rel.filter(x=>x.href!==path).slice(0,4),
@@ -34,7 +34,7 @@ export const pages: Record<string,LandingData> = {
  {question:"¿Lavan acolchados de pluma?",answer:"Los recibimos para valoración previa según etiqueta, relleno y estado."},{question:"¿Reciben acolchados de dos plazas?",answer:"Sí, sujeto a revisión de tamaño y volumen."},
  {question:"¿Lavan frazadas y cubrecamas?",answer:"Sí, los revisamos para confirmar el tratamiento."},{question:"¿Salen todas las manchas?",answer:"No podemos garantizarlo: depende de su origen, antigüedad y tejido."},
  {question:"¿Cuánto tarda?",answer:"Te confirmamos el plazo al recibirlo."},{question:"¿Puedo enviar una foto?",answer:"Sí, mandala por WhatsApp para una primera orientación."}
-]),
+],{related:[{label:"Guía: cómo lavar un acolchado de plumas",href:"/blog/como-lavar-un-acolchado-de-plumas"},{label:"Tintorería",href:"/servicios/tintoreria"},{label:"Valet de ropa",href:"/servicios/valet-de-ropa"},{label:"Lavado de zapatillas",href:"/servicios/lavado-de-zapatillas"}]}),
 "/servicios/tintoreria":base("/servicios/tintoreria","Tintorería en Mar del Plata","Punto de recepción y seguimiento para sacos, vestidos, tapados, camperas y prendas que requieren tratamiento especializado.","whatsapp_tintoreria","Hola Aquabon, quería consultar por una prenda de tintorería.",[
  {title:"Recepción cercana",copy:"Dejás la prenda en Aquabon y registramos sus características y observaciones."},
  {title:"Tratamiento especializado",copy:"Coordinamos el servicio adecuado fuera del local cuando la prenda lo requiere."},
@@ -43,6 +43,20 @@ export const pages: Record<string,LandingData> = {
  {question:"¿Qué prendas reciben?",answer:"Sacos, vestidos, tapados, camperas y otras prendas especiales, sujetas a revisión."},{question:"¿Se trata en el local?",answer:"Aquabon funciona como punto de recepción y seguimiento cuando se requiere un servicio especializado."},
  {question:"¿Garantizan quitar manchas?",answer:"No. El resultado depende de la mancha, el tejido y su antigüedad."},{question:"¿Cuánto demora?",answer:"Te informamos el plazo luego de revisar la prenda."},{question:"¿Dónde retiro?",answer:"En Aquabon, Gascón 2189."}
 ]),
+"/servicios/planchado":base("/servicios/planchado","Servicio de planchado en Mar del Plata","Planchado de camisas y otras prendas, con recepción en Gascón 2189 y seguimiento por WhatsApp.","whatsapp_planchado","Hola Aquabon, quería consultar por el servicio de planchado.",[
+ {title:"Revisión de cada prenda",copy:"Comprobamos el tejido, la etiqueta y los detalles que requieren un cuidado particular antes de confirmar el trabajo."},
+ {title:"Planchado por prenda",copy:"Recibimos camisas y otras prendas aptas para planchado. Consultanos por cantidad y tipo de tejido."},
+ {title:"Listas para retirar",copy:"Te avisamos por WhatsApp cuando el pedido está terminado y disponible en el local."}
+],[
+ {question:"¿Qué prendas reciben para planchar?",answer:"Recibimos camisas y otras prendas aptas para planchado. La viabilidad se confirma al revisar tejido, etiqueta y estado."},
+ {question:"¿El valet incluye planchado?",answer:"No. El valet incluye lavado, secado y doblado; el planchado se solicita como un servicio aparte."},
+ {question:"¿Puedo llevar solo una prenda?",answer:"Sí. Consultanos por WhatsApp o acercate a Gascón 2189 para confirmar el servicio."},
+ {question:"¿Cuánto demora?",answer:"El plazo depende de la cantidad y el tipo de prendas. Te lo informamos al recibirlas."},
+ {question:"¿Me avisan cuando está listo?",answer:"Sí, hacemos el seguimiento y te avisamos por WhatsApp."}
+],{sections:[
+ {heading:"Planchado sin sumar otra tarea a tu día",text:"Podés dejar las prendas en nuestro local del Centro y retirarlas cuando te avisemos. Es una opción práctica para camisas y ropa que necesita una terminación más cuidada."},
+ {heading:"Un servicio distinto del valet",text:"El valet devuelve la ropa lavada, seca y doblada. Si necesitás planchado, pedilo de manera específica para que podamos revisar las prendas y confirmar el trabajo."}
+]}),
 "/servicios/tenido-de-prendas":base("/servicios/tenido-de-prendas","Teñido de prendas en Mar del Plata","Valoramos la recuperación o el cambio de color según la composición, el color original y el estado de la prenda.","whatsapp_tenido","Hola Aquabon, quería consultar por el teñido de una prenda.",[
  {title:"Valoración del tejido",copy:"La composición determina cuánto puede absorber el color y qué resultado es razonable esperar."},
  {title:"Recuperación de color",copy:"Evaluamos prendas desteñidas o con color apagado antes de aceptar el trabajo."},

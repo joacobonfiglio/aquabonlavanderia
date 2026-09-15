@@ -1,0 +1,11 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import Breadcrumbs from "../Breadcrumbs";
+import SiteHeader from "../SiteHeader";
+import SiteFooter from "../SiteFooter";
+
+export const metadata:Metadata={title:"Guías para cuidar tu ropa | Aquabon",description:"Consejos prácticos sobre lavado, manchas, tejidos, acolchados, zapatillas y cuidado de prendas.",alternates:{canonical:"/blog"},openGraph:{title:"Guías para cuidar tu ropa | Aquabon",description:"Consejos prácticos para lavar, secar y cuidar tus prendas.",url:"/blog",type:"website",locale:"es_AR"}};
+
+const guides=[{title:"¿Cómo lavar un acolchado de plumas sin dañarlo?",description:"Qué revisar antes, cómo saber si entra en tu lavarropas y por qué el secado es la etapa decisiva.",href:"/blog/como-lavar-un-acolchado-de-plumas",cluster:"ACOLCHADOS",date:"15 SEP"}];
+
+export default function BlogPage(){return <main className="blog-index"><SiteHeader event="whatsapp_blog_index"/><Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Guías",href:"/blog"}]}/><header className="blog-index-hero"><div><p className="eyebrow">GUÍAS AQUABON</p><h1>Guías para cuidar tu ropa</h1><p>Consejos claros sobre lavado, manchas, tejidos, acolchados, zapatillas y prendas especiales. Para saber qué podés resolver en casa y cuándo conviene pedir ayuda.</p></div><div className="blog-index-mark" aria-hidden="true"><span>AQ</span><i/><i/><i/></div></header><section className="featured-guides"><div className="blog-section-heading"><p className="eyebrow">CONTENIDO DESTACADO</p><h2>Empezá por acá</h2></div>{guides.map(g=><Link className="featured-guide" href={g.href} key={g.href}><span>{g.cluster} · {g.date}</span><h3>{g.title}</h3><p>{g.description}</p><i>LEER GUÍA ↗</i></Link>)}</section><section className="guide-clusters"><p className="eyebrow">TEMAS</p><h2>Encontrá el cuidado que necesitás</h2><div>{["Acolchados","Tintorería","Zapatillas","Manchas","Cuidado de ropa","Lavado"].map((x,i)=><article key={x}><span>{String(i+1).padStart(2,"0")}</span><h3>{x}</h3><p>Nuevas guías prácticas durante septiembre.</p></article>)}</div></section><section className="blog-service-link"><div><p className="eyebrow">¿NECESITÁS QUE LO HAGAMOS POR VOS?</p><h2>Conocé los servicios de Aquabon</h2></div><Link href="/servicios">Ver todos los servicios ↗</Link></section><SiteFooter/></main>}
