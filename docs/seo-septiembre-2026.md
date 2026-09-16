@@ -18,7 +18,7 @@
 | lavado de camperas y tapados | Transaccional | Landing | `/servicios/lavado-de-camperas-y-tapados` | `/servicios/tintoreria` | Alta | Programada |
 | tintorería centro Mar del Plata | Transaccional local | Landing | `/tintoreria-centro-mar-del-plata` | `/servicios/tintoreria` | Alta | Programada |
 | secar acolchado de plumas | Informativa | Guía | `/blog/como-secar-un-acolchado-de-plumas` | `/servicios/lavado-de-acolchados` | Alta | Programada |
-| símbolos de lavado acolchado | Informativa | Guía | `/blog/simbolos-de-lavado-de-un-acolchado` | `/servicios/lavado-de-acolchados` | Media | Programada |
+| símbolos de lavado acolchado | Informativa | Guía | `/blog/simbolos-de-lavado-de-un-acolchado` | `/servicios/lavado-de-acolchados` | Media | Publicada 16/09 |
 | qué prendas llevar a tintorería | Investigación comercial | Guía | `/blog/que-prendas-conviene-llevar-a-la-tintoreria` | `/servicios/tintoreria` | Alta | Programada |
 | zapatillas en lavarropas | Informativa | Guía | `/blog/se-pueden-lavar-zapatillas-en-el-lavarropas` | `/servicios/lavado-de-zapatillas` | Alta | Programada |
 | quitar mancha de aceite ropa | Informativa | Guía | `/blog/como-sacar-manchas-de-aceite-de-la-ropa` | `/servicios/tintoreria` | Media | Programada |
@@ -55,6 +55,8 @@
 | 15/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Creación de índice, clusters y enlaces comerciales | 15/09/2026 |
 | 15/09/2026 | `/blog/como-lavar-un-acolchado-de-plumas` | Guía | cómo lavar un acolchado de plumas | Creación, metadata, Article schema, breadcrumbs y enlaces internos | 15/09/2026 |
 | 15/09/2026 | `/servicios/planchado` | Landing | servicio de planchado Mar del Plata | Creación, metadata, Service schema, FAQs y CTA | 15/09/2026 |
+| 16/09/2026 | `/blog/simbolos-de-lavado-de-un-acolchado` | Guía | símbolos de lavado acolchado | Creación, imagen, guía visual, metadata, Article schema y enlaces internos | 16/09/2026 |
+| 16/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Reemplazo del destacado único por catálogo responsive de todas las guías | 16/09/2026 |
 
 ## Control previo a cada publicación
 
