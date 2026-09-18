@@ -3,6 +3,7 @@ import WhatsAppLink from "./WhatsAppLink";
 
 const serviceLinks = [
   ["Valet de ropa", "/servicios/valet-de-ropa"], ["Lavado de acolchados", "/servicios/lavado-de-acolchados"],
+  ["Retiro y entrega", "/servicios/retiro-y-entrega-de-ropa"],
   ["Tintorería", "/servicios/tintoreria"], ["Teñido de prendas", "/servicios/tenido-de-prendas"],
   ["Planchado", "/servicios/planchado"], ["Arreglos y costura", "/servicios/arreglos-y-costura"], ["Lavado de zapatillas", "/servicios/lavado-de-zapatillas"],
 ];

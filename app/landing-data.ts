@@ -17,6 +17,25 @@ const base = (path:string,h1:string,intro:string,event:string,message:string,ite
   sections:[{heading:"Cuidado según cada prenda",text:"No todas las prendas necesitan el mismo proceso. Antes de comenzar revisamos material, etiqueta, manchas y estado general para orientarte con claridad."}], ...extra
 });
 export const pages: Record<string,LandingData> = {
+"/servicios/retiro-y-entrega-de-ropa":base("/servicios/retiro-y-entrega-de-ropa","Retiro y entrega de ropa en el centro de Mar del Plata","Coordiná el retiro de tus prendas y su devolución una vez listas, según zona y disponibilidad. Consultanos con tu ubicación y el servicio que necesitás.","whatsapp_retiro_entrega","Hola Aquabon, quería consultar si tienen retiro y entrega en mi zona. Estoy en…",[
+ {title:"Coordinación por WhatsApp",copy:"Envianos tu ubicación, el tipo de prendas y el servicio que necesitás. Confirmamos cobertura, disponibilidad y costo antes de coordinar."},
+ {title:"Retiro registrado",copy:"Acordamos una franja y registramos el pedido. Informanos la cantidad de prendas, manchas, daños o condiciones particulares."},
+ {title:"Entrega coordinada",copy:"Cuando el pedido está listo, te avisamos y coordinamos la devolución según el recorrido disponible."}
+],[
+ {question:"¿En qué zonas hacen retiro y entrega?",answer:"Priorizamos el centro de Mar del Plata y zonas cercanas. Enviá tu dirección por WhatsApp y confirmamos si el recorrido está disponible."},
+ {question:"¿El retiro tiene costo?",answer:"Puede variar según la zona y el pedido. Te informamos el costo antes de confirmar la coordinación."},
+ {question:"¿Qué servicios se pueden pedir?",answer:"Principalmente valet de ropa. Para acolchados u otras prendas, consultanos porque el retiro depende del volumen y de la evaluación del servicio."},
+ {question:"¿Cómo preparo la ropa?",answer:"Colocala en una bolsa bien cerrada e informá la cantidad de prendas, manchas, daños o requisitos particulares."},
+ {question:"¿La entrega es en el día?",answer:"No se confirma de forma automática. El plazo depende del servicio, el volumen de trabajo y la disponibilidad del recorrido."}
+],{title:"Retiro y entrega de ropa en el centro de Mar del Plata | Aquabon",description:"Consultá retiro y entrega de ropa en el centro de Mar del Plata según zona y disponibilidad. Valet y otros servicios con coordinación por WhatsApp.",eyebrow:"RETIRO Y ENTREGA · CENTRO",cta:"Consultar cobertura",steps:[
+ {title:"Enviá tu ubicación",copy:"Escribinos por WhatsApp con tu dirección, el servicio y una referencia del volumen."},
+ {title:"Confirmamos el recorrido",copy:"Te indicamos cobertura, costo, franja posible y condiciones antes de coordinar."},
+ {title:"Retiramos y registramos",copy:"Recibimos la bolsa cerrada con la información de cantidad, manchas o daños que nos hayas comunicado."},
+ {title:"Te avisamos y entregamos",copy:"Cuando el pedido está listo, coordinamos la devolución según la agenda disponible."}
+],sections:[
+ {heading:"Una alternativa para ahorrar traslados",text:"Si estás en el centro o en una zona cercana, consultá por retiro y entrega. La disponibilidad se confirma para cada pedido: no prometemos cobertura automática ni una franja sin verificar el recorrido."},
+ {heading:"El servicio de lavado se define por separado",text:"El retiro y la entrega son una modalidad de coordinación. El tratamiento depende de las prendas: ropa cotidiana puede ingresar como valet; acolchados, tintorería y piezas especiales necesitan una evaluación previa."}
+],related:[{label:"Valet de ropa",href:"/servicios/valet-de-ropa"},{label:"Lavado de acolchados",href:"/servicios/lavado-de-acolchados"},{label:"Tintorería",href:"/servicios/tintoreria"},{label:"Todos los servicios",href:"/servicios"}],showLocation:true}),
 "/servicios/valet-de-ropa":base("/servicios/valet-de-ropa","Servicio de valet de ropa en Mar del Plata","Lavado, secado y doblado de ropa cotidiana, con aviso por WhatsApp cuando está lista.","whatsapp_valet","Hola Aquabon, quería consultar por el servicio de valet.",[
  {title:"Lavado, secado y doblado",copy:"Recibimos ropa de uso diario y la devolvemos limpia, seca y lista para guardar."},
  {title:"Servicio a bolsa cerrada",copy:"El cliente debe informar la cantidad de prendas y comunicar daños, manchas o condiciones particulares."},
@@ -25,7 +44,7 @@ export const pages: Record<string,LandingData> = {
  {question:"¿Qué incluye el valet?",answer:"Incluye lavado, secado y doblado de ropa cotidiana."},{question:"¿Qué ropa puedo enviar?",answer:"Ropa de uso diario. Las prendas delicadas se revisan aparte antes de confirmar el servicio."},
  {question:"¿Incluye planchado?",answer:"No está incluido de forma automática. Consultanos si una prenda necesita planchado."},{question:"¿Cuánto demora?",answer:"Depende del volumen de trabajo. Te informamos el plazo al recibir la bolsa."},
  {question:"¿Me avisan cuando está listo?",answer:"Sí, te avisamos por WhatsApp."},{question:"¿Hay retiro y entrega?",answer:"Consultanos según zona y disponibilidad."}
-]),
+],{related:[{label:"Retiro y entrega",href:"/servicios/retiro-y-entrega-de-ropa"},{label:"Lavado de acolchados",href:"/servicios/lavado-de-acolchados"},{label:"Tintorería",href:"/servicios/tintoreria"},{label:"Planchado",href:"/servicios/planchado"}]}),
 "/servicios/lavado-de-acolchados":base("/servicios/lavado-de-acolchados","Lavado de acolchados en Mar del Plata","Lavamos acolchados, cubrecamas y frazadas según tamaño, tejido, relleno y estado.","whatsapp_acolchados","Hola Aquabon, quería consultar por el lavado de un acolchado.",[
  {title:"Una y dos plazas",copy:"Recibimos diferentes tamaños y confirmamos el proceso después de revisar el volumen."},
  {title:"Pluma y rellenos especiales",copy:"Revisamos la etiqueta y el relleno para determinar si el lavado es técnicamente adecuado."},

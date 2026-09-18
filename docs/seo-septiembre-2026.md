@@ -14,11 +14,12 @@
 |---|---|---|---|---|---:|---|
 | servicio de planchado Mar del Plata | Transaccional | Landing | `/servicios/planchado` | — | Alta | Publicada 15/09 |
 | cómo lavar un acolchado de plumas | Informativa | Guía | `/blog/como-lavar-un-acolchado-de-plumas` | `/servicios/lavado-de-acolchados` | Alta | Publicada 15/09 |
-| retiro y entrega de ropa centro Mar del Plata | Transaccional | Landing | `/servicios/retiro-y-entrega-de-ropa` | `/servicios/valet-de-ropa` | Alta | Programada |
+| retiro y entrega de ropa centro Mar del Plata | Transaccional | Landing | `/servicios/retiro-y-entrega-de-ropa` | `/servicios/valet-de-ropa` | Alta | Publicada 18/09 |
 | lavado de camperas y tapados | Transaccional | Landing | `/servicios/lavado-de-camperas-y-tapados` | `/servicios/tintoreria` | Alta | Programada |
 | tintorería centro Mar del Plata | Transaccional local | Landing | `/tintoreria-centro-mar-del-plata` | `/servicios/tintoreria` | Alta | Programada |
 | cómo secar un acolchado | Informativa | Guía | `/blog/como-secar-un-acolchado` | `/servicios/lavado-de-acolchados` | Alta | Publicada 17/09 |
 | símbolos de lavado acolchado | Informativa | Guía | `/blog/simbolos-de-lavado-de-un-acolchado` | `/servicios/lavado-de-acolchados` | Media | Publicada 16/09 |
+| cada cuánto lavar un acolchado | Informativa | Guía | `/blog/cada-cuanto-lavar-un-acolchado` | `/servicios/lavado-de-acolchados` | Alta | Publicada 18/09 |
 | qué prendas llevar a tintorería | Investigación comercial | Guía | `/blog/que-prendas-conviene-llevar-a-la-tintoreria` | `/servicios/tintoreria` | Alta | Programada |
 | zapatillas en lavarropas | Informativa | Guía | `/blog/se-pueden-lavar-zapatillas-en-el-lavarropas` | `/servicios/lavado-de-zapatillas` | Alta | Programada |
 | quitar mancha de aceite ropa | Informativa | Guía | `/blog/como-sacar-manchas-de-aceite-de-la-ropa` | `/servicios/tintoreria` | Media | Programada |
@@ -59,6 +60,9 @@
 | 16/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Reemplazo del destacado único por catálogo responsive de todas las guías | 16/09/2026 |
 | 17/09/2026 | `/blog/como-secar-un-acolchado` | Guía | cómo secar un acolchado | Creación, imagen, metadata, Article schema, FAQs y enlaces internos | 17/09/2026 |
 | 17/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la nueva guía al catálogo responsive | 17/09/2026 |
+| 18/09/2026 | `/blog/cada-cuanto-lavar-un-acolchado` | Guía | cada cuánto lavar un acolchado | Creación, imagen, metadata, Article y FAQ schema, preguntas frecuentes y enlaces internos | 18/09/2026 |
+| 18/09/2026 | `/servicios/retiro-y-entrega-de-ropa` | Landing | retiro y entrega de ropa centro Mar del Plata | Creación, metadata, Service y FAQ schema, cobertura condicionada, FAQs y CTA por WhatsApp | 18/09/2026 |
+| 18/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la cuarta guía al catálogo responsive | 18/09/2026 |
 
 ## Control previo a cada publicación
 
