@@ -21,6 +21,7 @@
 | símbolos de lavado acolchado | Informativa | Guía | `/blog/simbolos-de-lavado-de-un-acolchado` | `/servicios/lavado-de-acolchados` | Media | Publicada 16/09 |
 | cada cuánto lavar un acolchado | Informativa | Guía | `/blog/cada-cuanto-lavar-un-acolchado` | `/servicios/lavado-de-acolchados` | Alta | Publicada 18/09 |
 | sacar olor a humedad de un acolchado | Informativa | Guía | `/blog/como-sacar-olor-a-humedad-de-un-acolchado` | `/servicios/lavado-de-acolchados` | Alta | Publicada 19/09 |
+| diferencia entre lavandería y tintorería | Investigación comercial | Guía | `/blog/diferencia-entre-lavanderia-y-tintoreria` | `/servicios/tintoreria` | Alta | Publicada 20/09 |
 | qué prendas llevar a tintorería | Investigación comercial | Guía | `/blog/que-prendas-conviene-llevar-a-la-tintoreria` | `/servicios/tintoreria` | Alta | Programada |
 | zapatillas en lavarropas | Informativa | Guía | `/blog/se-pueden-lavar-zapatillas-en-el-lavarropas` | `/servicios/lavado-de-zapatillas` | Alta | Programada |
 | quitar mancha de aceite ropa | Informativa | Guía | `/blog/como-sacar-manchas-de-aceite-de-la-ropa` | `/servicios/tintoreria` | Media | Programada |
@@ -66,6 +67,8 @@
 | 18/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la cuarta guía al catálogo responsive | 18/09/2026 |
 | 19/09/2026 | `/blog/como-sacar-olor-a-humedad-de-un-acolchado` | Guía | sacar olor a humedad de un acolchado | Creación, imagen, metadata, Article y FAQ schema, advertencias sobre moho y enlaces internos | 19/09/2026 |
 | 19/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la quinta guía al catálogo responsive | 19/09/2026 |
+| 20/09/2026 | `/blog/diferencia-entre-lavanderia-y-tintoreria` | Guía | diferencia entre lavandería y tintorería | Creación, imagen comparativa, metadata, Article y FAQ schema y enlaces a valet y tintorería | 20/09/2026 |
+| 20/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la sexta guía al catálogo responsive | 20/09/2026 |
 
 ## Control previo a cada publicación
 
