@@ -22,7 +22,7 @@
 | cada cuánto lavar un acolchado | Informativa | Guía | `/blog/cada-cuanto-lavar-un-acolchado` | `/servicios/lavado-de-acolchados` | Alta | Publicada 18/09 |
 | sacar olor a humedad de un acolchado | Informativa | Guía | `/blog/como-sacar-olor-a-humedad-de-un-acolchado` | `/servicios/lavado-de-acolchados` | Alta | Publicada 19/09 |
 | diferencia entre lavandería y tintorería | Investigación comercial | Guía | `/blog/diferencia-entre-lavanderia-y-tintoreria` | `/servicios/tintoreria` | Alta | Publicada 20/09 |
-| qué prendas llevar a tintorería | Investigación comercial | Guía | `/blog/que-prendas-conviene-llevar-a-la-tintoreria` | `/servicios/tintoreria` | Alta | Programada |
+| qué prendas llevar a tintorería | Investigación comercial | Guía | `/blog/que-prendas-conviene-llevar-a-la-tintoreria` | `/servicios/tintoreria` | Alta | Publicada 21/09 |
 | zapatillas en lavarropas | Informativa | Guía | `/blog/se-pueden-lavar-zapatillas-en-el-lavarropas` | `/servicios/lavado-de-zapatillas` | Alta | Programada |
 | quitar mancha de aceite ropa | Informativa | Guía | `/blog/como-sacar-manchas-de-aceite-de-la-ropa` | `/servicios/tintoreria` | Media | Programada |
 
@@ -69,6 +69,8 @@
 | 19/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la quinta guía al catálogo responsive | 19/09/2026 |
 | 20/09/2026 | `/blog/diferencia-entre-lavanderia-y-tintoreria` | Guía | diferencia entre lavandería y tintorería | Creación, imagen comparativa, metadata, Article y FAQ schema y enlaces a valet y tintorería | 20/09/2026 |
 | 20/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la sexta guía al catálogo responsive | 20/09/2026 |
+| 21/09/2026 | `/blog/que-prendas-conviene-llevar-a-la-tintoreria` | Guía | qué prendas llevar a tintorería | Creación, imagen original, metadata, Article y FAQ schema, enlaces internos y criterios por prenda | 21/09/2026 |
+| 21/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la séptima guía al catálogo responsive | 21/09/2026 |
 
 ## Control previo a cada publicación
 
