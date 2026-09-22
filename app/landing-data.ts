@@ -7,7 +7,7 @@ const commonSteps = [
 ];
 const rel = [
   {label:"Valet de ropa",href:"/servicios/valet-de-ropa"},{label:"Lavado de acolchados",href:"/servicios/lavado-de-acolchados"},
-  {label:"Tintorería",href:"/servicios/tintoreria"},{label:"Teñido de prendas",href:"/servicios/tenido-de-prendas"},
+  {label:"Tintorería",href:"/servicios/tintoreria"},{label:"Camperas y tapados",href:"/servicios/lavado-de-camperas-y-tapados"},{label:"Teñido de prendas",href:"/servicios/tenido-de-prendas"},
   {label:"Planchado",href:"/servicios/planchado"},{label:"Arreglos y costura",href:"/servicios/arreglos-y-costura"},{label:"Lavado de zapatillas",href:"/servicios/lavado-de-zapatillas"},
 ];
 const base = (path:string,h1:string,intro:string,event:string,message:string,items:LandingData["items"],faqs:LandingData["faqs"],extra:Partial<LandingData>={}):LandingData => ({
@@ -17,6 +17,21 @@ const base = (path:string,h1:string,intro:string,event:string,message:string,ite
   sections:[{heading:"Cuidado según cada prenda",text:"No todas las prendas necesitan el mismo proceso. Antes de comenzar revisamos material, etiqueta, manchas y estado general para orientarte con claridad."}], ...extra
 });
 export const pages: Record<string,LandingData> = {
+"/servicios/lavado-de-camperas-y-tapados":base("/servicios/lavado-de-camperas-y-tapados","Lavado de camperas y tapados en Mar del Plata","Traé tu campera o tapado a Gascón 2189: evaluamos etiqueta, forro, relleno, manchas y estado para definir un tratamiento compatible antes de confirmar precio y plazo.","whatsapp_camperas_tapados","Hola Aquabon, quería consultar por la limpieza de una campera o un tapado.",[
+ {title:"Camperas livianas y acolchadas",copy:"Revisamos tejido, relleno, impermeabilización, cierres y etiqueta. Confirmamos si admite lavado y secado adecuados o necesita un tratamiento distinto."},
+ {title:"Tapados de paño y lana",copy:"Inspeccionamos forro, estructura, botones, apliques y manchas. Un tapado no se lava automáticamente por ser de lana o por parecer resistente."},
+ {title:"Cada prenda, una evaluación",copy:"Te explicamos viabilidad, proceso, límites, precio y plazo antes de aceptarla. Cuando requiere cuidado especializado coordinamos la tintorería fuera del local."}
+],[
+ {question:"¿Lavan camperas de pluma?",answer:"Las recibimos para evaluar etiqueta, relleno, estado y secado posible. No confirmamos el proceso ni el resultado sin revisar la prenda."},
+ {question:"¿Puedo llevar un tapado de paño?",answer:"Sí. Revisamos su etiqueta, forro, estructura y manchas para decidir si conviene lavado o cuidado profesional."},
+ {question:"¿Hacen limpieza en seco en el local?",answer:"Aquabon funciona como punto de recepción y seguimiento para tratamientos especializados; cuando corresponde, se coordinan fuera del local."},
+ {question:"¿Cuánto cuesta y cuánto demora?",answer:"El valor y el plazo dependen de la prenda, del proceso y de su estado. Los confirmamos antes de aceptar el trabajo."},
+ {question:"¿El tratamiento elimina todas las manchas?",answer:"No se garantiza. Depende del origen y antigüedad de la mancha, tejido, color y tratamientos previos."},
+ {question:"¿Hacen retiro y entrega?",answer:"Consultanos con tu ubicación: la cobertura, costo y disponibilidad se confirman para cada pedido."}
+],{title:"Lavado de camperas y tapados en Mar del Plata | Aquabon",description:"Camperas, abrigos y tapados en el centro de Mar del Plata. Evaluación de etiqueta, forro y relleno; consultá proceso, precio y plazo antes de confirmar.",eyebrow:"CAMPERAS Y TAPADOS · CENTRO",cta:"Consultar mi abrigo",showLocation:true,sections:[
+ {heading:"Un abrigo no es igual a otro",text:"Una campera deportiva, una de pluma y un tapado de paño tienen necesidades diferentes. Evaluamos el conjunto —material exterior, forro, relleno, accesorios y etiqueta— antes de elegir lavado o cuidado profesional."},
+ {heading:"Recepción y seguimiento en el Centro",text:"Acercate a Gascón 2189 o enviá fotos para una orientación preliminar. Si la prenda necesita tratamiento de tintorería, coordinamos el servicio especializado fuera del local y te avisamos cuando está lista. La confirmación final requiere revisión presencial."}
+],related:[{label:"Guía: cómo limpiar un tapado",href:"/blog/como-limpiar-un-tapado-sin-danarlo"},{label:"Tintorería",href:"/servicios/tintoreria"},{label:"Retiro y entrega",href:"/servicios/retiro-y-entrega-de-ropa"},{label:"Todas las guías",href:"/blog"}]}),
 "/servicios/retiro-y-entrega-de-ropa":base("/servicios/retiro-y-entrega-de-ropa","Retiro y entrega de ropa en el centro de Mar del Plata","Coordiná el retiro de tus prendas y su devolución una vez listas, según zona y disponibilidad. Consultanos con tu ubicación y el servicio que necesitás.","whatsapp_retiro_entrega","Hola Aquabon, quería consultar si tienen retiro y entrega en mi zona. Estoy en…",[
  {title:"Coordinación por WhatsApp",copy:"Envianos tu ubicación, el tipo de prendas y el servicio que necesitás. Confirmamos cobertura, disponibilidad y costo antes de coordinar."},
  {title:"Retiro registrado",copy:"Acordamos una franja y registramos el pedido. Informanos la cantidad de prendas, manchas, daños o condiciones particulares."},
@@ -61,7 +76,7 @@ export const pages: Record<string,LandingData> = {
 ],[
  {question:"¿Qué prendas reciben?",answer:"Sacos, vestidos, tapados, camperas y otras prendas especiales, sujetas a revisión."},{question:"¿Se trata en el local?",answer:"Aquabon funciona como punto de recepción y seguimiento cuando se requiere un servicio especializado."},
  {question:"¿Garantizan quitar manchas?",answer:"No. El resultado depende de la mancha, el tejido y su antigüedad."},{question:"¿Cuánto demora?",answer:"Te informamos el plazo luego de revisar la prenda."},{question:"¿Dónde retiro?",answer:"En Aquabon, Gascón 2189."}
-]),
+],{related:[{label:"Lavado de camperas y tapados",href:"/servicios/lavado-de-camperas-y-tapados"},{label:"Guía: qué prendas llevar a tintorería",href:"/blog/que-prendas-conviene-llevar-a-la-tintoreria"},{label:"Valet de ropa",href:"/servicios/valet-de-ropa"},{label:"Todos los servicios",href:"/servicios"}]}),
 "/servicios/planchado":base("/servicios/planchado","Servicio de planchado en Mar del Plata","Planchado de camisas y otras prendas, con recepción en Gascón 2189 y seguimiento por WhatsApp.","whatsapp_planchado","Hola Aquabon, quería consultar por el servicio de planchado.",[
  {title:"Revisión de cada prenda",copy:"Comprobamos el tejido, la etiqueta y los detalles que requieren un cuidado particular antes de confirmar el trabajo."},
  {title:"Planchado por prenda",copy:"Recibimos camisas y otras prendas aptas para planchado. Consultanos por cantidad y tipo de tejido."},

@@ -15,7 +15,7 @@
 | servicio de planchado Mar del Plata | Transaccional | Landing | `/servicios/planchado` | — | Alta | Publicada 15/09 |
 | cómo lavar un acolchado de plumas | Informativa | Guía | `/blog/como-lavar-un-acolchado-de-plumas` | `/servicios/lavado-de-acolchados` | Alta | Publicada 15/09 |
 | retiro y entrega de ropa centro Mar del Plata | Transaccional | Landing | `/servicios/retiro-y-entrega-de-ropa` | `/servicios/valet-de-ropa` | Alta | Publicada 18/09 |
-| lavado de camperas y tapados | Transaccional | Landing | `/servicios/lavado-de-camperas-y-tapados` | `/servicios/tintoreria` | Alta | Programada |
+| lavado de camperas y tapados | Transaccional | Landing | `/servicios/lavado-de-camperas-y-tapados` | `/servicios/tintoreria` | Alta | Publicada 22/09 |
 | tintorería centro Mar del Plata | Transaccional local | Landing | `/tintoreria-centro-mar-del-plata` | `/servicios/tintoreria` | Alta | Programada |
 | cómo secar un acolchado | Informativa | Guía | `/blog/como-secar-un-acolchado` | `/servicios/lavado-de-acolchados` | Alta | Publicada 17/09 |
 | símbolos de lavado acolchado | Informativa | Guía | `/blog/simbolos-de-lavado-de-un-acolchado` | `/servicios/lavado-de-acolchados` | Media | Publicada 16/09 |
@@ -71,6 +71,9 @@
 | 20/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la sexta guía al catálogo responsive | 20/09/2026 |
 | 21/09/2026 | `/blog/que-prendas-conviene-llevar-a-la-tintoreria` | Guía | qué prendas llevar a tintorería | Creación, imagen original, metadata, Article y FAQ schema, enlaces internos y criterios por prenda | 21/09/2026 |
 | 21/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la séptima guía al catálogo responsive | 21/09/2026 |
+| 22/09/2026 | `/blog/como-limpiar-un-tapado-sin-danarlo` | Guía | cómo limpiar un tapado | Creación, imagen original, metadata, BlogPosting y FAQ schema, cuidado por etiqueta y enlaces internos | 22/09/2026 |
+| 22/09/2026 | `/servicios/lavado-de-camperas-y-tapados` | Landing | lavado de camperas y tapados | Creación, metadata, Service y FAQ schema, evaluación por prenda y CTA local | 22/09/2026 |
+| 22/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la octava guía al catálogo responsive | 22/09/2026 |
 
 ## Control previo a cada publicación
 
