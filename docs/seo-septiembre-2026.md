@@ -24,6 +24,7 @@
 | diferencia entre lavandería y tintorería | Investigación comercial | Guía | `/blog/diferencia-entre-lavanderia-y-tintoreria` | `/servicios/tintoreria` | Alta | Publicada 20/09 |
 | qué prendas llevar a tintorería | Investigación comercial | Guía | `/blog/que-prendas-conviene-llevar-a-la-tintoreria` | `/servicios/tintoreria` | Alta | Publicada 21/09 |
 | cómo limpiar un saco | Informativa | Guía | `/blog/como-limpiar-un-saco` | `/servicios/tintoreria` | Alta | Publicada 23/09 |
+| qué es la limpieza en seco | Informativa | Guía | `/blog/que-es-la-limpieza-en-seco` | `/servicios/tintoreria` | Alta | Publicada 24/09 |
 | zapatillas en lavarropas | Informativa | Guía | `/blog/se-pueden-lavar-zapatillas-en-el-lavarropas` | `/servicios/lavado-de-zapatillas` | Alta | Programada |
 | quitar mancha de aceite ropa | Informativa | Guía | `/blog/como-sacar-manchas-de-aceite-de-la-ropa` | `/servicios/tintoreria` | Media | Programada |
 
@@ -77,6 +78,8 @@
 | 22/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la octava guía al catálogo responsive | 22/09/2026 |
 | 23/09/2026 | `/blog/como-limpiar-un-saco` | Guía | cómo limpiar un saco | Creación, imagen original, metadata, BlogPosting y FAQ schema, cuidado de estructura y enlaces internos | 23/09/2026 |
 | 23/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la novena guía al catálogo responsive | 23/09/2026 |
+| 24/09/2026 | `/blog/que-es-la-limpieza-en-seco` | Guía | qué es la limpieza en seco | Creación, imagen original, metadata, BlogPosting y FAQ schema, explicación del proceso y enlaces internos | 24/09/2026 |
+| 24/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la décima guía al catálogo responsive | 24/09/2026 |
 
 ## Control previo a cada publicación
 
