@@ -16,7 +16,7 @@
 | cómo lavar un acolchado de plumas | Informativa | Guía | `/blog/como-lavar-un-acolchado-de-plumas` | `/servicios/lavado-de-acolchados` | Alta | Publicada 15/09 |
 | retiro y entrega de ropa centro Mar del Plata | Transaccional | Landing | `/servicios/retiro-y-entrega-de-ropa` | `/servicios/valet-de-ropa` | Alta | Publicada 18/09 |
 | lavado de camperas y tapados | Transaccional | Landing | `/servicios/lavado-de-camperas-y-tapados` | `/servicios/tintoreria` | Alta | Publicada 22/09 |
-| tintorería centro Mar del Plata | Transaccional local | Landing | `/tintoreria-centro-mar-del-plata` | `/servicios/tintoreria` | Alta | Programada |
+| tintorería centro Mar del Plata | Transaccional local | Landing | `/tintoreria-centro-mar-del-plata` | `/servicios/tintoreria` | Alta | Publicada 25/09 |
 | cómo secar un acolchado | Informativa | Guía | `/blog/como-secar-un-acolchado` | `/servicios/lavado-de-acolchados` | Alta | Publicada 17/09 |
 | símbolos de lavado acolchado | Informativa | Guía | `/blog/simbolos-de-lavado-de-un-acolchado` | `/servicios/lavado-de-acolchados` | Media | Publicada 16/09 |
 | cada cuánto lavar un acolchado | Informativa | Guía | `/blog/cada-cuanto-lavar-un-acolchado` | `/servicios/lavado-de-acolchados` | Alta | Publicada 18/09 |
@@ -25,7 +25,7 @@
 | qué prendas llevar a tintorería | Investigación comercial | Guía | `/blog/que-prendas-conviene-llevar-a-la-tintoreria` | `/servicios/tintoreria` | Alta | Publicada 21/09 |
 | cómo limpiar un saco | Informativa | Guía | `/blog/como-limpiar-un-saco` | `/servicios/tintoreria` | Alta | Publicada 23/09 |
 | qué es la limpieza en seco | Informativa | Guía | `/blog/que-es-la-limpieza-en-seco` | `/servicios/tintoreria` | Alta | Publicada 24/09 |
-| zapatillas en lavarropas | Informativa | Guía | `/blog/se-pueden-lavar-zapatillas-en-el-lavarropas` | `/servicios/lavado-de-zapatillas` | Alta | Programada |
+| zapatillas en lavarropas | Informativa | Guía | `/blog/se-pueden-lavar-zapatillas-en-el-lavarropas` | `/servicios/lavado-de-zapatillas` | Alta | Publicada 25/09 |
 | quitar mancha de aceite ropa | Informativa | Guía | `/blog/como-sacar-manchas-de-aceite-de-la-ropa` | `/servicios/tintoreria` | Media | Programada |
 
 ## Calendario editorial
@@ -80,6 +80,9 @@
 | 23/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la novena guía al catálogo responsive | 23/09/2026 |
 | 24/09/2026 | `/blog/que-es-la-limpieza-en-seco` | Guía | qué es la limpieza en seco | Creación, imagen original, metadata, BlogPosting y FAQ schema, explicación del proceso y enlaces internos | 24/09/2026 |
 | 24/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la décima guía al catálogo responsive | 24/09/2026 |
+| 25/09/2026 | `/blog/se-pueden-lavar-zapatillas-en-el-lavarropas` | Guía | zapatillas en lavarropas | Creación, imagen original, metadata, BlogPosting y FAQ schema, criterios por material y enlaces internos | 25/09/2026 |
+| 25/09/2026 | `/tintoreria-centro-mar-del-plata` | Landing | tintorería centro Mar del Plata | Creación, metadata, Service y FAQ schema, información de recepción, evaluación y seguimiento local | 25/09/2026 |
+| 25/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la undécima guía al catálogo responsive | 25/09/2026 |
 
 ## Control previo a cada publicación
 
