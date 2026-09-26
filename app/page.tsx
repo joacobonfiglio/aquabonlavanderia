@@ -68,8 +68,18 @@ export default function Home() {
   return (
     <main className="home-refresh">
       <div className="home-refresh-topbar">
-        <span>Gascón 2189 · Mar del Plata</span>
-        <span>Lun–Vie 8:30–20 · Sáb 9–14</span>
+        <div className="home-refresh-topbar-promo">
+          <strong>Retiro y entrega a domicilio</strong>
+          <span>Ahorrá el viaje: vamos por tu ropa y te la devolvemos lista.</span>
+        </div>
+        <WhatsAppLink
+          className="home-refresh-topbar-cta"
+          message="Hola Aquabon, quería consultar si tienen retiro y entrega en mi zona."
+          event="whatsapp_home_topbar"
+        >
+          Consultar mi zona <span aria-hidden="true">↗</span>
+        </WhatsAppLink>
+        <span className="home-refresh-topbar-info">Gascón 2189 · Lun–Vie 8:30–20 · Sáb 9–14</span>
       </div>
 
       <SiteHeader event="whatsapp_home_header" />
@@ -166,45 +176,53 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="home-refresh-more-services">
-          <span>También hacemos:</span>
-          {secondaryServices.map(([label, href]) => (
-            <Link href={href} key={href}>
-              {label}
-            </Link>
-          ))}
+        <div className="home-refresh-secondary-services">
+          <div className="home-refresh-secondary-heading">
+            <p className="home-refresh-kicker">Más servicios</p>
+            <h3>También podemos ayudarte con estas prendas.</h3>
+          </div>
+          <div className="home-refresh-secondary-grid">
+            {secondaryServices.map(([label, href], index) => (
+              <Link href={href} key={href} className="home-refresh-secondary-card">
+                <span>{String(index + 5).padStart(2, "0")}</span>
+                <strong>{label}</strong>
+                <i aria-hidden="true">↗</i>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="home-refresh-how">
-        <div className="home-refresh-section-head home-refresh-section-head-light">
-          <div>
-            <p className="home-refresh-kicker">Fácil de resolver</p>
-            <h2>Nos escribís. Coordinamos. Listo.</h2>
-          </div>
-          <p>Queremos que contratar el servicio sea tan simple como mandar un mensaje.</p>
+        <div className="home-refresh-how-intro">
+          <p className="home-refresh-kicker">Así de simple</p>
+          <h2>Tres pasos y te olvidás de la ropa.</h2>
+          <p>Sin formularios ni procesos complicados. Todo lo coordinamos con vos por WhatsApp.</p>
         </div>
 
         <ol className="home-refresh-steps">
           <li>
-            <span>01</span>
+            <span className="home-refresh-step-number">01</span>
+            <div className="home-refresh-step-mark" aria-hidden="true">···</div>
             <div>
-              <strong>Contanos qué necesitás</strong>
-              <p>Prendas, acolchado, zapatillas o cualquier consulta específica.</p>
+              <strong>Mandanos un mensaje</strong>
+              <p>Decinos qué necesitás lavar y, si querés retiro, pasanos tu zona.</p>
             </div>
           </li>
           <li>
-            <span>02</span>
+            <span className="home-refresh-step-number">02</span>
+            <div className="home-refresh-step-mark" aria-hidden="true">↔</div>
             <div>
-              <strong>Te orientamos</strong>
-              <p>Confirmamos servicio, disponibilidad y retiro o entrega si corresponde.</p>
+              <strong>Coordinamos con vos</strong>
+              <p>Te confirmamos el servicio, disponibilidad y cómo hacemos el retiro o la entrega.</p>
             </div>
           </li>
           <li>
-            <span>03</span>
+            <span className="home-refresh-step-number">03</span>
+            <div className="home-refresh-step-mark" aria-hidden="true">✓</div>
             <div>
               <strong>Te avisamos cuando está listo</strong>
-              <p>Seguimiento simple por WhatsApp para que no tengas que estar pendiente.</p>
+              <p>Recibís el aviso por WhatsApp y coordinamos la devolución o el retiro en el local.</p>
             </div>
           </li>
         </ol>
@@ -214,30 +232,46 @@ export default function Home() {
           message="Hola Aquabon, quería consultar por un servicio."
           event="whatsapp_home_process"
         >
-          Hacer una consulta <span aria-hidden="true">↗</span>
+          Consultar ahora <span aria-hidden="true">↗</span>
         </WhatsAppLink>
       </section>
 
       <section className="home-refresh-delivery">
         <div className="home-refresh-delivery-copy">
-          <p className="home-refresh-kicker">Retiro y entrega</p>
-          <h2>Tu ropa puede venir hasta nosotros sin que salgas de casa.</h2>
-          <p>
-            Consultanos por WhatsApp con tu ubicación y qué necesitás lavar. Te confirmamos disponibilidad y coordinamos.
+          <span className="home-refresh-delivery-badge">Servicio destacado</span>
+          <p className="home-refresh-kicker">Retiro y entrega a domicilio</p>
+          <h2>Nosotros vamos por tu ropa.</h2>
+          <p className="home-refresh-delivery-lead">
+            No hace falta que vengas al local. Nos escribís, coordinamos el retiro y te devolvemos la ropa lista.
           </p>
+          <div className="home-refresh-delivery-benefits">
+            <span>Retiramos</span>
+            <span>Lavamos</span>
+            <span>Te avisamos</span>
+            <span>Entregamos</span>
+          </div>
           <WhatsAppLink
-            className="home-refresh-primary home-refresh-primary-light"
+            className="home-refresh-primary home-refresh-primary-light home-refresh-delivery-cta"
             message="Hola Aquabon, quería consultar si tienen retiro y entrega en mi zona."
             event="whatsapp_retiro_entrega"
           >
-            Consultar mi zona <span aria-hidden="true">↗</span>
+            Quiero retiro y entrega <span aria-hidden="true">↗</span>
           </WhatsAppLink>
+          <small>Consultanos disponibilidad según tu zona.</small>
         </div>
-        <div className="home-refresh-delivery-note">
-          <span>Ideal para</span>
-          <strong>Valet · Acolchados · Volumen de ropa</strong>
-          <p>La disponibilidad depende de la zona y del momento del día.</p>
-        </div>
+
+        <figure className="home-refresh-delivery-media">
+          <Image
+            src="/laundry-detail-v2.webp"
+            alt="Ropa limpia y doblada preparada para entrega por Aquabon"
+            fill
+            sizes="(max-width: 900px) 100vw, 42vw"
+          />
+          <figcaption>
+            <span>Ideal para</span>
+            <strong>Valet · Acolchados · Bolsas con varias prendas</strong>
+          </figcaption>
+        </figure>
       </section>
 
       <section className="home-refresh-reviews">
