@@ -26,6 +26,7 @@
 | cómo limpiar un saco | Informativa | Guía | `/blog/como-limpiar-un-saco` | `/servicios/tintoreria` | Alta | Publicada 23/09 |
 | qué es la limpieza en seco | Informativa | Guía | `/blog/que-es-la-limpieza-en-seco` | `/servicios/tintoreria` | Alta | Publicada 24/09 |
 | zapatillas en lavarropas | Informativa | Guía | `/blog/se-pueden-lavar-zapatillas-en-el-lavarropas` | `/servicios/lavado-de-zapatillas` | Alta | Publicada 25/09 |
+| cómo secar zapatillas | Informativa | Guía | `/blog/como-secar-zapatillas-sin-deformarlas` | `/servicios/lavado-de-zapatillas` | Alta | Publicada 26/09 |
 | quitar mancha de aceite ropa | Informativa | Guía | `/blog/como-sacar-manchas-de-aceite-de-la-ropa` | `/servicios/tintoreria` | Media | Programada |
 
 ## Calendario editorial
@@ -83,6 +84,8 @@
 | 25/09/2026 | `/blog/se-pueden-lavar-zapatillas-en-el-lavarropas` | Guía | zapatillas en lavarropas | Creación, imagen original, metadata, BlogPosting y FAQ schema, criterios por material y enlaces internos | 25/09/2026 |
 | 25/09/2026 | `/tintoreria-centro-mar-del-plata` | Landing | tintorería centro Mar del Plata | Creación, metadata, Service y FAQ schema, información de recepción, evaluación y seguimiento local | 25/09/2026 |
 | 25/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la undécima guía al catálogo responsive | 25/09/2026 |
+| 26/09/2026 | `/blog/como-secar-zapatillas-sin-deformarlas` | Guía | cómo secar zapatillas | Creación, imagen original, metadata, BlogPosting y FAQ schema, secado por material y enlaces internos | 26/09/2026 |
+| 26/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la duodécima guía al catálogo responsive | 26/09/2026 |
 
 ## Control previo a cada publicación
 

@@ -3,11 +3,11 @@ import type { MetadataRoute } from "next";
 const base="https://www.aquabonlavanderia.com";
 const paths=[
   "","/servicios","/tintoreria-centro-mar-del-plata","/servicios/valet-de-ropa","/servicios/retiro-y-entrega-de-ropa","/servicios/lavado-de-camperas-y-tapados","/servicios/lavado-de-acolchados","/servicios/tintoreria","/servicios/planchado","/servicios/tenido-de-prendas","/servicios/arreglos-y-costura","/servicios/lavado-de-zapatillas",
-  "/blog","/blog/como-lavar-un-acolchado-de-plumas","/blog/simbolos-de-lavado-de-un-acolchado","/blog/como-secar-un-acolchado","/blog/cada-cuanto-lavar-un-acolchado","/blog/como-sacar-olor-a-humedad-de-un-acolchado","/blog/diferencia-entre-lavanderia-y-tintoreria","/blog/que-prendas-conviene-llevar-a-la-tintoreria","/blog/como-limpiar-un-tapado-sin-danarlo","/blog/como-limpiar-un-saco","/blog/que-es-la-limpieza-en-seco","/blog/se-pueden-lavar-zapatillas-en-el-lavarropas",
+  "/blog","/blog/como-lavar-un-acolchado-de-plumas","/blog/simbolos-de-lavado-de-un-acolchado","/blog/como-secar-un-acolchado","/blog/cada-cuanto-lavar-un-acolchado","/blog/como-sacar-olor-a-humedad-de-un-acolchado","/blog/diferencia-entre-lavanderia-y-tintoreria","/blog/que-prendas-conviene-llevar-a-la-tintoreria","/blog/como-limpiar-un-tapado-sin-danarlo","/blog/como-limpiar-un-saco","/blog/que-es-la-limpieza-en-seco","/blog/se-pueden-lavar-zapatillas-en-el-lavarropas","/blog/como-secar-zapatillas-sin-deformarlas",
   "/nosotros","/lavanderia-mar-del-plata","/lavanderia-centro-mar-del-plata","/empresas","/empresas/lavanderia-airbnb","/empresas/lavanderia-hoteles","/empresas/lavanderia-restaurantes","/empresas/lavado-ropa-deportiva","/politica-de-privacidad","/politica-de-cookies","/terminos-y-condiciones"
 ];
 const dates:Record<string,string>={
-  "/blog":"2026-09-25",
+  "/blog":"2026-09-26",
   "/tintoreria-centro-mar-del-plata":"2026-09-25",
   "/servicios/lavado-de-camperas-y-tapados":"2026-09-22",
   "/servicios/retiro-y-entrega-de-ropa":"2026-09-18",
@@ -21,7 +21,8 @@ const dates:Record<string,string>={
   "/blog/como-limpiar-un-tapado-sin-danarlo":"2026-09-22",
   "/blog/como-limpiar-un-saco":"2026-09-23",
   "/blog/que-es-la-limpieza-en-seco":"2026-09-24",
-  "/blog/se-pueden-lavar-zapatillas-en-el-lavarropas":"2026-09-25"
+  "/blog/se-pueden-lavar-zapatillas-en-el-lavarropas":"2026-09-25",
+  "/blog/como-secar-zapatillas-sin-deformarlas":"2026-09-26"
 };
 
 export default function sitemap():MetadataRoute.Sitemap{
