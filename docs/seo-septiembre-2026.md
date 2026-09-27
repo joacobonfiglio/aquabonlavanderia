@@ -27,6 +27,7 @@
 | qué es la limpieza en seco | Informativa | Guía | `/blog/que-es-la-limpieza-en-seco` | `/servicios/tintoreria` | Alta | Publicada 24/09 |
 | zapatillas en lavarropas | Informativa | Guía | `/blog/se-pueden-lavar-zapatillas-en-el-lavarropas` | `/servicios/lavado-de-zapatillas` | Alta | Publicada 25/09 |
 | cómo secar zapatillas | Informativa | Guía | `/blog/como-secar-zapatillas-sin-deformarlas` | `/servicios/lavado-de-zapatillas` | Alta | Publicada 26/09 |
+| cómo sacar olor de zapatillas | Informativa | Guía | `/blog/como-sacar-el-olor-de-las-zapatillas` | `/servicios/lavado-de-zapatillas` | Alta | Publicada 27/09 |
 | quitar mancha de aceite ropa | Informativa | Guía | `/blog/como-sacar-manchas-de-aceite-de-la-ropa` | `/servicios/tintoreria` | Media | Programada |
 
 ## Calendario editorial
@@ -86,6 +87,8 @@
 | 25/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la undécima guía al catálogo responsive | 25/09/2026 |
 | 26/09/2026 | `/blog/como-secar-zapatillas-sin-deformarlas` | Guía | cómo secar zapatillas | Creación, imagen original, metadata, BlogPosting y FAQ schema, secado por material y enlaces internos | 26/09/2026 |
 | 26/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la duodécima guía al catálogo responsive | 26/09/2026 |
+| 27/09/2026 | `/blog/como-sacar-el-olor-de-las-zapatillas` | Guía | cómo sacar olor de zapatillas | Creación, imagen original, metadata, BlogPosting y FAQ schema, diagnóstico, prevención y enlaces internos | 27/09/2026 |
+| 27/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la decimotercera guía al catálogo responsive | 27/09/2026 |
 
 ## Control previo a cada publicación
 
