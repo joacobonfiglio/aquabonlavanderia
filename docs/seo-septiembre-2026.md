@@ -29,6 +29,7 @@
 | cómo secar zapatillas | Informativa | Guía | `/blog/como-secar-zapatillas-sin-deformarlas` | `/servicios/lavado-de-zapatillas` | Alta | Publicada 26/09 |
 | cómo sacar olor de zapatillas | Informativa | Guía | `/blog/como-sacar-el-olor-de-las-zapatillas` | `/servicios/lavado-de-zapatillas` | Alta | Publicada 27/09 |
 | quitar mancha de aceite ropa | Informativa | Guía | `/blog/como-sacar-manchas-de-aceite-de-la-ropa` | `/servicios/tintoreria` | Media | Publicada 28/09 |
+| cómo guardar ropa de invierno | Informativa | Guía | `/blog/como-guardar-la-ropa-de-invierno` | `/servicios/tintoreria` | Alta | Publicada 29/09 |
 
 ## Calendario editorial
 
@@ -91,6 +92,8 @@
 | 27/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la decimotercera guía al catálogo responsive | 27/09/2026 |
 | 28/09/2026 | `/blog/como-sacar-manchas-de-aceite-de-la-ropa` | Guía | cómo sacar manchas de aceite | Creación, imagen original, metadata, BlogPosting y FAQ schema, tratamiento por tejido y enlaces internos | 28/09/2026 |
 | 28/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la decimocuarta guía al catálogo responsive | 28/09/2026 |
+| 29/09/2026 | `/blog/como-guardar-la-ropa-de-invierno` | Guía | cómo guardar ropa de invierno | Creación, imagen original, metadata, BlogPosting y FAQ schema, guardado por prenda y enlaces internos | 29/09/2026 |
+| 29/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la decimoquinta guía al catálogo responsive | 29/09/2026 |
 
 ## Control previo a cada publicación
 
