@@ -30,6 +30,7 @@
 | cómo sacar olor de zapatillas | Informativa | Guía | `/blog/como-sacar-el-olor-de-las-zapatillas` | `/servicios/lavado-de-zapatillas` | Alta | Publicada 27/09 |
 | quitar mancha de aceite ropa | Informativa | Guía | `/blog/como-sacar-manchas-de-aceite-de-la-ropa` | `/servicios/tintoreria` | Media | Publicada 28/09 |
 | cómo guardar ropa de invierno | Informativa | Guía | `/blog/como-guardar-la-ropa-de-invierno` | `/servicios/tintoreria` | Alta | Publicada 29/09 |
+| cómo evitar que la ropa se encoja | Informativa | Guía | `/blog/como-evitar-que-la-ropa-se-encoja` | `/servicios/valet-de-ropa` | Alta | Publicada 30/09 |
 
 ## Calendario editorial
 
@@ -94,6 +95,9 @@
 | 28/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la decimocuarta guía al catálogo responsive | 28/09/2026 |
 | 29/09/2026 | `/blog/como-guardar-la-ropa-de-invierno` | Guía | cómo guardar ropa de invierno | Creación, imagen original, metadata, BlogPosting y FAQ schema, guardado por prenda y enlaces internos | 29/09/2026 |
 | 29/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la decimoquinta guía al catálogo responsive | 29/09/2026 |
+| 30/09/2026 | `/blog/como-evitar-que-la-ropa-se-encoja` | Guía | cómo evitar que la ropa se encoja | Creación, imagen original, metadata, BlogPosting y FAQ schema, cuidado por tejido y enlaces internos | 30/09/2026 |
+| 30/09/2026 | `/blog` | Hub editorial | guías para cuidar ropa | Incorporación de la decimosexta guía al catálogo responsive | 30/09/2026 |
+| 30/09/2026 | `/docs/informe-seo-septiembre-2026.md` | Informe | cierre experimento SEO | Inventario, señales públicas, limitaciones y recomendación para octubre | 30/09/2026 |
 
 ## Control previo a cada publicación
 
@@ -107,4 +111,4 @@
 
 ## Cierre
 
-El 30/09 se publica el último contenido y se detiene la cadencia diaria. El informe final debe revisar publicaciones, indexación pública, señales iniciales de posicionamiento, problemas técnicos y una recomendación específica para octubre.
+El experimento finalizó el 30/09 con el calendario completo. La cadencia diaria queda detenida y el informe final está disponible en `docs/informe-seo-septiembre-2026.md`. Octubre requiere una evaluación previa y un nuevo calendario aprobado.
