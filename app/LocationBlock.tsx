@@ -13,9 +13,8 @@ export default function LocationBlock() {
           <em>cerca tuyo</em>
         </h2>
         <p>
-          Tu lavandería en Mar del Plata está en Gascón 2189. Fácil de llegar,
-          fácil de encontrarnos cuando necesitás lavar ropa, acolchados o dejar
-          una prenda para tintorería.
+          Traé tu ropa a Gascón 2189, Mar del Plata. Si tenés dudas sobre una
+          prenda, la vemos juntos en el local.
         </p>
         <a href={directionsUrl} target="_blank" rel="noreferrer">
           ABRIR RUTA EN GOOGLE MAPS <span aria-hidden="true">↗</span>
