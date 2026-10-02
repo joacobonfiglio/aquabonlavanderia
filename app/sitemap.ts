@@ -7,6 +7,7 @@ const paths=[
   "/nosotros","/lavanderia-mar-del-plata","/lavanderia-centro-mar-del-plata","/empresas","/empresas/lavanderia-airbnb","/empresas/lavanderia-hoteles","/empresas/lavanderia-restaurantes","/empresas/lavado-ropa-deportiva","/politica-de-privacidad","/politica-de-cookies","/terminos-y-condiciones"
 ];
 const dates:Record<string,string>={
+  "/servicios/valet-de-ropa":"2026-10-02",
   "/blog":"2026-09-30",
   "/tintoreria-centro-mar-del-plata":"2026-09-25",
   "/servicios/lavado-de-camperas-y-tapados":"2026-09-22",
