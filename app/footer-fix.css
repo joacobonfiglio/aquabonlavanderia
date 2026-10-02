@@ -1,0 +1,10 @@
+.aq-site .site-footer.seo-footer{background:#fff;color:#10214b;padding-bottom:120px;border-top:1px solid #dce3f0;font-family:var(--font-geist-sans),Arial,sans-serif;align-items:start}
+.aq-site .site-footer.seo-footer .site-footer-brand>a{color:#154ae9;font-family:inherit;font-weight:850;letter-spacing:-.045em;font-size:1.8rem;line-height:1.2}
+.aq-site .site-footer.seo-footer .site-footer-brand p{color:#344665;opacity:1;font-size:.875rem;line-height:1.7;letter-spacing:0;text-transform:none;margin-top:10px;max-width:100%}
+.aq-site .site-footer.seo-footer .site-footer-links{color:#10214b;opacity:1;font-size:.875rem;letter-spacing:0;text-transform:none;gap:24px}
+.aq-site .site-footer.seo-footer .site-footer-links>div{border-color:#dce3f0;min-width:0}
+.aq-site .site-footer.seo-footer .site-footer-links>div>span{color:#344665;opacity:1;font-size:.75rem;line-height:1.6;font-weight:700;letter-spacing:.035em}
+.aq-site .site-footer.seo-footer .site-footer-links a{color:#10214b;opacity:1;font-size:.875rem;line-height:1.6;letter-spacing:0;text-transform:none;overflow-wrap:anywhere}
+.aq-site .site-footer.seo-footer .site-footer-links a:hover{color:#154ae9;text-decoration:underline;text-underline-offset:4px}
+.aq-site .site-footer.seo-footer a:focus-visible{outline:3px solid #eea52a;outline-offset:4px}
+@media(max-width:760px){.aq-site .site-footer.seo-footer{padding-bottom:110px}}

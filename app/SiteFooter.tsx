@@ -5,7 +5,7 @@ const serviceLinks = [
   ["Valet de ropa", "/servicios/valet-de-ropa"], ["Lavado de acolchados", "/servicios/lavado-de-acolchados"],
   ["Retiro y entrega", "/servicios/retiro-y-entrega-de-ropa"],
   ["Tintorería", "/servicios/tintoreria"], ["Teñido de prendas", "/servicios/tenido-de-prendas"],
-  ["Planchado", "/servicios/planchado"], ["Arreglos y costura", "/servicios/arreglos-y-costura"], ["Lavado de zapatillas", "/servicios/lavado-de-zapatillas"],
+  ["Planchado", "/servicios/planchado"], ["Arreglos y costura", "/servicios/arreglos-y-costura"], ["Lavado de zapatillas", "/servicios/lavado-de-zapatillas"], ["Camperas y tapados", "/servicios/lavado-de-camperas-y-tapados"],
 ];
 export default function SiteFooter() {
   return <footer className="site-footer seo-footer">
@@ -21,3 +21,4 @@ export default function SiteFooter() {
     </nav>
   </footer>;
 }
+
