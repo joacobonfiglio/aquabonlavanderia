@@ -1,1 +1,5 @@
-import SeoLanding,{landingMetadata} from "../SeoLanding";import{servicesHub as data}from"../landing-data";export const metadata=landingMetadata(data);export default function Page(){return <SeoLanding data={data}/>}
+import ServiceCatalog from "../ServiceCatalog";
+import { landingMetadata } from "../SeoLanding";
+import { servicesHub } from "../landing-data";
+export const metadata = landingMetadata(servicesHub);
+export default function Page() { return <ServiceCatalog />; }

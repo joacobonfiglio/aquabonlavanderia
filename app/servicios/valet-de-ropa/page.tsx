@@ -72,6 +72,6 @@ export default function ValetPage() {
       <aside className={styles.related} aria-label="Otros cuidados para tu ropa"><p className={styles.label}>SI TU PRENDA NECESITA ALGO MÁS</p><div><Link href="/servicios/tintoreria"><strong>Tintorería</strong><span>Prendas delicadas y especiales</span></Link><Link href="/servicios/lavado-de-acolchados"><strong>Acolchados</strong><span>Otro volumen, otro cuidado</span></Link><Link href="/blog/diferencia-entre-lavanderia-y-tintoreria"><strong>¿Valet o tintorería?</strong><span>Leé la guía para elegir</span></Link></div></aside>
       <section className={styles.final}><p className={styles.label}>AQUABON · TU LAVANDERÍA EN MAR DEL PLATA</p><h2>Una bolsa de ropa.<br /><span>Una tarea menos.</span></h2><WhatsAppLink className={`${styles.button} ${styles.whiteButton}`} message={message} event="whatsapp_valet_final">Hablemos de tu lavado</WhatsAppLink><p>Contanos qué necesitás lavar. Te confirmamos importe y plazo.</p></section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
-    </main><SiteFooter /><WhatsAppLink className={styles.mobileContact} message={message} event="whatsapp_valet_mobile">Consultar por mi valet</WhatsAppLink>
+    </main><SiteFooter />
   </div>;
 }

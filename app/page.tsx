@@ -38,6 +38,7 @@ export default function Home() {
     <LocationBlock />
     <section className="aq-final"><div><p className="aq-label">UNA TAREA MENOS PARA HOY</p><h2>Tu ropa pendiente<br />empieza con un mensaje.</h2></div><WhatsAppLink className="aq-button aq-button-white" message="Hola Aquabon, quiero consultar por el lavado de mi ropa." event="whatsapp_home_final">Hablar con Aquabon</WhatsAppLink></section>
     <SiteFooter />
-    <WhatsAppLink className="aq-mobile-contact" message="Hola Aquabon, quiero consultar por un servicio de lavandería." event="whatsapp_home_float">Consultar por WhatsApp</WhatsAppLink>
+
   </main>;
 }
+
