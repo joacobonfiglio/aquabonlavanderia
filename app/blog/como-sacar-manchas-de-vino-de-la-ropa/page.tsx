@@ -16,9 +16,9 @@ const faqs=[
 
 export const metadata:Metadata={
   title:"Cómo sacar manchas de vino de la ropa | Aquabon",
-  description:"Pasos para tratar manchas de vino frescas o secas sin extenderlas, con cuidados para algodón, lana, seda y prendas estructuradas.",
+  description:"Cómo sacar manchas de vino de la ropa y qué evitar según el tejido. Consultá lavado y recepción de tintorería en Aquabon, Mar del Plata.",
   alternates:{canonical:path},
-  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-03",images:[{url:"/blog/tratar-mancha-vino-ropa.webp",width:1400,height:788,alt:"Paño blanco absorbiendo una mancha de vino sobre una prenda clara antes del lavado"}]}
+  openGraph:{title,description:"Cómo sacar manchas de vino de la ropa y qué evitar según el tejido. Consultá lavado y recepción de tintorería en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-03",images:[{url:"/blog/tratar-mancha-vino-ropa.webp",width:1400,height:788,alt:"Paño blanco absorbiendo una mancha de vino sobre una prenda clara antes del lavado"}]}
 };
 
 export default function Page(){

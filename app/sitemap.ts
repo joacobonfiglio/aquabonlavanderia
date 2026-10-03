@@ -4,7 +4,7 @@ const base="https://www.aquabonlavanderia.com";
 const paths=[
   "","/servicios","/tintoreria-centro-mar-del-plata","/servicios/valet-de-ropa","/servicios/retiro-y-entrega-de-ropa","/servicios/lavado-de-camperas-y-tapados","/servicios/lavado-de-acolchados","/servicios/tintoreria","/servicios/planchado","/servicios/tenido-de-prendas","/servicios/arreglos-y-costura","/servicios/lavado-de-zapatillas",
   "/blog","/blog/como-sacar-manchas-de-vino-de-la-ropa","/blog/como-lavar-un-acolchado-de-plumas","/blog/simbolos-de-lavado-de-un-acolchado","/blog/como-secar-un-acolchado","/blog/cada-cuanto-lavar-un-acolchado","/blog/como-sacar-olor-a-humedad-de-un-acolchado","/blog/diferencia-entre-lavanderia-y-tintoreria","/blog/que-prendas-conviene-llevar-a-la-tintoreria","/blog/como-limpiar-un-tapado-sin-danarlo","/blog/como-limpiar-un-saco","/blog/que-es-la-limpieza-en-seco","/blog/se-pueden-lavar-zapatillas-en-el-lavarropas","/blog/como-secar-zapatillas-sin-deformarlas","/blog/como-sacar-el-olor-de-las-zapatillas","/blog/como-sacar-manchas-de-aceite-de-la-ropa","/blog/como-guardar-la-ropa-de-invierno","/blog/como-evitar-que-la-ropa-se-encoja",
-  "/nosotros","/lavanderia-mar-del-plata","/lavanderia-centro-mar-del-plata","/empresas","/empresas/lavanderia-airbnb","/empresas/lavanderia-hoteles","/empresas/lavanderia-restaurantes","/empresas/lavado-ropa-deportiva","/politica-de-privacidad","/politica-de-cookies","/terminos-y-condiciones"
+  "/nosotros","/lavanderia-mar-del-plata","/lavanderia-centro-mar-del-plata","/empresas","/empresas/lavanderia-airbnb","/empresas/lavanderia-hoteles","/empresas/lavanderia-restaurantes","/empresas/lavado-ropa-deportiva"
 ];
 const dates:Record<string,string>={
   "/servicios/valet-de-ropa":"2026-10-02",

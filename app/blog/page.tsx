@@ -5,7 +5,7 @@ import Breadcrumbs from "../Breadcrumbs";
 import SiteHeader from "../SiteHeader";
 import SiteFooter from "../SiteFooter";
 
-export const metadata:Metadata={title:"Guías para cuidar tu ropa | Aquabon",description:"Consejos prácticos sobre lavado, manchas, tejidos, acolchados, zapatillas y cuidado de prendas.",alternates:{canonical:"/blog"},openGraph:{title:"Guías para cuidar tu ropa | Aquabon",description:"Consejos prácticos para lavar, secar y cuidar tus prendas.",url:"/blog",type:"website",locale:"es_AR"}};
+export const metadata:Metadata={title:"Guías para cuidar tu ropa | Aquabon",description:"Guías para cuidar tu ropa: lavado, manchas, acolchados y zapatillas. Consejos de Aquabon, lavandería en Mar del Plata. Consultá por tu prenda.",alternates:{canonical:"/blog"},openGraph:{title:"Guías para cuidar tu ropa | Aquabon",description:"Guías para cuidar tu ropa: lavado, manchas, acolchados y zapatillas. Consejos de Aquabon, lavandería en Mar del Plata. Consultá por tu prenda.",url:"/blog",type:"website",locale:"es_AR"}};
 
 const guides=[
   {title:"Cómo sacar manchas de vino de la ropa",description:"Qué hacer apenas se derrama, cómo tratar una mancha seca y qué cuidados cambian según el tejido y la etiqueta.",href:"/blog/como-sacar-manchas-de-vino-de-la-ropa",cluster:"MANCHAS",date:"3 OCT",image:"/blog/tratar-mancha-vino-ropa.webp",alt:"Paño blanco absorbiendo una mancha fresca de vino en una prenda clara"},

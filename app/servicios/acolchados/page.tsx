@@ -4,7 +4,7 @@ import ServicePage, { type ServicePageData } from "../ServicePage";
 export const metadata: Metadata = {
   title: "Lavado de acolchados en Mar del Plata | Aquabon",
   description:
-    "Lavado y secado de acolchados en Mar del Plata. Cuidado según tejido, relleno y tamaño en Aquabon, Gascón 2189.",
+    "Lavado de acolchados en Mar del Plata. Aquabon lava y seca acolchados, frazadas y cubrecamas según tejido y relleno. Consultá por WhatsApp.",
   alternates: {
     canonical: "/servicios/acolchados",
   },

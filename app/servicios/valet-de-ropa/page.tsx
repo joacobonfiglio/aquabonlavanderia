@@ -10,7 +10,7 @@ import styles from "./valet.module.css";
 
 const path = "/servicios/valet-de-ropa";
 const url = "https://www.aquabonlavanderia.com" + path;
-const description = "Valet de ropa en Mar del Plata: lavado, secado y doblado de ropa cotidiana en Aquabon, Gascón 2189. Consultá precio, plazo, retiro y entrega por WhatsApp.";
+const description = "Valet de ropa en Mar del Plata: lavado, secado y doblado en Aquabon, Gascón 2189. Consultá precio, plazo y retiro y entrega por WhatsApp.";
 export const metadata: Metadata = {
   title: "Valet de ropa en Mar del Plata · Lavado, secado y doblado | Aquabon", description,
   alternates: { canonical: path },
