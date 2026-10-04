@@ -74,7 +74,7 @@ export default function Page(){
 
     <h2>¿Cuándo conviene consultar?</h2>
     <p>Si la etiqueta indica limpieza profesional, la prenda es delicada o estructurada, el vino se secó o ya aplicaste calor, evitá sumar productos. En Aquabon recibimos prendas para evaluación de <Link href="/servicios/tintoreria">tintorería</Link> en Gascón 2189, Centro de Mar del Plata. Revisamos etiqueta, tejido, color y tratamientos previos antes de confirmar proceso, plazo y precio.</p>
-    <p>También podés consultar <Link href="/blog/que-prendas-conviene-llevar-a-la-tintoreria">qué prendas conviene llevar a tintorería</Link>, <Link href="/blog/diferencia-entre-lavanderia-y-tintoreria">cómo elegir entre lavandería y tintorería</Link> y la guía para <Link href="/blog/como-sacar-manchas-de-aceite-de-la-ropa">tratar manchas de aceite</Link>.</p>
+    <p>También podés consultar <Link href="/blog/que-prendas-conviene-llevar-a-la-tintoreria">qué prendas conviene llevar a tintorería</Link>, <Link href="/blog/diferencia-entre-lavanderia-y-tintoreria">cómo elegir entre lavandería y tintorería</Link> y las guías para tratar <Link href="/blog/como-sacar-manchas-de-aceite-de-la-ropa">manchas de aceite</Link> y <Link href="/blog/como-sacar-manchas-de-sangre-de-la-ropa">manchas de sangre</Link>.</p>
 
     <h2>Preguntas frecuentes</h2>
     {faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}
