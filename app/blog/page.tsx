@@ -5,7 +5,7 @@ import Breadcrumbs from "../Breadcrumbs";
 import SiteHeader from "../SiteHeader";
 import SiteFooter from "../SiteFooter";
 
-export const metadata:Metadata={title:"Guías para cuidar tu ropa | Aquabon",description:"Guías para cuidar tu ropa: lavado, manchas, acolchados y zapatillas. Consejos de Aquabon, lavandería en Mar del Plata. Consultá por tu prenda.",alternates:{canonical:"/blog"},openGraph:{title:"Guías para cuidar tu ropa | Aquabon",description:"Guías para cuidar tu ropa: lavado, manchas, acolchados y zapatillas. Consejos de Aquabon, lavandería en Mar del Plata. Consultá por tu prenda.",url:"/blog",type:"website",locale:"es_AR"}};
+export const metadata:Metadata={title:"Guías para cuidar tu ropa | Aquabon",description:"Guías para cuidar tu ropa: lavado, manchas, acolchados y zapatillas. Consejos de Aquabon, lavandería en Mar del Plata. Consultá por tu prenda.",alternates:{canonical:"/blog"},openGraph:{title:"Guías para cuidar tu ropa | Aquabon",description:"Guías para cuidar tu ropa: lavado, manchas, acolchados y zapatillas. Consejos de Aquabon, lavandería en Mar del Plata. Consultá por tu prenda.",url:"/blog",type:"website",locale:"es_AR",images:[{url:"/aquabon-fachada.png",width:1092,height:1118,alt:"Fachada de Aquabon Lavandería en Gascón 2189, Mar del Plata"}]}};
 
 const guides=[
   {title:"Símbolos de lavado de ropa: cómo leer la etiqueta",description:"Tina, triángulo, cuadrado, plancha y círculo: una guía visual para interpretar temperaturas, puntos, líneas y tachados.",href:"/blog/simbolos-de-lavado-de-la-ropa",cluster:"CUIDADO DE ROPA",date:"5 OCT",image:"/blog/leer-simbolos-etiqueta-ropa.webp",alt:"Persona revisando la etiqueta de cuidado de una prenda azul antes del lavado"},

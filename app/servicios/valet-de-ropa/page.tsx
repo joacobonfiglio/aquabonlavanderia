@@ -14,7 +14,7 @@ const description = "Valet de ropa en Mar del Plata: lavado, secado y doblado en
 export const metadata: Metadata = {
   title: "Valet de ropa en Mar del Plata · Lavado, secado y doblado | Aquabon", description,
   alternates: { canonical: path },
-  openGraph: { title: "Tu ropa lista. Tu tiempo libre. | Valet Aquabon", description, url: path, type: "website", locale: "es_AR" },
+  openGraph: { title: "Tu ropa lista. Tu tiempo libre. | Valet Aquabon", description, url: path, type: "website", locale: "es_AR", images: [{ url: "/service-still-v2.webp", width: 1024, height: 1536, alt: "Ropa de uso diario doblada junto a toallas y una bolsa de lavado" }] },
 };
 const faqs = [
   { question: "¿Qué es el valet de ropa y qué incluye?", answer: "El valet es el servicio de lavado, secado y doblado de ropa cotidiana. En Aquabon recibimos tu bolsa y te avisamos por WhatsApp cuando la ropa está lista para retirar. El planchado y los tratamientos de prendas especiales se consultan por separado." },
