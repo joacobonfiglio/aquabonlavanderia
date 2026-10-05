@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 const base="https://www.aquabonlavanderia.com";
 const paths=[
+  "/blog/simbolos-de-lavado-de-la-ropa",
   "/blog/como-sacar-manchas-de-sangre-de-la-ropa",
   "","/servicios","/tintoreria-centro-mar-del-plata","/servicios/valet-de-ropa","/servicios/retiro-y-entrega-de-ropa","/servicios/lavado-de-camperas-y-tapados","/servicios/lavado-de-acolchados","/servicios/tintoreria","/servicios/planchado","/servicios/tenido-de-prendas","/servicios/arreglos-y-costura","/servicios/lavado-de-zapatillas",
   "/blog","/blog/como-sacar-manchas-de-vino-de-la-ropa","/blog/como-lavar-un-acolchado-de-plumas","/blog/simbolos-de-lavado-de-un-acolchado","/blog/como-secar-un-acolchado","/blog/cada-cuanto-lavar-un-acolchado","/blog/como-sacar-olor-a-humedad-de-un-acolchado","/blog/diferencia-entre-lavanderia-y-tintoreria","/blog/que-prendas-conviene-llevar-a-la-tintoreria","/blog/como-limpiar-un-tapado-sin-danarlo","/blog/como-limpiar-un-saco","/blog/que-es-la-limpieza-en-seco","/blog/se-pueden-lavar-zapatillas-en-el-lavarropas","/blog/como-secar-zapatillas-sin-deformarlas","/blog/como-sacar-el-olor-de-las-zapatillas","/blog/como-sacar-manchas-de-aceite-de-la-ropa","/blog/como-guardar-la-ropa-de-invierno","/blog/como-evitar-que-la-ropa-se-encoja",
@@ -9,7 +10,8 @@ const paths=[
 ];
 const dates:Record<string,string>={
   "/servicios/valet-de-ropa":"2026-10-02",
-  "/blog":"2026-10-04",
+  "/blog":"2026-10-05",
+  "/blog/simbolos-de-lavado-de-la-ropa":"2026-10-05",
   "/blog/como-sacar-manchas-de-sangre-de-la-ropa":"2026-10-04",
   "/blog/como-sacar-manchas-de-vino-de-la-ropa":"2026-10-03",
   "/tintoreria-centro-mar-del-plata":"2026-09-25",

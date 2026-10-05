@@ -62,7 +62,7 @@ export default function Page(){return <ArticleLayout title={title} description={
 
   <h2 id="dudas">Qué hacer si no entendés la etiqueta</h2>
   <p>Sacale una foto nítida y revisá también la composición del tejido y del relleno. En Aquabon podemos darte una primera orientación por WhatsApp y, al recibir el acolchado, evaluamos tamaño, estado y etiqueta antes de confirmar el proceso. Estamos en Gascón 2189, en el centro de Mar del Plata.</p>
-  <p>Si tu acolchado es de plumas, también podés consultar nuestra guía sobre <Link href="/blog/como-lavar-un-acolchado-de-plumas">cómo lavar un acolchado de plumas sin dañarlo</Link>.</p>
+  <p>Para conocer el sistema completo, consultá la guía de <Link href="/blog/simbolos-de-lavado-de-la-ropa">símbolos de lavado de ropa</Link>. Si tu acolchado es de plumas, también podés ver <Link href="/blog/como-lavar-un-acolchado-de-plumas">cómo lavarlo sin dañarlo</Link>.</p>
 
   <h2>Preguntas frecuentes</h2>
   <h3>¿El número dentro de la tina es la temperatura recomendada?</h3><p>Es la temperatura máxima permitida. Podés usar una menor si el programa, el detergente y el nivel de suciedad lo permiten, pero no deberías superarla.</p>
