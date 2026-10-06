@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 const base="https://www.aquabonlavanderia.com";
 const paths=[
+  "/blog/como-sacar-maquillaje-de-la-ropa","/empresas/lavanderia-centros-de-estetica",
   "/blog/simbolos-de-lavado-de-la-ropa",
   "/blog/como-sacar-manchas-de-sangre-de-la-ropa",
   "","/servicios","/tintoreria-centro-mar-del-plata","/servicios/valet-de-ropa","/servicios/retiro-y-entrega-de-ropa","/servicios/lavado-de-camperas-y-tapados","/servicios/lavado-de-acolchados","/servicios/tintoreria","/servicios/planchado","/servicios/tenido-de-prendas","/servicios/arreglos-y-costura","/servicios/lavado-de-zapatillas",
@@ -9,8 +10,10 @@ const paths=[
   "/nosotros","/lavanderia-mar-del-plata","/lavanderia-centro-mar-del-plata","/empresas","/empresas/lavanderia-airbnb","/empresas/lavanderia-hoteles","/empresas/lavanderia-restaurantes","/empresas/lavado-ropa-deportiva"
 ];
 const dates:Record<string,string>={
+  "/blog/como-sacar-maquillaje-de-la-ropa":"2026-10-06",
+  "/empresas/lavanderia-centros-de-estetica":"2026-10-06",
+  "/blog":"2026-10-06",
   "/servicios/valet-de-ropa":"2026-10-02",
-  "/blog":"2026-10-05",
   "/blog/simbolos-de-lavado-de-la-ropa":"2026-10-05",
   "/blog/como-sacar-manchas-de-sangre-de-la-ropa":"2026-10-04",
   "/blog/como-sacar-manchas-de-vino-de-la-ropa":"2026-10-03",
