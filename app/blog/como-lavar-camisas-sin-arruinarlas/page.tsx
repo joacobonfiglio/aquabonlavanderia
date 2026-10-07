@@ -23,7 +23,7 @@ export const metadata:Metadata={
 
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
-  return <ArticleLayout title={title} description={description} slug="como-lavar-camisas-sin-arruinarlas" date="2026-10-07" readingTime="7 MIN DE LECTURA" cluster="Camisas" image="/blog/preparar-camisa-antes-lavar.webp" service="planchado">
+  return <ArticleLayout title={title} description={description} slug="como-lavar-camisas-sin-arruinarlas" date="2026-10-07" readingTime="7 MIN DE LECTURA" cluster="Camisas" image="/blog/preparar-camisa-antes-lavar.webp" service="valet">
     <p className="article-lead"><strong>Una camisa se cuida antes de encender el lavarropas.</strong> Leé la etiqueta, separá por color y tejido, desabrochá cuello y puños, retirale las ballenas removibles y tratá las zonas más usadas sin frotar de más. Después elegí lavado, secado y planchado según esa prenda, no con una receta única.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#antes">Antes de lavar</a></li><li><a href="#lavado">Ciclo y temperatura</a></li><li><a href="#tejidos">Qué cambia según el tejido</a></li><li><a href="#secado">Secado y planchado</a></li><li><a href="#errores">Errores frecuentes</a></li></ol></nav>
 
