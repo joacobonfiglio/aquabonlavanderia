@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 const base="https://www.aquabonlavanderia.com";
 const paths=[
+  "/blog/como-lavar-ropa-delicada",
   "/blog/como-lavar-camisas-sin-arruinarlas",
   "/blog/como-sacar-maquillaje-de-la-ropa","/empresas/lavanderia-centros-de-estetica",
   "/blog/simbolos-de-lavado-de-la-ropa",
@@ -11,10 +12,11 @@ const paths=[
   "/nosotros","/lavanderia-mar-del-plata","/lavanderia-centro-mar-del-plata","/empresas","/empresas/lavanderia-airbnb","/empresas/lavanderia-hoteles","/empresas/lavanderia-restaurantes","/empresas/lavado-ropa-deportiva"
 ];
 const dates:Record<string,string>={
+  "/blog/como-lavar-ropa-delicada":"2026-10-08",
   "/blog/como-lavar-camisas-sin-arruinarlas":"2026-10-07",
   "/blog/como-sacar-maquillaje-de-la-ropa":"2026-10-06",
   "/empresas/lavanderia-centros-de-estetica":"2026-10-06",
-  "/blog":"2026-10-07",
+  "/blog":"2026-10-08",
   "/servicios/valet-de-ropa":"2026-10-02",
   "/blog/simbolos-de-lavado-de-la-ropa":"2026-10-05",
   "/blog/como-sacar-manchas-de-sangre-de-la-ropa":"2026-10-04",
