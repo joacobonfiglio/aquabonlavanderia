@@ -45,6 +45,19 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
       { title: "Lavado más planchado", copy: "El valet incluye lavado, secado y doblado. Para sumar planchado, solicitalo de forma específica al hacer el pedido." }
     ], closing: ["Una camisa pendiente.", "Una tarea resuelta."], variant: "detail"
   },
+  "lavado-y-planchado-de-camisas": {
+    name: "Lavado y planchado de camisas", title: ["Camisas cuidadas.", "Una tarea menos."],
+    image: "/blog/preparar-camisa-antes-lavar.webp", alt: "Preparación de una camisa celeste antes de su lavado y planchado",
+    tag: "LAVADO Y TERMINACIÓN EN UN PEDIDO", caption: "Cuello · Puños · Tejido · Etiqueta",
+    heading: ["Cada camisa se revisa.", "Cada terminación se confirma."],
+    intro: "Recibimos tus camisas en Gascón 2189 y revisamos tejido, etiqueta, manchas y detalles antes de confirmar lavado, planchado, precio y plazo.",
+    prepare: "Contanos cuántas camisas son y señalá manchas o cuidados particulares. Traelas con su etiqueta y avisá si ya aplicaste algún producto.",
+    guideTitle: "Qué revisamos antes de comenzar", guide: [
+      { title: "Cuello, puños y axilas", copy: "Inspeccionamos las zonas de mayor roce y acumulación. No prometemos remover toda marca: el resultado depende del tejido y su antigüedad." },
+      { title: "Tejido y color", copy: "Algodón, lino, mezclas o fibras delicadas requieren decisiones diferentes de lavado, secado y temperatura de plancha." },
+      { title: "Lavado más terminación", copy: "Este pedido combina servicios de manera específica. El planchado no se incluye automáticamente en el valet de ropa." }
+    ], closing: ["Tus camisas, listas.", "Primero, revisémoslas."], variant: "detail"
+  },
   "tenido-de-prendas": {
     name: "Teñido de prendas", title: ["Otra oportunidad", "para tu color."],
     image: "/services/tenido-v3.webp", alt: "Prenda de algodón en un baño de tinte azul con una herramienta de madera",

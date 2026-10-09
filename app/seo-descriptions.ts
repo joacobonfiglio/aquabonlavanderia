@@ -8,6 +8,7 @@ export const seoDescriptions: Record<string, string> = {
   "/servicios/lavado-de-acolchados": "Lavado de acolchados en Mar del Plata. Aquabon lava y seca acolchados, frazadas y cubrecamas según tejido y relleno. Consultá por WhatsApp.",
   "/servicios/tintoreria": "Tintorería en Mar del Plata con recepción en Aquabon, Gascón 2189. Coordinamos el cuidado de sacos, vestidos y tapados. Consultá tu prenda.",
   "/servicios/planchado": "Servicio de planchado en Mar del Plata. En Aquabon recibimos camisas y otras prendas, revisamos su tejido y avisamos por WhatsApp cuando están listas.",
+  "/servicios/lavado-y-planchado-de-camisas": "Lavado y planchado de camisas en Mar del Plata, con recepción en Gascón 2189. Evaluamos tejido, manchas y etiqueta antes de confirmar precio y plazo.",
   "/servicios/tenido-de-prendas": "Teñido de prendas en Mar del Plata. En Aquabon evaluamos tejido y color para recuperar o cambiar el tono de tu ropa. Consultá con una foto.",
   "/servicios/arreglos-y-costura": "Arreglos y costura de ropa en Mar del Plata. En Aquabon recibimos prendas para pequeños ajustes y reparaciones. Consultá viabilidad y plazo.",
   "/servicios/lavado-de-zapatillas": "Lavado de zapatillas en Mar del Plata. En Aquabon revisamos el material y realizamos limpieza y secado según cada par. Consultá por WhatsApp.",

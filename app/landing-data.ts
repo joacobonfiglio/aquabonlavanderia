@@ -106,7 +106,28 @@ export const pages: Record<string,LandingData> = {
 ],{sections:[
  {heading:"Planchado sin sumar otra tarea a tu día",text:"Podés dejar las prendas en nuestro local del Centro y retirarlas cuando te avisemos. Es una opción práctica para camisas y ropa que necesita una terminación más cuidada."},
  {heading:"Un servicio distinto del valet",text:"El valet devuelve la ropa lavada, seca y doblada. Si necesitás planchado, pedilo de manera específica para que podamos revisar las prendas y confirmar el trabajo."}
-]}),
+],related:[{label:"Lavado y planchado de camisas",href:"/servicios/lavado-y-planchado-de-camisas"},{label:"Guía para lavar camisas",href:"/blog/como-lavar-camisas-sin-arruinarlas"},{label:"Valet de ropa",href:"/servicios/valet-de-ropa"},{label:"Todos los servicios",href:"/servicios"}]}),
+"/servicios/lavado-y-planchado-de-camisas":base("/servicios/lavado-y-planchado-de-camisas","Lavado y planchado de camisas en Mar del Plata","Recibimos camisas en Gascón 2189 para evaluar lavado y terminación según tejido, etiqueta, manchas y cantidad. Confirmamos proceso, precio y plazo antes de comenzar.","whatsapp_lavado_planchado_camisas","Hola Aquabon, quería consultar por el lavado y planchado de camisas.",[
+ {title:"Revisión antes del lavado",copy:"Comprobamos tejido, color, etiqueta, cuello, puños, manchas, botones y cualquier indicación especial antes de confirmar el servicio."},
+ {title:"Lavado según cada camisa",copy:"Definimos un proceso compatible con la prenda. Si la etiqueta o la estructura requieren otro cuidado, te lo indicamos antes de aceptar el trabajo."},
+ {title:"Planchado solicitado aparte",copy:"La terminación se confirma como parte de este pedido específico. No está incluida automáticamente en el valet de ropa."}
+],[
+ {question:"¿El servicio incluye lavado y planchado?",answer:"Se pueden solicitar ambos para las camisas, sujetos a revisión previa. Confirmamos qué proceso admite cada prenda, el precio y el plazo antes de comenzar."},
+ {question:"¿Es lo mismo que el valet de ropa?",answer:"No. El valet incluye lavado, secado y doblado de ropa cotidiana. El planchado no se incluye automáticamente y debe pedirse de forma específica."},
+ {question:"¿Puedo pedir solamente planchado?",answer:"Sí. Para planchado sin lavado consultá el servicio general de planchado; revisamos tejido, etiqueta, cantidad y estado antes de confirmar."},
+ {question:"¿Reciben camisas delicadas o con manchas?",answer:"Las recibimos para evaluarlas. Seda, viscosa, adornos, estructura y manchas difíciles pueden requerir otro cuidado o presentar límites que explicamos antes de aceptar."},
+ {question:"¿Garantizan sacar las manchas de cuello y axilas?",answer:"No. El resultado depende del origen, la antigüedad, el tejido, el color y los productos aplicados previamente."},
+ {question:"¿Cuánto cuesta y cuánto demora?",answer:"Depende de la cantidad, el tejido, el estado y el proceso necesario. Te informamos precio y plazo después de revisar las camisas."}
+],{title:"Lavado y planchado de camisas en Mar del Plata | Aquabon",description:"Lavado y planchado de camisas en Mar del Plata, con recepción en Gascón 2189. Evaluamos tejido, manchas y etiqueta antes de confirmar precio y plazo.",eyebrow:"CAMISAS · LAVADO Y TERMINACIÓN",cta:"Consultar por mis camisas",showLocation:true,steps:[
+ {title:"Contanos cuántas son",copy:"Escribinos por WhatsApp o acercate con las camisas y cualquier necesidad particular."},
+ {title:"Revisamos cada prenda",copy:"Comprobamos etiqueta, tejido, color, manchas, botones, cuello y puños antes de definir el proceso."},
+ {title:"Confirmamos el pedido",copy:"Te indicamos qué podemos realizar, sus límites, el precio y el plazo antes de comenzar."},
+ {title:"Te avisamos al terminar",copy:"Hacemos el seguimiento y te contactamos por WhatsApp cuando las camisas están disponibles para retirar."}
+],sections:[
+ {heading:"Una búsqueda específica, un pedido específico",text:"Esta página cubre el pedido combinado de lavado y terminación de camisas. Si ya las tenés limpias y necesitás únicamente quitar arrugas, usá el servicio general de planchado."},
+ {heading:"Cuello, puños y axilas se revisan antes",text:"Esas zonas suelen concentrar roce, desodorante y suciedad. Las inspeccionamos antes de lavar, pero no prometemos remover toda marca: el resultado depende del tejido, el color y la antigüedad."},
+ {heading:"La etiqueta decide el cuidado",text:"Algodón, lino, mezclas, seda o prendas estructuradas no responden igual. Si una camisa requiere tintorería u otro tratamiento, te lo explicamos antes de aceptar el pedido."}
+],related:[{label:"Solo planchado",href:"/servicios/planchado"},{label:"Guía: cómo lavar camisas",href:"/blog/como-lavar-camisas-sin-arruinarlas"},{label:"Manchas de transpiración",href:"/blog/como-sacar-manchas-de-transpiracion"},{label:"Valet de ropa",href:"/servicios/valet-de-ropa"}]}),
 "/servicios/tenido-de-prendas":base("/servicios/tenido-de-prendas","Teñido de prendas en Mar del Plata","Valoramos la recuperación o el cambio de color según la composición, el color original y el estado de la prenda.","whatsapp_tenido","Hola Aquabon, quería consultar por el teñido de una prenda.",[
  {title:"Valoración del tejido",copy:"La composición determina cuánto puede absorber el color y qué resultado es razonable esperar."},
  {title:"Recuperación de color",copy:"Evaluamos prendas desteñidas o con color apagado antes de aceptar el trabajo."},
