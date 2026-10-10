@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 const base="https://www.aquabonlavanderia.com";
 const paths=[
+  "/blog/como-lavar-jeans-sin-perder-color",
   "/blog/como-sacar-manchas-de-transpiracion","/servicios/lavado-y-planchado-de-camisas",
   "/blog/como-lavar-ropa-delicada",
   "/blog/como-lavar-camisas-sin-arruinarlas",
@@ -13,13 +14,14 @@ const paths=[
   "/nosotros","/lavanderia-mar-del-plata","/lavanderia-centro-mar-del-plata","/empresas","/empresas/lavanderia-airbnb","/empresas/lavanderia-hoteles","/empresas/lavanderia-restaurantes","/empresas/lavado-ropa-deportiva"
 ];
 const dates:Record<string,string>={
+  "/blog/como-lavar-jeans-sin-perder-color":"2026-10-10",
   "/blog/como-sacar-manchas-de-transpiracion":"2026-10-09",
   "/servicios/lavado-y-planchado-de-camisas":"2026-10-09",
   "/blog/como-lavar-ropa-delicada":"2026-10-08",
   "/blog/como-lavar-camisas-sin-arruinarlas":"2026-10-07",
   "/blog/como-sacar-maquillaje-de-la-ropa":"2026-10-06",
   "/empresas/lavanderia-centros-de-estetica":"2026-10-06",
-  "/blog":"2026-10-09",
+  "/blog":"2026-10-10",
   "/servicios/valet-de-ropa":"2026-10-02",
   "/blog/simbolos-de-lavado-de-la-ropa":"2026-10-05",
   "/blog/como-sacar-manchas-de-sangre-de-la-ropa":"2026-10-04",
