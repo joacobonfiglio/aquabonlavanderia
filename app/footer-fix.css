@@ -8,3 +8,5 @@
 .aq-site .site-footer.seo-footer .site-footer-links a:hover{color:#154ae9;text-decoration:underline;text-underline-offset:4px}
 .aq-site .site-footer.seo-footer a:focus-visible{outline:3px solid #eea52a;outline-offset:4px}
 @media(max-width:760px){.aq-site .site-footer.seo-footer{padding-bottom:110px}}
+
+@media(min-width:901px){.site-footer[data-business="false"] .site-footer-links{grid-template-columns:repeat(3,minmax(140px,1fr))}}

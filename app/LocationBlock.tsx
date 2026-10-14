@@ -1,3 +1,4 @@
+import TrackedLink from "./TrackedLink";
 const directionsUrl =
   "https://www.google.com/maps/dir/?api=1&destination=Gasc%C3%B3n+2189%2C+Mar+del+Plata%2C+Argentina";
 const mapEmbedUrl =
@@ -9,16 +10,16 @@ export default function LocationBlock() {
       <div className="location-copy">
         <p className="eyebrow">ENCONTRANOS FÁCIL</p>
         <h2>
-          Estamos acá,
+          Lavandería en el centro,
           <em>cerca tuyo</em>
         </h2>
         <p>
           Traé tu ropa a Gascón 2189, Mar del Plata. Si tenés dudas sobre una
           prenda, la vemos juntos en el local.
         </p>
-        <a href={directionsUrl} target="_blank" rel="noreferrer">
+        <TrackedLink href={directionsUrl} target="_blank" rel="noreferrer" event="directions_click" placement="location_block">
           ABRIR RUTA EN GOOGLE MAPS <span aria-hidden="true">↗</span>
-        </a>
+        </TrackedLink>
         <div className="location-details">
           <div>
             <span>DIRECCIÓN</span>
@@ -38,9 +39,9 @@ export default function LocationBlock() {
           referrerPolicy="no-referrer-when-downgrade"
           allowFullScreen
         />
-        <a href={directionsUrl} target="_blank" rel="noreferrer">
+        <TrackedLink href={directionsUrl} target="_blank" rel="noreferrer" event="directions_click" placement="location_block">
           GASCÓN 2189 <span aria-hidden="true">↗</span>
-        </a>
+        </TrackedLink>
       </div>
     </section>
   );

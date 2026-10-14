@@ -5,7 +5,7 @@ import ArticleLayout from "../ArticleLayout";
 
 const title="Cómo evitar que la ropa destiña al lavarla";
 const description="Cómo detectar una prenda con color inestable, separar la carga y actuar si ya hubo transferencia de tinte sin empeorar el problema.";
-const path="/blog/como-evitar-que-la-ropa-destina";
+const path="/blog/como-evitar-que-la-ropa-pierda-color";
 const faqs=[
   {question:"¿Cómo saber si una prenda destiñe?",answer:"Revisá primero la etiqueta. Si es lavable y tenés dudas, probá una costura interior con la solución y el método indicados por el producto de lavado: si el paño blanco toma color o la zona cambia, lavá la prenda por separado."},
   {question:"¿La ropa nueva se debe lavar separada?",answer:"Las prendas nuevas de colores intensos pueden liberar exceso de tinte durante los primeros lavados. Si no conocés su estabilidad, lavalas solas o con colores muy similares, siempre según la etiqueta."},
@@ -24,7 +24,7 @@ export const metadata:Metadata={
 
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
-  return <ArticleLayout title={title} description={description} slug="como-evitar-que-la-ropa-destina" date="2026-10-11" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image="/blog/probar-prenda-que-destine.webp" service="valet">
+  return <ArticleLayout title={title} description={description} slug="como-evitar-que-la-ropa-pierda-color" date="2026-10-11" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image="/blog/probar-prenda-que-destine.webp" service="valet">
     <p className="article-lead"><strong>Para evitar que una prenda tiña a las demás, identificá los colores de riesgo antes de cargar el lavarropas.</strong> Leé la etiqueta, separá blancos, claros, colores intensos y oscuros, probá la estabilidad en una costura interior cuando haya dudas y lavá sola una prenda nueva que transfiera color.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#por-que">Por qué destiñe</a></li><li><a href="#prueba">Cómo hacer una prueba</a></li><li><a href="#separar">Cómo separar la ropa</a></li><li><a href="#lavado">Durante el lavado</a></li><li><a href="#transferencia">Si ya se tiñó</a></li><li><a href="#errores">Errores frecuentes</a></li></ol></nav>
 
