@@ -35,7 +35,7 @@ export default function Page(){return <ArticleLayout title={title} description={
 
   <h2 id="significado">Qué significa cada símbolo de la etiqueta</h2>
   <section className="care-symbol-grid" aria-label="Resumen visual de los símbolos de cuidado">
-    {symbols.map(symbol=><article key={symbol.kind}><div><SymbolMark kind={symbol.kind}/></div><h3>{symboltitle}</h3><p>{symbol.copy}</p></article>)}
+    {symbols.map(symbol=><article key={symbol.kind}><div><SymbolMark kind={symbol.kind}/></div><h3>{symbol.title}</h3><p>{symbol.copy}</p></article>)}
   </section>
 
   <div className="article-callout"><strong>Regla visual rápida</strong><p>Los puntos regulan temperatura; las líneas debajo del símbolo reducen la intensidad del proceso; una cruz significa “no realizar este tratamiento”. Si aparecen instrucciones escritas junto a los símbolos, también forman parte de la indicación del fabricante.</p></div>
