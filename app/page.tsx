@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "./Img";
 import Link from "next/link";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";

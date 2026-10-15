@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "./Img";
 import Link from "next/link";
 import type { LandingData } from "./SeoLanding";
 import type { ServiceDesign } from "./service-design";

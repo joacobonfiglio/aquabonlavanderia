@@ -1,14 +1,10 @@
-"use client";
-
 import type { AnchorHTMLAttributes, ReactNode } from "react";
+import { whatsappHref } from "./site";
 
+// Link a WhatsApp con mensaje precargado. Sin JavaScript propio: el evento de analítica
+// lo registra un único listener global (ver WhatsAppContact).
 export default function WhatsAppLink({ message, event, children, ...props }: {
   message: string; event: string; children: ReactNode;
 } & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href">) {
-  const href = "https://wa.me/5492235607738?text=" + encodeURIComponent(message);
-  return <a {...props} href={href} target="_blank" rel="noreferrer" data-event={event}
-    onClick={() => {
-      const gtag = (window as typeof window & { gtag?: (...args: unknown[]) => void }).gtag;
-      gtag?.("event", event, { event_category: "whatsapp", link_url: href });
-    }}>{children}</a>;
+  return <a {...props} href={whatsappHref(message)} target="_blank" rel="noreferrer" data-event={event}>{children}</a>;
 }
