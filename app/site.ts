@@ -37,17 +37,17 @@ export function whatsappHref(message: string) {
 
 export type CareSymbolName = "wash" | "tumble" | "dryclean" | "iron" | "handwash" | "line";
 
-export const services: { name: string; href: string; short: string; symbol?: CareSymbolName }[] = [
-  { name: "Valet de ropa", href: "/servicios/valet-de-ropa", short: "Lavado, secado y doblado de la ropa de todos los días.", symbol: "wash" },
-  { name: "Lavado de acolchados", href: "/servicios/lavado-de-acolchados", short: "Acolchados, cubrecamas y frazadas, según su relleno.", symbol: "tumble" },
-  { name: "Tintorería", href: "/servicios/tintoreria", short: "Sacos, trajes, vestidos y prendas especiales.", symbol: "dryclean" },
-  { name: "Camperas y tapados", href: "/servicios/lavado-de-camperas-y-tapados", short: "Cada abrigo, por fuera y por dentro." },
-  { name: "Planchado", href: "/servicios/planchado", short: "Prendas listas para usar.", symbol: "iron" },
-  { name: "Lavado y planchado de camisas", href: "/servicios/lavado-y-planchado-de-camisas", short: "Lavado y terminación en un mismo pedido." },
-  { name: "Lavado de zapatillas", href: "/servicios/lavado-de-zapatillas", short: "Limpieza según el material de tu par." },
-  { name: "Teñido de prendas", href: "/servicios/tenido-de-prendas", short: "Recuperar o cambiar el color, si la prenda lo permite." },
-  { name: "Arreglos y costura", href: "/servicios/arreglos-y-costura", short: "Ajustes y reparaciones para seguir usándola." },
-  { name: "Retiro y entrega", href: "/servicios/retiro-y-entrega-de-ropa", short: "Consultá si llegamos a tu zona." },
+export const services: { name: string; href: string; short: string; symbol?: CareSymbolName; image: string; alt: string }[] = [
+  { name: "Valet de ropa", href: "/servicios/valet-de-ropa", short: "Lavado, secado y doblado de la ropa de todos los días.", symbol: "wash", image: "/service-still-v2.webp", alt: "Ropa de todos los días lavada y doblada" },
+  { name: "Lavado de acolchados", href: "/servicios/lavado-de-acolchados", short: "Acolchados, cubrecamas y frazadas, según su relleno.", symbol: "tumble", image: "/blog/revisar-cuando-lavar-acolchado.webp", alt: "Acolchado blanco revisado antes del lavado" },
+  { name: "Tintorería", href: "/servicios/tintoreria", short: "Sacos, trajes, vestidos y prendas especiales.", symbol: "dryclean", image: "/blog/revisar-prendas-tintoreria.webp", alt: "Saco y vestido revisados antes de tintorería" },
+  { name: "Camperas y tapados", href: "/servicios/lavado-de-camperas-y-tapados", short: "Cada abrigo, por fuera y por dentro.", image: "/blog/revisar-tapado-etiqueta-forro.webp", alt: "Tapado azul con la etiqueta del forro a la vista" },
+  { name: "Planchado", href: "/servicios/planchado", short: "Prendas listas para usar.", symbol: "iron", image: "/services/planchado-v3.webp", alt: "Plancha de vapor sobre una camisa celeste" },
+  { name: "Lavado y planchado de camisas", href: "/servicios/lavado-y-planchado-de-camisas", short: "Lavado y terminación en un mismo pedido.", image: "/blog/preparar-camisa-antes-lavar.webp", alt: "Camisa celeste preparada antes del lavado" },
+  { name: "Lavado de zapatillas", href: "/servicios/lavado-de-zapatillas", short: "Limpieza según el material de tu par.", image: "/blog/revisar-zapatillas-antes-lavar.webp", alt: "Zapatillas blancas revisadas antes de lavarlas" },
+  { name: "Teñido de prendas", href: "/servicios/tenido-de-prendas", short: "Recuperar o cambiar el color, si la prenda lo permite.", image: "/services/tenido-v3.webp", alt: "Prenda en un baño de tinte azul" },
+  { name: "Arreglos y costura", href: "/servicios/arreglos-y-costura", short: "Ajustes y reparaciones para seguir usándola.", image: "/services/costura-v3.webp", alt: "Máquina de coser sobre el dobladillo de un jean" },
+  { name: "Retiro y entrega", href: "/servicios/retiro-y-entrega-de-ropa", short: "Consultá si llegamos a tu zona.", image: "/services/retiro-v3.webp", alt: "Entrega de una bolsa de ropa en la puerta de una casa" },
 ];
 
 export const businessLinks = [

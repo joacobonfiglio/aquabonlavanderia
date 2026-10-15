@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import WhatsAppContact from "./WhatsAppContact";
+import Motion from "./Motion";
 import JsonLd from "./JsonLd";
 import { SITE_URL, business, hours } from "./site";
 import "./aquabon.css";
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <JsonLd data={businessSchema} />
       {children}
       <WhatsAppContact />
+      <Motion />
     </body>
   </html>;
 }

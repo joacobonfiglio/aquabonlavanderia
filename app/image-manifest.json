@@ -305,6 +305,24 @@
    1024
   ]
  },
+ "/laundry-hero-v2.webp": {
+  "width": 1536,
+  "height": 1024,
+  "widths": [
+   480,
+   960,
+   1400
+  ]
+ },
+ "/laundry-detail-v2.webp": {
+  "width": 1122,
+  "height": 1402,
+  "widths": [
+   480,
+   960,
+   1122
+  ]
+ },
  "/aquabon-fachada.png": {
   "width": 1092,
   "height": 1118,
