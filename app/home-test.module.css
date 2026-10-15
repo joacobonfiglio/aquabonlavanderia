@@ -15,5 +15,3 @@
 @media(prefers-reduced-motion:reduce){.spin{animation:none}.whiteButton,.blueButton,.serviceLabels button,.clothesline a{transition:none}.whiteButton:hover,.blueButton:hover,.clothesline a:hover{transform:none}}
 
 .reviewsEmbed{grid-column:1/-1;min-width:0;width:100%;min-height:320px}.reviewsEmbed>div{width:100%}@media(max-width:700px){.reviewsEmbed{min-height:380px}}
-/* The section already has its own Spanish title; keep provider attribution intact. */
-.reviewsEmbed :global(.es-widget-title-header){display:none!important}
