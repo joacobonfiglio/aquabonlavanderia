@@ -38,3 +38,7 @@ Se encontraron nueve PNG que no pueden decodificarse, incluido el acolchado de l
 No quedan referencias a fotografías del local en componentes, metadatos Open Graph ni datos estructurados. Se conserva dirección, horarios y enlace a Maps en formato textual. El archivo de fachada anterior ya no se utiliza.
 
 Validación posterior al rediseño: TypeScript, Next.js build y las 10 pruebas SEO/HTTP pasan. La revisión visual y de interacción se realiza sobre el nuevo preview cuando esté disponible.
+
+## Widget conectado de reseñas
+
+Integrado el widget de Elfsight proporcionado por el propietario: 6407271c-6500-44d6-b860-d0a83ba7ac23. Se sustituye el componente local sin datos por el embed conectado, con carga del script tras la hidratación mediante next/script y carga diferida del widget mediante el atributo oficial. Mantiene el enlace a Google si un bloqueador impide cargar terceros. La sincronización, reseñas, fotos y configuración se gestionan en Elfsight; no se almacenan ni inventan reseñas dentro del repositorio.

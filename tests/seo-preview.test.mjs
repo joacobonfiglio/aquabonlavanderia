@@ -39,3 +39,11 @@ test('sitemap has unique working URLs and assigns maximum priority to home', asy
  const states = await Promise.all(urls.map(async url=>[url,(await fetch(base+new URL(url).pathname)).status]));
  for (const [url,status] of states) assert.equal(status,200,url);
 });
+
+test('home includes the connected Elfsight widget once and keeps a Google source link', async () => {
+ const html = await (await fetch(base+'/')).text();
+ assert.equal((html.match(/class="elfsight-app-6407271c-6500-44d6-b860-d0a83ba7ac23"/g)||[]).length,1);
+ assert.ok(html.includes('data-elfsight-app-lazy'));
+ assert.ok(html.includes('https://elfsightcdn.com/platform.js'));
+ assert.ok(html.includes('https://share.google/L9kn23nPWPLthwKMR'));
+});
