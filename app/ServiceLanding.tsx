@@ -1,19 +1,25 @@
-import Image from "./Img";
 import Link from "next/link";
 import type { LandingData } from "./SeoLanding";
 import type { ServiceDesign } from "./service-design";
-import Breadcrumbs from "./Breadcrumbs";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import WhatsAppLink from "./WhatsAppLink";
-import LocationBlock from "./LocationBlock";
 import Ticket from "./Ticket";
 import Faq from "./Faq";
 import JsonLd from "./JsonLd";
-import { CareSymbol, WhatsAppIcon } from "./ui";
-import { SITE_URL, business, hours } from "./site";
+import Img from "./Img";
+import { Clothesline, GuideCards, PageHero, Process, Ribbon, type Step } from "./Blocks";
+import { WhatsAppIcon } from "./ui";
+import { SITE_URL, business, services } from "./site";
 import { guide } from "./guides";
 import { seoDescriptions } from "./seo-descriptions";
+
+const check = <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+
+function stepImages(n: number, main: string) {
+  if (n >= 4) return ["/services/retiro-v3.webp", "/blog/leer-simbolos-etiqueta-ropa.webp", "/blog/medir-detergente-para-lavar.webp", "/laundry-hero-v2.webp"];
+  return [main, "/blog/leer-simbolos-etiqueta-ropa.webp", "/laundry-hero-v2.webp"];
+}
 
 export default function ServiceLanding({ data, design }: { data: LandingData; design: ServiceDesign }) {
   const url = SITE_URL + data.path;
@@ -26,93 +32,79 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
     areaServed: { "@type": "City", name: "Mar del Plata" },
     availableChannel: { "@type": "ServiceChannel", serviceLocation: { "@id": SITE_URL + "/#business" }, servicePhone: business.phoneE164 },
   };
-  const relatedServices = (data.related ?? []).filter(r => r.href.startsWith("/servicios") || r.href.startsWith("/tintoreria") || r.href.startsWith("/empresas"));
   const relatedGuides = design.guides.map(guide);
+  const sideImage = relatedGuides[0]?.image ?? "/laundry-detail-v2.webp";
+  const imgs = stepImages(data.steps.length, design.image);
+  const steps: Step[] = data.steps.map((s, i) => ({ ...s, image: imgs[i % imgs.length], alt: "" }));
+  const others = services.filter(s => s.href !== data.path);
+  const words = data.items.every(i => i.title.length <= 28) ? data.items.map(i => i.title) : [design.name, "Mar del Plata", "Gascón 2189"];
   return <>
-    <SiteHeader event={data.event + "_header"} />
-    <main id="contenido">
-      <section className="phero section--espuma" aria-labelledby="servicio-titulo" data-cta-zone="">
+    <SiteHeader event={data.event + "_header"} overlay />
+    <main id="contenido" className="page">
+      <PageHero
+        crumbs={data.crumbs}
+        kicker={design.title.join(" ")}
+        title={data.h1}
+        lead={data.intro}
+        image={{ src: design.image, alt: design.alt }}
+        chip={{ symbol: design.symbol, text: "Te avisamos por WhatsApp" }}
+        actions={<>
+          <WhatsAppLink className="btn btn--azul btn--xl" message={data.message} event={data.event} data-primary-cta=""><WhatsAppIcon />{data.cta}</WhatsAppLink>
+          <a className="btn btn--outline-light btn--xl" href="#como-funciona">Cómo funciona</a>
+        </>}
+      />
+      <Ribbon words={words} />
+
+      <section className="p-sec" aria-labelledby="incluye-titulo" id="que-incluye">
         <div className="wrap">
-          <Breadcrumbs items={data.crumbs} />
-          <div className="phero__grid">
-            <div>
-              <h1 id="servicio-titulo">{data.h1}</h1>
-              <p className="phero__lead">{data.intro}</p>
-              <div className="actions">
-                <WhatsAppLink className="btn" message={data.message} event={data.event} data-primary-cta=""><WhatsAppIcon />{data.cta}</WhatsAppLink>
-                <a className="link" href="#como-funciona">Cómo funciona</a>
-              </div>
-              <dl className="facts">
-                <div><dt>Recepción</dt><dd>{business.street}, {business.city}</dd></div>
-                {hours.map(h => <div key={h.label}><dt>{h.short}</dt><dd>{h.text}</dd></div>)}
-              </dl>
-            </div>
-            <figure>
-              <Image src={design.image} alt={design.alt} width={1200} height={900} sizes="(max-width: 960px) 100vw, 480px" priority />
-              {design.symbol ? <figcaption><CareSymbol name={design.symbol} />{design.name}</figcaption> : null}
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="incluye-titulo" id="que-incluye">
-        <div className="wrap split">
-          <div>
+          <div className="h-head h-head--split" data-reveal>
             <h2 id="incluye-titulo">Qué incluye</h2>
-            <p className="muted" style={{ marginTop: 12 }}>{design.intro}</p>
+            <p>{design.intro}</p>
           </div>
-          <ul className="cards cards--2">{data.items.map(item => <li key={item.title}><h3>{item.title}</h3><p>{item.copy}</p></li>)}</ul>
+          <ul className="feature-grid">
+            {data.items.map((item, i) => <li key={item.title} data-reveal style={{ transitionDelay: `${i * 70}ms` }}><b>{check}</b><h3>{item.title}</h3><p>{item.copy}</p></li>)}
+          </ul>
         </div>
       </section>
 
-      <section className="section section--espuma" aria-labelledby="prendas-titulo">
-        <div className="wrap split">
+      <section className="p-sec p-sec--espuma" aria-labelledby="prendas-titulo">
+        <div className="wrap split-media">
+          <div className="split-media__img" data-reveal><Img src={sideImage} alt={relatedGuides[0]?.alt ?? ""} width={1000} height={1250} sizes="(max-width: 960px) 100vw, 460px" /></div>
           <div>
-            <h2 id="prendas-titulo">Para qué prendas sirve</h2>
-            {data.sections.map(s => <div key={s.heading} style={{ marginTop: 20 }}><h3 style={{ fontSize: "1.05rem" }}>{s.heading}</h3><p className="muted" style={{ marginTop: 6 }}>{s.text}</p></div>)}
+            <div className="h-head" data-reveal><h2 id="prendas-titulo">Para qué prendas sirve</h2>{data.sections[0] ? <p>{data.sections[0].text}</p> : null}</div>
+            <ul className="fit-cards" data-reveal>{design.guide.map(g => <li key={g.title}><h3>{g.title}</h3><p>{g.copy}</p></li>)}</ul>
+            <div className="note" data-reveal><strong>Antes de traerlo</strong>{design.prepare}</div>
           </div>
-          <ul className="cards">{design.guide.map(g => <li key={g.title}><h3>{g.title}</h3><p>{g.copy}</p></li>)}</ul>
         </div>
       </section>
 
-      <section className="section" aria-labelledby="como-titulo" id="como-funciona">
-        <div className="wrap split">
+      <Process title="Así funciona" steps={steps} cta={<>
+        <WhatsAppLink className="btn btn--light btn--xl" message={data.message} event={data.event + "_proceso"}><WhatsAppIcon />{data.cta}</WhatsAppLink>
+        <Link className="link link--light" href="/servicios/retiro-y-entrega-de-ropa">¿Necesitás retiro y entrega?</Link>
+      </>} />
+
+      <section className="p-sec" aria-labelledby="faq-titulo">
+        <div className="wrap h-pick__grid">
           <div>
-            <h2 id="como-titulo">Cómo funciona</h2>
-            <div className="note"><strong>Antes de traerlo</strong>{design.prepare}</div>
+            <div className="h-head" data-reveal><h2 id="faq-titulo">Preguntas frecuentes</h2></div>
+            <Faq items={data.faqs} />
           </div>
-          <ol className="talones">{data.steps.map(step => <li key={step.title}><div><h3>{step.title}</h3><p>{step.copy}</p></div></li>)}</ol>
-        </div>
-      </section>
-
-      <section className="section section--espuma" aria-labelledby="consulta-titulo">
-        <div className="wrap split">
-          <div>
-            <h2 id="consulta-titulo">Consultanos por tu prenda</h2>
-            <p className="muted measure" style={{ marginTop: 12 }}>El mensaje ya está escrito: mandalo así o sumale detalles. Si podés, agregá una foto de la prenda y de su etiqueta.</p>
+          <div className="h-pick__ticket" data-reveal>
+            <Ticket data={{
+              rows: [{ label: "Servicio", value: design.name.toLowerCase() }, { label: "Dónde", value: `${business.street}, ${business.city}` }],
+              message: data.message, event: data.event + "_ticket", stub: "Precio y plazo te los confirmamos antes de que dejes la prenda.",
+            }} heading="Tu consulta, lista para enviar" />
           </div>
-          <Ticket data={{
-            rows: [{ label: "Servicio", value: design.name.toLowerCase() }, { label: "Dónde", value: `${business.street}, ${business.city}` }],
-            message: data.message, event: data.event + "_ticket", stub: "Precio y plazo te los confirmamos antes de que dejes la prenda.",
-          }} />
         </div>
       </section>
 
-      <section className="section" aria-labelledby="faq-titulo">
-        <div className="wrap split">
-          <h2 id="faq-titulo">Preguntas frecuentes</h2>
-          <Faq items={data.faqs} />
+      <section className="p-sec p-sec--espuma" aria-labelledby="guias-titulo">
+        <div className="wrap">
+          <div className="h-head h-head--split" data-reveal><h2 id="guias-titulo">Guías para hacerlo en casa</h2><p>Si preferís resolverlo vos, acá te contamos cómo. Y si te da dudas, lo vemos en el mostrador.</p></div>
+          <GuideCards guides={relatedGuides.slice(0, 3)} />
         </div>
+        <Clothesline title="Otros servicios" items={others} />
       </section>
-
-      <section className="section section--espuma" aria-label="Servicios y guías relacionados">
-        <div className="wrap related">
-          {relatedServices.length ? <nav aria-labelledby="rel-servicios"><h2 id="rel-servicios">Otros servicios</h2><ul>{relatedServices.map(r => <li key={r.href}><Link href={r.href}>{r.label}</Link></li>)}</ul></nav> : null}
-          <nav aria-labelledby="rel-guias"><h2 id="rel-guias">Guías para hacerlo en casa</h2><ul>{relatedGuides.map(g => <li key={g.href}><Link href={g.href}>{g.title}</Link></li>)}</ul></nav>
-        </div>
-      </section>
-
-      <LocationBlock />
     </main>
     <SiteFooter />
     <JsonLd data={serviceSchema} />

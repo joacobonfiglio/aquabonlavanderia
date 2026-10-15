@@ -12,7 +12,6 @@ const sources = [
   "/service-still-v2.webp",
   "/laundry-hero-v2.webp",
   "/laundry-detail-v2.webp",
-  "/aquabon-fachada.png",
 ];
 const WIDTHS = [480, 960, 1400];
 const manifest = {};

@@ -4,6 +4,7 @@ import Motion from "./Motion";
 import JsonLd from "./JsonLd";
 import { SITE_URL, business, hours } from "./site";
 import "./aquabon.css";
+import "./sections.css";
 
 
 const description = "Lavandería y tintorería en Gascón 2189, Mar del Plata. Valet de ropa, acolchados, tintorería y más. Consultá por WhatsApp o pasá por el local.";
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: "/" },
   verification: { google: "4mHzlA2EK0KE4ozLRcdpIRTNCmuPoOECzvX6bR-DfsY" },
-  openGraph: { title: "Lavandería y tintorería en Mar del Plata | Aquabon", description, type: "website", locale: "es_AR", url: "/", siteName: business.name, images: [{ url: "/aquabon-fachada.jpg", width: 1092, height: 1118, alt: "Vidriera de Lavandería Aquabon en Gascón 2189, Mar del Plata" }] },
+  openGraph: { title: "Lavandería y tintorería en Mar del Plata | Aquabon", description, type: "website", locale: "es_AR", url: "/", siteName: business.name, images: [{ url: "/laundry-hero-v2.webp", width: 1536, height: 1024, alt: "Ropa lavada y doblada en tonos blancos y azules, Aquabon Lavandería" }] },
   icons: { icon: "/favicon.svg" },
 };
 
@@ -29,7 +30,7 @@ const businessSchema = {
   description: "Lavandería y tintorería en Mar del Plata con más de 10 años en el rubro: valet de ropa, lavado de acolchados, tintorería, planchado, teñido, arreglos y costura, lavado de zapatillas, camperas y tapados, y retiro y entrega a consultar.",
   url: SITE_URL + "/",
   telephone: business.phoneE164,
-  image: SITE_URL + "/aquabon-fachada.jpg",
+  image: SITE_URL + "/laundry-hero-v2.webp",
   logo: SITE_URL + "/logo-aquabon.png",
   address: { "@type": "PostalAddress", streetAddress: business.street, addressLocality: business.city, addressRegion: business.region, addressCountry: business.country },
   ...(business.geo ? { geo: { "@type": "GeoCoordinates", ...business.geo } } : {}),

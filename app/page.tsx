@@ -1,15 +1,14 @@
 import Link from "next/link";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
-import LocationBlock from "./LocationBlock";
 import WhatsAppLink from "./WhatsAppLink";
 import Ticket, { type TicketData } from "./Ticket";
 import Faq, { type FaqItem } from "./Faq";
 import Reviews from "./Reviews";
 import Img from "./Img";
 import { CareSymbol, WhatsAppIcon } from "./ui";
+import { Clothesline, Ribbon, Waves } from "./Blocks";
 import { business, businessLinks, hours, hoursSentence, services } from "./site";
-import "./home.css";
 
 type Option = { id: string; label: string; image: string; ticket: TicketData };
 
@@ -75,16 +74,6 @@ const faqs: FaqItem[] = [
   { question: "¿Trabajan con empresas y alojamientos?", answer: "Sí: alquileres temporarios, hoteles, restaurantes, centros de estética, uniformes y ropa deportiva. Acordamos volumen y frecuencia antes de empezar." },
 ];
 
-function Waves({ className = "" }: { className?: string }) {
-  // Las tres olas del logo, en loop horizontal (solo transform).
-  const d = "M0 40 C 150 0 300 0 450 40 S 750 80 900 40 S 1200 0 1350 40 S 1650 80 1800 40 V 120 H 0 Z";
-  return <div className={"waves " + className} aria-hidden="true">
-    <svg viewBox="0 0 1800 120" preserveAspectRatio="none" className="waves__l1"><path d={d} /></svg>
-    <svg viewBox="0 0 1800 120" preserveAspectRatio="none" className="waves__l2"><path d={d} /></svg>
-    <svg viewBox="0 0 1800 120" preserveAspectRatio="none" className="waves__l3"><path d={d} /></svg>
-  </div>;
-}
-
 export default function Home() {
   return <>
     <SiteHeader event="whatsapp_home_header" overlay />
@@ -126,12 +115,15 @@ export default function Home() {
         <Waves className="waves--hero" />
       </section>
 
-      {/* 2. Cinta */}
-      <div className="ribbon" aria-hidden="true">
-        <div className="ribbon__track">
-          {[0, 1].map(k => <span key={k}>{words.map(w => <span key={w + k}>{w}<svg viewBox="0 0 38 12"><path d="M1 6c4.5-4 8.5-4 12.5 0s8.5 4 12.5 0 8.5-4 11 0" /></svg></span>)}</span>)}
+      {/* 2. Cinta + cifras reales, compactas */}
+      <Ribbon words={words} />
+      <section className="h-kpis" aria-label="Aquabon en números">
+        <div className="wrap h-kpis__grid">
+          <div><b>+<span data-count="10">10</span></b><span>años en el rubro</span></div>
+          <div><b><span data-count="6">6</span></b><span>días abiertos, de lunes a sábado</span></div>
+          <div><b><span data-count="10">10</span></b><span>servicios en un mismo mostrador</span></div>
         </div>
-      </div>
+      </section>
 
       {/* 3. Selector */}
       <section className="h-pick" id="pendiente" aria-labelledby="pick-titulo">
@@ -178,22 +170,7 @@ export default function Home() {
             </Link>)}
           </div>
         </div>
-        <div className="clothesline" data-reveal>
-          <div className="wrap"><h3>Y también</h3></div>
-          <div className="clothesline__scroller"><div className="clothesline__track">
-            <svg className="clothesline__rope" viewBox="0 0 2000 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8 Q 1000 44 2000 8" /></svg>
-            <ul>
-              {line.map((s, i) => <li key={s.href} style={{ ["--tilt" as string]: `${i % 2 ? 1.6 : -1.8}deg`, ["--d" as string]: `${i * 70}ms` }}>
-                <span className="pin" aria-hidden="true" />
-                <Link href={s.href}>
-                  <Img src={s.image} alt={s.alt} width={480} height={600} sizes="240px" />
-                  <strong>{s.name}</strong>
-                  <span>{s.short}</span>
-                </Link>
-              </li>)}
-            </ul>
-          </div></div>
-        </div>
+        <Clothesline title="Y también" items={line} />
       </section>
 
       {/* 5. Proceso */}
@@ -221,36 +198,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. Cifras reales */}
-      <section className="h-stats" aria-label="Aquabon en números">
-        <div className="wrap h-stats__grid">
-          <div data-reveal><b>+<span data-count="10">10</span></b><span>años en el rubro</span></div>
-          <div data-reveal style={{ transitionDelay: "80ms" }}><b><span data-count="6">6</span></b><span>días a la semana abiertos, de lunes a sábado</span></div>
-          <div data-reveal style={{ transitionDelay: "160ms" }}><b><span data-count="10">10</span></b><span>servicios en un mismo mostrador</span></div>
-        </div>
-      </section>
-
-      {/* 7. ¿Se puede lavar en casa? */}
-      <section className="h-care" aria-labelledby="casa-titulo">
-        <div className="wrap h-care__grid">
-          <div className="h-care__media" data-reveal>
-            <Img src="/blog/leer-simbolos-etiqueta-ropa.webp" alt="Manos revisando la etiqueta de cuidado cosida a una prenda azul" width={1400} height={788} sizes="(max-width: 960px) 100vw, 640px" />
-            <div className="care-tag" aria-hidden="true">
-              <span>Etiqueta de cuidado</span>
-              <div><CareSymbol name="wash" /><CareSymbol name="tumble" /><CareSymbol name="iron" /><CareSymbol name="dryclean" /></div>
-            </div>
-          </div>
-          <div data-reveal>
-            <h2 id="casa-titulo">¿Esto se puede lavar en casa?</h2>
-            <p>Si la etiqueta no se entiende o no sabés cómo tratar una mancha, mandanos una foto de la prenda y otra de la etiqueta. Te decimos qué conviene antes de que la arriesgues.</p>
-            <div className="h-actions">
-              <WhatsAppLink className="btn btn--azul btn--xl" message="Hola Aquabon, tengo una duda sobre cómo lavar una prenda. Les mando una foto de la prenda y de su etiqueta." event="whatsapp_home_prenda"><WhatsAppIcon />Mandar las fotos</WhatsAppLink>
-              <Link className="link" href="/blog">Ver las guías de cuidado</Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <Reviews />
 
       {/* 8. Empresas */}
@@ -268,20 +215,11 @@ export default function Home() {
       <section className="section" aria-labelledby="faq-titulo">
         <div className="wrap split">
           <div data-reveal><h2 id="faq-titulo" className="h-big">Preguntas frecuentes</h2><p className="muted" style={{ marginTop: 12 }}>¿No está tu duda? <WhatsAppLink className="link" message="Hola Aquabon, tengo una consulta." event="whatsapp_home_faq">Escribinos</WhatsAppLink>.</p></div>
-          <Faq items={faqs} />
+          <Faq items={[faqs[2], faqs[3], faqs[4], faqs[5]]} />
         </div>
       </section>
 
-      <LocationBlock />
 
-      {/* 10. Cierre */}
-      <section className="h-final" aria-labelledby="final-titulo">
-        <Waves className="waves--top" />
-        <div className="wrap" data-reveal>
-          <h2 id="final-titulo">¿Qué tenés para lavar esta semana?</h2>
-          <WhatsAppLink className="btn btn--light btn--xl" message="Hola Aquabon, quiero consultar por el lavado de mi ropa." event="whatsapp_home_final"><WhatsAppIcon />Escribinos por WhatsApp</WhatsAppLink>
-        </div>
-      </section>
     </main>
     <SiteFooter />
   </>;

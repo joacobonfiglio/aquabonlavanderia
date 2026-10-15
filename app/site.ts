@@ -51,12 +51,12 @@ export const services: { name: string; href: string; short: string; symbol?: Car
 ];
 
 export const businessLinks = [
-  { name: "Airbnb y alquiler temporario", href: "/empresas/lavanderia-airbnb" },
-  { name: "Hoteles y alojamientos", href: "/empresas/lavanderia-hoteles" },
-  { name: "Restaurantes", href: "/empresas/lavanderia-restaurantes" },
-  { name: "Centros de estética", href: "/empresas/lavanderia-centros-de-estetica" },
-  { name: "Uniformes", href: "/empresas/lavado-de-uniformes" },
-  { name: "Ropa deportiva", href: "/empresas/lavado-ropa-deportiva" },
+  { name: "Airbnb y alquiler temporario", href: "/empresas/lavanderia-airbnb", short: "Sábanas, fundas y toallas entre huésped y huésped.", image: "/blog/revisar-cuando-lavar-acolchado.webp", alt: "Cama con ropa blanca lista para el próximo huésped" },
+  { name: "Hoteles y alojamientos", href: "/empresas/lavanderia-hoteles", short: "Ropa blanca con frecuencia y volumen acordados.", image: "/blog/secar-ropa-adentro-ventilacion.webp", alt: "Toallas tendidas junto a una ventana con vista al mar" },
+  { name: "Restaurantes", href: "/empresas/lavanderia-restaurantes", short: "Manteles, servilletas, delantales y uniformes.", image: "/blog/tratar-mancha-vino-ropa.webp", alt: "Mantel blanco con una mancha de vino tratada" },
+  { name: "Centros de estética", href: "/empresas/lavanderia-centros-de-estetica", short: "Toallas, batas, capas y textiles de trabajo.", image: "/blog/preparar-ropa-delicada.webp", alt: "Textiles claros preparados para un lavado delicado" },
+  { name: "Uniformes", href: "/empresas/lavado-de-uniformes", short: "Prendas laborales lavables de uso general.", image: "/blog/preparar-camisa-antes-lavar.webp", alt: "Camisa de trabajo celeste preparada para el lavado" },
+  { name: "Ropa deportiva", href: "/empresas/lavado-ropa-deportiva", short: "Camisetas, shorts y equipos de entrenamiento.", image: "/blog/evitar-encogimiento-ropa.webp", alt: "Prendas de algodón revisadas antes del lavado" },
 ];
 
 // TODO(joaco): URL de la web de Traka. Mientras esté vacía, el crédito del footer se muestra sin link.

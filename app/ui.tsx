@@ -1,6 +1,6 @@
 import type { CareSymbolName } from "./site";
 
-// Marca: las tres olas de la fachada, en los tonos del logo.
+// Marca: las tres olas del logo.
 export function WavesMark() {
   return <svg viewBox="0 0 38 26" aria-hidden="true" focusable="false">
     <path d="M1 8c4.5-4 8.5-4 12.5 0s8.5 4 12.5 0 8.5-4 11 0V0H1z" fill="#c9d9ee" />

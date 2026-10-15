@@ -3,7 +3,6 @@ import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import WhatsAppLink from "./WhatsAppLink";
 import Breadcrumbs from "./Breadcrumbs";
-import LocationBlock from "./LocationBlock";
 import Faq from "./Faq";
 import JsonLd from "./JsonLd";
 import { CareSymbol, WhatsAppIcon } from "./ui";
@@ -41,7 +40,6 @@ export default function ServiceCatalog() {
       <section className="section section--espuma" aria-labelledby="faq-titulo">
         <div className="wrap split"><h2 id="faq-titulo">Preguntas frecuentes</h2><Faq items={servicesHub.faqs} /></div>
       </section>
-      <LocationBlock />
     </main>
     <SiteFooter />
     <JsonLd data={list} />

@@ -368,7 +368,7 @@ body:has(#p-arreglo:checked) .tickets > [data-for="arreglo"] { display: block; }
 @media (min-width: 960px) { .final { grid-template-columns: 1fr auto; } }
 
 /* ---------- Footer ---------- */
-.ftr { background: #0c1c45; color: #dfe7f3; padding: 64px 0 calc(28px + env(safe-area-inset-bottom)); font-size: 0.95rem; }
+.ftr { background: #0c1c45; color: #dfe7f3; padding: 0 0 calc(28px + env(safe-area-inset-bottom)); font-size: 0.95rem; }
 .ftr a { color: #fff; text-decoration: none; }
 .ftr__grid { display: grid; gap: 36px; }
 .ftr .brand { color: #fff; }
@@ -384,6 +384,7 @@ body:has(#p-arreglo:checked) .tickets > [data-for="arreglo"] { display: block; }
 @media (hover: hover) { .ftr a:hover { text-decoration: underline; } }
 @media (min-width: 760px) { .ftr__grid { grid-template-columns: 1.3fr 1fr 1fr 1fr; } }
 @media (max-width: 759px) { .ftr { padding-bottom: calc(96px + env(safe-area-inset-bottom)); } }
+.ftr__main h2 { font-size: 0.95rem; }
 
 /* ---------- WhatsApp flotante (solo mobile) ---------- */
 .wa-float {

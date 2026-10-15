@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import Image from "../Img";
-import Link from "next/link";
-import Breadcrumbs from "../Breadcrumbs";
 import SiteHeader from "../SiteHeader";
 import SiteFooter from "../SiteFooter";
 import { guides } from "../guides";
 import { services } from "../site";
+import { Clothesline, GuideCards, PageHero, Ribbon } from "../Blocks";
 
-export const metadata:Metadata={title:"Guías para cuidar tu ropa | Aquabon",description:"Guías para cuidar tu ropa: lavado, manchas, acolchados y zapatillas. Consejos de Aquabon, lavandería en Mar del Plata. Consultá por tu prenda.",alternates:{canonical:"/blog"},openGraph:{title:"Guías para cuidar tu ropa | Aquabon",description:"Guías para cuidar tu ropa: lavado, manchas, acolchados y zapatillas. Consejos de Aquabon, lavandería en Mar del Plata. Consultá por tu prenda.",url:"/blog",type:"website",locale:"es_AR",images:[{url:"/aquabon-fachada.jpg",width:1092,height:1118,alt:"Fachada de Aquabon Lavandería en Gascón 2189, Mar del Plata"}]}};
+export const metadata:Metadata={title:"Guías para cuidar tu ropa | Aquabon",description:"Guías para cuidar tu ropa: lavado, manchas, acolchados y zapatillas. Consejos de Aquabon, lavandería en Mar del Plata. Consultá por tu prenda.",alternates:{canonical:"/blog"},openGraph:{title:"Guías para cuidar tu ropa | Aquabon",description:"Guías para cuidar tu ropa: lavado, manchas, acolchados y zapatillas. Consejos de Aquabon, lavandería en Mar del Plata. Consultá por tu prenda.",url:"/blog",type:"website",locale:"es_AR",images:[{url:"/laundry-hero-v2.webp",width:1536,height:1024,alt:"Ropa lavada y doblada en tonos blancos y azules, Aquabon Lavandería"}]}};
 
 export default function BlogPage() {
   const topics: { name: string; id: string; clusters: string[] }[] = [
@@ -18,33 +16,40 @@ export default function BlogPage() {
     { name: "Zapatillas", id: "zapatillas", clusters: ["Zapatillas"] },
   ];
   return <>
-    <SiteHeader event="whatsapp_blog_index" />
-    <main id="contenido">
-      <section className="phero section--espuma" aria-labelledby="blog-titulo">
+    <SiteHeader event="whatsapp_blog_index" overlay />
+    <main id="contenido" className="page">
+      <PageHero
+        crumbs={[{ label: "Inicio", href: "/" }, { label: "Guías", href: "/blog" }]}
+        kicker="Guías Aquabon"
+        title="Guías para cuidar tu ropa"
+        lead="Lavado, manchas, tejidos, acolchados, zapatillas y prendas especiales, explicado por quienes lo hacen todos los días. Para que sepas qué podés resolver en casa y cuándo conviene traerla."
+        image={{ src: "/blog/leer-simbolos-etiqueta-ropa.webp", alt: "Manos revisando la etiqueta de cuidado de una prenda azul" }}
+        chip={{ symbol: "wash", text: `${guides.length} guías prácticas` }}
+        facts={false}
+        actions={<>
+          <a className="btn btn--azul btn--xl" href="#ultimas">Ver las últimas</a>
+          <a className="btn btn--outline-light btn--xl" href="#temas">Buscar por tema</a>
+        </>}
+      />
+      <Ribbon words={topics.map(t => t.name)} />
+      <section className="p-sec" id="ultimas" aria-labelledby="ultimas-titulo">
         <div className="wrap">
-          <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Guías", href: "/blog" }]} />
-          <div className="phero__grid phero__grid--solo"><div>
-            <h1 id="blog-titulo">Guías para cuidar tu ropa</h1>
-            <p className="phero__lead">Lavado, manchas, tejidos, acolchados, zapatillas y prendas especiales, explicado por quienes lo hacen todos los días. Para que sepas qué podés resolver en casa y cuándo conviene traerla.</p>
-            <ul className="chips" style={{ marginTop: 24 }} aria-label="Temas">{topics.map(t => <li key={t.id}><a href={"#" + t.id}>{t.name}</a></li>)}</ul>
-          </div></div>
+          <div className="h-head h-head--split" data-reveal><h2 id="ultimas-titulo">Lo último</h2><p>Guías nuevas cada semana, con lo que más nos preguntan en el mostrador.</p></div>
+          <GuideCards guides={guides.slice(0, 6)} big />
         </div>
       </section>
-      {topics.map(t => <section key={t.id} className="section" style={{ paddingBottom: 0 }} id={t.id} aria-labelledby={"t-" + t.id}>
+      <section className="p-sec p-sec--espuma" id="temas" aria-labelledby="temas-titulo">
         <div className="wrap">
-          <h2 id={"t-" + t.id} style={{ marginBottom: 24 }}>{t.name}</h2>
-          <ul className="guides">{guides.filter(g => t.clusters.includes(g.cluster)).map(g => <li key={g.href}><Link href={g.href}>
-            <Image src={g.image} alt={g.alt} width={700} height={467} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px" />
-            <h3>{g.title}</h3>
-            <p>{g.description}</p>
-          </Link></li>)}</ul>
+          <div className="h-head" data-reveal><h2 id="temas-titulo">Por tema</h2></div>
+          <ul className="chips" style={{ marginBottom: 40 }}>{topics.map(t => <li key={t.id}><a href={"#" + t.id}>{t.name}</a></li>)}</ul>
+          {topics.map(t => <div key={t.id} id={t.id} className="g-topic">
+            <h3 data-reveal>{t.name}</h3>
+            <GuideCards compact guides={guides.filter(g => t.clusters.includes(g.cluster))} />
+          </div>)}
         </div>
-      </section>)}
-      <section className="section" aria-labelledby="servicios-titulo">
-        <div className="wrap related">
-          <div><h2 id="servicios-titulo">¿Preferís que lo hagamos nosotros?</h2><p className="muted">Mirá los servicios de Aquabon o mandanos una foto de la prenda.</p></div>
-          <ul>{services.slice(0, 6).map(s => <li key={s.href}><Link href={s.href}>{s.name}</Link></li>)}</ul>
-        </div>
+      </section>
+      <section className="p-sec" style={{ paddingTop: "clamp(24px, 4vw, 48px)" }} aria-label="Servicios">
+        <Clothesline title="¿Preferís que lo hagamos nosotros?" items={services} />
       </section>
     </main>
     <SiteFooter />

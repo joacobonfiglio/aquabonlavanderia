@@ -6,7 +6,9 @@ import SiteFooter from "../SiteFooter";
 import WhatsAppLink from "../WhatsAppLink";
 import JsonLd from "../JsonLd";
 import { WhatsAppIcon } from "../ui";
-import { SITE_URL } from "../site";
+import { SITE_URL, services } from "../site";
+import Img from "../Img";
+import { Clothesline, GuideCards, Waves } from "../Blocks";
 import { guides } from "../guides";
 
 type ArticleLayoutProps = {
@@ -45,37 +47,47 @@ export default function ArticleLayout({ title, description, slug, date, readingT
     author: { "@type": "Organization", name: "Aquabon Lavandería", url: SITE_URL + "/" },
     publisher: { "@id": SITE_URL + "/#business" },
   };
-  const more = guides.filter(g => g.href !== path && g.cluster.toLowerCase() === cluster.toLowerCase()).concat(guides.filter(g => g.href !== path && g.cluster.toLowerCase() !== cluster.toLowerCase())).slice(0, 4);
+  const more = guides.filter(g => g.href !== path && g.cluster.toLowerCase() === cluster.toLowerCase()).concat(guides.filter(g => g.href !== path && g.cluster.toLowerCase() !== cluster.toLowerCase())).slice(0, 3);
+  const heroImage = image ?? "/laundry-hero-v2.webp";
+  const serviceImage = services.find(x => x.href === info.path)?.image ?? "/laundry-hero-v2.webp";
   return <>
-    <SiteHeader event="whatsapp_blog_header" />
-    <main id="contenido">
+    <SiteHeader event="whatsapp_blog_header" overlay />
+    <div className="read-progress" aria-hidden="true" />
+    <main id="contenido" className="page">
+      <section className="p-hero a-hero" aria-labelledby="page-titulo">
+        <div className="wrap">
+          <div className="p-hero__crumbs"><Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Guías", href: "/blog" }, { label: title, href: path }]} /></div>
+          <div className="p-hero__grid">
+            <div className="p-hero__copy">
+              <p className="h-hero__kicker">Guía de {sentence(cluster).toLowerCase()}</p>
+              <h1 id="page-titulo">{title}</h1>
+              <p className="p-hero__lead">{description}</p>
+              <div className="a-meta"><time dateTime={date}>{displayDate}</time><span>{sentence(readingTime)}</span><span>Aquabon, Mar del Plata</span></div>
+            </div>
+            <div className="p-hero__media"><div className="p-hero__photo"><Img src={heroImage} alt="" width={1400} height={933} sizes="(max-width: 960px) 92vw, 520px" priority /></div></div>
+          </div>
+        </div>
+        <Waves className="waves--hero" />
+      </section>
       <div className="wrap">
-        <header className="article-head">
-          <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Guías", href: "/blog" }, { label: title, href: path }]} />
-          <h1>{title}</h1>
-          <p>{description}</p>
-          <div className="article-meta"><span>Guía de {sentence(cluster).toLowerCase()}</span><time dateTime={date}>{displayDate}</time><span>{sentence(readingTime)}</span></div>
-        </header>
         <div className="article-grid">
           <article className="article-body">{children}</article>
-          <aside className="article-aside" aria-labelledby="aside-titulo">
-            <p className="muted">¿Preferís no hacerlo en casa?</p>
+          <aside className="article-aside a-aside" aria-labelledby="aside-titulo">
+            <div className="a-aside__img"><Img src={serviceImage} alt="" width={480} height={360} sizes="320px" /></div>
+            <p>¿Preferís no hacerlo en casa?</p>
             <h2 id="aside-titulo">{info.name} en Mar del Plata</h2>
-            <p>{info.copy}</p>
-            <WhatsAppLink className="btn" message={info.message} event="whatsapp_blog_sidebar"><WhatsAppIcon />Consultar por WhatsApp</WhatsAppLink>
-            <Link className="link" href={info.path}>Ver el servicio</Link>
+            <span>{info.copy}</span>
+            <WhatsAppLink className="btn btn--azul" message={info.message} event="whatsapp_blog_sidebar"><WhatsAppIcon />Consultar por WhatsApp</WhatsAppLink>
+            <Link className="link link--light" href={info.path}>Ver el servicio</Link>
           </aside>
         </div>
       </div>
-      <section className="section section--espuma" aria-label="Seguí leyendo">
-        <div className="wrap related">
-          <nav aria-labelledby="mas-guias"><h2 id="mas-guias">Más guías</h2><ul>{more.map(g => <li key={g.href}><Link href={g.href}>{g.title}</Link></li>)}</ul></nav>
-          <nav aria-labelledby="mas-servicios"><h2 id="mas-servicios">Servicios relacionados</h2><ul>
-            <li><Link href={info.path}>{info.name}</Link></li>
-            <li><Link href={service === "tintoreria" || service === "zapatillas" ? "/servicios/valet-de-ropa" : "/servicios/tintoreria"}>{service === "tintoreria" || service === "zapatillas" ? "Valet de ropa" : "Tintorería"}</Link></li>
-            <li><Link href="/blog">Todas las guías</Link></li>
-          </ul></nav>
+      <section className="p-sec p-sec--espuma" aria-labelledby="mas-guias">
+        <div className="wrap">
+          <div className="h-head h-head--split" data-reveal><h2 id="mas-guias">Seguí leyendo</h2><p><Link className="link" href="/blog">Ver todas las guías</Link></p></div>
+          <GuideCards guides={more} />
         </div>
+        <Clothesline title="¿Lo hacemos por vos?" items={services} />
       </section>
     </main>
     <SiteFooter />

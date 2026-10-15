@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 // - [data-count]: cuenta hasta el número al aparecer.
 // - [data-steps] / [data-step]: marca el paso activo del proceso según el scroll.
 // - html[data-scrolled]: el header cambia de transparente a sólido.
+// - [data-hscroll]: la soga de ropa avanza en horizontal mientras se hace scroll vertical.
 export default function Motion() {
   const pathname = usePathname();
   useEffect(() => {
@@ -15,10 +16,26 @@ export default function Motion() {
     html.classList.add("js");
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    const lines = Array.from(document.querySelectorAll<HTMLElement>("[data-hscroll]"));
+    if (reduced) lines.forEach(l => l.classList.add("is-static"));
+    const moveLines = () => {
+      if (reduced) return;
+      const vh = window.innerHeight;
+      for (const box of lines) {
+        const track = box.querySelector<HTMLElement>("[data-hscroll-track]");
+        if (!track) continue;
+        const r = box.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) continue;
+        const progress = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height * 0.4)));
+        const max = Math.max(0, track.scrollWidth - box.clientWidth);
+        track.style.transform = `translate3d(${(-progress * max).toFixed(1)}px, 0, 0)`;
+      }
+    };
     let frame = 0;
-    const onScroll = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(() => { html.dataset.scrolled = window.scrollY > 24 ? "true" : "false"; }); };
+    const onScroll = () => { cancelAnimationFrame(frame); frame = requestAnimationFrame(() => { html.dataset.scrolled = window.scrollY > 24 ? "true" : "false"; moveLines(); }); };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
 
     const reveal = new IntersectionObserver(entries => entries.forEach(e => {
       if (!e.isIntersecting) return;
@@ -51,7 +68,7 @@ export default function Motion() {
     }), { rootMargin: "-45% 0px -45% 0px" });
     document.querySelectorAll("[data-step]").forEach(el => steps.observe(el));
 
-    return () => { window.removeEventListener("scroll", onScroll); cancelAnimationFrame(frame); reveal.disconnect(); counters.disconnect(); steps.disconnect(); };
+    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); cancelAnimationFrame(frame); reveal.disconnect(); counters.disconnect(); steps.disconnect(); };
   }, [pathname]);
   return null;
 }

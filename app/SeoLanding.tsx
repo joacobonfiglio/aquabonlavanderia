@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { seoDescriptions } from "./seo-descriptions";
 import ServiceLanding from "./ServiceLanding";
 import { serviceDesigns } from "./service-design";
-import Breadcrumbs, { type Crumb } from "./Breadcrumbs";
+import { type Crumb } from "./Breadcrumbs";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import WhatsAppLink from "./WhatsAppLink";
-import LocationBlock from "./LocationBlock";
 import Faq from "./Faq";
 import JsonLd from "./JsonLd";
+import Link from "next/link";
+import Img from "./Img";
 import { WhatsAppIcon } from "./ui";
-import { SITE_URL, business, hours } from "./site";
+import Ticket from "./Ticket";
+import { Clothesline, PageHero, Process, Ribbon, type Step } from "./Blocks";
+import { SITE_URL, business, businessLinks, services } from "./site";
 
 type Item = { title: string; copy: string };
 type FaqEntry = { question: string; answer: string };
@@ -27,16 +29,25 @@ export function landingMetadata(data: LandingData): Metadata {
   const description = seoDescriptions[data.path] ?? data.description;
   const images = design
     ? [{ url: design.image, alt: design.alt }]
-    : [{ url: "/aquabon-fachada.jpg", width: 1092, height: 1118, alt: "Vidriera de Lavandería Aquabon en Gascón 2189, Mar del Plata" }];
+    : [{ url: "/laundry-hero-v2.webp", width: 1536, height: 1024, alt: "Ropa lavada y doblada en tonos blancos y azules, Aquabon Lavandería" }];
   return { title: data.title, description, alternates: { canonical: data.path }, openGraph: { title: data.title, description, type: "website", locale: "es_AR", url: data.path, images } };
 }
 
-// Páginas de servicio → plantilla de servicio. Resto (barrios, tintorería del centro, empresas) → plantilla de landing.
+const heroImages: Record<string, string> = {
+  "/empresas": "/blog/secar-ropa-adentro-ventilacion.webp",
+  ...Object.fromEntries(businessLinks.map(b => [b.href, b.image])),
+  "/tintoreria-centro-mar-del-plata": "/blog/revisar-prendas-tintoreria.webp",
+};
+const check = <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+
+// Servicios → plantilla de servicio. Resto (empresas, barrios, tintorería del centro) → esta plantilla.
 export default function SeoLanding({ data }: { data: LandingData }) {
   const design = data.path.startsWith("/servicios/") ? serviceDesigns[data.path.split("/").at(-1) || ""] : undefined;
   if (design) return <ServiceLanding data={data} design={design} />;
   const isBusiness = data.path.startsWith("/empresas");
+  const isHub = data.path === "/empresas";
   const description = seoDescriptions[data.path] ?? data.description;
+  const image = heroImages[data.path] ?? "/laundry-hero-v2.webp";
   const schema = {
     "@context": "https://schema.org", "@type": "Service", "@id": SITE_URL + data.path + "#service",
     name: data.h1, description, url: SITE_URL + data.path,
@@ -44,64 +55,78 @@ export default function SeoLanding({ data }: { data: LandingData }) {
     areaServed: { "@type": "City", name: "Mar del Plata" },
     ...(isBusiness ? { audience: { "@type": "BusinessAudience" } } : {}),
   };
+  const stepImgs = isBusiness
+    ? ["/blog/elegir-lavanderia-o-tintoreria.webp", "/blog/medir-detergente-para-lavar.webp", "/laundry-hero-v2.webp", "/services/retiro-v3.webp"]
+    : ["/blog/leer-simbolos-etiqueta-ropa.webp", "/blog/medir-detergente-para-lavar.webp", "/laundry-hero-v2.webp", "/services/retiro-v3.webp"];
+  const steps: Step[] = data.steps.map((s, i) => ({ ...s, image: stepImgs[i % stepImgs.length], alt: "" }));
+  const words = isBusiness ? ["Airbnb", "Hoteles", "Restaurantes", "Estética", "Uniformes", "Deportes"] : ["Valet", "Acolchados", "Tintorería", "Planchado", "Zapatillas", "Arreglos"];
+  const lineItems = isBusiness ? businessLinks.filter(b => b.href !== data.path) : services;
   return <>
-    <SiteHeader event={data.event + "_header"} />
-    <main id="contenido">
-      <section className="phero section--espuma" aria-labelledby="landing-titulo" data-cta-zone="">
+    <SiteHeader event={data.event + "_header"} overlay />
+    <main id="contenido" className="page">
+      <PageHero
+        crumbs={data.crumbs}
+        kicker={isBusiness ? "Aquabon para empresas" : "Gascón 2189, centro de Mar del Plata"}
+        title={data.h1}
+        lead={data.intro}
+        image={{ src: image, alt: "" }}
+        chip={{ text: isBusiness ? "Volumen y frecuencia a medida" : "Te avisamos por WhatsApp" }}
+        facts={!isBusiness}
+        actions={<>
+          <WhatsAppLink className="btn btn--azul btn--xl" message={data.message} event={data.event} data-primary-cta=""><WhatsAppIcon />{data.cta}</WhatsAppLink>
+          <a className="btn btn--outline-light btn--xl" href="#como-funciona">Cómo trabajamos</a>
+        </>}
+      />
+      <Ribbon words={words} />
+
+      {isHub ? <section className="p-sec" aria-labelledby="rubros-titulo">
         <div className="wrap">
-          <Breadcrumbs items={data.crumbs} />
-          <div className="phero__grid phero__grid--solo">
-            <div>
-              <h1 id="landing-titulo">{data.h1}</h1>
-              <p className="phero__lead">{data.intro}</p>
-              <div className="actions">
-                <WhatsAppLink className="btn" message={data.message} event={data.event} data-primary-cta=""><WhatsAppIcon />{data.cta}</WhatsAppLink>
-              </div>
-              {isBusiness ? null : <dl className="facts">
-                <div><dt>Dirección</dt><dd>{business.street}, {business.city}</dd></div>
-                {hours.map(h => <div key={h.label}><dt>{h.short}</dt><dd>{h.text}</dd></div>)}
-              </dl>}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="incluye-titulo">
-        <div className="wrap split">
-          <div>
-            <h2 id="incluye-titulo">{isBusiness ? "Qué podemos resolver" : "Qué encontrás en Aquabon"}</h2>
-            {data.sections.map(s => <div key={s.heading} style={{ marginTop: 20 }}><h3 style={{ fontSize: "1.05rem" }}>{s.heading}</h3><p className="muted" style={{ marginTop: 6 }}>{s.text}</p></div>)}
-          </div>
-          <ul className="cards cards--2">{data.items.map(item => <li key={item.title}><h3>{item.title}</h3><p>{item.copy}</p></li>)}</ul>
-        </div>
-      </section>
-
-      <section className="section section--espuma" aria-labelledby="como-titulo">
-        <div className="wrap split">
-          <h2 id="como-titulo">Cómo funciona</h2>
-          <ol className="talones">{data.steps.map(step => <li key={step.title}><div><h3>{step.title}</h3><p>{step.copy}</p></div></li>)}</ol>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="faq-titulo">
-        <div className="wrap split">
-          <h2 id="faq-titulo">Preguntas frecuentes</h2>
-          <Faq items={data.faqs} />
-        </div>
-      </section>
-
-      {data.related?.length ? <section className="section section--espuma" aria-label="Páginas relacionadas">
-        <div className="wrap related">
-          <nav aria-labelledby="rel-titulo"><h2 id="rel-titulo">También puede interesarte</h2><ul>{data.related.map(r => <li key={r.href}><Link href={r.href}>{r.label}</Link></li>)}</ul></nav>
-          <div>
-            <h2>¿Lo hablamos?</h2>
-            <p className="muted" style={{ marginBottom: 18 }}>{isBusiness ? "Contanos qué textiles son, cuántos y con qué frecuencia. Te respondemos con una propuesta." : "Si tenés dudas, mandanos una foto de la prenda y te orientamos antes de traerla."}</p>
-            <WhatsAppLink className="btn" message={data.message} event={data.event + "_related"}><WhatsAppIcon />{data.cta}</WhatsAppLink>
+          <div className="h-head h-head--split" data-reveal><h2 id="rubros-titulo">¿Qué tipo de negocio tenés?</h2><p>Cada operación tiene sus textiles, sus tiempos y su volumen. Elegí la tuya.</p></div>
+          <div className="bento bento--six">
+            {businessLinks.map((b, i) => <Link key={b.href} href={b.href} className="bento__card" data-reveal style={{ transitionDelay: `${(i % 3) * 80}ms` }}>
+              <Img src={b.image} alt={b.alt} width={1200} height={900} sizes="(max-width: 960px) 100vw, 400px" />
+              <span className="bento__body"><strong>{b.name}</strong><span>{b.short}</span><em>Ver más</em></span>
+            </Link>)}
           </div>
         </div>
       </section> : null}
 
-      <LocationBlock />
+      <section className={"p-sec" + (isHub ? " p-sec--espuma" : "")} aria-labelledby="incluye-titulo">
+        <div className="wrap">
+          <div className="h-head h-head--split" data-reveal>
+            <h2 id="incluye-titulo">{isBusiness ? "Qué podemos resolver" : "Qué encontrás en Aquabon"}</h2>
+            {data.sections[0] ? <p>{data.sections[0].text}</p> : null}
+          </div>
+          {isHub ? null : <ul className="feature-grid">
+            {data.items.map((item, i) => <li key={item.title} data-reveal style={{ transitionDelay: `${(i % 2) * 70}ms` }}><b>{check}</b><h3>{item.title}</h3><p>{item.copy}</p></li>)}
+          </ul>}
+          {data.sections.length > 1 ? <ul className="fit-cards" style={{ marginTop: 28 }} data-reveal>{data.sections.slice(1).map(s => <li key={s.heading}><h3>{s.heading}</h3><p>{s.text}</p></li>)}</ul> : null}
+        </div>
+      </section>
+
+      <Process title="Cómo trabajamos" steps={steps} cta={<WhatsAppLink className="btn btn--light btn--xl" message={data.message} event={data.event + "_proceso"}><WhatsAppIcon />{data.cta}</WhatsAppLink>} />
+
+      <section className="p-sec" aria-labelledby="faq-titulo">
+        <div className="wrap h-pick__grid">
+          <div>
+            <div className="h-head" data-reveal><h2 id="faq-titulo">Preguntas frecuentes</h2></div>
+            <Faq items={data.faqs} />
+          </div>
+          <div className="h-pick__ticket" data-reveal>
+            <Ticket heading="Tu consulta, lista para enviar" data={{
+              rows: isBusiness
+                ? [{ label: "Negocio", value: data.h1.replace(/ en Mar del Plata$/, "").toLowerCase() }, { label: "Contanos", value: "qué textiles, cuántos y cada cuánto" }]
+                : [{ label: "Dónde", value: `${business.street}, ${business.city}` }, { label: "Contanos", value: "qué necesitás lavar" }],
+              message: data.message, event: data.event + "_ticket",
+              stub: isBusiness ? "Te respondemos con una propuesta según tu volumen y frecuencia." : "Precio y plazo te los confirmamos antes de que dejes la prenda.",
+            }} />
+          </div>
+        </div>
+      </section>
+
+      <section className="p-sec p-sec--espuma" style={{ paddingTop: "clamp(24px, 4vw, 48px)" }} aria-label={isBusiness ? "Otros rubros" : "Servicios"}>
+        <Clothesline title={isBusiness ? (isHub ? "Todos los rubros" : "Otros rubros") : "Nuestros servicios"} items={lineItems} />
+      </section>
     </main>
     <SiteFooter />
     <JsonLd data={schema} />

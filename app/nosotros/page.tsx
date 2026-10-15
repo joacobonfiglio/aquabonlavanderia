@@ -3,7 +3,6 @@ import Link from "next/link";
 import Breadcrumbs from "../Breadcrumbs";
 import SiteHeader from "../SiteHeader";
 import SiteFooter from "../SiteFooter";
-import LocationBlock from "../LocationBlock";
 import WhatsAppLink from "../WhatsAppLink";
 import { WhatsAppIcon } from "../ui";
 import { business, hoursSentence } from "../site";
@@ -12,7 +11,7 @@ const description = "Aquabon es una lavandería y tintorería de barrio en Gasc�
 export const metadata: Metadata = {
   title: "Nosotros: lavandería de barrio en Mar del Plata | Aquabon", description,
   alternates: { canonical: "/nosotros" },
-  openGraph: { title: "Nosotros | Aquabon Lavandería", description, url: "/nosotros", type: "website", locale: "es_AR", images: [{ url: "/aquabon-fachada.jpg", width: 1092, height: 1118, alt: "Vidriera de Lavandería Aquabon en Gascón 2189, Mar del Plata" }] },
+  openGraph: { title: "Nosotros | Aquabon Lavandería", description, url: "/nosotros", type: "website", locale: "es_AR", images: [{ url: "/laundry-hero-v2.webp", width: 1536, height: 1024, alt: "Ropa lavada y doblada en tonos blancos y azules, Aquabon Lavandería" }] },
 };
 
 export default function Page() {
@@ -49,7 +48,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <LocationBlock />
     </main>
     <SiteFooter />
   </>;
