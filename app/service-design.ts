@@ -1,12 +1,32 @@
+import type { CareSymbolName } from "./site";
+
 export type ServiceDesign = {
   name: string; title: [string, string]; image: string; alt: string; tag: string;
   caption: string; heading: [string, string]; intro: string; prepare: string;
   guideTitle: string; guide: { title: string; copy: string }[];
   closing: [string, string]; variant: "soft" | "tailored" | "color" | "detail";
+  symbol?: CareSymbolName;
+  // Slugs de guías del blog relacionadas (enlazado interno servicio → guías).
+  guides: string[];
 };
 
 export const serviceDesigns: Record<string, ServiceDesign> = {
+  "valet-de-ropa": {
+    symbol: "wash", guides: ["simbolos-de-lavado-de-la-ropa","cuanto-detergente-usar","como-evitar-que-la-ropa-se-encoja","como-secar-ropa-dentro-de-casa","como-sacar-manchas-de-sangre-de-la-ropa","como-sacar-olor-a-humo-de-la-ropa"],
+    name: "Valet de ropa", title: ["Tu ropa lista.", "Tu tiempo libre."],
+    image: "/service-still-v2.webp", alt: "Ropa de uso diario lavada, seca y doblada, lista para guardar",
+    tag: "", caption: "",
+    heading: ["Todo el lavado.", "Ninguna tarea pendiente."],
+    intro: "El valet reúne lavado, secado y doblado de la ropa de todos los días. Separamos las prendas por color, tejido y cuidado antes de lavar, y te avisamos por WhatsApp cuando la bolsa está lista.",
+    prepare: "Vaciá los bolsillos, informá la cantidad de prendas y avisá si hay manchas o daños. Separá las piezas delicadas, de lana o con indicación de limpieza en seco para consultarlas aparte.",
+    guideTitle: "Antes de armar la bolsa", guide: [
+      { title: "Ropa de todos los días", copy: "Remeras, pantalones, ropa interior y medias aptas para lavado con agua, siempre según su etiqueta. Es el punto de partida del valet." },
+      { title: "Toallas y sábanas", copy: "También se consultan. Contanos cuántas piezas son y sus tamaños para confirmar importe y plazo. Los acolchados tienen su propio servicio." },
+      { title: "Prendas especiales", copy: "Lana, sacos, prendas delicadas o con limpieza en seco van por otro camino. Separalas de la bolsa y mandanos una foto de la prenda y su etiqueta." }
+    ], closing: ["Tu ropa lista.", "Tu tiempo libre."], variant: "soft"
+  },
   "lavado-de-acolchados": {
+    symbol: "tumble", guides: ["cada-cuanto-lavar-un-acolchado", "como-lavar-un-acolchado-de-plumas", "como-secar-un-acolchado", "simbolos-de-lavado-de-un-acolchado", "como-sacar-olor-a-humedad-de-un-acolchado"],
     name: "Lavado de acolchados", title: ["Volvé a descansar", "entre limpio."],
     image: "/blog/revisar-cuando-lavar-acolchado.webp", alt: "Revisión de un acolchado blanco sobre una cama antes de su lavado",
     tag: "EL CUIDADO TAMBIÉN DESCANSA", caption: "Acolchados · Cubrecamas · Frazadas",
@@ -20,6 +40,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     ], closing: ["Tu cama, renovada.", "Tu descanso, de vuelta."], variant: "soft"
   },
   tintoreria: {
+    symbol: "dryclean", guides: ["que-prendas-conviene-llevar-a-la-tintoreria", "que-es-la-limpieza-en-seco", "diferencia-entre-lavanderia-y-tintoreria", "como-lavar-ropa-delicada", "como-sacar-manchas-de-vino-de-la-ropa", "como-sacar-manchas-de-aceite-de-la-ropa"],
     name: "Tintorería", title: ["Cada prenda especial", "merece su cuidado."],
     image: "/blog/revisar-prendas-tintoreria.webp", alt: "Revisión de un saco de vestir junto a otras prendas especiales",
     tag: "UN SOLO PUNTO DE CONTACTO", caption: "Recepción · Evaluación · Seguimiento",
@@ -33,6 +54,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     ], closing: ["Tu prenda especial.", "Nuestro seguimiento."], variant: "tailored"
   },
   planchado: {
+    symbol: "iron", guides: ["como-lavar-camisas-sin-arruinarlas", "simbolos-de-lavado-de-la-ropa"],
     name: "Planchado", title: ["Menos arrugas.", "Más tiempo para vos."],
     image: "/services/planchado-v3.webp", alt: "Plancha de vapor sobre una camisa de algodón celeste en una tabla de planchar",
     tag: "EL ÚLTIMO DETALLE CUENTA", caption: "Camisas y prendas aptas para planchado",
@@ -46,6 +68,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     ], closing: ["Una camisa pendiente.", "Una tarea resuelta."], variant: "detail"
   },
   "lavado-y-planchado-de-camisas": {
+    symbol: "iron", guides: ["como-lavar-camisas-sin-arruinarlas", "como-sacar-manchas-de-transpiracion", "como-sacar-maquillaje-de-la-ropa"],
     name: "Lavado y planchado de camisas", title: ["Camisas cuidadas.", "Una tarea menos."],
     image: "/blog/preparar-camisa-antes-lavar.webp", alt: "Preparación de una camisa celeste antes de su lavado y planchado",
     tag: "LAVADO Y TERMINACIÓN EN UN PEDIDO", caption: "Cuello · Puños · Tejido · Etiqueta",
@@ -59,6 +82,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     ], closing: ["Tus camisas, listas.", "Primero, revisémoslas."], variant: "detail"
   },
   "tenido-de-prendas": {
+    guides: ["como-evitar-que-la-ropa-destina", "como-lavar-jeans-sin-perder-color"],
     name: "Teñido de prendas", title: ["Otra oportunidad", "para tu color."],
     image: "/services/tenido-v3.webp", alt: "Prenda de algodón en un baño de tinte azul con una herramienta de madera",
     tag: "EL CAMBIO EMPIEZA EN EL TEJIDO", caption: "Recuperación o cambio de color, previa evaluación",
@@ -72,6 +96,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     ], closing: ["Ese color que imaginás.", "Primero, conversemos."], variant: "color"
   },
   "arreglos-y-costura": {
+    guides: ["como-guardar-la-ropa-de-invierno", "hay-que-lavar-la-ropa-nueva"],
     name: "Arreglos y costura", title: ["Un pequeño arreglo.", "Más vida para tu ropa."],
     image: "/services/costura-v3.webp", alt: "Máquina de coser trabajando sobre el dobladillo de una prenda de jean azul",
     tag: "LOS DETALLES HACEN LA DIFERENCIA", caption: "Ajustes y reparaciones según cada prenda",
@@ -85,6 +110,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     ], closing: ["Ese detalle pendiente.", "Empecemos por verlo."], variant: "detail"
   },
   "lavado-de-zapatillas": {
+    guides: ["se-pueden-lavar-zapatillas-en-el-lavarropas", "como-secar-zapatillas-sin-deformarlas", "como-sacar-el-olor-de-las-zapatillas"],
     name: "Lavado de zapatillas", title: ["Tus zapatillas.", "Listas para seguir."],
     image: "/blog/revisar-zapatillas-antes-lavar.webp", alt: "Revisión de zapatillas de tela y materiales combinados antes de su limpieza",
     tag: "EL PRÓXIMO PASO EMPIEZA ACÁ", caption: "Material · Limpieza · Secado",
@@ -98,6 +124,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     ], closing: ["Más caminos por andar.", "Consultá por tu par."], variant: "soft"
   },
   "lavado-de-camperas-y-tapados": {
+    guides: ["como-limpiar-un-tapado-sin-danarlo", "como-limpiar-un-saco", "como-guardar-la-ropa-de-invierno", "que-es-la-limpieza-en-seco"],
     name: "Camperas y tapados", title: ["Tu abrigo favorito.", "Su cuidado indicado."],
     image: "/blog/revisar-tapado-etiqueta-forro.webp", alt: "Revisión de la etiqueta y el forro de un tapado de paño azul",
     tag: "CUIDAMOS LO QUE TE ABRIGA", caption: "Etiqueta · Forro · Relleno",
@@ -111,6 +138,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     ], closing: ["Cuando vuelva el frío,", "volvé a tu abrigo."], variant: "tailored"
   },
   "retiro-y-entrega-de-ropa": {
+    guides: ["como-secar-ropa-dentro-de-casa", "cuanto-detergente-usar"],
     name: "Retiro y entrega", title: ["Tu ropa va y vuelve.", "Vos seguís con tu día."],
     image: "/services/retiro-v3.webp", alt: "Entrega de una bolsa de ropa cerrada en la puerta de una vivienda",
     tag: "MENOS TRASLADOS EN TU DÍA", caption: "Centro y zonas cercanas · Consultá cobertura",
@@ -120,6 +148,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     guideTitle: "¿Qué querés que retiremos?", guide: [
       { title: "Una bolsa de ropa cotidiana", copy: "El retiro se solicita principalmente para valet: lavado, secado y doblado. Contanos la cantidad y tu dirección para verificar el recorrido." },
       { title: "Acolchados o prendas especiales", copy: "Consultanos antes de coordinar. La disponibilidad depende del volumen y de la evaluación del servicio que necesita cada pieza." },
+      // TODO(joaco): confirmar que "el centro y zonas cercanas" describe bien la cobertura real de retiro y entrega.
       { title: "Tu zona y tus horarios", copy: "Priorizamos el centro de Mar del Plata y zonas cercanas. La cobertura, el costo y la franja se confirman para cada pedido." }
     ], closing: ["Menos idas y vueltas.", "Empezá con un mensaje."], variant: "detail"
   }

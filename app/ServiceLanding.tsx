@@ -6,53 +6,115 @@ import Breadcrumbs from "./Breadcrumbs";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import WhatsAppLink from "./WhatsAppLink";
-import styles from "./service.module.css";
+import LocationBlock from "./LocationBlock";
+import Ticket from "./Ticket";
+import Faq from "./Faq";
+import JsonLd from "./JsonLd";
+import { CareSymbol, WhatsAppIcon } from "./ui";
+import { SITE_URL, business, hours } from "./site";
+import { guide } from "./guides";
+import { seoDescriptions } from "./seo-descriptions";
 
 export default function ServiceLanding({ data, design }: { data: LandingData; design: ServiceDesign }) {
-  const url = "https://www.aquabonlavanderia.com" + data.path;
-  const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "WebPage", "@id": url + "#page", url, name: data.title, description: data.description, inLanguage: "es-AR", mainEntity: { "@id": url + "#service" } },
-    { "@type": "Service", "@id": url + "#service", name: data.h1, serviceType: design.name, description: design.intro, url, image: "https://www.aquabonlavanderia.com" + design.image, provider: { "@id": "https://www.aquabonlavanderia.com/#business" }, areaServed: { "@type": "City", name: "Mar del Plata" } },
-    { "@type": "FAQPage", mainEntity: data.faqs.map(f => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) }
-  ] };
-  return <div className={`aq-renew ${styles.page}`} data-service-variant={design.variant}>
-    <a className="aq-skip" href="#servicio-contenido">Saltar al contenido</a>
-    <SiteHeader event={data.event} />
-    <main id="servicio-contenido">
-      <div className={styles.breadcrumbs}><Breadcrumbs items={data.crumbs} /></div>
-      <section className={styles.hero} aria-labelledby="servicio-titulo">
-        <div className={styles.heroCopy}>
-          <p className={styles.label}>{design.name.toUpperCase()} · MAR DEL PLATA</p>
-          <h1 id="servicio-titulo">{design.title[0]} <span>{design.title[1]}</span></h1>
-          <p className={styles.lead}>{data.intro}</p>
-          <WhatsAppLink className={styles.button} message={data.message} event={data.event}>{data.cta}</WhatsAppLink>
-          <p className={styles.heroNote}>Gascón 2189 · Orientación por WhatsApp y evaluación antes de confirmar.</p>
-          <a className={styles.textLink} href="#que-incluye">Conocé cómo podemos ayudarte ↓</a>
+  const url = SITE_URL + data.path;
+  const description = seoDescriptions[data.path] ?? data.description;
+  const serviceSchema = {
+    "@context": "https://schema.org", "@type": "Service", "@id": url + "#service",
+    name: data.h1, serviceType: design.name, description, url,
+    image: SITE_URL + design.image,
+    provider: { "@id": SITE_URL + "/#business" },
+    areaServed: { "@type": "City", name: "Mar del Plata" },
+    availableChannel: { "@type": "ServiceChannel", serviceLocation: { "@id": SITE_URL + "/#business" }, servicePhone: business.phoneE164 },
+  };
+  const relatedServices = (data.related ?? []).filter(r => r.href.startsWith("/servicios") || r.href.startsWith("/tintoreria") || r.href.startsWith("/empresas"));
+  const relatedGuides = design.guides.map(guide);
+  return <>
+    <SiteHeader event={data.event + "_header"} />
+    <main id="contenido">
+      <section className="phero section--espuma" aria-labelledby="servicio-titulo">
+        <div className="wrap">
+          <Breadcrumbs items={data.crumbs} />
+          <div className="phero__grid">
+            <div>
+              <h1 id="servicio-titulo">{data.h1}</h1>
+              <p className="phero__lead">{data.intro}</p>
+              <div className="actions">
+                <WhatsAppLink className="btn" message={data.message} event={data.event} data-primary-cta=""><WhatsAppIcon />{data.cta}</WhatsAppLink>
+                <a className="link" href="#como-funciona">Cómo funciona</a>
+              </div>
+              <dl className="facts">
+                <div><dt>Recepción</dt><dd>{business.street}, {business.city}</dd></div>
+                {hours.map(h => <div key={h.label}><dt>{h.short}</dt><dd>{h.text}</dd></div>)}
+              </dl>
+            </div>
+            <figure>
+              <Image src={design.image} alt={design.alt} width={1200} height={900} sizes="(max-width: 960px) 100vw, 480px" priority />
+              {design.symbol ? <figcaption><CareSymbol name={design.symbol} />{design.name}</figcaption> : null}
+            </figure>
+          </div>
         </div>
-        <figure className={styles.heroPhoto}>
-          <Image src={design.image} alt={design.alt} fill sizes="(max-width: 760px) 100vw, 48vw" preload />
-          <div className={styles.photoTag}>{design.tag}</div>
-          <figcaption className={styles.photoCaption}>{design.caption}</figcaption>
-        </figure>
       </section>
-      <section className={styles.included} id="que-incluye">
-        <div className={styles.sectionHeading}><p className={styles.label}>LO QUE APORTAMOS CON AQUABON</p><h2>{design.heading[0]} <span>{design.heading[1]}</span></h2><p>{design.intro}</p></div>
-        <div className={styles.includedGrid}>{data.items.map((item, i) => <article key={item.title}><span className={styles.number}>{String(i + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.copy}</p></article>)}</div>
+
+      <section className="section" aria-labelledby="incluye-titulo" id="que-incluye">
+        <div className="wrap split">
+          <div>
+            <h2 id="incluye-titulo">Qué incluye</h2>
+            <p className="muted" style={{ marginTop: 12 }}>{design.intro}</p>
+          </div>
+          <ul className="cards cards--2">{data.items.map(item => <li key={item.title}><h3>{item.title}</h3><p>{item.copy}</p></li>)}</ul>
+        </div>
       </section>
-      <section className={styles.guide} aria-labelledby="guia-titulo">
-        <div><p className={styles.label}>ENCONTRÁ TU CASO</p><h2 id="guia-titulo">{design.guideTitle}</h2><p>Hay detalles que cambian el proceso. Elegí una opción y conocé qué necesitamos saber.</p><WhatsAppLink className={styles.textLink} message={data.message + " Puedo enviarles una foto para una primera orientación."} event={data.event + "_guide"}>Contanos tu caso por WhatsApp ↗</WhatsAppLink></div>
-        <div className={styles.guideOptions}>{design.guide.map((item, i) => <details key={item.title} open={i === 0}><summary>{item.title}</summary><p>{item.copy}</p></details>)}</div>
+
+      <section className="section section--espuma" aria-labelledby="prendas-titulo">
+        <div className="wrap split">
+          <div>
+            <h2 id="prendas-titulo">Para qué prendas sirve</h2>
+            {data.sections.map(s => <div key={s.heading} style={{ marginTop: 20 }}><h3 style={{ fontSize: "1.05rem" }}>{s.heading}</h3><p className="muted" style={{ marginTop: 6 }}>{s.text}</p></div>)}
+          </div>
+          <ul className="cards">{design.guide.map(g => <li key={g.title}><h3>{g.title}</h3><p>{g.copy}</p></li>)}</ul>
+        </div>
       </section>
-      <section className={styles.process} id="como-funciona"><p className={styles.label}>ASÍ LO RESOLVEMOS</p><h2>Del primer mensaje <span>a tu pedido listo.</span></h2>
-        <ol className={styles.steps}>{data.steps.map((item, i) => <li key={item.title}><span className={styles.stepNumber}>{String(i + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.copy}</p></li>)}</ol>
-        <div className={styles.prepare}><strong>Antes de empezar</strong><p>{design.prepare}</p></div>
+
+      <section className="section" aria-labelledby="como-titulo" id="como-funciona">
+        <div className="wrap split">
+          <div>
+            <h2 id="como-titulo">Cómo funciona</h2>
+            <div className="note"><strong>Antes de traerlo</strong>{design.prepare}</div>
+          </div>
+          <ol className="talones">{data.steps.map(step => <li key={step.title}><div><h3>{step.title}</h3><p>{step.copy}</p></div></li>)}</ol>
+        </div>
       </section>
-      <section className={styles.delivery}><div><p className={styles.label}>CERCA TUYO, EN EL CENTRO</p><h2>Dejá tu consulta.<br />Acercá tu prenda.</h2><p>Nos encontrás en Gascón 2189, Mar del Plata. Una foto ayuda a orientarte; la confirmación del servicio se realiza al evaluar el pedido.</p><a className={styles.textLink} href="https://www.google.com/maps/search/?api=1&query=Aquabon+Lavanderia+Gascon+2189+Mar+del+Plata" target="_blank" rel="noreferrer">Cómo llegar a Aquabon ↗</a></div>
-        <div className={styles.deliveryOptions}><article><p className={styles.label}>EN EL LOCAL</p><h3>Un punto de contacto para tu pedido</h3><p>Lunes a viernes de 8:30 a 20.<br />Sábados de 9 a 14.</p><WhatsAppLink className={styles.button} message={data.message} event={data.event + "_local"}>Consultar antes de venir</WhatsAppLink></article><article><p className={styles.label}>¿NECESITÁS RETIRO?</p><h3>Consultá por tu zona</h3><p>Retiro y entrega según ubicación, volumen y disponibilidad. Confirmamos cobertura y costo antes de coordinar.</p><Link className={styles.textLink} href="/servicios/retiro-y-entrega-de-ropa">Ver retiro y entrega ↗</Link></article></div>
+
+      <section className="section section--espuma" aria-labelledby="consulta-titulo">
+        <div className="wrap split">
+          <div>
+            <h2 id="consulta-titulo">Consultanos por tu prenda</h2>
+            <p className="muted measure" style={{ marginTop: 12 }}>El mensaje ya está escrito: mandalo así o sumale detalles. Si podés, agregá una foto de la prenda y de su etiqueta.</p>
+          </div>
+          <Ticket data={{
+            rows: [{ label: "Servicio", value: design.name.toLowerCase() }, { label: "Dónde", value: `${business.street}, ${business.city}` }],
+            message: data.message, event: data.event + "_ticket", stub: "Precio y plazo te los confirmamos antes de que dejes la prenda.",
+          }} />
+        </div>
       </section>
-      <section className={styles.faq}><div><p className={styles.label}>PREGUNTAS FRECUENTES</p><h2>Antes de decidir,<br />resolvé tus dudas.</h2><p>Precio y plazo se confirman según el servicio, el estado y la cantidad. Consultanos por tu pedido.</p></div><div className={styles.faqList}>{data.faqs.map(f => <details key={f.question}><summary>{f.question}</summary><p>{f.answer}</p></details>)}</div></section>
-      <section className={styles.related}><p className={styles.label}>OTROS CUIDADOS Y GUÍAS</p><div>{data.related?.map(item => <Link key={item.href} href={item.href}><strong>{item.label}</strong><span>Conocé más ↗</span></Link>)}</div></section>
-      <section className={styles.final}><p className={styles.label}>AQUABON · {design.name.toUpperCase()}</p><h2>{design.closing[0]} <span>{design.closing[1]}</span></h2><WhatsAppLink className={`${styles.button} ${styles.whiteButton}`} message={data.message} event={data.event + "_final"}>{data.cta}</WhatsAppLink></section>
-    </main><SiteFooter /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-  </div>;
+
+      <section className="section" aria-labelledby="faq-titulo">
+        <div className="wrap split">
+          <h2 id="faq-titulo">Preguntas frecuentes</h2>
+          <Faq items={data.faqs} />
+        </div>
+      </section>
+
+      <section className="section section--espuma" aria-label="Servicios y guías relacionados">
+        <div className="wrap related">
+          {relatedServices.length ? <nav aria-labelledby="rel-servicios"><h2 id="rel-servicios">Otros servicios</h2><ul>{relatedServices.map(r => <li key={r.href}><Link href={r.href}>{r.label}</Link></li>)}</ul></nav> : null}
+          <nav aria-labelledby="rel-guias"><h2 id="rel-guias">Guías para hacerlo en casa</h2><ul>{relatedGuides.map(g => <li key={g.href}><Link href={g.href}>{g.title}</Link></li>)}</ul></nav>
+        </div>
+      </section>
+
+      <LocationBlock />
+    </main>
+    <SiteFooter />
+    <JsonLd data={serviceSchema} />
+  </>;
 }

@@ -1,47 +1,28 @@
-const directionsUrl =
-  "https://www.google.com/maps/dir/?api=1&destination=Gasc%C3%B3n+2189%2C+Mar+del+Plata%2C+Argentina";
-const mapEmbedUrl =
-  "https://www.google.com/maps?q=Gasc%C3%B3n+2189%2C+Mar+del+Plata%2C+Argentina&output=embed";
+import Image from "next/image";
+import MapFacade from "./MapFacade";
+import { business, hours, mapsDirections } from "./site";
 
-export default function LocationBlock() {
-  return (
-    <section className="location-section" id="ubicacion" data-reveal>
-      <div className="location-copy">
-        <p className="eyebrow">ENCONTRANOS FÁCIL</p>
-        <h2>
-          Estamos acá,
-          <em>cerca tuyo</em>
-        </h2>
-        <p>
-          Traé tu ropa a Gascón 2189, Mar del Plata. Si tenés dudas sobre una
-          prenda, la vemos juntos en el local.
-        </p>
-        <a href={directionsUrl} target="_blank" rel="noreferrer">
-          ABRIR RUTA EN GOOGLE MAPS <span aria-hidden="true">↗</span>
-        </a>
-        <div className="location-details">
-          <div>
-            <span>DIRECCIÓN</span>
-            <strong>Gascón 2189<br />Mar del Plata</strong>
-          </div>
-          <div>
-            <span>HORARIO</span>
-            <strong>Lun–Vie 8:30–20:00<br />Sáb 9:00–14:00</strong>
-          </div>
-        </div>
+export default function LocationBlock({ heading = "Dónde estamos", headingLevel = 2 }: { heading?: string; headingLevel?: 2 | 3 }) {
+  const H = headingLevel === 2 ? "h2" : "h3";
+  return <section className="section" id="ubicacion" aria-labelledby="ubicacion-titulo">
+    <div className="wrap loc">
+      <div>
+        <H id="ubicacion-titulo">{heading}</H>
+        <p className="muted measure" style={{ marginTop: 12 }}>Estamos en el centro de Mar del Plata. Si tenés dudas con una prenda, traela y la miramos juntos en el mostrador.</p>
+        <address>
+          <dl>
+            <div><dt>Dirección</dt><dd>{business.street}, {business.city}</dd></div>
+            {hours.map(h => <div key={h.label}><dt>{h.label}</dt><dd>{h.text}</dd></div>)}
+            <div><dt>WhatsApp</dt><dd>{business.phoneDisplay}</dd></div>
+          </dl>
+        </address>
+        <div className="actions"><a className="link" href={mapsDirections} target="_blank" rel="noreferrer">Cómo llegar con Google Maps</a></div>
+        {/* TODO(joaco): reemplazar por una foto real de la vidriera (la actual es un render). */}
+        <figure className="storefront" style={{ marginTop: 32, maxWidth: 360 }}>
+          <Image src="/aquabon-fachada.webp" width={1092} height={1118} sizes="(max-width: 960px) 90vw, 360px" alt="Vidriera de Lavandería Aquabon, con las olas azules del logo, en Gascón 2189" loading="lazy" />
+        </figure>
       </div>
-      <div className="map-frame">
-        <iframe
-          src={mapEmbedUrl}
-          title="Ubicación de Aquabon Lavandería en Google Maps"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          allowFullScreen
-        />
-        <a href={directionsUrl} target="_blank" rel="noreferrer">
-          GASCÓN 2189 <span aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </section>
-  );
+      <MapFacade />
+    </div>
+  </section>;
 }
