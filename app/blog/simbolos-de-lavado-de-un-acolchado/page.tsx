@@ -35,19 +35,19 @@ export default function Page(){return <ArticleLayout title={title} description={
 
   <h2 id="significado">Qué significa cada símbolo de la etiqueta</h2>
   <section className="care-symbol-grid" aria-label="Resumen visual de los símbolos de cuidado">
-    {symbols.map(symbol=><article key={symbol.kind}><div><SymbolMark kind={symbol.kind}/></div><h3>{symbol.title}</h3><p>{symbol.copy}</p></article>)}
+    {symbols.map(symbol=><article key={symbol.kind}><div><SymbolMark kind={symbol.kind}/></div><h3>{symboltitle}</h3><p>{symbol.copy}</p></article>)}
   </section>
 
   <div className="article-callout"><strong>Regla visual rápida</strong><p>Los puntos regulan temperatura; las líneas debajo del símbolo reducen la intensidad del proceso; una cruz significa “no realizar este tratamiento”. Si aparecen instrucciones escritas junto a los símbolos, también forman parte de la indicación del fabricante.</p></div>
 
   <h2 id="acolchado">Cómo aplicar la etiqueta a un acolchado</h2>
-  <h3>1. Confirmá si admite lavado con agua</h3>
+  <h3>1 / Confirmá si admite lavado con agua</h3>
   <p>Buscá primero la tina. Si está tachada, no lo pongas en el lavarropas ni lo laves a mano. Si contiene un número, esa es la temperatura máxima, no una recomendación para usar siempre ese valor. Las líneas inferiores indican que el movimiento y el centrifugado deben ser más suaves.</p>
-  <h3>2. Comprobá si tu lavarropas tiene capacidad real</h3>
+  <h3>2 / Comprobá si tu lavarropas tiene capacidad real</h3>
   <p>Que la etiqueta autorice el lavado a máquina no significa que cualquier tambor sirva. El acolchado debe entrar holgado y poder moverse. Si queda comprimido, el agua y el detergente no se distribuyen bien y el centrifugado puede desequilibrarse. En ese caso conviene consultar un <Link href="/servicios/lavado-de-acolchados">servicio de lavado de acolchados</Link>.</p>
-  <h3>3. Leé el secado antes de empezar</h3>
+  <h3>3 / Leé el secado antes de empezar</h3>
   <p>No esperes a terminar el lavado para descubrir que el acolchado no admite secadora o que requiere secado horizontal. El cuadrado define esta etapa. Un círculo dentro permite secadora bajo las condiciones señaladas; los puntos limitan el calor. Las líneas dentro del cuadrado describen formas de secado natural.</p>
-  <h3>4. Respetá el símbolo de blanqueo</h3>
+  <h3>4 / Respetá el símbolo de blanqueo</h3>
   <p>Una mancha no justifica usar lavandina sin revisar el triángulo. Algunos tejidos y rellenos pueden perder color, debilitarse o reaccionar mal. Para manchas antiguas o de origen desconocido, una evaluación previa suele ser más segura que probar productos fuertes.</p>
 
   <h2 id="ejemplos">Tres combinaciones frecuentes y cómo interpretarlas</h2>

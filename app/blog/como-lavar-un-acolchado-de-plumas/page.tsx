@@ -28,15 +28,15 @@ export default function Page(){return <ArticleLayout title={title} description={
   <p>Los acolchados de dos plazas, los modelos muy gruesos y algunos rellenos naturales suelen necesitar una máquina de mayor capacidad. En Aquabon revisamos tamaño, tejido y relleno antes de confirmar el <Link href="/servicios/lavado-de-acolchados">lavado de acolchados</Link>.</p>
 
   <h2 id="lavado">Cómo lavar un acolchado de plumas paso a paso</h2>
-  <h3>1. Seguí la etiqueta, no una temperatura universal</h3>
+  <h3>1 / Seguí la etiqueta, no una temperatura universal</h3>
   <p>Elegí el programa y la temperatura que autoriza el fabricante. Muchos acolchados lavables requieren un tratamiento delicado, pero no todos tienen la misma funda, construcción o mezcla de relleno. Si la etiqueta está borrada o genera dudas, evitá probar una configuración al azar.</p>
-  <h3>2. Repará antes cualquier abertura</h3>
+  <h3>2 / Repará antes cualquier abertura</h3>
   <p>Una costura suelta debe resolverse antes del lavado. Si necesitás ayuda, podés consultar nuestro servicio de <Link href="/servicios/arreglos-y-costura">arreglos y costura</Link>. Lavar primero y reparar después aumenta el riesgo de perder relleno.</p>
-  <h3>3. Usá un producto compatible y poca cantidad</h3>
+  <h3>3 / Usá un producto compatible y poca cantidad</h3>
   <p>Elegí un detergente adecuado para prendas delicadas y respetá la dosificación del producto y del lavarropas. Más jabón no significa más limpieza: un acolchado voluminoso puede ser difícil de enjuagar, y el residuo en el relleno complica el resultado. No agregues blanqueadores, quitamanchas agresivos ni suavizantes si la etiqueta no los permite.</p>
-  <h3>4. Distribuí la carga</h3>
+  <h3>4 / Distribuí la carga</h3>
   <p>Colocá el acolchado de manera pareja, sin enrollarlo en un bloque rígido. Si el lavarropas se detiene por desbalance, no insistas con centrifugados repetidos. Retiralo, redistribuí el peso y comprobá que la máquina puede manejar el volumen con seguridad.</p>
-  <h3>5. Verificá el enjuague</h3>
+  <h3>5 / Verificá el enjuague</h3>
   <p>Al terminar, revisá si quedan zonas jabonosas. Un enjuague insuficiente puede dejar el relleno pesado o rígido. Cualquier ciclo adicional debe estar permitido por la etiqueta y por el manual de la máquina.</p>
 
   <h2 id="secado">Cómo secar un acolchado de plumas sin apelmazarlo</h2>
