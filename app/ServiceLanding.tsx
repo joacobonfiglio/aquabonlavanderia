@@ -31,7 +31,7 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
   return <>
     <SiteHeader event={data.event + "_header"} />
     <main id="contenido">
-      <section className="phero section--espuma" aria-labelledby="servicio-titulo">
+      <section className="phero section--espuma" aria-labelledby="servicio-titulo" data-cta-zone="">
         <div className="wrap">
           <Breadcrumbs items={data.crumbs} />
           <div className="phero__grid">

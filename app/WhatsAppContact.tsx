@@ -32,7 +32,7 @@ export default function WhatsAppContact() {
     return () => { window.removeEventListener("scroll", onScroll); cancelAnimationFrame(frame); };
   }, []);
   useEffect(() => {
-    const targets = Array.from(document.querySelectorAll("[data-primary-cta]"));
+    const targets = Array.from(document.querySelectorAll("[data-primary-cta], [data-cta-zone]"));
     if (!targets.length || !("IntersectionObserver" in window)) return;
     const visible = new Set<Element>();
     const io = new IntersectionObserver(entries => {

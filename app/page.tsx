@@ -76,7 +76,7 @@ export default function Home() {
   return <>
     <SiteHeader event="whatsapp_home_header" />
     <main id="contenido">
-      <section className="hero" aria-labelledby="hero-titulo">
+      <section className="hero" aria-labelledby="hero-titulo" data-cta-zone="">
         <div className="wrap hero__grid">
           <div className="hero__copy">
             <h1 id="hero-titulo">Lavandería y tintorería en Mar del Plata</h1>

@@ -15,7 +15,7 @@ export default function ServiceCatalog() {
   return <>
     <SiteHeader event="whatsapp_servicios_header" />
     <main id="contenido">
-      <section className="phero section--espuma" aria-labelledby="servicios-titulo">
+      <section className="phero section--espuma" aria-labelledby="servicios-titulo" data-cta-zone="">
         <div className="wrap">
           <Breadcrumbs items={servicesHub.crumbs} />
           <div className="phero__grid phero__grid--solo"><div>

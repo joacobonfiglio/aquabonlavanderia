@@ -17,12 +17,11 @@ export default function LocationBlock({ heading = "Dónde estamos", headingLevel
           </dl>
         </address>
         <div className="actions"><a className="link" href={mapsDirections} target="_blank" rel="noreferrer">Cómo llegar con Google Maps</a></div>
-        {/* TODO(joaco): reemplazar por una foto real de la vidriera (la actual es un render). */}
-        <figure className="storefront" style={{ marginTop: 32, maxWidth: 360 }}>
-          <Image src="/aquabon-fachada.png" width={1092} height={1118} sizes="(max-width: 960px) 90vw, 360px" alt="Vidriera de Lavandería Aquabon, con las olas azules del logo, en Gascón 2189" loading="lazy" />
-        </figure>
       </div>
-      <MapFacade />
+      {/* TODO(joaco): reemplazar por una foto real de la vidriera (la actual es un render). */}
+      <MapFacade>
+        <Image src="/aquabon-fachada.png" width={1092} height={1118} sizes="(max-width: 960px) 100vw, 640px" alt="Vidriera de Lavandería Aquabon, con las olas azules del logo, en Gascón 2189" loading="lazy" />
+      </MapFacade>
     </div>
   </section>;
 }

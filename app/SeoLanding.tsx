@@ -47,7 +47,7 @@ export default function SeoLanding({ data }: { data: LandingData }) {
   return <>
     <SiteHeader event={data.event + "_header"} />
     <main id="contenido">
-      <section className="phero section--espuma" aria-labelledby="landing-titulo">
+      <section className="phero section--espuma" aria-labelledby="landing-titulo" data-cta-zone="">
         <div className="wrap">
           <Breadcrumbs items={data.crumbs} />
           <div className="phero__grid phero__grid--solo">

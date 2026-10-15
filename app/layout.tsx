@@ -1,12 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Kalam, Schibsted_Grotesk } from "next/font/google";
 import WhatsAppContact from "./WhatsAppContact";
 import JsonLd from "./JsonLd";
 import { SITE_URL, business, hours } from "./site";
 import "./aquabon.css";
 
-const sans = Schibsted_Grotesk({ variable: "--font-schibsted", subsets: ["latin"], display: "swap" });
-const hand = Kalam({ variable: "--font-kalam", subsets: ["latin"], weight: "400", display: "swap", preload: false });
 
 const description = "Lavandería y tintorería en Gascón 2189, Mar del Plata. Valet de ropa, acolchados, tintorería y más. Consultá por WhatsApp o pasá por el local.";
 
@@ -43,7 +40,11 @@ const businessSchema = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="es-AR" className={`${sans.variable} ${hand.variable}`}>
+  return <html lang="es-AR">
+    <head>
+      {/* Solo se precarga la tipografía de texto; la manuscrita del ticket se baja cuando aparece. */}
+      <link rel="preload" href="/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossOrigin="" />
+    </head>
     <body>
       <a className="skip" href="#contenido">Ir al contenido</a>
       <JsonLd data={businessSchema} />
