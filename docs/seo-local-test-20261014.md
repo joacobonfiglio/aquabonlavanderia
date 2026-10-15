@@ -28,3 +28,13 @@ Comandos: VERCEL_ENV=preview npx next build; VERCEL_ENV=preview npx next start; 
 ## Dependencias de negocio antes de ampliar
 
 Confirmar importe/unidad del valet, tabla de acolchados, tiempos habituales, cobertura, costo y días de reparto. Acceso a Search Console/GA4/GBP para línea base. No prometer ranking 1 ni ampliar barrios sin datos y capacidad operativa. Solicitar reseñas honestas sin descuento a cambio.
+
+## Segunda revisión: diseño propio e imágenes
+
+El hero aprobado se conserva. La home continúa su lenguaje gráfico con etiquetas de cuidado interactivas, un panel de servicios con fotografía y ticket, un acolchado ilustrado mediante CSS, una conversación ilustrativa, un recorrido con costuras, sello de Google y dirección tipográfica sin foto del comercio. El selector permite cambiar servicio, imagen y CTA; admite flechas, Inicio y Fin en teclado y se adapta a móvil.
+
+Se encontraron nueve PNG que no pueden decodificarse, incluido el acolchado de la home. Se retiraron los archivos corruptos sin uso y su referencia visible; se reutilizan WebP válidos ya existentes en el repositorio. Se comprobó la decodificación completa de todos los raster restantes y la existencia de 36 referencias de imagen en el código. No se transformaron archivos dañados con tolerancia a datos truncados.
+
+No quedan referencias a fotografías del local en componentes, metadatos Open Graph ni datos estructurados. Se conserva dirección, horarios y enlace a Maps en formato textual. El archivo de fachada anterior ya no se utiliza.
+
+Validación posterior al rediseño: TypeScript, Next.js build y las 10 pruebas SEO/HTTP pasan. La revisión visual y de interacción se realiza sobre el nuevo preview cuando esté disponible.

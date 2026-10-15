@@ -6,7 +6,7 @@ export const businessSchema = {
   "@context": "https://schema.org", "@type": "DryCleaningOrLaundry",
   "@id": siteUrl + "/#business", name: "Aquabon Lavandería", url: siteUrl + "/",
   telephone: "+54 9 223 560-7738", logo: siteUrl + "/favicon.svg",
-  image: siteUrl + "/aquabon-fachada.png",
+  image: siteUrl + "/laundry-hero-v2.webp",
   address: { "@type": "PostalAddress", streetAddress: "Gascón 2189", addressLocality: "Mar del Plata", addressRegion: "Buenos Aires", addressCountry: "AR" },
   openingHoursSpecification: [
     { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:30", closes: "20:00" },
