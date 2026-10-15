@@ -24,7 +24,7 @@ export default function Page(){return <ArticleLayout title={title} description={
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#orden">En qué orden leer los símbolos</a></li><li><a href="#significado">Qué significa cada familia</a></li><li><a href="#acolchado">Cómo aplicar la etiqueta al acolchado</a></li><li><a href="#ejemplos">Ejemplos frecuentes</a></li><li><a href="#dudas">Qué hacer si la etiqueta no se entiende</a></li></ol></nav>
 
-  <h2 id="orden">En qué orden aparecen los símbolos de lavado</h2>
+  <h2 id="orden">Pictogramas de cuidado de edredones y ropa de cama</h2>
   <p>Las etiquetas suelen organizar las instrucciones en cinco familias: lavado, blanqueo, secado, planchado y cuidado textil profesional. Ese orden ayuda a leer el proceso completo. Para un acolchado, las decisiones más importantes suelen estar en el lavado y el secado, pero los demás símbolos pueden descartar productos o tratamientos que dañarían la funda o el relleno.</p>
   <p>Los símbolos indican el tratamiento máximo permitido. Podés elegir uno más suave, pero no deberías superar la temperatura, la acción mecánica o el calor que marca el fabricante. La composición del relleno no reemplaza esta información: dos acolchados que parecen iguales pueden tener instrucciones distintas.</p>
 

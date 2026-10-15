@@ -21,7 +21,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#origen">Identificar de dónde viene el olor</a></li><li><a href="#encierro">Qué hacer si estuvo guardado</a></li><li><a href="#humedo">Qué hacer si quedó húmedo</a></li><li><a href="#lavado">Cuándo volver a lavarlo</a></li><li><a href="#moho">Qué hacer si hay moho visible</a></li><li><a href="#prevenir">Cómo evitar que vuelva</a></li></ol></nav>
 
-  <h2 id="origen">Primero: distinguí olor a encierro, humedad y moho</h2>
+  <h2 id="origen">Mal olor en edredones: encierro, humedad interna o moho</h2>
   <p>“Olor a humedad” puede describir problemas distintos. Antes de aplicar cualquier producto, extendé el acolchado en un lugar ventilado y revisalo por ambos lados. Presioná con las manos las esquinas, los bordes y las costuras gruesas: suelen tardar más en secar que la tela exterior.</p>
   <div className="frequency-grid">
     <article><strong>Olor a encierro</strong><p>El acolchado está seco, liviano y sin manchas, pero tomó olor después de pasar meses guardado.</p></article>

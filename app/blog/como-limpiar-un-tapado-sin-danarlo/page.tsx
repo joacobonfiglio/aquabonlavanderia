@@ -19,7 +19,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <p className="article-lead"><strong>Primero, no lo mojes por reflejo.</strong> Un tapado de paño combina tejido exterior, forro, entretelas y, a veces, hombreras o apliques. Buscá la etiqueta interior: si permite lavado doméstico, seguí sus límites; si lo prohíbe o la estructura genera dudas, pedí una evaluación profesional. Mientras tanto, ventilar y retirar pelusa sin frotar suelen ser cuidados menos invasivos.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#etiqueta">La decisión según etiqueta</a></li><li><a href="#rutina">Cuidados entre usos</a></li><li><a href="#lavado">Si permite lavado</a></li><li><a href="#manchas">Manchas y errores</a></li><li><a href="#consulta">Cuándo consultar</a></li></ol></nav>
 
-  <h2 id="etiqueta">¿Se puede lavar un tapado en casa? Depende de la prenda completa</h2>
+  <h2 id="etiqueta">Limpieza de abrigos de paño y lana en casa</h2>
   <p>La tina de la etiqueta indica si admite lavado doméstico y con qué temperatura y suavidad. Una tina tachada significa que no debe lavarse en casa; el círculo informa sobre procesos de cuidado profesional. No deduzcas el método solo porque el exterior sea lana o poliéster: el forro, las costuras y las piezas internas también importan.</p>
   <div className="frequency-grid">
     <article><strong>Lavado permitido</strong><p>Respetá programa, temperatura, centrifugado y secado indicados. Antes comprobá que la máquina tenga espacio suficiente para la prenda.</p></article>

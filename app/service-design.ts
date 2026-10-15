@@ -8,9 +8,9 @@ export type ServiceDesign = {
 export const serviceDesigns: Record<string, ServiceDesign> = {
   "lavado-de-acolchados": {
     name: "Lavado de acolchados", title: ["Volvé a descansar", "entre limpio."],
-    image: "/blog/revisar-cuando-lavar-acolchado.webp", alt: "Revisión de un acolchado blanco sobre una cama antes de su lavado",
+    image: "/blog/revisar-cuando-lavar-acolchado.webp", alt: "Lavado de acolchados: revisión de etiqueta y relleno de una pieza blanca sobre la cama",
     tag: "EL CUIDADO TAMBIÉN DESCANSA", caption: "Acolchados · Cubrecamas · Frazadas",
-    heading: ["Más espacio para lavar.", "Más cuidado para secar."],
+    heading: ["Limpieza de frazadas y cubrecamas", "con secado según el relleno"],
     intro: "Un acolchado necesita espacio y un proceso compatible con su relleno. En Aquabon revisamos tamaño, etiqueta y estado para confirmar el lavado y el secado adecuados.",
     prepare: "Traelo seco y en una bolsa. Contanos si tiene manchas, roturas o si ya recibió algún tratamiento. Una foto de la etiqueta ayuda a orientarte antes de venir.",
     guideTitle: "¿Qué necesitás lavar?", guide: [
@@ -21,9 +21,9 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
   },
   tintoreria: {
     name: "Tintorería", title: ["Cada prenda especial", "merece su cuidado."],
-    image: "/blog/revisar-prendas-tintoreria.webp", alt: "Revisión de un saco de vestir junto a otras prendas especiales",
+    image: "/blog/revisar-prendas-tintoreria.webp", alt: "Recepción de tintorería: revisión del tejido de un saco y otras prendas de vestir",
     tag: "UN SOLO PUNTO DE CONTACTO", caption: "Recepción · Evaluación · Seguimiento",
-    heading: ["Tu prenda tiene historia.", "La escuchamos antes de tratarla."],
+    heading: ["Cuidado de sacos, trajes y vestidos", "con evaluación de cada tejido"],
     intro: "En Aquabon recibimos tu prenda, registramos sus características y centralizamos el seguimiento. Cuando necesita un tratamiento especializado, lo coordinamos fuera del local y te avisamos cuando vuelve disponible.",
     prepare: "Contanos qué originó la mancha y si probaste algún producto. Traé la prenda con su etiqueta; fotos del tejido y del daño sirven para una primera orientación.",
     guideTitle: "Lo delicado se decide prenda por prenda", guide: [
@@ -34,9 +34,9 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
   },
   planchado: {
     name: "Planchado", title: ["Menos arrugas.", "Más tiempo para vos."],
-    image: "/services/planchado-v3.webp", alt: "Plancha de vapor sobre una camisa de algodón celeste en una tabla de planchar",
+    image: "/services/planchado-v3.webp", alt: "Servicio de planchado de una camisa celeste con plancha de vapor",
     tag: "EL ÚLTIMO DETALLE CUENTA", caption: "Camisas y prendas aptas para planchado",
-    heading: ["La terminación que buscás.", "Una tarea que te ahorrás."],
+    heading: ["Terminación de ropa y eliminación de arrugas", "según el tejido"],
     intro: "Dejá tus camisas y prendas aptas para planchado en Gascón 2189. Revisamos tejido y etiqueta, confirmamos el trabajo y te avisamos por WhatsApp cuando está terminado.",
     prepare: "Contanos cuántas prendas son y qué tipo de tejido tienen. Si también necesitás lavado, pedilo al consultar: el planchado es un servicio aparte del valet.",
     guideTitle: "Elegí lo que necesitás resolver", guide: [
@@ -47,9 +47,9 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
   },
   "lavado-y-planchado-de-camisas": {
     name: "Lavado y planchado de camisas", title: ["Camisas cuidadas.", "Una tarea menos."],
-    image: "/blog/preparar-camisa-antes-lavar.webp", alt: "Preparación de una camisa celeste antes de su lavado y planchado",
+    image: "/blog/preparar-camisa-antes-lavar.webp", alt: "Lavado y planchado de camisas: preparación de una camisa celeste",
     tag: "LAVADO Y TERMINACIÓN EN UN PEDIDO", caption: "Cuello · Puños · Tejido · Etiqueta",
-    heading: ["Cada camisa se revisa.", "Cada terminación se confirma."],
+    heading: ["Limpieza de cuellos y puños", "con una terminación cuidada"],
     intro: "Recibimos tus camisas en Gascón 2189 y revisamos tejido, etiqueta, manchas y detalles antes de confirmar lavado, planchado, precio y plazo.",
     prepare: "Contanos cuántas camisas son y señalá manchas o cuidados particulares. Traelas con su etiqueta y avisá si ya aplicaste algún producto.",
     guideTitle: "Qué revisamos antes de comenzar", guide: [
@@ -60,9 +60,9 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
   },
   "tenido-de-prendas": {
     name: "Teñido de prendas", title: ["Otra oportunidad", "para tu color."],
-    image: "/services/tenido-v3.webp", alt: "Prenda de algodón en un baño de tinte azul con una herramienta de madera",
+    image: "/services/tenido-v3.webp", alt: "Teñido de prendas: evaluación del tejido y del color antes del tratamiento",
     tag: "EL CAMBIO EMPIEZA EN EL TEJIDO", caption: "Recuperación o cambio de color, previa evaluación",
-    heading: ["Antes del nuevo color,", "conocemos la prenda."],
+    heading: ["Recuperación del color de la ropa", "previa evaluación de las fibras"],
     intro: "¿Una prenda desteñida o un color que querés cambiar? Evaluamos composición, tono original, costuras y desgaste. Te orientamos sobre lo que puede lograrse antes de aceptar el trabajo.",
     prepare: "Mandanos una foto de la prenda y su etiqueta. Contanos el color actual y el que buscás; el resultado se evalúa en persona y no se promete un tono exacto.",
     guideTitle: "¿Recuperar o cambiar?", guide: [
@@ -73,9 +73,9 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
   },
   "arreglos-y-costura": {
     name: "Arreglos y costura", title: ["Un pequeño arreglo.", "Más vida para tu ropa."],
-    image: "/services/costura-v3.webp", alt: "Máquina de coser trabajando sobre el dobladillo de una prenda de jean azul",
+    image: "/services/costura-v3.webp", alt: "Arreglos y costura de ropa: revisión de una costura y preparación de la reparación",
     tag: "LOS DETALLES HACEN LA DIFERENCIA", caption: "Ajustes y reparaciones según cada prenda",
-    heading: ["Antes de dejar de usarla,", "veamos qué podemos arreglar."],
+    heading: ["Reparación y ajuste de prendas", "para volver a usarlas"],
     intro: "Una costura o un ajuste pueden cambiar cuánto usás una prenda. En Aquabon recibimos pequeños arreglos y reparaciones para valorar el tejido, el alcance y la viabilidad del trabajo.",
     prepare: "Traé la prenda y explicanos qué necesitás cambiar. Las medidas y el alcance se confirman en persona antes de aceptar el arreglo.",
     guideTitle: "Mostranos el detalle que te preocupa", guide: [
@@ -86,9 +86,9 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
   },
   "lavado-de-zapatillas": {
     name: "Lavado de zapatillas", title: ["Tus zapatillas.", "Listas para seguir."],
-    image: "/blog/revisar-zapatillas-antes-lavar.webp", alt: "Revisión de zapatillas de tela y materiales combinados antes de su limpieza",
+    image: "/blog/revisar-zapatillas-antes-lavar.webp", alt: "Lavado de zapatillas: revisión del material y las uniones antes de la limpieza",
     tag: "EL PRÓXIMO PASO EMPIEZA ACÁ", caption: "Material · Limpieza · Secado",
-    heading: ["Para seguir usándolas,", "cuidamos cómo las limpiamos."],
+    heading: ["Limpieza de calzado deportivo", "según materiales y estado"],
     intro: "Revisamos material, color, manchas, desgaste y uniones. Definimos si el lavado es adecuado y cómo secarlas sin calor innecesario. La limpieza no revierte daños ni garantiza dejarlas como nuevas.",
     prepare: "Enviá fotos del par, la suela y las zonas con manchas o desgaste. Avisanos si hay partes despegadas o si ya aplicaste algún producto.",
     guideTitle: "El material cambia el cuidado", guide: [
@@ -99,9 +99,9 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
   },
   "lavado-de-camperas-y-tapados": {
     name: "Camperas y tapados", title: ["Tu abrigo favorito.", "Su cuidado indicado."],
-    image: "/blog/revisar-tapado-etiqueta-forro.webp", alt: "Revisión de la etiqueta y el forro de un tapado de paño azul",
+    image: "/blog/revisar-tapado-etiqueta-forro.webp", alt: "Lavado de camperas y tapados: revisión del forro y la etiqueta de un abrigo",
     tag: "CUIDAMOS LO QUE TE ABRIGA", caption: "Etiqueta · Forro · Relleno",
-    heading: ["Por fuera y por dentro,", "cada abrigo es distinto."],
+    heading: ["Limpieza de abrigos y prendas de invierno", "por dentro y por fuera"],
     intro: "Una campera liviana, un abrigo de pluma y un tapado de paño necesitan cuidados distintos. Revisamos la prenda completa antes de confirmar lavado o tratamiento especializado, precio y plazo.",
     prepare: "Traé tu abrigo con la etiqueta e informanos manchas, roturas, accesorios y tratamientos previos. Si necesita tintorería, coordinamos el tratamiento especializado fuera del local.",
     guideTitle: "¿Qué tipo de abrigo tenés?", guide: [
@@ -112,9 +112,9 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
   },
   "retiro-y-entrega-de-ropa": {
     name: "Retiro y entrega", title: ["Tu ropa va y vuelve.", "Vos seguís con tu día."],
-    image: "/services/retiro-v3.webp", alt: "Entrega de una bolsa de ropa cerrada en la puerta de una vivienda",
+    image: "/services/retiro-v3.webp", alt: "Retiro y entrega de ropa: bolsa de prendas preparada para coordinar el traslado",
     tag: "MENOS TRASLADOS EN TU DÍA", caption: "Centro y zonas cercanas · Consultá cobertura",
-    heading: ["El cuidado de siempre.", "Una forma de acercarlo."],
+    heading: ["Lavandería a domicilio", "con recorridos y horarios acordados"],
     intro: "Coordinamos el retiro de tu ropa y su devolución cuando está lista, según zona y disponibilidad. Escribinos con tu dirección y el servicio: confirmamos recorrido, costo y condiciones antes de acordar.",
     prepare: "Prepará la ropa en una bolsa bien cerrada. Informanos cantidad de prendas, manchas, daños y requisitos particulares antes del retiro.",
     guideTitle: "¿Qué querés que retiremos?", guide: [

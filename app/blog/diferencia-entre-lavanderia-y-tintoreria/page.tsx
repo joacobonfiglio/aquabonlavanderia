@@ -21,7 +21,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#comparacion">La diferencia principal</a></li><li><a href="#lavanderia">Qué llevar a lavandería</a></li><li><a href="#tintoreria">Qué llevar a tintorería</a></li><li><a href="#seco">Qué significa limpieza en seco</a></li><li><a href="#elegir">Cómo elegir el servicio</a></li><li><a href="#aquabon">Cómo funciona en Aquabon</a></li></ol></nav>
 
-  <h2 id="comparacion">La diferencia no está solo en usar agua o solvente</h2>
+  <h2 id="comparacion">Lavado con agua y cuidado profesional con solventes</h2>
   <p>En el uso cotidiano, “lavandería” suele asociarse con lavar, secar y doblar ropa de todos los días. “Tintorería” describe un cuidado profesional más individualizado para prendas cuyo material o construcción exige revisar el método antes de empezar.</p>
   <div className="frequency-grid">
     <article><strong>Lavandería</strong><p>Ropa cotidiana, toallas, sábanas y otros textiles lavables. El proceso suele basarse en agua, detergente, secado compatible y doblado.</p></article>

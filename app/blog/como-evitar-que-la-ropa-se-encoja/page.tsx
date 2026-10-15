@@ -20,7 +20,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <p className="article-lead"><strong>La mejor prevención está en la etiqueta y en el secado.</strong> Usá la temperatura máxima permitida, reducí fricción y centrifugado cuando el símbolo indique un proceso suave, y no lleves una prenda a la secadora si no está autorizada. “Agua fría para todo” tampoco reemplaza las instrucciones específicas.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#causas">Por qué encoge la ropa</a></li><li><a href="#pasos">Cómo prevenirlo</a></li><li><a href="#tejidos">Cuidados por tejido</a></li><li><a href="#secado">El secado importa</a></li><li><a href="#encogida">Si ya encogió</a></li></ol></nav>
 
-  <h2 id="causas">Por qué una prenda puede encoger</h2>
+  <h2 id="causas">Por qué las fibras se contraen durante el lavado</h2>
   <div className="frequency-grid">
     <article><strong>Temperatura inadecuada</strong><p>Superar el límite de la etiqueta puede modificar fibras, acabados y uniones.</p></article>
     <article><strong>Acción mecánica</strong><p>Un ciclo intenso, mucha carga o fricción afectan especialmente tejidos delicados y lana.</p></article>

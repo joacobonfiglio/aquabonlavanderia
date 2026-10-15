@@ -28,7 +28,7 @@ export default function Page(){
     <p className="article-lead"><strong>Para reducir la pérdida de color, revisá la etiqueta, lavá el jean del revés con prendas oscuras similares y evitá más temperatura, fricción y secado de los necesarios.</strong> El color no se conserva con un único truco: depende del tinte, el acabado, la composición y de todo el ciclo de cuidado.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#antes">Antes de lavar</a></li><li><a href="#maquina">Lavado en máquina</a></li><li><a href="#tipos">Qué cambia según el jean</a></li><li><a href="#secado">Secado</a></li><li><a href="#errores">Errores frecuentes</a></li><li><a href="#frecuencia">Cuándo lavarlos</a></li></ol></nav>
 
-    <h2 id="antes">Antes de lavar: mirá más que el color</h2>
+    <h2 id="antes">Cuidado del denim antes de ponerlo en el lavarropas</h2>
     <p>Dos jeans azul oscuro pueden necesitar cuidados distintos. Uno puede ser algodón rígido; otro, una mezcla con elastano; y un denim crudo puede transferir color durante los primeros lavados. La etiqueta de la prenda terminada tiene prioridad sobre cualquier consejo general.</p>
     <ol className="article-steps">
       <li><strong>Leé lavado y secado.</strong><span>Revisá temperatura, intensidad del ciclo, blanqueo y secadora. Las líneas debajo de la tina piden menor acción mecánica.</span></li>

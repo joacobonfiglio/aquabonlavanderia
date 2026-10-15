@@ -20,7 +20,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <p className="article-lead"><strong>La ropa de invierno se guarda limpia, totalmente seca y sin comprimir de más.</strong> Los sweaters pesados conviene doblarlos; los tapados estructurados necesitan una percha ancha y espacio. El recipiente importa, pero la preparación previa es lo que evita que una mancha invisible, humedad o deformación aparezcan meses después.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#preparar">Preparar antes de guardar</a></li><li><a href="#prenda">Cómo guardar cada prenda</a></li><li><a href="#contenedores">Cajas, fundas y vacío</a></li><li><a href="#polillas">Prevenir polillas y humedad</a></li><li><a href="#lista">Lista de control</a></li></ol></nav>
 
-  <h2 id="preparar">Prepará cada prenda antes de cerrar el placard</h2>
+  <h2 id="preparar">Preparación de abrigos y tejidos antes de guardarlos</h2>
   <ol className="article-steps">
     <li><strong>Clasificá.</strong><span>Separá lo que está listo, lo que necesita reparación y lo que requiere lavado doméstico o cuidado profesional.</span></li>
     <li><strong>Revisá la etiqueta.</strong><span>No elijas el proceso por apariencia: lana, pluma, forros y prendas estructuradas tienen indicaciones distintas.</span></li>

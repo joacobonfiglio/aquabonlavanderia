@@ -22,7 +22,7 @@ export default function Page(){
   return <ArticleLayout title={title} description={description} slug="hay-que-lavar-la-ropa-nueva" date="2026-10-13" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image="/blog/revisar-ropa-nueva-primer-lavado.webp" service="valet"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
     <p><strong>Sí: en general conviene lavar la ropa nueva antes de estrenarla.</strong> Es especialmente importante cuando va a quedar en contacto directo con la piel, si es ropa interior o de bebé, o si la usará una persona con piel sensible. La etiqueta de cuidado sigue siendo la guía principal.</p>
 
-    <h2>¿Por qué conviene lavar una prenda nueva?</h2>
+    <h2>Motivos para limpiar las prendas recién compradas</h2>
     <p>Que una prenda no haya sido usada no significa que esté lista para el contacto prolongado con la piel. Durante la fabricación, el transporte, el almacenamiento y la exhibición puede acumular polvo, suciedad superficial o residuos de acabados textiles. Health Canada y la American Academy of Dermatology recomiendan lavar la ropa nueva antes de usarla para reducir el contacto con esos residuos y el riesgo de irritación.</p>
     <p>No hace falta tratar toda prenda nueva como si estuviera contaminada: alcanza con aplicar una precaución razonable y elegir un proceso compatible con su composición.</p>
 

@@ -27,7 +27,7 @@ export default function Page(){
     <p className="article-lead"><strong>Ante una mancha de sangre, actuá con agua fría y evitá el calor.</strong> Enjuagar desde el reverso, pretratar según la etiqueta y comprobar el resultado antes de secar reduce el riesgo de fijar la mancha o dañar el tejido.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#fresca">Mancha fresca: primeros pasos</a></li><li><a href="#seca">Cómo tratar una mancha seca</a></li><li><a href="#tejidos">Cuidados según la prenda</a></li><li><a href="#errores">Errores que conviene evitar</a></li><li><a href="#consulta">Cuándo consultar</a></li></ol></nav>
 
-    <h2 id="fresca">Cómo tratar una mancha de sangre fresca</h2>
+    <h2 id="fresca">Cómo quitar restos de sangre recientes sin fijarlos al tejido</h2>
     <ol className="article-steps">
       <li><strong>Evitá transferirla.</strong><span>Separá la prenda y apoyala sobre una superficie limpia. Si la sangre no es tuya, usá guantes y evitá el contacto directo.</span></li>
       <li><strong>Enjuagá con agua fría.</strong><span>Si la etiqueta admite agua, hacelo desde el reverso para empujar la mancha hacia afuera en lugar de atravesar más fibras.</span></li>

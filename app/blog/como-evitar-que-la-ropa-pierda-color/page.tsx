@@ -28,7 +28,7 @@ export default function Page(){
     <p className="article-lead"><strong>Para evitar que una prenda tiña a las demás, identificá los colores de riesgo antes de cargar el lavarropas.</strong> Leé la etiqueta, separá blancos, claros, colores intensos y oscuros, probá la estabilidad en una costura interior cuando haya dudas y lavá sola una prenda nueva que transfiera color.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#por-que">Por qué destiñe</a></li><li><a href="#prueba">Cómo hacer una prueba</a></li><li><a href="#separar">Cómo separar la ropa</a></li><li><a href="#lavado">Durante el lavado</a></li><li><a href="#transferencia">Si ya se tiñó</a></li><li><a href="#errores">Errores frecuentes</a></li></ol></nav>
 
-    <h2 id="por-que">Por qué una prenda destiñe</h2>
+    <h2 id="por-que">Por qué los tejidos liberan tinte durante el lavado</h2>
     <p>Una prenda destiñe cuando parte de su tinte migra al agua o por contacto y puede depositarse sobre otros textiles. Sucede con más frecuencia en colores intensos, algunas prendas nuevas y tintes poco estables, pero no puede predecirse solo mirando el tono. Fibra, proceso de teñido, acabado, temperatura, fricción y productos utilizados también influyen.</p>
     <div className="frequency-grid">
       <article><strong>Prenda nueva</strong><p>Puede liberar excedente de tinte en los primeros lavados. Si no conocés su comportamiento, no la mezcles con claros.</p></article>

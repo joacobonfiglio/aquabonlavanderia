@@ -20,7 +20,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <p className="article-lead"><strong>La regla más segura es no lavar un saco sin leer antes su etiqueta.</strong> Aunque el tejido exterior parezca resistente, las hombreras, entretelas, solapas y el forro pueden reaccionar de manera distinta. Entre usos, ventilación, una percha adecuada y una inspección suave suelen ser preferibles a limpiar toda la prenda por rutina.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#antes">Qué revisar antes</a></li><li><a href="#entre-usos">Cuidado entre usos</a></li><li><a href="#mancha">Qué hacer con una mancha</a></li><li><a href="#arrugas">Arrugas y guardado</a></li><li><a href="#profesional">Cuándo consultar</a></li></ol></nav>
 
-  <h2 id="antes">Antes de limpiar: etiqueta, estructura y conjunto</h2>
+  <h2 id="antes">Cuidado de chaquetas: etiqueta, forro y estructura</h2>
   <p>La tina de la etiqueta informa si admite lavado doméstico; el círculo se refiere al cuidado profesional. Una tina tachada indica que no debe lavarse en casa. Revisá también el símbolo de planchado: la temperatura se elige por la etiqueta, no solo por el nombre del tejido.</p>
   <div className="frequency-grid">
     <article><strong>Exterior</strong><p>Identificá composición, brillo, desgaste y manchas. Lana, mezclas o fibras sintéticas no determinan por sí solas el proceso.</p></article>

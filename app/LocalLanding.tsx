@@ -14,7 +14,7 @@ export function localData(kind: "general" | "centro"): LandingData {
     crumbs: [{ label: "Inicio", href: "/" }, { label: centro ? "Lavadero en el centro" : "Elegir servicio", href: path }],
     sections: centro ? [
       { heading: "Cómo llegar a Gascón 2189", text: "El local de Aquabon está en el centro de Mar del Plata. Abrí la ruta de Google Maps con tu ubicación para conocer el recorrido. La recepción y la entrega de pedidos se realizan en este mismo local." },
-      { heading: "También atendemos los sábados", text: "De lunes a viernes estamos de 8:30 a 20:00; los sábados, de 9:00 a 14:00. Para saber si un pedido está listo o coordinar una visita, escribinos por WhatsApp antes de venir." },
+      { heading: "Recepción de ropa en el centro también los sábados", text: "De lunes a viernes estamos de 8:30 a 20:00; los sábados, de 9:00 a 14:00. Para saber si un pedido está listo o coordinar una visita, escribinos por WhatsApp antes de venir." },
       { heading: "¿Vivís cerca y necesitás retiro?", text: "Priorizamos el centro y zonas cercanas para retiro y entrega. Mandanos la dirección y el volumen de ropa: confirmamos disponibilidad del recorrido, costo y horario. La cercanía al local no implica cobertura automática." },
     ] : [
       { heading: "Ropa cotidiana: pedí valet", text: "El valet incluye lavado, secado y doblado. Separá las prendas delicadas, vaciá los bolsillos e informá manchas o daños. El planchado se solicita por separado." },

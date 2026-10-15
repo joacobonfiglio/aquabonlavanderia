@@ -20,7 +20,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <p className="article-lead"><strong>Para sacar el olor hay que eliminar la humedad y tratar el interior, no solamente perfumarlo.</strong> Empezá por abrir el calzado, retirar las plantillas si son removibles y dejar secar todo por separado. Recién después evaluá si alcanza con airear, si conviene usar un absorbente seco o si hace falta una limpieza compatible con los materiales.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#causa">Identificar la causa</a></li><li><a href="#pasos">Qué hacer paso a paso</a></li><li><a href="#bicarbonato">Cómo usar bicarbonato</a></li><li><a href="#errores">Errores frecuentes</a></li><li><a href="#prevenir">Cómo prevenir el olor</a></li></ol></nav>
 
-  <h2 id="causa">Primero: ¿olor a uso o humedad retenida?</h2>
+  <h2 id="causa">Mal olor en el calzado: suciedad o humedad retenida</h2>
   <div className="frequency-grid">
     <article><strong>Después de entrenar</strong><p>El interior quedó húmedo por transpiración. Airear plantillas, lengüeta y acolchado entre usos suele ser el primer paso.</p></article>
     <article><strong>Después de mojarlas</strong><p>La espuma puede conservar agua aunque la superficie parezca seca. Antes de desodorizar, completá el secado.</p></article>

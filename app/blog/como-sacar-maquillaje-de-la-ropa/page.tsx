@@ -27,7 +27,7 @@ export default function Page(){
     <p className="article-lead"><strong>Primero retirás el exceso; después elegís el tratamiento.</strong> Base, labial, polvo y máscara no dejan la misma mancha. Evitá frotar, revisá la etiqueta y no uses secadora ni plancha hasta comprobar que la marca desapareció.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#primeros-pasos">Qué hacer enseguida</a></li><li><a href="#tipo">Tratamiento según el maquillaje</a></li><li><a href="#tejido">Cuidados según la prenda</a></li><li><a href="#errores">Errores frecuentes</a></li><li><a href="#consulta">Cuándo consultar</a></li></ol></nav>
 
-    <h2 id="primeros-pasos">Qué hacer apenas se mancha la ropa</h2>
+    <h2 id="primeros-pasos">Cómo retirar restos de cosméticos sin frotar el tejido</h2>
     <ol className="article-steps">
       <li><strong>Leé la etiqueta.</strong><span>Confirmá si admite agua, qué temperatura máxima permite y si requiere cuidado profesional.</span></li>
       <li><strong>Retirá el exceso.</strong><span>Levantá producto sólido o cremoso con el borde de una cuchara, sin empujarlo hacia las fibras.</span></li>

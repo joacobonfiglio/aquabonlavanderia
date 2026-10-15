@@ -20,7 +20,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <p className="article-lead"><strong>Respuesta corta:</strong> si usás funda removible y el acolchado no tiene manchas, olor ni contacto directo intenso, lavarlo en profundidad una o dos veces al año suele ser una referencia razonable. Sin funda, con mascotas, transpiración frecuente o un derrame, revisalo y limpialo antes. La etiqueta siempre define qué proceso admite.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#frecuencia">Una frecuencia según el uso</a></li><li><a href="#senales">Señales para adelantar el lavado</a></li><li><a href="#material">Qué cambia según el relleno</a></li><li><a href="#mantener">Cómo mantenerlo entre lavados</a></li><li><a href="#profesional">Cuándo llevarlo a lavandería</a></li></ol></nav>
 
-  <h2 id="frecuencia">No hay una frecuencia única para todos los acolchados</h2>
+  <h2 id="frecuencia">Frecuencia de limpieza de edredones según uso y relleno</h2>
   <p>El calendario sirve como recordatorio, no como una orden automática. Un acolchado protegido por una funda lavable recibe menos contacto directo que uno usado sin funda; uno que permanece doblado gran parte del año no acumula lo mismo que otro utilizado todas las noches.</p>
   <div className="frequency-grid">
     <article><strong>Con funda y uso normal</strong><p>Lavá la funda con frecuencia y revisá el acolchado al cambiar de temporada. Una o dos limpiezas profundas al año pueden ser suficientes si la etiqueta y el estado lo permiten.</p></article>

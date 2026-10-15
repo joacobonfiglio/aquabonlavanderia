@@ -28,7 +28,7 @@ export default function Page(){
     <p className="article-lead"><strong>La cantidad correcta no se puede resumir en un número válido para todos los lavados.</strong> Tomá como base la tabla del detergente para el tamaño de tu carga y ajustá solo por nivel de suciedad, dureza del agua, concentración del producto y tipo de lavarropas. Más detergente no significa ropa más limpia.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#respuesta">La respuesta corta</a></li><li><a href="#factores">Qué cambia la dosis</a></li><li><a href="#medir">Cómo medirla</a></li><li><a href="#exceso">Señales de exceso</a></li><li><a href="#poco">Señales de falta</a></li><li><a href="#formatos">Líquido, polvo o cápsulas</a></li></ol></nav>
 
-    <h2 id="respuesta">Cuánto detergente usar: la respuesta corta</h2>
+    <h2 id="respuesta">Dosis de jabón para ropa según carga y concentración</h2>
     <p>Leé primero la dosis del envase. Buscá la combinación que más se parezca a tu lavado: carga pequeña, media o grande; suciedad normal o intensa; y agua blanda, media o dura si la tabla lo distingue. Después verificá en el manual del lavarropas si exige detergente de alta eficiencia, limita el dosificador o incorpora dosificación automática.</p>
     <div className="article-callout"><strong>No copies una medida de internet</strong><p>Dos detergentes líquidos pueden tener concentraciones distintas y sus tapas no necesariamente equivalen. Lo mismo ocurre entre polvo, gel y cápsulas. La medida correcta pertenece al producto que estás usando.</p></div>
     <div className="frequency-grid">

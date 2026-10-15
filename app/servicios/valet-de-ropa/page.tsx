@@ -51,13 +51,13 @@ export default function ValetPage() {
           <WhatsAppLink className={styles.button} message={message} event="whatsapp_valet_hero">Contactar ↗</WhatsAppLink>
           <p className={styles.heroNote}>Traé tu bolsa a Gascón 2189 o consultá por retiro y entrega.</p><a href="#que-incluye" className={styles.textLink}>Conocé qué incluye el valet</a>
         </div>
-        <figure className={styles.heroPhoto}><Image src="/service-still-v2.webp" width={1024} height={1536} alt="Ropa de uso diario doblada junto a toallas y una bolsa de lavado" sizes="(max-width: 760px) 100vw, 48vw" preload />
+        <figure className={styles.heroPhoto}><Image src="/service-still-v2.webp" width={1024} height={1536} alt="Valet de ropa: prendas de uso diario dobladas junto a toallas y una bolsa de lavado" sizes="(max-width: 760px) 100vw, 48vw" preload />
           <div className={styles.photoTag} aria-hidden="true"><span>UNA TAREA MENOS</span><strong>De tu bolsa<br />a tu placard.</strong></div><figcaption className={styles.photoCaption}><span>Lavada.</span><span>Seca.</span><span>Doblada.</span></figcaption>
         </figure>
       </section>
       <div className={styles.careRibbon} aria-label="Lavado, secado y doblado"><span>LAVAR</span><i aria-hidden="true">✳</i><span>SECAR</span><i aria-hidden="true">✳</i><span>DOBLAR</span><i aria-hidden="true">✳</i><span>SEGUIR CON TU DÍA</span></div>
       <section className={styles.included} id="que-incluye" aria-labelledby="included-title">
-        <div className={styles.sectionHeading}><p className={styles.label}>VOS DEJÁS LA ROPA. NOSOTROS NOS OCUPAMOS.</p><h2 id="included-title">Todo el lavado<br /><span>Ninguna tarea pendiente</span></h2><p>El valet de Aquabon reúne lavado, secado y doblado de ropa cotidiana. Un servicio para liberar tu semana y volver a tener lo que usás a mano.</p></div>
+        <div className={styles.sectionHeading}><p className={styles.label}>VOS DEJÁS LA ROPA. NOSOTROS NOS OCUPAMOS.</p><h2 id="included-title">Lavado, secado y doblado<br /><span>para liberar tu semana</span></h2><p>El valet de Aquabon reúne lavado, secado y doblado de ropa cotidiana. Un servicio para liberar tu semana y volver a tener lo que usás a mano.</p></div>
         <div className={styles.includedGrid}>
           <article><span className={styles.number}>01 / LAVADO</span><h3>De pendiente <br />a limpia</h3><p>Nos ocupamos del lavado de tu ropa de uso diario. Si hay manchas o cuidados particulares, contanos antes de dejar la bolsa.</p></article>
           <article><span className={styles.number}>02 / SECADO</span><h3>Sin ocupar <br />tu casa</h3><p>El servicio incluye secado. Te ahorrás tender, estar pendiente del clima y esperar a que la ropa deje de ocupar espacio.</p></article>

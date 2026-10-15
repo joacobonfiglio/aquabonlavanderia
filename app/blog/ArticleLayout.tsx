@@ -21,6 +21,7 @@ type ArticleLayoutProps = {
 
 export default function ArticleLayout({title,description,slug,date,readingTime,cluster,image,service="acolchados",children}:ArticleLayoutProps){
   const path=`/blog/${slug}`;
+  const coverAlt = guides.find(guide => guide.href === path)?.alt || title;
   const isTintoreria=service==="tintoreria";
   const isZapatillas=service==="zapatillas";
   const isValet=service==="valet";
@@ -38,7 +39,7 @@ export default function ArticleLayout({title,description,slug,date,readingTime,c
     <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Guías",href:"/blog"},{label:title,href:path}]}/>
     <header className="article-hero">
       <div className="article-hero-copy"><p className="eyebrow">GUÍA · {cluster.toUpperCase()}</p><h1>{title}</h1><p>{description}</p><div className="article-meta"><time dateTime={date}>{displayDate}</time><span>{readingTime}</span><span>Por <Link href="/nosotros">Aquabon Lavandería</Link></span></div></div>
-      <figure className="article-cover">{image ? <Image src={image} alt={title} width={1400} height={788} sizes="(max-width: 760px) 100vw, 45vw" preload/> : null}<figcaption><span>AQUABON / CUADERNO DE CUIDADO</span><strong>{cluster}</strong><small>LEÉ LA ETIQUETA · CUIDÁ TU PRENDA ↗</small></figcaption></figure>
+      <figure className="article-cover">{image ? <Image src={image} alt={coverAlt} width={1400} height={788} sizes="(max-width: 760px) 100vw, 45vw" preload/> : null}<figcaption><span>AQUABON / CUADERNO DE CUIDADO</span><strong>{cluster}</strong><small>LEÉ LA ETIQUETA · CUIDÁ TU PRENDA ↗</small></figcaption></figure>
     </header>
     <div className="article-shell"><article className="article-body">{children}</article><aside className="article-sidebar" aria-label="Contacto y lecturas relacionadas"><div className="article-aside"><p className="eyebrow">¿PREFERÍS NO HACERLO EN CASA?</p><h2>{serviceName}</h2><p>{serviceCopy}</p><Link href={servicePath}>Ver el servicio <span>↗</span></Link><WhatsAppLink message={serviceMessage} event="whatsapp_blog_sidebar">Contactar por WhatsApp ↗</WhatsAppLink></div><nav className="article-related" aria-labelledby="related-guides-title"><h2 id="related-guides-title">También te puede servir</h2>{related.map(guide=><Link key={guide.href} href={guide.href}><Image src={guide.image} alt={guide.alt} width={160} height={110} sizes="80px"/><span><small>{guide.cluster}</small><strong>{guide.title}</strong></span></Link>)}</nav></aside></div>
     <section className="article-next"><p className="eyebrow">SEGUÍ CUIDANDO TUS PRENDAS</p><h2>Servicios relacionados</h2><div><Link href={servicePath}>{serviceName} ↗</Link><Link href={isTintoreria||isZapatillas?"/servicios/valet-de-ropa":"/servicios/tintoreria"}>{isTintoreria||isZapatillas?"Valet de ropa":"Tintorería"} ↗</Link><Link href="/blog">Todas las guías ↗</Link></div></section>

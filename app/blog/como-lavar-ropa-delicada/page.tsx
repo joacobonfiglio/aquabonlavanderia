@@ -27,7 +27,7 @@ export default function Page(){
     <p className="article-lead"><strong>“Delicada” no significa automáticamente “lavar a mano”.</strong> Primero mirá la etiqueta y la construcción de la prenda. Recién después elegí entre ciclo suave, lavado manual o cuidado profesional. La menor temperatura no compensa un método que la etiqueta prohíbe.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#decidir">Cómo elegir el método</a></li><li><a href="#maquina">Lavado en máquina</a></li><li><a href="#mano">Lavado a mano</a></li><li><a href="#secado">Secado sin deformar</a></li><li><a href="#tejidos">Cuidados por tejido</a></li><li><a href="#consulta">Cuándo consultar</a></li></ol></nav>
 
-    <h2 id="decidir">Antes de lavar: tres decisiones importantes</h2>
+    <h2 id="decidir">Cuidado de tejidos sensibles antes del lavado</h2>
     <ol className="article-steps">
       <li><strong>Leé todos los símbolos.</strong><span>La tina habla del lavado doméstico; el cuadrado, del secado; la plancha, del calor; y el círculo, del cuidado profesional.</span></li>
       <li><strong>Revisá la prenda completa.</strong><span>Forro, apliques, bordados, hombreras, cierres y combinaciones de color pueden ser más sensibles que la tela principal.</span></li>

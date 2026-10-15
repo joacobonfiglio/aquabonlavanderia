@@ -27,7 +27,7 @@ export default function Page(){
     <p className="article-lead"><strong>Para una mancha fresca, la prioridad es absorber sin frotar.</strong> Después hay que identificar el tejido, leer la etiqueta y elegir un tratamiento compatible. El calor de la secadora o la plancha debe esperar hasta comprobar que el pigmento desapareció.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#primeros-minutos">Qué hacer en los primeros minutos</a></li><li><a href="#pasos">Tratamiento paso a paso</a></li><li><a href="#seca">Si la mancha ya está seca</a></li><li><a href="#tejidos">Cuidados según el tejido</a></li><li><a href="#errores">Errores frecuentes</a></li></ol></nav>
 
-    <h2 id="primeros-minutos">Qué hacer en los primeros minutos</h2>
+    <h2 id="primeros-minutos">Cómo absorber un derrame de vino sin extenderlo</h2>
     <ol className="article-steps">
       <li><strong>Retirá la prenda con cuidado.</strong><span>Evitá que la zona manchada toque otras partes de la tela.</span></li>
       <li><strong>Absorbé el exceso.</strong><span>Presioná con papel o un paño blanco limpio, desde el borde hacia el centro. No frotes.</span></li>

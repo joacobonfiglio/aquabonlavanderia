@@ -20,7 +20,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <p className="article-lead"><strong>Actuá rápido, pero no frotes ni improvises calor.</strong> Primero retirás el aceite que todavía está sobre la superficie; después pretratás con un producto compatible y lavás según la etiqueta. Antes de secar o planchar, comprobá que la aureola desapareció.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#antes">Qué revisar antes</a></li><li><a href="#fresca">Mancha fresca paso a paso</a></li><li><a href="#seca">Si ya está seca</a></li><li><a href="#tejidos">Cuidados por tejido</a></li><li><a href="#errores">Errores frecuentes</a></li></ol></nav>
 
-  <h2 id="antes">Antes de tocar la mancha</h2>
+  <h2 id="antes">Residuos de grasa en tejidos: qué revisar antes de tratarlos</h2>
   <ul><li><strong>Leé la etiqueta:</strong> define si la prenda admite lavado doméstico, temperatura y blanqueadores.</li><li><strong>Identificá el tejido:</strong> algodón resistente, lana, seda, cuero y prendas estructuradas no se tratan igual.</li><li><strong>Revisá si es aceite puro o una mezcla:</strong> una salsa puede sumar pigmentos, proteínas o azúcar.</li><li><strong>Probá el producto:</strong> aplicalo primero en una zona interior poco visible y comprobá que no cambie el color.</li></ul>
   <div className="article-callout"><strong>Si dice “solo limpieza en seco”</strong><p>No mojes ni pretrates por tu cuenta. Retirá únicamente el exceso superficial y llevá la prenda indicando qué produjo la mancha y cuándo ocurrió.</p></div>
 

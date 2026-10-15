@@ -39,7 +39,7 @@ export default function Page(){
     <p className="article-lead"><strong>Para leer una etiqueta, identificá primero la forma base.</strong> La tina habla del lavado, el triángulo del blanqueo, el cuadrado del secado, la plancha del planchado y el círculo del cuidado profesional. Después mirá números, puntos, líneas y tachados.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#familias">Las cinco familias</a></li><li><a href="#modificadores">Puntos, líneas y cruces</a></li><li><a href="#orden">Cómo leer una etiqueta completa</a></li><li><a href="#ejemplos">Ejemplos frecuentes</a></li><li><a href="#dudas">Etiqueta ausente o dudosa</a></li></ol></nav>
 
-    <h2 id="familias">Las cinco familias de símbolos de cuidado</h2>
+    <h2 id="familias">Pictogramas de cuidado textil: las cinco familias</h2>
     <p>GINETEX organiza el cuidado textil en cinco grupos y la secuencia coincide con la norma ISO 3758. El símbolo describe el tratamiento máximo que la prenda puede soportar sin daño irreversible; no obliga a usar siempre ese máximo.</p>
     <section className="care-symbol-grid" aria-label="Resumen visual de los símbolos de cuidado">
       {symbols.map(symbol=><article key={symbol.kind}><div><SymbolMark kind={symbol.kind}/></div><h3>{symbol.title}</h3><p>{symbol.copy}</p></article>)}

@@ -27,7 +27,7 @@ export default function Page(){
     <p className="article-lead"><strong>Para tratar una mancha de transpiración, primero revisá la etiqueta y distinguí si hay residuo, rigidez o cambio de color.</strong> Retirá el exceso, pretratá con un producto compatible durante el tiempo indicado, lavá según la prenda y comprobá la zona antes de aplicar secadora o plancha.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#identificar">Qué tipo de marca es</a></li><li><a href="#pasos">Paso a paso</a></li><li><a href="#tejidos">Qué cambia según la prenda</a></li><li><a href="#errores">Errores frecuentes</a></li><li><a href="#profesional">Cuándo consultar</a></li></ol></nav>
 
-    <h2 id="identificar">Transpiración, desodorante o decoloración: no son lo mismo</h2>
+    <h2 id="identificar">Sudor, desodorante y decoloración en las axilas de la ropa</h2>
     <p>Las marcas de axila pueden combinar sales de la transpiración, desodorante, grasa corporal y producto de lavado. Una zona blanca o rígida suele indicar acumulación superficial; una marca amarilla puede ser residuo oxidado, pero también un cambio del tinte. Si el color de la fibra se alteró, limpiar no necesariamente lo revierte.</p>
     <div className="frequency-grid">
       <article><strong>Marca fresca</strong><p>Actuá pronto, sin frotar con fuerza. Enjuagá o pretratá según la etiqueta y las instrucciones del producto.</p></article>

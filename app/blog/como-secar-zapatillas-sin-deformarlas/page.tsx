@@ -20,7 +20,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <p className="article-lead"><strong>La forma más prudente es secarlas al aire, a temperatura ambiente y con buena ventilación.</strong> Retirá el exceso de agua sin retorcer, abrí el calzado, separá las piezas removibles y evitá fuentes de calor. El objetivo no es secar lo más rápido posible, sino sacar la humedad sin alterar la forma, la espuma ni los adhesivos.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#pasos">Secado paso a paso</a></li><li><a href="#forma">Cómo conservar la forma</a></li><li><a href="#evitar">Qué conviene evitar</a></li><li><a href="#materiales">Cuidados por material</a></li><li><a href="#listas">Cómo saber si están secas</a></li></ol></nav>
 
-  <h2 id="pasos">Cómo secarlas paso a paso</h2>
+  <h2 id="pasos">Secado de calzado deportivo con ventilación y sin calor directo</h2>
   <ol className="article-steps">
     <li><strong>Quitá la suciedad superficial.</strong><span>No dejes barro húmedo adherido durante todo el secado. Retiralo con el método compatible con el material y sin empapar más el par.</span></li>
     <li><strong>Absorbé el exceso.</strong><span>Presioná con una toalla limpia por fuera y dentro. No retuerzas la capellada ni dobles la mediasuela.</span></li>

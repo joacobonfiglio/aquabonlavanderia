@@ -20,7 +20,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#lista">Prendas que conviene evaluar</a></li><li><a href="#revisar">Qué revisar antes de llevarlas</a></li><li><a href="#no-siempre">Cuándo no hace falta tintorería</a></li><li><a href="#manchas">Qué hacer ante una mancha</a></li><li><a href="#aquabon">Cómo consultar en Aquabon</a></li></ol></nav>
 
-  <h2 id="lista">Prendas que suelen requerir evaluación de tintorería</h2>
+  <h2 id="lista">Sacos, vestidos y abrigos que necesitan cuidado especializado</h2>
   <p>Estos ejemplos son una señal para consultar, no una orden de limpieza en seco. Una tintorería puede elegir distintos procesos profesionales compatibles con la etiqueta, incluida la limpieza húmeda profesional cuando corresponda.</p>
   <div className="frequency-grid">
     <article><strong>Sacos y trajes</strong><p>Hombreras, entretelas, solapas y forros pueden perder forma si se someten a un ciclo doméstico inadecuado. Revisá también cada pieza del conjunto.</p></article>
