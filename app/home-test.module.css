@@ -15,3 +15,6 @@
 @media(prefers-reduced-motion:reduce){.spin{animation:none}.whiteButton,.blueButton,.serviceLabels button,.clothesline a{transition:none}.whiteButton:hover,.blueButton:hover,.clothesline a:hover{transform:none}}
 
 .reviewsEmbed{grid-column:1/-1;min-width:0;width:100%;min-height:320px}.reviewsEmbed>div{width:100%}@media(max-width:700px){.reviewsEmbed{min-height:380px}}
+
+.mobileContact{display:none}
+@media(max-width:700px){.desktopContact,.actions .heroLink{display:none}.mobileContact{display:inline}.actions{display:block}.actions .whiteButton{justify-content:center}.mobileBar a:last-child{flex:1}}

@@ -46,15 +46,16 @@ export default function ValetPage() {
     <main id="valet-contenido">
       <div className={styles.breadcrumbs}><Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios" }, { label: "Valet de ropa", href: path }]} /></div>
       <section className={styles.hero} aria-labelledby="valet-title">
-        <div className={styles.heroCopy}><p className={styles.label}>VALET DE ROPA EN MAR DEL PLATA</p><h1 id="valet-title">Valet de ropa<br /><span>en Mar del Plata</span></h1>
+        <div className={styles.heroCopy}><p className={styles.label}>VALET DE ROPA EN MAR DEL PLATA</p><h1 id="valet-title">Valet de ropa<br /><span>en Mar del Plata</span></h1><p className={styles.serviceLocation}>Tu ropa, lista. Tu día, libre.</p>
           <p className={styles.lead}>La ropa se acumula. Tu día no tiene por qué esperar. En Aquabon la lavamos, secamos y doblamos por vos.</p>
-          <WhatsAppLink className={styles.button} message={message} event="whatsapp_valet_hero">Quiero resolver mi lavado</WhatsAppLink>
+          <WhatsAppLink className={styles.button} message={message} event="whatsapp_valet_hero">Contactar ↗</WhatsAppLink>
           <p className={styles.heroNote}>Traé tu bolsa a Gascón 2189 o consultá por retiro y entrega.</p><a href="#que-incluye" className={styles.textLink}>Conocé qué incluye el valet</a>
         </div>
         <figure className={styles.heroPhoto}><Image src="/service-still-v2.webp" width={1024} height={1536} alt="Ropa de uso diario doblada junto a toallas y una bolsa de lavado" sizes="(max-width: 760px) 100vw, 48vw" preload />
           <div className={styles.photoTag} aria-hidden="true"><span>UNA TAREA MENOS</span><strong>De tu bolsa<br />a tu placard.</strong></div><figcaption className={styles.photoCaption}><span>Lavada.</span><span>Seca.</span><span>Doblada.</span></figcaption>
         </figure>
       </section>
+      <div className={styles.careRibbon} aria-label="Lavado, secado y doblado"><span>LAVAR</span><i aria-hidden="true">✳</i><span>SECAR</span><i aria-hidden="true">✳</i><span>DOBLAR</span><i aria-hidden="true">✳</i><span>SEGUIR CON TU DÍA</span></div>
       <section className={styles.included} id="que-incluye" aria-labelledby="included-title">
         <div className={styles.sectionHeading}><p className={styles.label}>VOS DEJÁS LA ROPA. NOSOTROS NOS OCUPAMOS.</p><h2 id="included-title">Todo el lavado.<br /><span>Ninguna tarea pendiente.</span></h2><p>El valet de Aquabon reúne lavado, secado y doblado de ropa cotidiana. Un servicio para liberar tu semana y volver a tener lo que usás a mano.</p></div>
         <div className={styles.includedGrid}>
@@ -73,6 +74,6 @@ export default function ValetPage() {
       <aside className={styles.related} aria-label="Otros cuidados para tu ropa"><p className={styles.label}>SI TU PRENDA NECESITA ALGO MÁS</p><div><Link href="/servicios/tintoreria"><strong>Tintorería</strong><span>Prendas delicadas y especiales</span></Link><Link href="/servicios/lavado-de-acolchados"><strong>Acolchados</strong><span>Otro volumen, otro cuidado</span></Link><Link href="/blog/diferencia-entre-lavanderia-y-tintoreria"><strong>¿Valet o tintorería?</strong><span>Leé la guía para elegir</span></Link></div></aside>
       <section className={styles.final}><p className={styles.label}>AQUABON · TU LAVANDERÍA EN MAR DEL PLATA</p><h2>Una bolsa de ropa.<br /><span>Una tarea menos.</span></h2><WhatsAppLink className={`${styles.button} ${styles.whiteButton}`} message={message} event="whatsapp_valet_final">Hablemos de tu lavado</WhatsAppLink><p>Contanos qué necesitás lavar. Te confirmamos importe y plazo.</p></section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
-    </main><SiteFooter />
+    </main><SiteFooter showBusiness={false} />
   </div>;
 }
