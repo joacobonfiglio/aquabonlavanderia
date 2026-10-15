@@ -1,3 +1,4 @@
+import TrackedLink from "../../TrackedLink";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -45,15 +46,16 @@ export default function ValetPage() {
     <main id="valet-contenido">
       <div className={styles.breadcrumbs}><Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios" }, { label: "Valet de ropa", href: path }]} /></div>
       <section className={styles.hero} aria-labelledby="valet-title">
-        <div className={styles.heroCopy}><p className={styles.label}>VALET DE ROPA EN MAR DEL PLATA</p><h1 id="valet-title">Tu ropa lista.<br /><span>Tu tiempo<br />libre.</span></h1>
+        <div className={styles.heroCopy}><p className={styles.label}>VALET DE ROPA EN MAR DEL PLATA</p><h1 id="valet-title">Valet de ropa<br /><span>en Mar del Plata</span></h1><p className={styles.serviceLocation}>Tu ropa, lista. Tu día, libre.</p>
           <p className={styles.lead}>La ropa se acumula. Tu día no tiene por qué esperar. En Aquabon la lavamos, secamos y doblamos por vos.</p>
-          <WhatsAppLink className={styles.button} message={message} event="whatsapp_valet_hero">Quiero resolver mi lavado</WhatsAppLink>
+          <WhatsAppLink className={styles.button} message={message} event="whatsapp_valet_hero">Contactar ↗</WhatsAppLink>
           <p className={styles.heroNote}>Traé tu bolsa a Gascón 2189 o consultá por retiro y entrega.</p><a href="#que-incluye" className={styles.textLink}>Conocé qué incluye el valet</a>
         </div>
         <figure className={styles.heroPhoto}><Image src="/service-still-v2.webp" width={1024} height={1536} alt="Ropa de uso diario doblada junto a toallas y una bolsa de lavado" sizes="(max-width: 760px) 100vw, 48vw" preload />
           <div className={styles.photoTag} aria-hidden="true"><span>UNA TAREA MENOS</span><strong>De tu bolsa<br />a tu placard.</strong></div><figcaption className={styles.photoCaption}><span>Lavada.</span><span>Seca.</span><span>Doblada.</span></figcaption>
         </figure>
       </section>
+      <div className={styles.careRibbon} aria-label="Lavado, secado y doblado"><span>LAVAR</span><i aria-hidden="true">✳</i><span>SECAR</span><i aria-hidden="true">✳</i><span>DOBLAR</span><i aria-hidden="true">✳</i><span>SEGUIR CON TU DÍA</span></div>
       <section className={styles.included} id="que-incluye" aria-labelledby="included-title">
         <div className={styles.sectionHeading}><p className={styles.label}>VOS DEJÁS LA ROPA. NOSOTROS NOS OCUPAMOS.</p><h2 id="included-title">Todo el lavado.<br /><span>Ninguna tarea pendiente.</span></h2><p>El valet de Aquabon reúne lavado, secado y doblado de ropa cotidiana. Un servicio para liberar tu semana y volver a tener lo que usás a mano.</p></div>
         <div className={styles.includedGrid}>
@@ -65,13 +67,13 @@ export default function ValetPage() {
       <section className={styles.garments} id="tu-ropa" aria-labelledby="garments-title"><div className={styles.garmentIntro}><p className={styles.label}>ANTES DE ARMAR LA BOLSA</p><h2 id="garments-title">Cada prenda<br />tiene su cuidado.</h2><p>El valet está pensado para ropa cotidiana. Si una etiqueta te genera dudas, te ayudamos a elegir el servicio antes de lavarla.</p><p className={styles.guideHint}>Elegí el tipo de ropa que querés lavar.</p></div><ValetGuide /></section>
       <section className={styles.process} id="como-funciona" aria-labelledby="process-title"><div className={styles.processHeading}><p className={styles.label}>ASÍ DE SIMPLE</p><h2 id="process-title">De tu lista de tareas<br /><span>a nuestra lavandería.</span></h2></div><ol className={styles.steps}>{steps.map(([title, copy], index) => <li key={title}><span className={styles.stepNumber}>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{copy}</p></li>)}</ol><div className={styles.prepare}><strong>Antes de cerrar la bolsa</strong><p>Vaciá los bolsillos, informá la cantidad de prendas y avisá si hay manchas o daños. Separá las piezas delicadas para consultarlas.</p></div></section>
       <section className={styles.delivery} id="retiro-y-entrega" aria-labelledby="delivery-title"><div className={styles.deliveryCopy}><p className={styles.label}>CERCA TUYO. A TU MANERA.</p><h2 id="delivery-title">¿Venís al local<br />o lo coordinamos?</h2><p>Elegí la opción que mejor encaje con tu día. Antes de confirmar, consultá el importe y el plazo del lavado.</p><Link className={styles.textLink} href="/servicios/retiro-y-entrega-de-ropa">Más sobre retiro y entrega</Link></div><div className={styles.deliveryOptions}>
-        <article><span className={styles.number}>EN EL LOCAL</span><h3>Nos vemos en Gascón 2189.</h3><p>En el centro de Mar del Plata.<br />Lun–Vie 8:30–20 · Sáb 9–14.</p><a className={styles.outlineButton} href="https://www.google.com/maps/dir/?api=1&destination=Gasc%C3%B3n+2189%2C+Mar+del+Plata" target="_blank" rel="noreferrer">Cómo llegar a Aquabon</a></article>
+        <article><span className={styles.number}>EN EL LOCAL</span><h3>Nos vemos en Gascón 2189.</h3><p>En el centro de Mar del Plata.<br />Lun–Vie 8:30–20 · Sáb 9–14.</p><TrackedLink className={styles.outlineButton} href="https://www.google.com/maps/dir/?api=1&destination=Gasc%C3%B3n+2189%2C+Mar+del+Plata" target="_blank" rel="noreferrer" event="directions_click" placement="service_location">Cómo llegar a Aquabon</TrackedLink></article>
         <article><span className={styles.number}>CON RETIRO Y ENTREGA</span><h3>Un traslado menos para vos.</h3><p>Mandanos tu dirección. Te confirmamos cobertura, costo y horarios según zona y disponibilidad.</p><WhatsAppLink className={styles.button} message="Hola Aquabon, quiero consultar valet con retiro y entrega. Mi dirección es: __. Tengo esta ropa: __. ¿Me confirman cobertura, costo y plazo?" event="whatsapp_valet_delivery">Consultar retiro en mi zona</WhatsAppLink></article>
       </div></section>
       <section className={styles.faq} id="preguntas-frecuentes" aria-labelledby="faq-title"><div><p className={styles.label}>SIN DUDAS, SIN VUELTAS</p><h2 id="faq-title">Lo que querés saber<br />antes de dejar tu ropa.</h2><p>¿Tu consulta es sobre una prenda particular? Mandanos una foto de la ropa y de su etiqueta.</p><WhatsAppLink className={styles.textLink} message="Hola Aquabon, tengo una duda sobre una prenda antes de enviarla al valet. Les comparto una foto y su etiqueta." event="whatsapp_valet_question">Consultar mi prenda</WhatsAppLink></div><div className={styles.faqList}>{faqs.map(f => <details key={f.question}><summary>{f.question}</summary><p>{f.answer}</p></details>)}</div></section>
       <aside className={styles.related} aria-label="Otros cuidados para tu ropa"><p className={styles.label}>SI TU PRENDA NECESITA ALGO MÁS</p><div><Link href="/servicios/tintoreria"><strong>Tintorería</strong><span>Prendas delicadas y especiales</span></Link><Link href="/servicios/lavado-de-acolchados"><strong>Acolchados</strong><span>Otro volumen, otro cuidado</span></Link><Link href="/blog/diferencia-entre-lavanderia-y-tintoreria"><strong>¿Valet o tintorería?</strong><span>Leé la guía para elegir</span></Link></div></aside>
       <section className={styles.final}><p className={styles.label}>AQUABON · TU LAVANDERÍA EN MAR DEL PLATA</p><h2>Una bolsa de ropa.<br /><span>Una tarea menos.</span></h2><WhatsAppLink className={`${styles.button} ${styles.whiteButton}`} message={message} event="whatsapp_valet_final">Hablemos de tu lavado</WhatsAppLink><p>Contanos qué necesitás lavar. Te confirmamos importe y plazo.</p></section>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
-    </main><SiteFooter />
+    </main><SiteFooter showBusiness={false} />
   </div>;
 }

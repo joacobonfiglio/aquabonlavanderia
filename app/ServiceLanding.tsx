@@ -1,3 +1,4 @@
+import TrackedLink from "./TrackedLink";
 import Image from "next/image";
 import Link from "next/link";
 import type { LandingData } from "./SeoLanding";
@@ -23,7 +24,7 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
       <section className={styles.hero} aria-labelledby="servicio-titulo">
         <div className={styles.heroCopy}>
           <p className={styles.label}>{design.name.toUpperCase()} · MAR DEL PLATA</p>
-          <h1 id="servicio-titulo">{design.title[0]} <span>{design.title[1]}</span></h1>
+          <h1 id="servicio-titulo">{data.h1}</h1><p className={styles.serviceClaim}>{design.title.join(" ").replace(/\./g, "")}</p>
           <p className={styles.lead}>{data.intro}</p>
           <WhatsAppLink className={styles.button} message={data.message} event={data.event}>{data.cta}</WhatsAppLink>
           <p className={styles.heroNote}>Gascón 2189 · Orientación por WhatsApp y evaluación antes de confirmar.</p>
@@ -47,7 +48,7 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
         <ol className={styles.steps}>{data.steps.map((item, i) => <li key={item.title}><span className={styles.stepNumber}>{String(i + 1).padStart(2, "0")}</span><h3>{item.title}</h3><p>{item.copy}</p></li>)}</ol>
         <div className={styles.prepare}><strong>Antes de empezar</strong><p>{design.prepare}</p></div>
       </section>
-      <section className={styles.delivery}><div><p className={styles.label}>CERCA TUYO, EN EL CENTRO</p><h2>Dejá tu consulta.<br />Acercá tu prenda.</h2><p>Nos encontrás en Gascón 2189, Mar del Plata. Una foto ayuda a orientarte; la confirmación del servicio se realiza al evaluar el pedido.</p><a className={styles.textLink} href="https://www.google.com/maps/search/?api=1&query=Aquabon+Lavanderia+Gascon+2189+Mar+del+Plata" target="_blank" rel="noreferrer">Cómo llegar a Aquabon ↗</a></div>
+      <section className={styles.delivery}><div><p className={styles.label}>CERCA TUYO, EN EL CENTRO</p><h2>Dejá tu consulta.<br />Traé tu pedido.</h2><p>Nos encontrás en Gascón 2189, Mar del Plata. Una foto ayuda a orientarte; la confirmación del servicio se realiza al evaluar el pedido.</p><TrackedLink className={styles.textLink} href="https://www.google.com/maps/search/?api=1&query=Aquabon+Lavanderia+Gascon+2189+Mar+del+Plata" target="_blank" rel="noreferrer" event="directions_click" placement="service_location">Cómo llegar a Aquabon ↗</TrackedLink></div>
         <div className={styles.deliveryOptions}><article><p className={styles.label}>EN EL LOCAL</p><h3>Un punto de contacto para tu pedido</h3><p>Lunes a viernes de 8:30 a 20.<br />Sábados de 9 a 14.</p><WhatsAppLink className={styles.button} message={data.message} event={data.event + "_local"}>Consultar antes de venir</WhatsAppLink></article><article><p className={styles.label}>¿NECESITÁS RETIRO?</p><h3>Consultá por tu zona</h3><p>Retiro y entrega según ubicación, volumen y disponibilidad. Confirmamos cobertura y costo antes de coordinar.</p><Link className={styles.textLink} href="/servicios/retiro-y-entrega-de-ropa">Ver retiro y entrega ↗</Link></article></div>
       </section>
       <section className={styles.faq}><div><p className={styles.label}>PREGUNTAS FRECUENTES</p><h2>Antes de decidir,<br />resolvé tus dudas.</h2><p>Precio y plazo se confirman según el servicio, el estado y la cantidad. Consultanos por tu pedido.</p></div><div className={styles.faqList}>{data.faqs.map(f => <details key={f.question}><summary>{f.question}</summary><p>{f.answer}</p></details>)}</div></section>

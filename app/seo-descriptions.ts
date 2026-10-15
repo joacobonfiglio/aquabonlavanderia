@@ -12,8 +12,6 @@ export const seoDescriptions: Record<string, string> = {
   "/servicios/tenido-de-prendas": "Teñido de prendas en Mar del Plata. En Aquabon evaluamos tejido y color para recuperar o cambiar el tono de tu ropa. Consultá con una foto.",
   "/servicios/arreglos-y-costura": "Arreglos y costura de ropa en Mar del Plata. En Aquabon recibimos prendas para pequeños ajustes y reparaciones. Consultá viabilidad y plazo.",
   "/servicios/lavado-de-zapatillas": "Lavado de zapatillas en Mar del Plata. En Aquabon revisamos el material y realizamos limpieza y secado según cada par. Consultá por WhatsApp.",
-  "/lavanderia-mar-del-plata": "Lavandería en Mar del Plata: valet, lavado de acolchados y recepción de tintorería en Aquabon, Gascón 2189. Consultá por retiro y entrega.",
-  "/lavanderia-centro-mar-del-plata": "Lavandería en el centro de Mar del Plata, Gascón 2189. Aquabon lava, seca y dobla tu ropa; también recibe acolchados. Consultá por WhatsApp.",
   "/empresas": "Lavandería para empresas en Mar del Plata. Aquabon lava ropa blanca, textiles gastronómicos y ropa deportiva según volumen y frecuencia. Consultanos.",
   "/empresas/lavanderia-airbnb": "Lavandería para Airbnb en Mar del Plata. Aquabon lava, seca y dobla tus sábanas y toallas para recambios. Consultá por retiro y entrega.",
   "/empresas/lavanderia-hoteles": "Lavandería para hoteles en Mar del Plata. Aquabon lava sábanas, fundas y toallas con volumen y frecuencia acordados. Consultá capacidad y plazos.",

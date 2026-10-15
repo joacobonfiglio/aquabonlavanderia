@@ -5,7 +5,7 @@ const paths=[
   "/blog/como-secar-ropa-dentro-de-casa",
   "/blog/hay-que-lavar-la-ropa-nueva","/empresas/lavado-de-uniformes",
   "/blog/cuanto-detergente-usar",
-  "/blog/como-evitar-que-la-ropa-destina",
+  "/blog/como-evitar-que-la-ropa-pierda-color",
   "/blog/como-lavar-jeans-sin-perder-color",
   "/blog/como-sacar-manchas-de-transpiracion","/servicios/lavado-y-planchado-de-camisas",
   "/blog/como-lavar-ropa-delicada",
@@ -18,11 +18,22 @@ const paths=[
   "/nosotros","/lavanderia-mar-del-plata","/lavanderia-centro-mar-del-plata","/empresas","/empresas/lavanderia-airbnb","/empresas/lavanderia-hoteles","/empresas/lavanderia-restaurantes","/empresas/lavado-ropa-deportiva"
 ];
 const dates:Record<string,string>={
+  "":"2026-10-14",
+  "/servicios":"2026-10-14",
+  "/servicios/lavado-de-acolchados":"2026-10-14",
+  "/servicios/tintoreria":"2026-10-14",
+  "/servicios/planchado":"2026-10-14",
+  "/servicios/tenido-de-prendas":"2026-10-14",
+  "/servicios/arreglos-y-costura":"2026-10-14",
+  "/servicios/lavado-de-zapatillas":"2026-10-14",
+
+  "/lavanderia-mar-del-plata":"2026-10-14",
+  "/lavanderia-centro-mar-del-plata":"2026-10-14",
   "/blog/como-secar-ropa-dentro-de-casa":"2026-10-14",
   "/blog/hay-que-lavar-la-ropa-nueva":"2026-10-13",
   "/empresas/lavado-de-uniformes":"2026-10-13",
   "/blog/cuanto-detergente-usar":"2026-10-12",
-  "/blog/como-evitar-que-la-ropa-destina":"2026-10-11",
+  "/blog/como-evitar-que-la-ropa-pierda-color":"2026-10-11",
   "/blog/como-lavar-jeans-sin-perder-color":"2026-10-10",
   "/blog/como-sacar-manchas-de-transpiracion":"2026-10-09",
   "/servicios/lavado-y-planchado-de-camisas":"2026-10-09",
@@ -31,7 +42,7 @@ const dates:Record<string,string>={
   "/blog/como-sacar-maquillaje-de-la-ropa":"2026-10-06",
   "/empresas/lavanderia-centros-de-estetica":"2026-10-06",
   "/blog":"2026-10-14",
-  "/servicios/valet-de-ropa":"2026-10-02",
+  "/servicios/valet-de-ropa":"2026-10-14",
   "/blog/simbolos-de-lavado-de-la-ropa":"2026-10-05",
   "/blog/como-sacar-manchas-de-sangre-de-la-ropa":"2026-10-04",
   "/blog/como-sacar-manchas-de-vino-de-la-ropa":"2026-10-03",
@@ -57,5 +68,5 @@ const dates:Record<string,string>={
 };
 
 export default function sitemap():MetadataRoute.Sitemap{
-  return paths.map((p,i)=>({url:base+p,lastModified:dates[p]?new Date(dates[p]):undefined,changeFrequency:i===0?"weekly":p.startsWith("/blog")?"weekly":"monthly",priority:i===0?1:(p.startsWith("/servicios/")?0.9:p==="/blog"?0.8:0.7)}));
+  return paths.map(p=>({url:base+p,lastModified:dates[p]?new Date(dates[p]):undefined,changeFrequency:p===""?"weekly":p.startsWith("/blog")?"weekly":"monthly",priority:p===""?1:(p.startsWith("/servicios/")?0.9:p==="/blog"?0.8:0.7)}));
 }

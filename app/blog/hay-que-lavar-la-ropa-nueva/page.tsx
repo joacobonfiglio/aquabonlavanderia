@@ -35,7 +35,7 @@ export default function Page(){
     <figure className="article-image"><Image src="/blog/revisar-ropa-nueva-primer-lavado.webp" alt="Revisión de la etiqueta y una costura interior de una prenda nueva antes del primer lavado" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>La etiqueta y una costura interior permiten decidir el primer lavado antes de mezclar la prenda con el resto.</figcaption></figure>
 
     <h2>Cómo comprobar si puede desteñir</h2>
-    <p>Los colores intensos pueden liberar tinte en los primeros lavados. Si la etiqueta permite mojar la prenda, probá una zona oculta con un paño blanco húmedo y observá si transfiere color. Ante la duda, lavala separada. En nuestra guía sobre <Link href="/blog/como-evitar-que-la-ropa-destina">cómo evitar que la ropa destiña</Link> explicamos cómo clasificar la carga y qué hacer si ya hubo transferencia.</p>
+    <p>Los colores intensos pueden liberar tinte en los primeros lavados. Si la etiqueta permite mojar la prenda, probá una zona oculta con un paño blanco húmedo y observá si transfiere color. Ante la duda, lavala separada. En nuestra guía sobre <Link href="/blog/como-evitar-que-la-ropa-pierda-color">cómo evitar que la ropa destiña</Link> explicamos cómo clasificar la carga y qué hacer si ya hubo transferencia.</p>
 
     <h2>Prendas que no conviene poner directo en el lavarropas</h2>
     <p>Consultá antes si la etiqueta exige cuidado profesional, si la prenda tiene forro, entretela, hombreras, aplicaciones pegadas o adornos delicados. También conviene detener el proceso si no hay etiqueta y desconocés el material. Una prueba improvisada puede dejar cercos, deformar la estructura o soltar el color.</p>

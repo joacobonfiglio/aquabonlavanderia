@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import Breadcrumbs from "../Breadcrumbs";
@@ -27,17 +28,17 @@ export default function ArticleLayout({title,description,slug,date,readingTime,c
   const serviceCopy=isTintoreria?"Revisamos etiqueta, tejido, forro, adornos y manchas antes de confirmar el tratamiento.":isZapatillas?"Revisamos material, uniones, color, manchas y desgaste antes de confirmar el proceso.":isValet?"Clasificamos las prendas por color, tejido y cuidado antes de lavar, secar y doblar.":"Revisamos tamaño, tejido, relleno y estado antes de confirmar el proceso.";
   const serviceMessage=isTintoreria?"Hola Aquabon, quería consultar por una prenda de tintorería.":isZapatillas?"Hola Aquabon, quería consultar por el lavado de unas zapatillas.":isValet?"Hola Aquabon, quería consultar por el servicio de valet de ropa.":"Hola Aquabon, quería consultar por el lavado de un acolchado.";
   const displayDate=new Intl.DateTimeFormat("es-AR",{day:"numeric",month:"long",year:"numeric",timeZone:"UTC"}).format(new Date(`${date}T12:00:00Z`));
-  const schema={"@context":"https://schema.org","@type":"BlogPosting",headline:title,description,datePublished:date,dateModified:date,inLanguage:"es-AR",mainEntityOfPage:`https://www.aquabonlavanderia.com${path}`,...(image?{image:`https://www.aquabonlavanderia.com${image}`}:{}),author:{"@type":"Organization",name:"Aquabon Lavandería"},publisher:{"@id":"https://www.aquabonlavanderia.com/#business"}};
-  return <main className="blog-article">
+  const schema={"@context":"https://schema.org","@type":"BlogPosting",headline:title,description,datePublished:date,dateModified:date,inLanguage:"es-AR",mainEntityOfPage:`https://www.aquabonlavanderia.com${path}`,...(image?{image:`https://www.aquabonlavanderia.com${image}`}:{}),author:{"@type":"Organization",name:"Aquabon Lavandería",url:"https://www.aquabonlavanderia.com/nosotros"},publisher:{"@id":"https://www.aquabonlavanderia.com/#business"}};
+  return <main className="aq-renew blog-article">
     <SiteHeader event="whatsapp_blog_header"/>
     <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Guías",href:"/blog"},{label:title,href:path}]}/>
     <header className="article-hero">
-      <div className="article-hero-copy"><p className="eyebrow">GUÍA · {cluster.toUpperCase()}</p><h1>{title}</h1><p>{description}</p><div className="article-meta"><time dateTime={date}>{displayDate}</time><span>{readingTime}</span></div></div>
-      <div className="article-hero-art" aria-hidden="true"><span>{isTintoreria?"TI":isZapatillas?"ZA":isValet?"VA":"AC"}</span><div className="quilt"><i/><i/><i/><i/><i/><i/></div><p>{isTintoreria?"ETIQUETA · TEJIDO · ACABADO":isZapatillas?"MATERIAL · UNIONES · SECADO":isValet?"COLOR · TEJIDO · TEMPERATURA":"RELLENO · ETIQUETA · SECADO"}</p></div>
+      <div className="article-hero-copy"><p className="eyebrow">GUÍA · {cluster.toUpperCase()}</p><h1>{title}</h1><p>{description}</p><div className="article-meta"><time dateTime={date}>{displayDate}</time><span>{readingTime}</span><span>Por <Link href="/nosotros">Aquabon Lavandería</Link></span></div></div>
+      <figure className="article-cover">{image ? <Image src={image} alt={title} width={1400} height={788} sizes="(max-width: 760px) 100vw, 45vw" preload/> : null}<figcaption><span>AQUABON / CUADERNO DE CUIDADO</span><strong>{cluster}</strong><small>LEÉ LA ETIQUETA · CUIDÁ TU PRENDA ↗</small></figcaption></figure>
     </header>
     <div className="article-shell"><article className="article-body">{children}</article><aside className="article-aside"><p className="eyebrow">¿PREFERÍS NO HACERLO EN CASA?</p><h2>{serviceName}</h2><p>{serviceCopy}</p><Link href={servicePath}>Ver el servicio <span>↗</span></Link><WhatsAppLink message={serviceMessage} event="whatsapp_blog_sidebar">Consultar por WhatsApp ↗</WhatsAppLink></aside></div>
     <section className="article-next"><p className="eyebrow">SEGUÍ CUIDANDO TUS PRENDAS</p><h2>Servicios relacionados</h2><div><Link href={servicePath}>{serviceName} ↗</Link><Link href={isTintoreria||isZapatillas?"/servicios/valet-de-ropa":"/servicios/tintoreria"}>{isTintoreria||isZapatillas?"Valet de ropa":"Tintorería"} ↗</Link><Link href="/blog">Todas las guías ↗</Link></div></section>
-    <SiteFooter/>
+    <SiteFooter showBusiness={false}/>
     <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}}/>
   </main>;
 }
