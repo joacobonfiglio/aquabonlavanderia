@@ -1,12 +1,18 @@
-/// <reference types="vite/client" />
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "./site";
+import { SITE_URL, services, businessLinks } from "./site";
+import { guides } from "./guides";
+import { areas } from "./LocalLanding";
 
-// Se arma solo a partir de las páginas que existen en app/: una página nueva entra sin tocar este archivo.
-const pageFiles = Object.keys(import.meta.glob("./**/page.tsx"));
-
-// Páginas con noindex: no van al sitemap.
-const excluded = new Set(["/politica-de-privacidad", "/politica-de-cookies", "/terminos-y-condiciones"]);
+// Se arma solo desde los registros de contenido: un servicio, guía, rubro o barrio nuevo entra sin tocar
+// este archivo. tests/sitemap-coverage.test.mjs falla si alguna página de app/ queda afuera.
+// (Las legales tienen noindex y no van.)
+export const sitemapPaths = [
+  "/", "/servicios", "/empresas", "/blog", "/nosotros", "/lavanderia-mar-del-plata", "/tintoreria-centro-mar-del-plata",
+  ...Object.keys(areas).map(slug => "/" + slug),
+  ...services.map(s => s.href),
+  ...businessLinks.map(b => b.href),
+  ...guides.map(g => g.href),
+];
 
 // Última modificación conocida por ruta (las que no figuran usan la fecha del rediseño).
 const REDESIGN = "2026-10-15";
@@ -28,15 +34,8 @@ const dates: Record<string, string> = {
   "/blog/como-evitar-que-la-ropa-se-encoja": "2026-09-30",
 };
 
-function toPath(file: string) {
-  const p = file.replace(/^\.\//, "/").replace(/\/?page\.tsx$/, "");
-  return p === "" ? "/" : p;
-}
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  return pageFiles
-    .map(toPath)
-    .filter(p => !excluded.has(p) && !p.includes("[") && !p.includes("("))
+  return [...new Set(sitemapPaths)]
     .sort((a, b) => (a === "/" ? -1 : b === "/" ? 1 : a.localeCompare(b)))
     .map(p => ({
       url: SITE_URL + (p === "/" ? "/" : p),

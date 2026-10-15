@@ -15,7 +15,7 @@ type Area = {
   nearby: string;        // por qué Aquabon le sirve a ese barrio, en una frase verificable
 };
 
-const areas: Record<string, Area> = {
+export const areas: Record<string, Area> = {
   "lavanderia-centro-mar-del-plata": {
     name: "el centro de Mar del Plata", crumb: "Centro",
     title: "Lavandería en el centro de Mar del Plata | Aquabon",
