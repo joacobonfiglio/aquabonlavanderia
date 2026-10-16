@@ -22,3 +22,13 @@ export default function CookieConsent() {
     </div>
   </div>;
 }
+
+// Botón de la política de cookies: borra la elección guardada y vuelve a mostrar el aviso.
+export function ConsentReset() {
+  if (!GA_ID) return null;
+  return <p><button type="button" className="btn btn--azul" onClick={() => {
+    try { localStorage.removeItem("aq-consent"); } catch {}
+    (window as typeof window & { gtag?: Gtag }).gtag?.("consent", "update", { analytics_storage: "denied" });
+    document.documentElement.dataset.consent = "pending";
+  }}>Cambiar mi elección de cookies</button></p>;
+}
