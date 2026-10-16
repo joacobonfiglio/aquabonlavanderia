@@ -11,9 +11,9 @@ import JsonLd from "./JsonLd";
 import Link from "next/link";
 import Img from "./Img";
 import { WhatsAppIcon } from "./ui";
-import Ticket from "./Ticket";
+import ChatPreview from "./ChatPreview";
 import { Clothesline, PageHero, Process, Ribbon, type Step } from "./Blocks";
-import { SITE_URL, business, businessLinks, services } from "./site";
+import { SITE_URL, businessLinks, services } from "./site";
 
 type Item = { title: string; copy: string };
 type FaqEntry = { question: string; answer: string };
@@ -113,12 +113,11 @@ export default function SeoLanding({ data }: { data: LandingData }) {
             <Faq items={data.faqs} />
           </div>
           <div className="h-pick__ticket" data-reveal>
-            <Ticket heading="Tu consulta, lista para enviar" data={{
-              rows: isBusiness
-                ? [{ label: "Negocio", value: data.h1.replace(/ en Mar del Plata$/, "").toLowerCase() }, { label: "Contanos", value: "qué textiles, cuántos y cada cuánto" }]
-                : [{ label: "Dónde", value: `${business.street}, ${business.city}` }, { label: "Contanos", value: "qué necesitás lavar" }],
-              message: data.message, event: data.event + "_ticket",
-              stub: isBusiness ? "Te respondemos con una propuesta según tu volumen y frecuencia." : "Precio y plazo te los confirmamos antes de que dejes la prenda.",
+            <p className="pick-step"><b>✓</b>Tu consulta, lista para enviar</p>
+            <ChatPreview data={{
+              service: isBusiness ? data.h1.replace(/ en Mar del Plata$/, "").toLowerCase() : undefined,
+              next: isBusiness ? "te respondemos con una propuesta según volumen y frecuencia" : undefined,
+              message: data.message, event: data.event + "_chat",
             }} />
           </div>
         </div>

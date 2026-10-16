@@ -58,34 +58,29 @@ export function PageHero({ crumbs, kicker, title, lead, actions, image, chip, fa
 
 export type Step = { title: string; copy: string; image: string; alt: string };
 
-// Pasos con foto fija que cambia según el scroll (desktop) y foto por paso (mobile).
-export function Process({ title, steps, cta, id = "como-funciona" }: { title: string; steps: Step[]; cta?: ReactNode; id?: string }) {
-  return <section className="h-proc" id={id} aria-labelledby={id + "-titulo"} data-steps="" data-active="0">
-    <div className="wrap h-proc__grid">
-      <div className="h-proc__media" aria-hidden="true">
-        {steps.map((s, i) => <figure key={s.title} data-index={i}><Img src={s.image} alt="" width={1000} height={1250} sizes="(max-width: 960px) 100vw, 520px" /></figure>)}
-        <div className="h-proc__dots">{steps.map((s, i) => <i key={s.title} data-index={i} />)}</div>
-      </div>
-      <div>
-        <h2 id={id + "-titulo"} data-reveal>{title}</h2>
-        <ol className="h-proc__steps">
-          {steps.map((s, i) => <li key={s.title} data-step={i}>
-            <span className="h-proc__n">{String(i + 1).padStart(2, "0")}</span>
-            <h3>{s.title}</h3>
-            <p>{s.copy}</p>
-            <div className="h-proc__mobile-img"><Img src={s.image} alt={s.alt} width={1000} height={1250} sizes="100vw" /></div>
-          </li>)}
-        </ol>
-        {cta ? <div className="h-proc__cta" data-reveal>{cta}</div> : null}
+// Pasos en tarjetas con foto: fila en desktop, carrusel deslizable en el celular (poco scroll vertical).
+export function Process({ title, lead, steps, cta, id = "como-funciona" }: { title: string; lead?: string; steps: Step[]; cta?: ReactNode; id?: string }) {
+  return <section className="steps" id={id} aria-labelledby={id + "-titulo"}>
+    <div className="wrap">
+      <div className="steps__head" data-reveal>
+        <div><h2 id={id + "-titulo"}>{title}</h2>{lead ? <p>{lead}</p> : null}</div>
+        {cta ? <div className="steps__cta">{cta}</div> : null}
       </div>
     </div>
+    <ol className="steps__list" style={{ ["--n" as string]: steps.length }}>
+      {steps.map((s, i) => <li key={s.title} data-reveal style={{ transitionDelay: `${i * 90}ms` }}>
+        <div className="steps__img"><Img src={s.image} alt={s.alt} width={800} height={600} sizes="(max-width: 760px) 78vw, 380px" /><span>{i + 1}</span></div>
+        <h3>{s.title}</h3>
+        <p>{s.copy}</p>
+      </li>)}
+    </ol>
   </section>;
 }
 
 // Soga con la ropa colgada: avanza en horizontal a medida que se hace scroll vertical.
 export function Clothesline({ title, items }: { title: string; items: { name: string; href: string; short: string; image: string; alt: string }[] }) {
   return <div className="clothesline" data-reveal data-hscroll="">
-    <div className="wrap"><h3>{title}</h3></div>
+    {title ? <div className="wrap"><h3>{title}</h3></div> : null}
     <div className="clothesline__scroller">
       <div className="clothesline__track" data-hscroll-track="">
         <svg className="clothesline__rope" viewBox="0 0 2000 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 8 Q 1000 44 2000 8" /></svg>
@@ -104,12 +99,12 @@ export function Clothesline({ title, items }: { title: string; items: { name: st
   </div>;
 }
 
-export function GuideCards({ guides, big = false, compact = false }: { guides: Guide[]; big?: boolean; compact?: boolean }) {
-  return <ul className={"g-cards" + (big ? " g-cards--big" : "") + (compact ? " g-cards--compact" : "")}>
-    {guides.map((g, i) => <li key={g.href} data-reveal style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
+export function GuideCards({ guides, big = false, compact = false, id, topicOf, badge }: { guides: Guide[]; big?: boolean; compact?: boolean; id?: string; topicOf?: (g: Guide) => string; badge?: string }) {
+  return <ul id={id} data-filter={topicOf ? "todas" : undefined} className={"g-cards" + (big ? " g-cards--big" : "") + (compact ? " g-cards--compact" : "")}>
+    {guides.map((g, i) => <li key={g.href} data-topic={topicOf?.(g)} data-reveal={topicOf ? undefined : ""} style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
       <Link href={g.href}>
         <span className="g-cards__img"><Img src={g.image} alt={g.alt} width={700} height={467} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px" /></span>
-        <span className="g-cards__tag">{g.cluster}</span>
+        <span className="g-cards__tag">{badge ?? g.cluster}</span>
         <strong>{g.title}</strong>
         <span className="g-cards__desc">{g.description}</span>
       </Link>

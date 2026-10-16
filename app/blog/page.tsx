@@ -4,6 +4,7 @@ import SiteFooter from "../SiteFooter";
 import { guides } from "../guides";
 import { services } from "../site";
 import { Clothesline, GuideCards, PageHero, Ribbon } from "../Blocks";
+import GuideFilter from "./GuideFilter";
 
 export const metadata:Metadata={title:"Guías para cuidar tu ropa | Aquabon",description:"Guías para cuidar tu ropa: lavado, manchas, acolchados y zapatillas. Consejos de Aquabon, lavandería en Mar del Plata. Consultá por tu prenda.",alternates:{canonical:"/blog"},openGraph:{title:"Guías para cuidar tu ropa | Aquabon",description:"Guías para cuidar tu ropa: lavado, manchas, acolchados y zapatillas. Consejos de Aquabon, lavandería en Mar del Plata. Consultá por tu prenda.",url:"/blog",type:"website",locale:"es_AR",images:[{url:"/laundry-hero-v2.webp",width:1536,height:1024,alt:"Ropa lavada y doblada en tonos blancos y azules, Aquabon Lavandería"}]}};
 
@@ -27,25 +28,22 @@ export default function BlogPage() {
         chip={{ symbol: "wash", text: `${guides.length} guías prácticas` }}
         facts={false}
         actions={<>
-          <a className="btn btn--azul btn--xl" href="#ultimas">Ver las últimas</a>
+          <a className="btn btn--azul btn--xl" href="#ultimas">Ver las nuevas</a>
           <a className="btn btn--outline-light btn--xl" href="#temas">Buscar por tema</a>
         </>}
       />
       <Ribbon words={topics.map(t => t.name)} />
       <section className="p-sec" id="ultimas" aria-labelledby="ultimas-titulo">
         <div className="wrap">
-          <div className="h-head h-head--split" data-reveal><h2 id="ultimas-titulo">Lo último</h2><p>Guías nuevas cada semana, con lo que más nos preguntan en el mostrador.</p></div>
-          <GuideCards guides={guides.slice(0, 6)} big />
+          <div className="h-head h-head--split" data-reveal><h2 id="ultimas-titulo">Nuevas y destacadas</h2><p>Guías nuevas cada semana, con lo que más nos preguntan en el mostrador.</p></div>
+          <GuideCards guides={guides.slice(0, 3)} big badge="Nueva" />
         </div>
       </section>
       <section className="p-sec p-sec--espuma" id="temas" aria-labelledby="temas-titulo">
         <div className="wrap">
-          <div className="h-head" data-reveal><h2 id="temas-titulo">Por tema</h2></div>
-          <ul className="chips" style={{ marginBottom: 40 }}>{topics.map(t => <li key={t.id}><a href={"#" + t.id}>{t.name}</a></li>)}</ul>
-          {topics.map(t => <div key={t.id} id={t.id} className="g-topic">
-            <h3 data-reveal>{t.name}</h3>
-            <GuideCards compact guides={guides.filter(g => t.clusters.includes(g.cluster))} />
-          </div>)}
+          <div className="h-head" data-reveal><h2 id="temas-titulo">Todas las guías</h2><p>Elegí un tema para ver solo esas guías.</p></div>
+          <GuideFilter target="lista-guias" topics={topics.map(t => ({ id: t.id, name: t.name, count: guides.filter(g => t.clusters.includes(g.cluster)).length }))} />
+          <GuideCards id="lista-guias" compact guides={guides} topicOf={g => topics.find(t => t.clusters.includes(g.cluster))?.id ?? "otros"} />
         </div>
       </section>
       <section className="p-sec" style={{ paddingTop: "clamp(24px, 4vw, 48px)" }} aria-label="Servicios">

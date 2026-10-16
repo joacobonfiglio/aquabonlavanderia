@@ -388,3 +388,113 @@ html.js .clothesline[data-hscroll]:not(.is-static) .clothesline__scroller { over
 .g-cards--compact .g-cards__tag, .g-cards--compact .g-cards__desc { display: none; }
 .g-cards--compact strong { font-size: 1rem; }
 .g-cards--compact a::after { content: "Leer la guía"; font-size: 0.85rem; font-weight: 700; color: var(--azul); }
+
+/* ---------- Pasos en tarjetas (fila en desktop, carrusel en el celular) ---------- */
+.steps { background: var(--azul); color: #fff; padding: clamp(64px, 8vw, 104px) 0; overflow: hidden; }
+.steps__head { display: grid; gap: 20px; margin-bottom: clamp(28px, 4vw, 44px); }
+.steps__head h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1; }
+.steps__head p { color: #dbe5ff; font-size: 1.1rem; margin-top: 12px; max-width: 44ch; }
+.steps__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; }
+@media (min-width: 960px) { .steps__head { grid-template-columns: 1fr auto; align-items: end; } }
+.steps__list { list-style: none; margin: 0; display: grid; grid-auto-flow: column; grid-auto-columns: min(78vw, 320px); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px var(--gutter) 12px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.steps__list::-webkit-scrollbar { display: none; }
+.steps__list li { scroll-snap-align: start; background: #fff; color: var(--marino); border-radius: 26px; padding: 10px 10px 22px; display: grid; gap: 6px; align-content: start; }
+.steps__img { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 3; margin-bottom: 8px; }
+.steps__img picture, .steps__img img { width: 100%; height: 100%; }
+.steps__img img { object-fit: cover; }
+.steps__img span { position: absolute; left: 12px; top: 12px; width: 44px; height: 44px; border-radius: 50%; background: var(--azul); color: #fff; display: grid; place-content: center; font-weight: 800; font-size: 1.25rem; box-shadow: 0 0 0 4px #fff; }
+.steps__list h3 { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.015em; padding: 0 10px; }
+.steps__list p { color: var(--tinta); font-size: 0.97rem; padding: 0 10px; }
+@media (min-width: 960px) {
+  .steps__list { grid-auto-flow: row; grid-template-columns: repeat(var(--n, 3), 1fr); overflow: visible; max-width: calc(var(--wrap) + 2 * var(--gutter)); margin: 0 auto; }
+}
+
+/* ---------- Selector: guía de 3 pasos ---------- */
+.pick-howto { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.pick-howto li, .pick-step { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1rem; }
+.pick-howto b, .pick-step b { width: 30px; height: 30px; border-radius: 50%; background: var(--azul); color: #fff; display: grid; place-content: center; font-size: 0.9rem; flex: none; }
+.pick-step { margin-bottom: 14px; padding: 0; float: none; width: 100%; }
+legend.pick-step { display: flex; }
+@media (max-width: 639px) {
+  /* En el celular las prendas van en una fila deslizable: el mensaje queda cerca. */
+  .tiles { display: grid; grid-auto-flow: column; grid-auto-columns: 40vw; grid-template-columns: none; overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 calc(-1 * var(--gutter)); padding: 4px var(--gutter) 10px; scrollbar-width: none; }
+  .tiles::-webkit-scrollbar { display: none; }
+  .tiles legend { position: sticky; left: 0; }
+  .tile { scroll-snap-align: start; }
+}
+
+/* ---------- Vista previa del chat de WhatsApp ---------- */
+.chat { border-radius: 24px; overflow: hidden; background: #fff; box-shadow: 0 30px 60px -36px rgba(11, 26, 69, 0.6), 0 0 0 1px var(--linea); }
+.chat__top { display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: #075e54; color: #fff; }
+.chat__top strong { display: block; font-size: 1rem; }
+.chat__top small { display: block; font-size: 0.8rem; opacity: 0.85; }
+.chat__avatar { width: 40px; height: 40px; border-radius: 50%; background: #fff; display: grid; place-content: center; flex: none; }
+.chat__avatar svg { width: 26px; height: 18px; }
+.chat__body { padding: 18px 16px 20px; display: grid; gap: 10px; background: #efeae2 radial-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px) 0 0 / 14px 14px; min-height: 180px; align-content: start; }
+.chat__sys { justify-self: center; background: #fff8c5; color: #54493a; font-size: 0.82rem; padding: 5px 12px; border-radius: 10px; text-align: center; max-width: 92%; }
+.chat__sys--next { background: #e8eefb; color: var(--marino); }
+.chat__bubble { justify-self: end; max-width: 88%; background: #d9fdd3; color: #111b21; padding: 10px 12px 18px; border-radius: 14px 4px 14px 14px; font-size: 1rem; line-height: 1.45; position: relative; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08); }
+.chat__bubble small { position: absolute; right: 10px; bottom: 4px; font-size: 0.7rem; color: #667781; }
+.chat__bubble mark { background: #fff; color: #0b6b3a; border: 1px dashed #25a35a; border-radius: 6px; padding: 0 6px; font-size: 0.85rem; font-weight: 700; }
+.chat__foot { padding: 16px; display: grid; gap: 8px; }
+.chat__foot p { font-size: 0.82rem; color: var(--tinta); text-align: center; }
+.chat__foot .link { justify-self: center; font-size: 0.95rem; }
+.btn--wa { background: #25d366; border-color: #25d366; color: #0b2e18; min-height: 54px; border-radius: 999px; font-size: 1.05rem; width: 100%; }
+.btn--wa svg { color: #0b2e18; }
+@media (hover: hover) and (pointer: fine) { .btn--wa:hover { background: #1fbe5b; border-color: #1fbe5b; } }
+
+/* ---------- Qué incluye: tarjetas con foto ---------- */
+.inc-cards { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; grid-auto-flow: column; grid-auto-columns: min(76vw, 300px); overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(-1 * var(--gutter)); padding: 4px var(--gutter) 12px; scrollbar-width: none; }
+.inc-cards::-webkit-scrollbar { display: none; }
+.inc-cards li { position: relative; border-radius: 26px; overflow: hidden; aspect-ratio: 4 / 5; scroll-snap-align: start; isolation: isolate; color: #fff; }
+.inc-cards picture, .inc-cards img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.inc-cards img { object-fit: cover; transition: transform .7s var(--ease-out); }
+.inc-cards li::after { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(to top, rgba(11, 26, 69, 0.95) 0%, rgba(11, 26, 69, 0.55) 45%, rgba(11, 26, 69, 0) 70%); }
+.inc-cards li > div { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: 22px; }
+.inc-cards h3 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; }
+.inc-cards p { color: #dbe5ff; font-size: 0.95rem; margin-top: 6px; }
+@media (min-width: 960px) { .inc-cards { grid-auto-flow: row; grid-template-columns: repeat(min(var(--n, 3), 4), 1fr); overflow: visible; margin-inline: 0; padding: 0; } }
+@media (hover: hover) and (pointer: fine) { .inc-cards li:hover img { transform: scale(1.06); } }
+
+/* ---------- WhatsApp flotante (siempre visible) ---------- */
+.wa-fab {
+  position: fixed; z-index: 45; right: max(16px, env(safe-area-inset-right)); bottom: calc(16px + env(safe-area-inset-bottom));
+  display: inline-flex; align-items: center; gap: 12px; padding: 8px 20px 8px 8px; border-radius: 999px;
+  background: #fff; color: var(--marino); text-decoration: none; box-shadow: 0 16px 40px -14px rgba(11, 26, 69, 0.55), 0 0 0 1px rgba(11, 26, 69, 0.08);
+  transition: transform .2s var(--ease-out);
+}
+.wa-fab:active { transform: scale(0.97); }
+.wa-fab__icon { position: relative; width: 52px; height: 52px; border-radius: 50%; background: #25d366; color: #fff; display: grid; place-content: center; flex: none; }
+.wa-fab__icon svg { width: 28px; height: 28px; }
+.wa-fab__icon i { position: absolute; inset: 0; border-radius: 50%; border: 2px solid #25d366; opacity: 0; }
+.wa-fab__text { display: grid; line-height: 1.15; }
+.wa-fab__text strong { font-size: 1rem; }
+.wa-fab__text small { font-size: 0.82rem; color: var(--tinta); }
+@media (hover: hover) and (pointer: fine) { .wa-fab:hover { transform: translateY(-3px); } }
+@media (max-width: 480px) { .wa-fab { padding: 6px 16px 6px 6px; gap: 10px; } .wa-fab__icon { width: 46px; height: 46px; } .wa-fab__text strong { font-size: 0.95rem; } .wa-fab__text small { font-size: 0.76rem; } }
+@media (prefers-reduced-motion: no-preference) {
+  .wa-fab { animation: fab-in .6s var(--ease-out) 1s both; }
+  .wa-fab__icon i { animation: fab-ping 6s ease-out 2s infinite; }
+}
+@keyframes fab-in { from { opacity: 0; transform: translateY(24px) scale(0.96); } }
+@keyframes fab-ping { 0% { opacity: .7; transform: scale(1); } 22%, 100% { opacity: 0; transform: scale(1.8); } }
+.ftr { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+
+/* Filtro de guías */
+.g-filter { position: sticky; top: 72px; z-index: 5; display: flex; gap: 8px; overflow-x: auto; padding: 12px var(--gutter); margin: 0 calc(-1 * var(--gutter)) 24px; background: var(--espuma); scrollbar-width: none; }
+.g-filter::-webkit-scrollbar { display: none; }
+.g-filter button { flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--linea-fuerte); background: #fff; color: var(--marino); font: inherit; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: background-color .15s ease, color .15s ease, transform .16s var(--ease-out); }
+.g-filter button span { font-size: 0.78rem; font-weight: 700; opacity: .65; }
+.g-filter button[aria-pressed="true"] { background: var(--marino); color: #fff; border-color: var(--marino); }
+.g-filter button:active { transform: scale(0.97); }
+#lista-guias:not([data-filter="todas"]) > li { display: none; }
+#lista-guias[data-filter="acolchados"] > [data-topic="acolchados"],
+#lista-guias[data-filter="manchas-y-olores"] > [data-topic="manchas-y-olores"],
+#lista-guias[data-filter="lavado-y-secado"] > [data-topic="lavado-y-secado"],
+#lista-guias[data-filter="prendas-especiales"] > [data-topic="prendas-especiales"],
+#lista-guias[data-filter="zapatillas"] > [data-topic="zapatillas"] { display: list-item; animation: rise .4s var(--ease-out) both; }
+#lista-guias .g-cards__tag { display: inline-block; grid-column: 2; }
+.g-cards--big .g-cards__tag { background: var(--copia); color: var(--marino); }
+#lista-guias .g-cards__img { grid-row: span 3; }
+.h-pick__grid > * { min-width: 0; }
+.chat__bubble { overflow-wrap: anywhere; }

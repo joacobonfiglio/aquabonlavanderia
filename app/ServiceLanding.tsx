@@ -4,7 +4,7 @@ import type { ServiceDesign } from "./service-design";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import WhatsAppLink from "./WhatsAppLink";
-import Ticket from "./Ticket";
+import ChatPreview from "./ChatPreview";
 import Faq from "./Faq";
 import JsonLd from "./JsonLd";
 import Img from "./Img";
@@ -14,7 +14,16 @@ import { SITE_URL, business, services } from "./site";
 import { guide } from "./guides";
 import { seoDescriptions } from "./seo-descriptions";
 
-const check = <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+// Foto para cada cosa que incluye el servicio: por palabra clave, si no, del pool del servicio.
+function itemImage(title: string, i: number, pool: string[]) {
+  const t = title.toLowerCase();
+  if (t.includes("lavad")) return "/blog/medir-detergente-para-lavar.webp";
+  if (t.includes("secad")) return "/blog/secar-ropa-adentro-ventilacion.webp";
+  if (t.includes("doblad")) return "/laundry-hero-v2.webp";
+  if (t.includes("planch")) return "/services/planchado-v3.webp";
+  if (t.includes("retir") || t.includes("entrega")) return "/services/retiro-v3.webp";
+  return pool[i % pool.length];
+}
 
 function stepImages(n: number, main: string) {
   if (n >= 4) return ["/services/retiro-v3.webp", "/blog/leer-simbolos-etiqueta-ropa.webp", "/blog/medir-detergente-para-lavar.webp", "/laundry-hero-v2.webp"];
@@ -37,6 +46,7 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
   const imgs = stepImages(data.steps.length, design.image);
   const steps: Step[] = data.steps.map((s, i) => ({ ...s, image: imgs[i % imgs.length], alt: "" }));
   const others = services.filter(s => s.href !== data.path);
+  const pool = [design.image, ...relatedGuides.map(g => g.image), "/laundry-detail-v2.webp"];
   const words = data.items.every(i => i.title.length <= 28) ? data.items.map(i => i.title) : [design.name, "Mar del Plata", "Gascón 2189"];
   return <>
     <SiteHeader event={data.event + "_header"} overlay />
@@ -61,8 +71,11 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
             <h2 id="incluye-titulo">Qué incluye</h2>
             <p>{design.intro}</p>
           </div>
-          <ul className="feature-grid">
-            {data.items.map((item, i) => <li key={item.title} data-reveal style={{ transitionDelay: `${i * 70}ms` }}><b>{check}</b><h3>{item.title}</h3><p>{item.copy}</p></li>)}
+          <ul className="inc-cards" style={{ ["--n" as string]: data.items.length }}>
+            {data.items.map((item, i) => <li key={item.title} data-reveal style={{ transitionDelay: `${i * 80}ms` }}>
+              <Img src={itemImage(item.title, i, pool)} alt="" width={800} height={1000} sizes="(max-width: 760px) 80vw, 300px" />
+              <div><h3>{item.title}</h3><p>{item.copy}</p></div>
+            </li>)}
           </ul>
         </div>
       </section>
@@ -83,6 +96,13 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
         <Link className="link link--light" href="/servicios/retiro-y-entrega-de-ropa">¿Necesitás retiro y entrega?</Link>
       </>} />
 
+      <section className="p-sec p-sec--espuma" style={{ paddingBottom: "clamp(40px, 6vw, 64px)" }} aria-labelledby="otros-titulo">
+        <div className="wrap">
+          <div className="h-head h-head--split" data-reveal><h2 id="otros-titulo">También te podemos ayudar con</h2><p>Todo en el mismo mostrador de {business.street}. Escribinos y lo resolvemos juntos.</p></div>
+        </div>
+        <Clothesline title="" items={others} />
+      </section>
+
       <section className="p-sec" aria-labelledby="faq-titulo">
         <div className="wrap h-pick__grid">
           <div>
@@ -90,20 +110,17 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
             <Faq items={data.faqs} />
           </div>
           <div className="h-pick__ticket" data-reveal>
-            <Ticket data={{
-              rows: [{ label: "Servicio", value: design.name.toLowerCase() }, { label: "Dónde", value: `${business.street}, ${business.city}` }],
-              message: data.message, event: data.event + "_ticket", stub: "Precio y plazo te los confirmamos antes de que dejes la prenda.",
-            }} heading="Tu consulta, lista para enviar" />
+            <p className="pick-step"><b>✓</b>Tu consulta, lista para enviar</p>
+            <ChatPreview data={{ service: design.name.toLowerCase(), message: data.message, event: data.event + "_chat" }} />
           </div>
         </div>
       </section>
 
-      <section className="p-sec p-sec--espuma" aria-labelledby="guias-titulo">
+      <section className="p-sec p-sec--espuma" style={{ paddingBlock: "clamp(48px, 6vw, 72px)" }} aria-labelledby="guias-titulo">
         <div className="wrap">
-          <div className="h-head h-head--split" data-reveal><h2 id="guias-titulo">Guías para hacerlo en casa</h2><p>Si preferís resolverlo vos, acá te contamos cómo. Y si te da dudas, lo vemos en el mostrador.</p></div>
-          <GuideCards guides={relatedGuides.slice(0, 3)} />
+          <div className="h-head h-head--split" style={{ marginBottom: 24 }}><h2 id="guias-titulo" style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)" }}>Si preferís hacerlo en casa</h2><p><Link className="link" href="/blog">Ver todas las guías</Link></p></div>
+          <GuideCards compact guides={relatedGuides.slice(0, 3)} />
         </div>
-        <Clothesline title="Otros servicios" items={others} />
       </section>
     </main>
     <SiteFooter />

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import WhatsAppLink from "./WhatsAppLink";
 import { WhatsAppIcon } from "./ui";
@@ -11,37 +11,10 @@ const services: Record<string, string> = {
   "lavado-de-zapatillas": "el lavado de unas zapatillas", "lavado-de-camperas-y-tapados": "la limpieza de una campera o un tapado", "retiro-y-entrega-de-ropa": "retiro y entrega en mi zona",
 };
 
-// Botón flotante solo en mobile. Se esconde mientras haya un CTA principal de WhatsApp a la vista,
-// así nunca hay dos botones iguales en pantalla ni tapa el que ya está.
+// Botón flotante de WhatsApp: siempre visible, abajo a la derecha, en celular y en compu.
+// El mensaje cambia según la página. La analítica de todos los links de WhatsApp se registra acá.
 export default function WhatsAppContact() {
   const pathname = usePathname();
-  const [ctaVisible, setCtaVisible] = useState(false);
-  const [scrollingDown, setScrollingDown] = useState(false);
-  // Al bajar leyendo se esconde para no tapar texto; al subir o llegar al final, vuelve.
-  useEffect(() => {
-    let last = window.scrollY, frame = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        const y = window.scrollY;
-        const atEnd = window.innerHeight + y >= document.documentElement.scrollHeight - 80;
-        if (Math.abs(y - last) > 8) { setScrollingDown(y > last && y > 120 && !atEnd); last = y; }
-      });
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => { window.removeEventListener("scroll", onScroll); cancelAnimationFrame(frame); };
-  }, []);
-  useEffect(() => {
-    const targets = Array.from(document.querySelectorAll("[data-primary-cta], [data-cta-zone]"));
-    if (!targets.length || !("IntersectionObserver" in window)) return;
-    const visible = new Set<Element>();
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => e.isIntersecting ? visible.add(e.target) : visible.delete(e.target));
-      setCtaVisible(visible.size > 0);
-    });
-    targets.forEach(t => io.observe(t));
-    return () => { io.disconnect(); setCtaVisible(false); };
-  }, [pathname]);
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
       const a = (e.target as Element | null)?.closest?.("a[data-event]") as HTMLAnchorElement | null;
@@ -52,10 +25,14 @@ export default function WhatsAppContact() {
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
   }, []);
-  const service = services[pathname?.split("/").at(-1) || ""];
-  const message = service ? `Hola Aquabon, quiero consultar por ${service}.` : "Hola Aquabon, quería hacer una consulta.";
-  const hidden = ctaVisible || scrollingDown;
-  return <WhatsAppLink className="wa-float" data-hidden={hidden ? "true" : "false"} aria-hidden={hidden || undefined} tabIndex={hidden ? -1 : undefined} message={message} event="whatsapp_floating" aria-label="Escribinos por WhatsApp">
-    <WhatsAppIcon /><span aria-hidden="true">WhatsApp</span>
+  const slug = pathname?.split("/").at(-1) || "";
+  const service = services[slug];
+  const isBusiness = pathname?.startsWith("/empresas");
+  const message = service ? `Hola Aquabon, quiero consultar por ${service}.`
+    : isBusiness ? "Hola Aquabon, quería consultar por un servicio de lavandería para mi negocio."
+    : "Hola Aquabon, quería hacer una consulta.";
+  return <WhatsAppLink className="wa-fab" message={message} event="whatsapp_floating" aria-label="Escribinos por WhatsApp">
+    <span className="wa-fab__icon"><WhatsAppIcon /><i aria-hidden="true" /></span>
+    <span className="wa-fab__text" aria-hidden="true"><strong>¿Te ayudamos?</strong><small>Escribinos por WhatsApp</small></span>
   </WhatsAppLink>;
 }

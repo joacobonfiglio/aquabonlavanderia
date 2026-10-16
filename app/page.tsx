@@ -2,12 +2,15 @@ import Link from "next/link";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import WhatsAppLink from "./WhatsAppLink";
-import Ticket, { type TicketData } from "./Ticket";
+import ChatPreview, { type ChatData } from "./ChatPreview";
+
+type TicketData = { rows: { label: string; value: string }[]; message: string; event: string; link?: { href: string; label: string } };
+const toChat = (t: TicketData): ChatData => ({ service: t.rows.find(r => r.label === "Servicio")?.value, next: t.rows.find(r => r.label === "Cómo sigue")?.value, message: t.message, event: t.event, link: t.link });
 import Faq, { type FaqItem } from "./Faq";
 import Reviews from "./Reviews";
 import Img from "./Img";
 import { CareSymbol, WhatsAppIcon } from "./ui";
-import { Clothesline, Ribbon, Waves } from "./Blocks";
+import { Clothesline, Process, Ribbon, Waves } from "./Blocks";
 import { business, businessLinks, hours, hoursSentence, services } from "./site";
 
 type Option = { id: string; label: string; image: string; ticket: TicketData };
@@ -48,7 +51,6 @@ const general: TicketData = {
   message: "Hola Aquabon, quería consultar qué servicio necesita mi ropa.",
   event: "whatsapp_home_ticket_general",
 };
-const stub = "Precio y plazo te los confirmamos antes de que dejes la prenda.";
 
 const featured = services.slice(0, 3);
 const line = services.filter(s => !featured.includes(s));
@@ -130,11 +132,11 @@ export default function Home() {
         <div className="wrap">
           <div className="h-head" data-reveal>
             <h2 id="pick-titulo">¿Qué tenés pendiente?</h2>
-            <p>Tocá lo que querés lavar. Te armamos el mensaje y te decimos cómo sigue.</p>
+            <p>Tocá lo que querés lavar y te armamos el mensaje de WhatsApp. Lo revisás y lo enviás.</p>
           </div>
           <div className="h-pick__grid">
             <fieldset className="tiles" data-reveal>
-              <legend className="sr-only">Elegí la prenda</legend>
+              <legend className="pick-step"><b>1</b>Elegí qué querés lavar</legend>
               {options.map(o => <span key={o.id} className="tile">
                 <input type="radio" name="pendiente" id={"p-" + o.id} value={o.id} aria-controls="tickets" />
                 <label htmlFor={"p-" + o.id}>
@@ -144,8 +146,9 @@ export default function Home() {
               </span>)}
             </fieldset>
             <div className="tickets h-pick__ticket" id="tickets" data-reveal>
-              <Ticket data={{ ...general, stub }} dataFor="general" primary />
-              {options.map(o => <Ticket key={o.id} data={{ ...o.ticket, stub }} dataFor={o.id} primary />)}
+              <p className="pick-step"><b>2</b>Tu mensaje, listo para enviar</p>
+              <ChatPreview data={toChat(general)} dataFor="general" primary />
+              {options.map(o => <ChatPreview key={o.id} data={toChat(o.ticket)} dataFor={o.id} primary />)}
             </div>
           </div>
         </div>
@@ -174,29 +177,10 @@ export default function Home() {
       </section>
 
       {/* 5. Proceso */}
-      <section className="h-proc" aria-labelledby="proc-titulo" data-steps="" data-active="0">
-        <div className="wrap h-proc__grid">
-          <div className="h-proc__media" aria-hidden="true">
-            {steps.map((s, i) => <figure key={s.title} data-index={i}><Img src={s.image} alt="" width={1000} height={1250} sizes="(max-width: 960px) 100vw, 520px" /></figure>)}
-            <div className="h-proc__dots">{steps.map((s, i) => <i key={s.title} data-index={i} />)}</div>
-          </div>
-          <div>
-            <h2 id="proc-titulo" data-reveal>Así de simple</h2>
-            <ol className="h-proc__steps">
-              {steps.map((s, i) => <li key={s.title} data-step={i}>
-                <span className="h-proc__n">{String(i + 1).padStart(2, "0")}</span>
-                <h3>{s.title}</h3>
-                <p>{s.copy}</p>
-                <div className="h-proc__mobile-img"><Img src={s.image} alt={s.alt} width={1000} height={1250} sizes="100vw" /></div>
-              </li>)}
-            </ol>
-            <div className="h-proc__cta" data-reveal>
-              <WhatsAppLink className="btn btn--light btn--xl" message="Hola Aquabon, quiero consultar retiro y entrega. Mi dirección es: " event="whatsapp_home_retiro"><WhatsAppIcon />Consultar retiro en mi zona</WhatsAppLink>
-              <Link className="link link--light" href="/servicios/retiro-y-entrega-de-ropa">Cómo funciona el retiro</Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Process title="Así de simple" lead="Retiro y entrega según tu zona, o pasás por el local." steps={steps} cta={<>
+        <WhatsAppLink className="btn btn--light btn--xl" message="Hola Aquabon, quiero consultar retiro y entrega. Mi dirección es: " event="whatsapp_home_retiro"><WhatsAppIcon />Consultar retiro en mi zona</WhatsAppLink>
+        <Link className="link link--light" href="/servicios/retiro-y-entrega-de-ropa">Cómo funciona el retiro</Link>
+      </>} />
 
       <Reviews />
 
