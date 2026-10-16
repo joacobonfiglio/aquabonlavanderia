@@ -3,8 +3,8 @@ import WhatsAppContact from "./WhatsAppContact";
 import Motion from "./Motion";
 import JsonLd from "./JsonLd";
 import Analytics from "./Analytics";
-import { analyticsHeadScript } from "./analytics-head";
-import { GA_ID, SITE_URL, business, hours } from "./site";
+import { gtmHeadScript } from "./analytics-head";
+import { GTM_ID, SITE_URL, business, hours } from "./site";
 import "./aquabon.css";
 import "./sections.css";
 
@@ -48,9 +48,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <head>
       {/* Solo se precarga la tipografía de texto; la manuscrita del ticket se baja cuando aparece. */}
       <link rel="preload" href="/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossOrigin="" />
-      {GA_ID ? <script dangerouslySetInnerHTML={{ __html: analyticsHeadScript(GA_ID) }} /> : null}
+      {GTM_ID ? <script dangerouslySetInnerHTML={{ __html: gtmHeadScript(GTM_ID) }} /> : null}
     </head>
     <body>
+      {GTM_ID ? <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`} height="0" width="0" style={{ display: "none", visibility: "hidden" }} /></noscript> : null}
       <a className="skip" href="#contenido">Ir al contenido</a>
       <JsonLd data={businessSchema} />
       {children}

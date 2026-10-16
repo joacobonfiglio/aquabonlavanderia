@@ -60,9 +60,9 @@ export const businessLinks = [
   { name: "Ropa deportiva", href: "/empresas/lavado-ropa-deportiva", short: "Camisetas, shorts y equipos de entrenamiento.", image: "/blog/evitar-encogimiento-ropa.webp", alt: "Prendas de algodón revisadas antes del lavado" },
 ];
 
-// TODO(joaco): ID de medición de Google Analytics 4 (G-XXXXXXXXXX, en Administrar → Flujos de datos → Web).
-// Mientras esté vacío no se carga Analytics ni se muestra el aviso de cookies.
-export const GA_ID = "";
+// Contenedor de Google Tag Manager. GA4 y el resto de las etiquetas se configuran dentro de GTM.
+// Si se vacía, no se carga GTM ni se muestra el aviso de cookies.
+export const GTM_ID = "GTM-KFG2XKG3";
 
 // TODO(joaco): URL de la web de Traka. Mientras esté vacía, el crédito del footer se muestra sin link.
 export const TRAKA_URL = "";
