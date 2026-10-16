@@ -4,8 +4,8 @@ import SiteFooter from "./SiteFooter";
 import WhatsAppLink from "./WhatsAppLink";
 import ChatPreview, { type ChatData } from "./ChatPreview";
 
-type TicketData = { rows: { label: string; value: string }[]; message: string; event: string; link?: { href: string; label: string } };
-const toChat = (t: TicketData): ChatData => ({ service: t.rows.find(r => r.label === "Servicio")?.value, next: t.rows.find(r => r.label === "Cómo sigue")?.value, message: t.message, event: t.event, link: t.link });
+type TicketData = { rows: { label: string; value: string }[]; message: string; servicio?: string; link?: { href: string; label: string } };
+const toChat = (t: TicketData): ChatData => ({ service: t.rows.find(r => r.label === "Servicio")?.value, next: t.rows.find(r => r.label === "Cómo sigue")?.value, message: t.message, servicio: t.servicio, link: t.link });
 import Faq, { type FaqItem } from "./Faq";
 import Reviews from "./Reviews";
 import Img from "./Img";
@@ -19,37 +19,36 @@ const options: Option[] = [
   { id: "semana", label: "Ropa de la semana", image: "/laundry-detail-v2.webp", ticket: {
     rows: [{ label: "Prenda", value: "ropa de la semana" }, { label: "Servicio", value: "valet: lavado, secado y doblado" }, { label: "Cómo sigue", value: "traés la bolsa y te avisamos cuando está lista" }],
     message: "Hola Aquabon, tengo ropa de la semana para el valet. Son más o menos __ prendas. ¿Me pasan importe y plazo?",
-    event: "whatsapp_home_ticket_valet", link: { href: "/servicios/valet-de-ropa", label: "Cómo funciona el valet" } } },
+    servicio: "valet", link: { href: "/servicios/valet-de-ropa", label: "Cómo funciona el valet" } } },
   { id: "acolchado", label: "Acolchado", image: "/blog/revisar-cuando-lavar-acolchado.webp", ticket: {
     rows: [{ label: "Prenda", value: "acolchado, cubrecama o frazada" }, { label: "Servicio", value: "lavado de acolchados" }, { label: "Cómo sigue", value: "revisamos tamaño, etiqueta y relleno" }],
     message: "Hola Aquabon, quiero lavar un acolchado. Es de __ plazas y el relleno es __. ¿Me pasan importe y plazo?",
-    event: "whatsapp_home_ticket_acolchado", link: { href: "/servicios/lavado-de-acolchados", label: "Lavado de acolchados" } } },
+    servicio: "acolchados", link: { href: "/servicios/lavado-de-acolchados", label: "Lavado de acolchados" } } },
   { id: "campera", label: "Campera o tapado", image: "/blog/revisar-tapado-etiqueta-forro.webp", ticket: {
     rows: [{ label: "Prenda", value: "campera o tapado" }, { label: "Servicio", value: "camperas y tapados" }, { label: "Cómo sigue", value: "miramos etiqueta, forro y relleno" }],
     message: "Hola Aquabon, quiero consultar por la limpieza de una campera o tapado. Les mando una foto de la prenda y de la etiqueta.",
-    event: "whatsapp_home_ticket_abrigo", link: { href: "/servicios/lavado-de-camperas-y-tapados", label: "Camperas y tapados" } } },
+    servicio: "camperas_y_tapados", link: { href: "/servicios/lavado-de-camperas-y-tapados", label: "Camperas y tapados" } } },
   { id: "zapatillas", label: "Zapatillas", image: "/blog/revisar-zapatillas-antes-lavar.webp", ticket: {
     rows: [{ label: "Prenda", value: "un par de zapatillas" }, { label: "Servicio", value: "lavado de zapatillas" }, { label: "Cómo sigue", value: "revisamos material, uniones y desgaste" }],
     message: "Hola Aquabon, quiero consultar por el lavado de unas zapatillas. Les mando una foto del par.",
-    event: "whatsapp_home_ticket_zapatillas", link: { href: "/servicios/lavado-de-zapatillas", label: "Lavado de zapatillas" } } },
+    servicio: "zapatillas", link: { href: "/servicios/lavado-de-zapatillas", label: "Lavado de zapatillas" } } },
   { id: "traje", label: "Traje o vestido", image: "/blog/revisar-prendas-tintoreria.webp", ticket: {
     rows: [{ label: "Prenda", value: "traje, saco o vestido" }, { label: "Servicio", value: "tintorería" }, { label: "Cómo sigue", value: "la registramos y seguimos el tratamiento" }],
     message: "Hola Aquabon, tengo una prenda para tintorería (traje, saco o vestido). Les mando una foto de la prenda y de la etiqueta.",
-    event: "whatsapp_home_ticket_tintoreria", link: { href: "/servicios/tintoreria", label: "Tintorería" } } },
+    servicio: "tintoreria", link: { href: "/servicios/tintoreria", label: "Tintorería" } } },
   { id: "camisas", label: "Camisas", image: "/blog/preparar-camisa-antes-lavar.webp", ticket: {
     rows: [{ label: "Prenda", value: "camisas" }, { label: "Servicio", value: "lavado y planchado de camisas" }, { label: "Cómo sigue", value: "revisamos cuello, puños y etiqueta" }],
     message: "Hola Aquabon, quiero lavar y planchar camisas. Son __. ¿Me pasan importe y plazo?",
-    event: "whatsapp_home_ticket_camisas", link: { href: "/servicios/lavado-y-planchado-de-camisas", label: "Lavado y planchado de camisas" } } },
+    servicio: "camisas", link: { href: "/servicios/lavado-y-planchado-de-camisas", label: "Lavado y planchado de camisas" } } },
   { id: "arreglo", label: "Un arreglo", image: "/services/costura-v3.webp", ticket: {
     rows: [{ label: "Prenda", value: "una prenda para arreglar" }, { label: "Servicio", value: "arreglos y costura" }, { label: "Cómo sigue", value: "medidas y alcance se ven en el local" }],
     message: "Hola Aquabon, quiero consultar por un arreglo de costura. Necesito __.",
-    event: "whatsapp_home_ticket_arreglo", link: { href: "/servicios/arreglos-y-costura", label: "Arreglos y costura" } } },
+    servicio: "arreglos", link: { href: "/servicios/arreglos-y-costura", label: "Arreglos y costura" } } },
 ];
 
 const general: TicketData = {
   rows: [{ label: "Prenda", value: "lo que tengas pendiente" }, { label: "Servicio", value: "te ayudamos a elegirlo" }, { label: "Cómo sigue", value: "mandanos una foto de la prenda y su etiqueta" }],
   message: "Hola Aquabon, quería consultar qué servicio necesita mi ropa.",
-  event: "whatsapp_home_ticket_general",
 };
 
 const featured = services.slice(0, 3);
@@ -78,7 +77,7 @@ const faqs: FaqItem[] = [
 
 export default function Home() {
   return <>
-    <SiteHeader event="whatsapp_home_header" overlay />
+    <SiteHeader overlay />
     <main id="contenido" className="home">
 
       {/* 1. Hero con ojo de buey */}
@@ -91,7 +90,7 @@ export default function Home() {
             </h1>
             <p className="h-hero__lead">Lavamos, secamos y doblamos la ropa de la semana, y cuidamos las prendas que te dan dudas. Más de 10 años en el rubro.</p>
             <div className="h-hero__actions">
-              <WhatsAppLink className="btn btn--azul btn--xl" message="Hola Aquabon, quiero consultar por el lavado de mi ropa." event="whatsapp_home_hero" data-primary-cta=""><WhatsAppIcon />Escribinos por WhatsApp</WhatsAppLink>
+              <WhatsAppLink className="btn btn--azul btn--xl" message="Hola Aquabon, quiero consultar por el lavado de mi ropa." ubicacion="hero" data-primary-cta=""><WhatsAppIcon />Escribinos por WhatsApp</WhatsAppLink>
               <a className="btn btn--outline-light btn--xl" href="#pendiente">¿Qué tenés para lavar?</a>
             </div>
             <dl className="h-hero__facts">
@@ -178,7 +177,7 @@ export default function Home() {
 
       {/* 5. Proceso */}
       <Process title="Así de simple" lead="Retiro y entrega según tu zona, o pasás por el local." steps={steps} cta={<>
-        <WhatsAppLink className="btn btn--light btn--xl" message="Hola Aquabon, quiero consultar retiro y entrega. Mi dirección es: " event="whatsapp_home_retiro"><WhatsAppIcon />Consultar retiro en mi zona</WhatsAppLink>
+        <WhatsAppLink className="btn btn--light btn--xl" message="Hola Aquabon, quiero consultar retiro y entrega. Mi dirección es: " ubicacion="retiro" servicio="retiro_y_entrega"><WhatsAppIcon />Consultar retiro en mi zona</WhatsAppLink>
         <Link className="link link--light" href="/servicios/retiro-y-entrega-de-ropa">Cómo funciona el retiro</Link>
       </>} />
 
@@ -198,7 +197,7 @@ export default function Home() {
       {/* 9. FAQ */}
       <section className="section" aria-labelledby="faq-titulo">
         <div className="wrap split">
-          <div data-reveal><h2 id="faq-titulo" className="h-big">Preguntas frecuentes</h2><p className="muted" style={{ marginTop: 12 }}>¿No está tu duda? <WhatsAppLink className="link" message="Hola Aquabon, tengo una consulta." event="whatsapp_home_faq">Escribinos</WhatsAppLink>.</p></div>
+          <div data-reveal><h2 id="faq-titulo" className="h-big">Preguntas frecuentes</h2><p className="muted" style={{ marginTop: 12 }}>¿No está tu duda? <WhatsAppLink className="link" message="Hola Aquabon, tengo una consulta." ubicacion="faq">Escribinos</WhatsAppLink>.</p></div>
           <Faq items={[faqs[2], faqs[3], faqs[4], faqs[5]]} />
         </div>
       </section>

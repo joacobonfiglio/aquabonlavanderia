@@ -22,6 +22,14 @@ export const business = {
   geo: null as null | { latitude: number; longitude: number },
 };
 
+// TODO(joaco): datos del titular para las páginas legales (Ley 25.326 pide identificar al responsable).
+// Mientras estén vacíos no se muestran. Razón social o nombre del titular, y CUIT.
+export const legal = {
+  holder: "",
+  cuit: "",
+  updated: "16 de octubre de 2026",
+};
+
 export const hours = [
   { label: "Lunes a viernes", short: "Lun a vie", opens: "08:30", closes: "20:00", text: "8:30 a 20:00", days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"] },
   { label: "Sábados", short: "Sáb", opens: "09:00", closes: "14:00", text: "9:00 a 14:00", days: ["Saturday"] },

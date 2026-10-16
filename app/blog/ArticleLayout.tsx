@@ -7,6 +7,7 @@ import WhatsAppLink from "../WhatsAppLink";
 import JsonLd from "../JsonLd";
 import { WhatsAppIcon } from "../ui";
 import { SITE_URL, services } from "../site";
+import { servicioFromPath } from "../ga";
 import Img from "../Img";
 import { Clothesline, GuideCards, Waves } from "../Blocks";
 import { guides } from "../guides";
@@ -51,7 +52,7 @@ export default function ArticleLayout({ title, description, slug, date, readingT
   const heroImage = image ?? "/laundry-hero-v2.webp";
   const serviceImage = services.find(x => x.href === info.path)?.image ?? "/laundry-hero-v2.webp";
   return <>
-    <SiteHeader event="whatsapp_blog_header" overlay />
+    <SiteHeader overlay />
     <div className="read-progress" aria-hidden="true" />
     <main id="contenido" className="page">
       <section className="p-hero a-hero" aria-labelledby="page-titulo">
@@ -77,7 +78,7 @@ export default function ArticleLayout({ title, description, slug, date, readingT
             <p>¿Preferís no hacerlo en casa?</p>
             <h2 id="aside-titulo">{info.name} en Mar del Plata</h2>
             <span>{info.copy}</span>
-            <WhatsAppLink className="btn btn--azul" message={info.message} event="whatsapp_blog_sidebar"><WhatsAppIcon />Consultar por WhatsApp</WhatsAppLink>
+            <WhatsAppLink className="btn btn--azul" message={info.message} ubicacion="blog_lateral" servicio={servicioFromPath(info.path)}><WhatsAppIcon />Consultar por WhatsApp</WhatsAppLink>
             <Link className="link link--light" href={info.path}>Ver el servicio</Link>
           </aside>
         </div>

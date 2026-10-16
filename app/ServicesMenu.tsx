@@ -3,7 +3,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { services, whatsappHref } from "./site";
+import { services } from "./site";
+import WhatsAppLink from "./WhatsAppLink";
 
 const thumb = (src: string) => "/img" + src.replace(/\.[a-z]+$/, "") + "-480.webp";
 
@@ -36,7 +37,7 @@ export default function ServicesMenu() {
       </ul>
       <aside className="mega__aside">
         <p>¿No sabés qué servicio necesita tu prenda?</p>
-        <a className="btn btn--azul" href={whatsappHref("Hola Aquabon, quería consultar qué servicio necesita mi ropa.")} target="_blank" rel="noreferrer" data-event="whatsapp_megamenu">Mandanos una foto</a>
+        <WhatsAppLink className="btn btn--azul" message="Hola Aquabon, quería consultar qué servicio necesita mi ropa." ubicacion="menu_servicios">Mandanos una foto</WhatsAppLink>
         <Link className="link link--light" href="/servicios">Ver todos los servicios</Link>
       </aside>
     </div>

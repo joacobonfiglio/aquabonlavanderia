@@ -11,7 +11,7 @@ const nav = [
   { label: "Nosotros", href: "/nosotros" },
 ];
 
-export default function SiteHeader({ event = "whatsapp_header", overlay = false }: { event?: string; overlay?: boolean }) {
+export default function SiteHeader({ overlay = false }: { overlay?: boolean }) {
   const message = "Hola Aquabon, quería hacer una consulta.";
   return <header className="hdr" data-overlay={overlay ? "true" : undefined}>
     <div className="wrap">
@@ -19,7 +19,7 @@ export default function SiteHeader({ event = "whatsapp_header", overlay = false 
       <nav className="hdr__nav" aria-label="Principal">
         <ServicesMenu />
         {nav.map(item => <Link key={item.href} href={item.href}>{item.label}</Link>)}
-        <WhatsAppLink className="btn btn--azul" message={message} event={event}><WhatsAppIcon />Escribinos</WhatsAppLink>
+        <WhatsAppLink className="btn btn--azul" message={message} ubicacion="header"><WhatsAppIcon />Escribinos</WhatsAppLink>
       </nav>
       <details className="hdr__menu">
         <summary><span className="sr-only">Abrir menú</span><i aria-hidden="true" /><i aria-hidden="true" /></summary>
@@ -34,7 +34,7 @@ export default function SiteHeader({ event = "whatsapp_header", overlay = false 
           <Link href="/blog">Guías para cuidar tu ropa</Link>
           <Link href="/nosotros">Nosotros</Link>
           <Link href="/lavanderia-mar-del-plata">Dónde estamos</Link>
-          <WhatsAppLink className="btn btn--azul" message={message} event={event + "_menu"}><WhatsAppIcon />Escribinos por WhatsApp</WhatsAppLink>
+          <WhatsAppLink className="btn btn--azul" message={message} ubicacion="menu_movil"><WhatsAppIcon />Escribinos por WhatsApp</WhatsAppLink>
         </nav>
       </details>
     </div>

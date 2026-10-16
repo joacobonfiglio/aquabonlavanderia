@@ -57,7 +57,7 @@ export default function Page(){return <ArticleLayout title={title} description={
 
   <aside className="a-cta">
     <div><strong>¿No entra holgado en tu secadora?</strong><p>Lo revisamos en el mostrador y lo lavamos y secamos según su etiqueta y su relleno.</p></div>
-    <WhatsAppLink className="btn btn--light" message="Hola Aquabon, quiero consultar por el lavado y secado de un acolchado. Les mando una foto de la etiqueta." event="whatsapp_guia_secar_acolchado"><WhatsAppIcon />Consultar por mi acolchado</WhatsAppLink>
+    <WhatsAppLink className="btn btn--light" message="Hola Aquabon, quiero consultar por el lavado y secado de un acolchado. Les mando una foto de la etiqueta." ubicacion="guia" servicio="acolchados"><WhatsAppIcon />Consultar por mi acolchado</WhatsAppLink>
   </aside>
 
   <h2 id="profesional">Cuándo conviene llevarlo a una lavandería</h2>

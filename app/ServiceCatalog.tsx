@@ -14,7 +14,7 @@ import { servicesHub } from "./landing-data";
 export default function ServiceCatalog() {
   const list = { "@context": "https://schema.org", "@type": "ItemList", name: "Servicios de Aquabon Lavandería", itemListElement: services.map((s, i) => ({ "@type": "ListItem", position: i + 1, name: s.name, url: SITE_URL + s.href })) };
   return <>
-    <SiteHeader event="whatsapp_servicios_header" overlay />
+    <SiteHeader overlay />
     <main id="contenido" className="page">
       <PageHero
         crumbs={servicesHub.crumbs}
@@ -24,7 +24,7 @@ export default function ServiceCatalog() {
         image={{ src: "/laundry-hero-v2.webp", alt: "Pila de ropa lavada y doblada en tonos blancos y azules" }}
         chip={{ symbol: "wash", text: `${services.length} servicios` }}
         actions={<>
-          <WhatsAppLink className="btn btn--azul btn--xl" message={servicesHub.message} event={servicesHub.event} data-primary-cta=""><WhatsAppIcon />{servicesHub.cta}</WhatsAppLink>
+          <WhatsAppLink className="btn btn--azul btn--xl" message={servicesHub.message} ubicacion="hero" data-primary-cta=""><WhatsAppIcon />{servicesHub.cta}</WhatsAppLink>
           <a className="btn btn--outline-light btn--xl" href="#lista">Ver los servicios</a>
         </>}
       />
@@ -46,7 +46,7 @@ export default function ServiceCatalog() {
           <div><div className="h-head" data-reveal><h2 id="faq-titulo">Preguntas frecuentes</h2></div><Faq items={servicesHub.faqs} /></div>
           <div className="h-pick__ticket" data-reveal>
             <p className="pick-step"><b>✓</b>Tu consulta, lista para enviar</p>
-            <ChatPreview data={{ message: servicesHub.message, event: servicesHub.event + "_chat", next: "te decimos qué servicio conviene, el precio y el plazo" }} />
+            <ChatPreview data={{ message: servicesHub.message, next: "te decimos qué servicio conviene, el precio y el plazo" }} />
           </div>
         </div>
       </section>

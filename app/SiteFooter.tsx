@@ -1,5 +1,6 @@
 import Link from "next/link";
 import WhatsAppLink from "./WhatsAppLink";
+import TrackedLink from "./TrackedLink";
 import { Waves } from "./Blocks";
 import { Brand, WhatsAppIcon } from "./ui";
 import { business, hours, services, businessLinks, mapsDirections, mapsEmbed, TRAKA_URL } from "./site";
@@ -12,7 +13,7 @@ export default function SiteFooter() {
         <div>
           <h2 id="ftr-cta-titulo">¿Qué tenés para lavar esta semana?</h2>
           <p>Escribinos y te decimos qué servicio conviene, cuánto sale y cuándo está.</p>
-          <WhatsAppLink className="btn btn--light btn--xl" message="Hola Aquabon, quiero consultar por el lavado de mi ropa." event="whatsapp_footer_cta"><WhatsAppIcon />Escribinos por WhatsApp</WhatsAppLink>
+          <WhatsAppLink className="btn btn--light btn--xl" message="Hola Aquabon, quiero consultar por el lavado de mi ropa." ubicacion="footer"><WhatsAppIcon />Escribinos por WhatsApp</WhatsAppLink>
         </div>
         <div className="ftr-map" id="ubicacion">
           <h2>Dónde estamos</h2>
@@ -23,7 +24,7 @@ export default function SiteFooter() {
           <div className="ftr-map__frame">
             <iframe src={mapsEmbed} title={`Mapa: ${business.name}, ${business.address}`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
           </div>
-          <a className="link link--light" href={mapsDirections} target="_blank" rel="noreferrer">Cómo llegar con Google Maps</a>
+          <TrackedLink gaEvent="click_como_llegar" ubicacion="footer" className="link link--light" href={mapsDirections} target="_blank" rel="noreferrer">Cómo llegar con Google Maps</TrackedLink>
         </div>
       </div>
     </section>
@@ -33,7 +34,7 @@ export default function SiteFooter() {
           <Link href="/" className="brand-link"><Brand /></Link>
           <address>
             {business.street}, {business.city}<br />
-            <WhatsAppLink message="Hola Aquabon, quería hacer una consulta." event="whatsapp_footer">WhatsApp {business.phoneDisplay}</WhatsAppLink><br />
+            <WhatsAppLink message="Hola Aquabon, quería hacer una consulta." ubicacion="footer_contacto">WhatsApp {business.phoneDisplay}</WhatsAppLink><br />
             <a href={business.instagram} rel="noreferrer" target="_blank">Instagram {business.instagramHandle}</a><br />
             <a href={business.googleBusiness} rel="noreferrer" target="_blank">Perfil en Google</a>
           </address>

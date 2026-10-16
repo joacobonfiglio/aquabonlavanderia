@@ -6,7 +6,7 @@ export type ChatData = {
   service?: string;        // servicio sugerido
   next?: string;           // cómo sigue, en una frase
   message: string;         // mensaje precargado (los "__" se completan en WhatsApp)
-  event: string;
+  servicio?: string;      // parámetro "servicio" del evento (si no, se deduce de la URL)
   link?: { href: string; label: string };
 };
 
@@ -27,7 +27,7 @@ export default function ChatPreview({ data, dataFor, primary = false }: { data: 
       {data.next ? <p className="chat__sys chat__sys--next">Cómo sigue: {data.next}</p> : null}
     </div>
     <footer className="chat__foot">
-      <WhatsAppLink className="btn btn--wa" message={data.message} event={data.event} data-primary-cta={primary ? "" : undefined}><WhatsAppIcon />Enviar este mensaje</WhatsAppLink>
+      <WhatsAppLink className="btn btn--wa" message={data.message} ubicacion="vista_previa_chat" servicio={data.servicio} data-primary-cta={primary ? "" : undefined}><WhatsAppIcon />Enviar este mensaje</WhatsAppLink>
       <p>Se abre WhatsApp con el mensaje escrito. Podés editarlo antes de enviarlo.</p>
       {data.link ? <Link className="link" href={data.link.href}>{data.link.label}</Link> : null}
     </footer>

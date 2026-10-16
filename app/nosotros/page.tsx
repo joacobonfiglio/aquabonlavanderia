@@ -24,7 +24,7 @@ const ways = [
 
 export default function Page() {
   return <>
-    <SiteHeader event="whatsapp_nosotros_header" overlay />
+    <SiteHeader overlay />
     <main id="contenido" className="page">
       <PageHero
         crumbs={[{ label: "Inicio", href: "/" }, { label: "Nosotros", href: "/nosotros" }]}
@@ -33,7 +33,7 @@ export default function Page() {
         lead={`Somos Aquabon, en ${business.street}, Mar del Plata. Recibimos la ropa de la semana, acolchados y prendas que necesitan un cuidado especial.`}
         image={{ src: "/laundry-detail-v2.webp", alt: "Ropa de algodón lavada y doblada, lista para entregar" }}
         chip={{ symbol: "wash", text: "Lavandería y tintorería" }}
-        actions={<WhatsAppLink className="btn btn--azul btn--xl" message="Hola Aquabon, quería hacer una consulta." event="whatsapp_nosotros" data-primary-cta=""><WhatsAppIcon />Escribinos por WhatsApp</WhatsAppLink>}
+        actions={<WhatsAppLink className="btn btn--azul btn--xl" message="Hola Aquabon, quería hacer una consulta." ubicacion="hero" data-primary-cta=""><WhatsAppIcon />Escribinos por WhatsApp</WhatsAppLink>}
       />
       <section className="p-sec" aria-labelledby="como-titulo">
         <div className="wrap split-media">
