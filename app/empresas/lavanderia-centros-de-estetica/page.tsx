@@ -3,7 +3,7 @@ import SeoLanding, { landingMetadata } from "../../SeoLanding";
 
 const data:LandingData={
   path:"/empresas/lavanderia-centros-de-estetica",
-  title:"Lavandería para centros de estética en Mar del Plata | Aquabon",
+  title:"Lavandería para estética en Mar del Plata | Aquabon",
   description:"Lavandería para centros de estética, salones y gabinetes en Mar del Plata. Consultá por toallas, batas y textiles según volumen y frecuencia.",
   eyebrow:"LAVANDERÍA PARA ESTÉTICA · MAR DEL PLATA",
   h1:"Lavandería para centros de estética en Mar del Plata",

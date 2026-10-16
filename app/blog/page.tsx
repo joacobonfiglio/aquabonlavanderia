@@ -1,43 +1,55 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import Breadcrumbs from "../Breadcrumbs";
 import SiteHeader from "../SiteHeader";
 import SiteFooter from "../SiteFooter";
+import { guides } from "../guides";
+import { services } from "../site";
+import { Clothesline, GuideCards, PageHero, Ribbon } from "../Blocks";
+import GuideFilter from "./GuideFilter";
 
-export const metadata:Metadata={title:"Guías para cuidar tu ropa | Aquabon",description:"Guías para cuidar tu ropa: lavado, manchas, acolchados y zapatillas. Consejos de Aquabon, lavandería en Mar del Plata. Consultá por tu prenda.",alternates:{canonical:"/blog"},openGraph:{title:"Guías para cuidar tu ropa | Aquabon",description:"Guías para cuidar tu ropa: lavado, manchas, acolchados y zapatillas. Consejos de Aquabon, lavandería en Mar del Plata. Consultá por tu prenda.",url:"/blog",type:"website",locale:"es_AR",images:[{url:"/aquabon-fachada.png",width:1092,height:1118,alt:"Fachada de Aquabon Lavandería en Gascón 2189, Mar del Plata"}]}};
+export const metadata:Metadata={title:"Guías para cuidar tu ropa | Aquabon",description:"Guías para cuidar tu ropa: lavado, manchas, acolchados y zapatillas. Consejos de Aquabon, lavandería en Mar del Plata. Consultá por tu prenda.",alternates:{canonical:"/blog"},openGraph:{title:"Guías para cuidar tu ropa | Aquabon",description:"Guías para cuidar tu ropa: lavado, manchas, acolchados y zapatillas. Consejos de Aquabon, lavandería en Mar del Plata. Consultá por tu prenda.",url:"/blog",type:"website",locale:"es_AR",images:[{url:"/laundry-hero-v2.webp",width:1536,height:1024,alt:"Ropa lavada y doblada en tonos blancos y azules, Aquabon Lavandería"}]}};
 
-const guides=[
-  {title:"Cómo lavar un sweater de lana sin encogerlo ni deformarlo",description:"Cómo elegir entre lavado a mano, programa de lana o cuidado profesional, y secarlo extendido para conservar la forma.",href:"/blog/como-lavar-un-sweater-de-lana",cluster:"LANA",date:"16 OCT",image:"/blog/lavar-sweater-lana-secado-plano.webp",alt:"Cómo lavar un sweater de lana: prenda extendida sobre una toalla para retirar agua sin retorcer"},
-  {title:"Cómo sacar olor a humo de la ropa sin dañar el tejido",description:"Qué hacer ante humo de cocina, cigarrillo, fogón o una exposición intensa, y cuándo no conviene tratar la prenda en casa.",href:"/blog/como-sacar-olor-a-humo-de-la-ropa",cluster:"OLORES",date:"15 OCT",image:"/blog/revisar-ropa-con-olor-a-humo.webp",alt:"Persona revisando la etiqueta de una campera con olor a humo mientras separa la ropa afectada de prendas limpias"},
-  {title:"Cómo secar ropa dentro de casa sin olor a humedad",description:"Centrifugado, separación, ventilación y control de humedad para secar de forma pareja sin llenar el ambiente de condensación.",href:"/blog/como-secar-ropa-dentro-de-casa",cluster:"SECADO",date:"14 OCT",image:"/blog/secar-ropa-adentro-ventilacion.webp",alt:"Ropa separada en un tendedero interior junto a una ventana abierta, un ventilador y un deshumidificador"},
-  {title:"¿Hay que lavar la ropa nueva antes de usarla?",description:"Por qué conviene hacerlo, qué prendas priorizar y cómo organizar el primer lavado sin desteñir ni deformar.",href:"/blog/hay-que-lavar-la-ropa-nueva",cluster:"CUIDADO DE ROPA",date:"13 OCT",image:"/blog/revisar-ropa-nueva-primer-lavado.webp",alt:"Revisión de la etiqueta y una costura interior de una prenda nueva antes del primer lavado"},
-  {title:"Cuánto detergente usar en el lavarropas",description:"Cómo ajustar la dosis según concentración, carga, suciedad y agua, y reconocer cuándo sobra o falta producto.",href:"/blog/cuanto-detergente-usar",cluster:"LAVADO",date:"12 OCT",image:"/blog/medir-detergente-para-lavar.webp",alt:"Detergente líquido medido en su tapa junto a una carga de ropa antes del lavado"},
-  {title:"Cómo evitar que la ropa destiña al lavarla",description:"Cómo detectar color inestable, separar la carga y actuar si otra prenda ya tomó tinte sin empeorar el problema.",href:"/blog/como-evitar-que-la-ropa-destina",cluster:"CUIDADO DE ROPA",date:"11 OCT",image:"/blog/probar-prenda-que-destine.webp",alt:"Prueba de transferencia de color con un paño blanco en una costura interior roja"},
-  {title:"Cómo lavar jeans sin que pierdan color",description:"Etiqueta, lavado del revés, poca fricción y secado a la sombra: una rutina para cuidar denim azul, negro o con elastano.",href:"/blog/como-lavar-jeans-sin-perder-color",cluster:"JEANS",date:"10 OCT",image:"/blog/preparar-jeans-antes-lavar.webp",alt:"Preparación de un jean azul oscuro del revés antes de lavarlo con ropa oscura"},
-  {title:"Cómo sacar manchas de transpiración de la ropa",description:"Qué hacer con marcas amarillas o rígidas en axilas: identificar la causa, pretratar con cuidado y revisar antes de aplicar calor.",href:"/blog/como-sacar-manchas-de-transpiracion",cluster:"MANCHAS",date:"9 OCT",image:"/blog/tratar-mancha-transpiracion-camisa.webp",alt:"Tratamiento suave de una marca de transpiración en la axila de una camisa celeste"},
-  {title:"Cómo lavar ropa delicada a mano o en lavarropas",description:"Cómo elegir el método según etiqueta y estructura, reducir la fricción y secar sin deformar la prenda.",href:"/blog/como-lavar-ropa-delicada",cluster:"CUIDADO DE ROPA",date:"8 OCT",image:"/blog/preparar-ropa-delicada.webp",alt:"Preparación de ropa delicada con etiqueta, bolsa de malla, toalla y recipiente con agua"},
-  {title:"Cómo lavar camisas sin arruinar cuello, puños ni forma",description:"Preparación, lavado, secado y planchado según tejido y etiqueta, con una rutina práctica para cuidar la camisa.",href:"/blog/como-lavar-camisas-sin-arruinarlas",cluster:"CAMISAS",date:"7 OCT",image:"/blog/preparar-camisa-antes-lavar.webp",alt:"Preparación de una camisa celeste antes del lavado con cuello y puños abiertos"},
-  {title:"Cómo sacar maquillaje de la ropa sin extender la mancha",description:"Qué hacer con base, labial, polvo o máscara: retirar el exceso, pretratar según el tejido y revisar antes de secar.",href:"/blog/como-sacar-maquillaje-de-la-ropa",cluster:"MANCHAS",date:"6 OCT",image:"/blog/tratar-mancha-maquillaje-ropa.webp",alt:"Paño blanco absorbiendo una mancha de base de maquillaje en una camisa clara"},
-  {title:"Símbolos de lavado de ropa: cómo leer la etiqueta",description:"Tina, triángulo, cuadrado, plancha y círculo: una guía visual para interpretar temperaturas, puntos, líneas y tachados.",href:"/blog/simbolos-de-lavado-de-la-ropa",cluster:"CUIDADO DE ROPA",date:"5 OCT",image:"/blog/leer-simbolos-etiqueta-ropa.webp",alt:"Persona revisando la etiqueta de cuidado de una prenda azul antes del lavado"},
-  {title:"Cómo sacar manchas de sangre de la ropa",description:"Agua fría, pretratamiento y revisión antes de secar: qué hacer con una mancha fresca o seca sin dañar el tejido.",href:"/blog/como-sacar-manchas-de-sangre-de-la-ropa",cluster:"MANCHAS",date:"4 OCT",image:"/blog/enjuagar-mancha-sangre-agua-fria.webp",alt:"Enjuague con agua fría desde el reverso de una prenda con una pequeña mancha de sangre"},
-  {title:"Cómo sacar manchas de vino de la ropa",description:"Qué hacer apenas se derrama, cómo tratar una mancha seca y qué cuidados cambian según el tejido y la etiqueta.",href:"/blog/como-sacar-manchas-de-vino-de-la-ropa",cluster:"MANCHAS",date:"3 OCT",image:"/blog/tratar-mancha-vino-ropa.webp",alt:"Paño blanco absorbiendo una mancha fresca de vino en una prenda clara"},
-  {title:"Cómo evitar que la ropa se encoja al lavarla",description:"Etiqueta, temperatura, ciclo y secado: qué revisar para reducir el riesgo en algodón, lana y prendas mixtas.",href:"/blog/como-evitar-que-la-ropa-se-encoja",cluster:"CUIDADO DE ROPA",date:"30 SEP",image:"/blog/evitar-encogimiento-ropa.webp",alt:"Revisión de la etiqueta de una remera junto a un sweater secándose en plano"},
-  {title:"Cómo guardar la ropa de invierno sin que se arruine",description:"Lavado previo, secado, doblado, perchas y recipientes para evitar manchas, olor, deformación y polillas.",href:"/blog/como-guardar-la-ropa-de-invierno",cluster:"CUIDADO DE ROPA",date:"29 SEP",image:"/blog/guardar-ropa-invierno.webp",alt:"Sweaters doblados en una caja y un tapado en percha ancha dentro de un placard"},
-  {title:"Cómo sacar manchas de aceite de la ropa",description:"Qué hacer con una mancha fresca o seca, cómo pretratar según el tejido y por qué conviene revisar antes de secar.",href:"/blog/como-sacar-manchas-de-aceite-de-la-ropa",cluster:"MANCHAS",date:"28 SEP",image:"/blog/tratar-mancha-aceite-ropa.webp",alt:"Tratamiento de una mancha de aceite en una camisa con un paño absorbente"},
-  {title:"Cómo sacar el olor de las zapatillas",description:"Cómo distinguir humedad de suciedad, airear plantillas y tratar el interior sin limitarse a tapar el olor con perfume.",href:"/blog/como-sacar-el-olor-de-las-zapatillas",cluster:"ZAPATILLAS",date:"27 SEP",image:"/blog/ventilar-plantillas-olor-zapatillas.webp",alt:"Zapatillas abiertas con plantillas separadas para ventilar y tratar el olor"},
-  {title:"Cómo secar zapatillas sin deformarlas",description:"Un método con ventilación, papel absorbente y piezas separadas para conservar la forma y evitar calor innecesario.",href:"/blog/como-secar-zapatillas-sin-deformarlas",cluster:"ZAPATILLAS",date:"26 SEP",image:"/blog/secar-zapatillas-aire-ventilado.webp",alt:"Zapatillas abiertas secándose con papel absorbente, plantillas y cordones separados"},
-  {title:"¿Se pueden lavar las zapatillas en el lavarropas?",description:"Qué revisar en materiales, uniones, espuma e indicaciones del fabricante antes de decidir; y cuándo elegir limpieza manual.",href:"/blog/se-pueden-lavar-zapatillas-en-el-lavarropas",cluster:"ZAPATILLAS",date:"25 SEP",image:"/blog/revisar-zapatillas-antes-lavar.webp",alt:"Revisión de materiales y uniones de dos zapatillas antes de limpiarlas"},
-  {title:"¿Qué es la limpieza en seco y cómo funciona?",description:"Por qué utiliza líquido aunque se llame “en seco”, cuáles son sus etapas y qué indica la etiqueta de cuidado profesional.",href:"/blog/que-es-la-limpieza-en-seco",cluster:"TINTORERÍA",date:"24 SEP",image:"/blog/inspeccion-limpieza-en-seco.webp",alt:"Inspección de un saco antes de colocarlo en una máquina profesional de cuidado textil"},
-  {title:"Cómo limpiar un saco sin deformarlo",description:"Etiqueta, hombreras, forro, manchas y guardado: qué podés hacer entre usos y cuándo conviene consultar.",href:"/blog/como-limpiar-un-saco",cluster:"SACOS",date:"23 SEP",image:"/blog/revisar-mancha-saco-estructurado.webp",alt:"Revisión de una pequeña mancha y el forro de un saco estructurado gris"},
-  {title:"Cómo limpiar un tapado sin dañarlo",description:"Cómo revisar etiqueta, forro y estructura; cuidados entre usos, lavado permitido y señales para consultar antes de mojarlo.",href:"/blog/como-limpiar-un-tapado-sin-danarlo",cluster:"TAPADOS",date:"22 SEP",image:"/blog/revisar-tapado-etiqueta-forro.webp",alt:"Revisión del forro y etiqueta de un tapado azul con cepillo y percha a mano"},
-  {title:"¿Qué prendas conviene llevar a la tintorería?",description:"Una guía para decidir qué hacer con sacos, tapados, vestidos y prendas con forro o adornos según su etiqueta y construcción.",href:"/blog/que-prendas-conviene-llevar-a-la-tintoreria",cluster:"TINTORERÍA",date:"21 SEP",image:"/blog/revisar-prendas-tintoreria.webp",alt:"Revisión de etiqueta y forro de un saco antes de enviarlo a tintorería"},
-  {title:"¿Cuál es la diferencia entre lavandería y tintorería?",description:"Qué servicio elegir según la etiqueta, el tejido, la estructura de la prenda y el tipo de cuidado profesional.",href:"/blog/diferencia-entre-lavanderia-y-tintoreria",cluster:"CUIDADO DE ROPA",date:"20 SEP",image:"/blog/elegir-lavanderia-o-tintoreria.webp",alt:"Ropa cotidiana y prendas estructuradas clasificadas por separado"},
-  {title:"Cómo sacar el olor a humedad de un acolchado",description:"Cómo diferenciar olor a encierro, humedad interna y moho, y qué hacer en cada caso sin dañar el relleno.",href:"/blog/como-sacar-olor-a-humedad-de-un-acolchado",cluster:"ACOLCHADOS",date:"19 SEP",image:"/blog/comprobar-humedad-acolchado.webp",alt:"Comprobación de humedad en el relleno de un acolchado"},
-  {title:"¿Cada cuánto hay que lavar un acolchado?",description:"Una frecuencia práctica según funda, uso, mascotas, manchas, relleno y señales de suciedad.",href:"/blog/cada-cuanto-lavar-un-acolchado",cluster:"ACOLCHADOS",date:"18 SEP",image:"/blog/revisar-cuando-lavar-acolchado.webp",alt:"Revisión de una mancha y el relleno de un acolchado"},
-  {title:"Cómo secar un acolchado sin que quede húmedo o apelmazado",description:"Secadora o aire libre: cómo elegir el método, redistribuir el relleno y comprobar la humedad interior.",href:"/blog/como-secar-un-acolchado",cluster:"ACOLCHADOS",date:"17 SEP",image:"/blog/comprobar-secado-acolchado.webp",alt:"Revisión del relleno de un acolchado durante el secado"},
-  {title:"Símbolos de lavado de un acolchado: cómo leer la etiqueta",description:"Una guía visual para entender lavado, blanqueo, secado, planchado y cuidado profesional.",href:"/blog/simbolos-de-lavado-de-un-acolchado",cluster:"ACOLCHADOS",date:"16 SEP",image:"/blog/leer-etiqueta-acolchado.webp",alt:"Etiqueta de cuidado de un acolchado azul"},
-  {title:"¿Cómo lavar un acolchado de plumas sin dañarlo?",description:"Qué revisar antes, cómo saber si entra en tu lavarropas y por qué el secado es la etapa decisiva.",href:"/blog/como-lavar-un-acolchado-de-plumas",cluster:"ACOLCHADOS",date:"15 SEP",image:"/blog/revisar-etiqueta-acolchado-plumas.webp",alt:"Revisión de un acolchado de plumas antes del lavado"}
-];
-
-export default function BlogPage(){return <main className="blog-index"><SiteHeader event="whatsapp_blog_index"/><Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Guías",href:"/blog"}]}/><header className="blog-index-hero"><div><p className="eyebrow">GUÍAS AQUABON</p><h1>Guías para cuidar tu ropa</h1><p>Consejos claros sobre lavado, manchas, tejidos, acolchados, zapatillas y prendas especiales. Para saber qué podés resolver en casa y cuándo conviene pedir ayuda.</p></div><div className="blog-index-mark" aria-hidden="true"><span>AQ</span><i/><i/><i/></div></header><section className="featured-guides"><div className="blog-section-heading"><p className="eyebrow">TODAS LAS GUÍAS</p><h2>Consejos prácticos, tema por tema</h2></div><div className="guide-list">{guides.map(g=><Link className="guide-card" href={g.href} key={g.href}><Image src={g.image} alt={g.alt} width={700} height={467} sizes="(max-width: 760px) 100vw, 50vw"/><div><span>{g.cluster} · {g.date}</span><h3>{g.title}</h3><p>{g.description}</p><i>LEER GUÍA ↗</i></div></Link>)}</div></section><section className="guide-clusters"><p className="eyebrow">TEMAS</p><h2>Encontrá el cuidado que necesitás</h2><div>{["Acolchados","Tintorería","Zapatillas","Manchas","Cuidado de ropa","Lavado"].map((x,i)=><article key={x}><span>{String(i+1).padStart(2,"0")}</span><h3>{x}</h3><p>Guías prácticas para resolver dudas reales.</p></article>)}</div></section><section className="blog-service-link"><div><p className="eyebrow">¿NECESITÁS QUE LO HAGAMOS POR VOS?</p><h2>Conocé los servicios de Aquabon</h2></div><Link href="/servicios">Ver todos los servicios ↗</Link></section><SiteFooter/></main>}
+export default function BlogPage() {
+  const topics: { name: string; id: string; clusters: string[] }[] = [
+    { name: "Acolchados", id: "acolchados", clusters: ["Acolchados"] },
+    { name: "Manchas y olores", id: "manchas-y-olores", clusters: ["Manchas", "Olores"] },
+    { name: "Lavado y secado en casa", id: "lavado-y-secado", clusters: ["Lavado", "Secado", "Cuidado de ropa", "Jeans", "Camisas", "Lana"] },
+    { name: "Prendas especiales y tintorería", id: "prendas-especiales", clusters: ["Tintorería", "Sacos", "Tapados"] },
+    { name: "Zapatillas", id: "zapatillas", clusters: ["Zapatillas"] },
+  ];
+  return <>
+    <SiteHeader event="whatsapp_blog_index" overlay />
+    <main id="contenido" className="page">
+      <PageHero
+        crumbs={[{ label: "Inicio", href: "/" }, { label: "Guías", href: "/blog" }]}
+        kicker="Guías Aquabon"
+        title="Guías para cuidar tu ropa"
+        lead="Lavado, manchas, tejidos, acolchados, zapatillas y prendas especiales, explicado por quienes lo hacen todos los días. Para que sepas qué podés resolver en casa y cuándo conviene traerla."
+        image={{ src: "/blog/leer-simbolos-etiqueta-ropa.webp", alt: "Manos revisando la etiqueta de cuidado de una prenda azul" }}
+        chip={{ symbol: "wash", text: `${guides.length} guías prácticas` }}
+        facts={false}
+        actions={<>
+          <a className="btn btn--azul btn--xl" href="#ultimas">Ver las nuevas</a>
+          <a className="btn btn--outline-light btn--xl" href="#temas">Buscar por tema</a>
+        </>}
+      />
+      <Ribbon words={topics.map(t => t.name)} />
+      <section className="p-sec" id="ultimas" aria-labelledby="ultimas-titulo">
+        <div className="wrap">
+          <div className="h-head h-head--split" data-reveal><h2 id="ultimas-titulo">Nuevas y destacadas</h2><p>Guías nuevas cada semana, con lo que más nos preguntan en el mostrador.</p></div>
+          <GuideCards guides={guides.slice(0, 3)} big badge="Nueva" />
+        </div>
+      </section>
+      <section className="p-sec p-sec--espuma" id="temas" aria-labelledby="temas-titulo">
+        <div className="wrap">
+          <div className="h-head" data-reveal><h2 id="temas-titulo">Todas las guías</h2><p>Elegí un tema para ver solo esas guías.</p></div>
+          <GuideFilter target="lista-guias" topics={topics.map(t => ({ id: t.id, name: t.name, count: guides.filter(g => t.clusters.includes(g.cluster)).length }))} />
+          <GuideCards id="lista-guias" compact guides={guides} topicOf={g => topics.find(t => t.clusters.includes(g.cluster))?.id ?? "otros"} />
+        </div>
+      </section>
+      <section className="p-sec" style={{ paddingTop: "clamp(24px, 4vw, 48px)" }} aria-label="Servicios">
+        <Clothesline title="¿Preferís que lo hagamos nosotros?" items={services} />
+      </section>
+    </main>
+    <SiteFooter />
+  </>;
+}

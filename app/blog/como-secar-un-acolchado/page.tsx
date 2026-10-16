@@ -1,17 +1,25 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import WhatsAppLink from "../../WhatsAppLink";
+import { CareSymbol, WhatsAppIcon } from "../../ui";
 
 const title="Cómo secar un acolchado sin que quede húmedo o apelmazado";
 const description="Revisá la etiqueta antes de empezar, elegí un método que el acolchado admita y comprobá costuras, esquinas y zonas gruesas antes de guardarlo. La funda puede sentirse seca mientras el relleno todavía conserva humedad.";
 
-export const metadata:Metadata={title:"Cómo secar un acolchado sin humedad ni relleno apelmazado | Aquabon",description:"Cómo secar un acolchado sin humedad ni relleno apelmazado. En Aquabon, Mar del Plata, evaluamos su tejido y relleno para lavar y secar con cuidado.",alternates:{canonical:"/blog/como-secar-un-acolchado"},openGraph:{title,description:"Cómo secar un acolchado sin humedad ni relleno apelmazado. En Aquabon, Mar del Plata, evaluamos su tejido y relleno para lavar y secar con cuidado.",type:"article",locale:"es_AR",url:"/blog/como-secar-un-acolchado",publishedTime:"2026-09-17",images:[{url:"/blog/comprobar-secado-acolchado.webp",width:1400,height:933,alt:"Revisión del relleno de un acolchado durante el secado"}]}};
+export const metadata:Metadata={title:"Cómo secar un acolchado sin que quede húmedo | Aquabon",description:"Cómo secar un acolchado sin humedad ni relleno apelmazado. En Aquabon, Mar del Plata, evaluamos su tejido y relleno para lavar y secar con cuidado.",alternates:{canonical:"/blog/como-secar-un-acolchado"},openGraph:{title,description:"Cómo secar un acolchado sin humedad ni relleno apelmazado. En Aquabon, Mar del Plata, evaluamos su tejido y relleno para lavar y secar con cuidado.",type:"article",locale:"es_AR",url:"/blog/como-secar-un-acolchado",publishedTime:"2026-09-17",images:[{url:"/blog/comprobar-secado-acolchado.webp",width:1400,height:933,alt:"Revisión del relleno de un acolchado durante el secado"}]}};
 
 export default function Page(){return <ArticleLayout title={title} description={description} slug="como-secar-un-acolchado" date="2026-09-17" readingTime="8 MIN DE LECTURA" cluster="Acolchados" image="/blog/comprobar-secado-acolchado.webp">
   <p className="article-lead"><strong>Respuesta corta:</strong> secá el acolchado únicamente con el método y el nivel de calor que autoriza su etiqueta. Si admite secadora, necesita un tambor amplio y revisiones periódicas para redistribuir el relleno. Si debe secarse al aire, apoyalo según las indicaciones del fabricante en un espacio bien ventilado y cambialo de posición. No lo guardes hasta que costuras, esquinas y zonas gruesas estén completamente secas.</p>
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#antes">Qué revisar antes del secado</a></li><li><a href="#secadora">Cómo secarlo en secadora</a></li><li><a href="#aire">Cómo secarlo al aire</a></li><li><a href="#comprobar">Cómo saber si está completamente seco</a></li><li><a href="#errores">Errores frecuentes</a></li><li><a href="#profesional">Cuándo pedir ayuda profesional</a></li></ol></nav>
+
+  <section className="a-quick" aria-label="Resumen en tres claves">
+    <div><CareSymbol name="tumble" /><strong>¿Admite secadora?</strong><p>Buscá el cuadrado con un círculo en la etiqueta. Si está tachado, no la uses.</p></div>
+    <div><CareSymbol name="line" /><strong>Al aire, bien ventilado</strong><p>Extendido como indique la etiqueta, dándolo vuelta y separando el relleno.</p></div>
+    <div><svg className="care" viewBox="0 0 32 32" aria-hidden="true"><path d="M7 16.5l6 6L25 10" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg><strong>Seco de verdad</strong><p>Esquinas, bordes y costuras sin frío ni peso. Recién ahí, a guardarlo.</p></div>
+  </section>
 
   <h2 id="antes">Qué revisar antes de secar un acolchado</h2>
   <p>El secado se decide antes de lavar. Buscá el cuadrado en la etiqueta: el círculo dentro del cuadrado se refiere a la secadora, los puntos limitan la intensidad térmica y una cruz prohíbe ese método. Las líneas horizontales o verticales dentro del cuadrado indican formas de secado natural. Si no recordás los símbolos, consultá nuestra <Link href="/blog/simbolos-de-lavado-de-un-acolchado">guía para leer la etiqueta de un acolchado</Link>.</p>
@@ -45,7 +53,12 @@ export default function Page(){return <ArticleLayout title={title} description={
   <div className="article-callout warning"><strong>Si dudás, continuá con un método permitido</strong><p>Guardar el acolchado con humedad interna puede generar olor, apelmazar el relleno y favorecer su deterioro. Nunca compenses la demora subiendo el calor por encima de lo indicado.</p></div>
 
   <h2 id="errores">Errores frecuentes al secar un acolchado</h2>
-  <ul><li><strong>Mirar la etiqueta después de lavarlo.</strong> Podés descubrir demasiado tarde que no admite la secadora disponible.</li><li><strong>Forzarlo en un tambor chico.</strong> Impide el movimiento y produce un secado desigual.</li><li><strong>Usar calor alto para acelerar.</strong> Puede dañar la funda, las costuras o el relleno.</li><li><strong>No redistribuir el interior.</strong> Los grupos compactos tardan más en secar.</li><li><strong>Colgarlo sin comprobar la indicación.</strong> El peso del agua puede deformar determinados acolchados.</li><li><strong>Doblarlo cuando la superficie parece seca.</strong> El centro puede seguir húmedo.</li></ul>
+  <ul className="a-errors"><li><strong>Mirar la etiqueta después de lavarlo.</strong> Podés descubrir demasiado tarde que no admite la secadora disponible.</li><li><strong>Forzarlo en un tambor chico.</strong> Impide el movimiento y produce un secado desigual.</li><li><strong>Usar calor alto para acelerar.</strong> Puede dañar la funda, las costuras o el relleno.</li><li><strong>No redistribuir el interior.</strong> Los grupos compactos tardan más en secar.</li><li><strong>Colgarlo sin comprobar la indicación.</strong> El peso del agua puede deformar determinados acolchados.</li><li><strong>Doblarlo cuando la superficie parece seca.</strong> El centro puede seguir húmedo.</li></ul>
+
+  <aside className="a-cta">
+    <div><strong>¿No entra holgado en tu secadora?</strong><p>Lo revisamos en el mostrador y lo lavamos y secamos según su etiqueta y su relleno.</p></div>
+    <WhatsAppLink className="btn btn--light" message="Hola Aquabon, quiero consultar por el lavado y secado de un acolchado. Les mando una foto de la etiqueta." event="whatsapp_guia_secar_acolchado"><WhatsAppIcon />Consultar por mi acolchado</WhatsAppLink>
+  </aside>
 
   <h2 id="profesional">Cuándo conviene llevarlo a una lavandería</h2>
   <p>Pedí una evaluación si el acolchado no entra holgado en tu secadora, si no tenés un espacio adecuado para secarlo al aire, si el relleno permanece agrupado o si la etiqueta exige un proceso que no podés reproducir en casa. También conviene consultar cuando hay olor previo a humedad, manchas extensas, costuras débiles o un relleno especial.</p>

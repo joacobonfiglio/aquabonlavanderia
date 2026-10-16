@@ -1,5 +1,42 @@
 import Link from "next/link";
 import WhatsAppLink from "./WhatsAppLink";
-const services=[["Valet de ropa","/servicios/valet-de-ropa"],["Lavado de acolchados","/servicios/lavado-de-acolchados"],["Tintorería","/servicios/tintoreria"],["Planchado","/servicios/planchado"],["Teñido de prendas","/servicios/tenido-de-prendas"],["Arreglos y costura","/servicios/arreglos-y-costura"],["Lavado de zapatillas","/servicios/lavado-de-zapatillas"],["Camperas y tapados","/servicios/lavado-de-camperas-y-tapados"],["Retiro y entrega","/servicios/retiro-y-entrega-de-ropa"]];
-export default function SiteHeader({event="whatsapp_header"}:{event?:string}){return <header className="nav-shell contextual-nav" data-context={event}><Link className="brand" href="/" aria-label="Aquabon Lavandería, ir al inicio"><span className="brand-main">AQUABON</span><span className="brand-sub">LAVANDERÍA</span></Link><nav aria-label="Navegación principal"><div className="services-menu"><span className="services-trigger" tabIndex={0}>Servicios <span aria-hidden="true">⌄</span></span><div className="services-dropdown">{services.map(([label,href])=><Link key={href} href={href}>{label}</Link>)}</div></div><Link href="/blog">Guías</Link><WhatsAppLink className="nav-cta" message="Hola Aquabon, quería consultar por un servicio." event={event}>Contactar <span aria-hidden="true">↗</span></WhatsAppLink></nav><details className="mobile-menu"><summary aria-label="Abrir menú"><span/><span/></summary><div><strong>Servicios</strong>{services.map(([label,href])=><Link key={href} href={href}>{label}</Link>)}<Link href="/blog">Guías para cuidar tu ropa</Link><WhatsAppLink className="mobile-menu-cta" message="Hola Aquabon, quería consultar por un servicio." event={event}>Consultar por WhatsApp ↗</WhatsAppLink></div></details></header>}
+import ServicesMenu from "./ServicesMenu";
+import Img from "./Img";
+import { Brand, WhatsAppIcon } from "./ui";
+import { services } from "./site";
 
+const nav = [
+  { label: "Empresas", href: "/empresas" },
+  { label: "Guías", href: "/blog" },
+  { label: "Nosotros", href: "/nosotros" },
+];
+
+export default function SiteHeader({ event = "whatsapp_header", overlay = false }: { event?: string; overlay?: boolean }) {
+  const message = "Hola Aquabon, quería hacer una consulta.";
+  return <header className="hdr" data-overlay={overlay ? "true" : undefined}>
+    <div className="wrap">
+      <Link href="/" className="brand-link"><Brand /></Link>
+      <nav className="hdr__nav" aria-label="Principal">
+        <ServicesMenu />
+        {nav.map(item => <Link key={item.href} href={item.href}>{item.label}</Link>)}
+        <WhatsAppLink className="btn btn--azul" message={message} event={event}><WhatsAppIcon />Escribinos</WhatsAppLink>
+      </nav>
+      <details className="hdr__menu">
+        <summary><span className="sr-only">Abrir menú</span><i aria-hidden="true" /><i aria-hidden="true" /></summary>
+        <nav className="hdr__panel" aria-label="Menú">
+          <details className="hdr__acc" open>
+            <summary>Servicios</summary>
+            <ul className="hdr__svc">
+              {services.map(s => <li key={s.href}><Link href={s.href}><Img src={s.image} alt="" width={64} height={48} sizes="64px" /><span>{s.name}</span></Link></li>)}
+            </ul>
+          </details>
+          <Link href="/empresas">Para empresas</Link>
+          <Link href="/blog">Guías para cuidar tu ropa</Link>
+          <Link href="/nosotros">Nosotros</Link>
+          <Link href="/lavanderia-mar-del-plata">Dónde estamos</Link>
+          <WhatsAppLink className="btn btn--azul" message={message} event={event + "_menu"}><WhatsAppIcon />Escribinos por WhatsApp</WhatsAppLink>
+        </nav>
+      </details>
+    </div>
+  </header>;
+}

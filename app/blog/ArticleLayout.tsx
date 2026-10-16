@@ -4,6 +4,12 @@ import Breadcrumbs from "../Breadcrumbs";
 import SiteHeader from "../SiteHeader";
 import SiteFooter from "../SiteFooter";
 import WhatsAppLink from "../WhatsAppLink";
+import JsonLd from "../JsonLd";
+import { WhatsAppIcon } from "../ui";
+import { SITE_URL, services } from "../site";
+import Img from "../Img";
+import { Clothesline, GuideCards, Waves } from "../Blocks";
+import { guides } from "../guides";
 
 type ArticleLayoutProps = {
   title: string;
@@ -17,27 +23,74 @@ type ArticleLayoutProps = {
   children: ReactNode;
 };
 
-export default function ArticleLayout({title,description,slug,date,readingTime,cluster,image,service="acolchados",children}:ArticleLayoutProps){
-  const path=`/blog/${slug}`;
-  const isTintoreria=service==="tintoreria";
-  const isZapatillas=service==="zapatillas";
-  const isValet=service==="valet";
-  const servicePath=isTintoreria?"/servicios/tintoreria":isZapatillas?"/servicios/lavado-de-zapatillas":isValet?"/servicios/valet-de-ropa":"/servicios/lavado-de-acolchados";
-  const serviceName=isTintoreria?"Tintorería":isZapatillas?"Lavado de zapatillas":isValet?"Valet de ropa":"Lavado de acolchados";
-  const serviceCopy=isTintoreria?"Revisamos etiqueta, tejido, forro, adornos y manchas antes de confirmar el tratamiento.":isZapatillas?"Revisamos material, uniones, color, manchas y desgaste antes de confirmar el proceso.":isValet?"Clasificamos las prendas por color, tejido y cuidado antes de lavar, secar y doblar.":"Revisamos tamaño, tejido, relleno y estado antes de confirmar el proceso.";
-  const serviceMessage=isTintoreria?"Hola Aquabon, quería consultar por una prenda de tintorería.":isZapatillas?"Hola Aquabon, quería consultar por el lavado de unas zapatillas.":isValet?"Hola Aquabon, quería consultar por el servicio de valet de ropa.":"Hola Aquabon, quería consultar por el lavado de un acolchado.";
-  const displayDate=new Intl.DateTimeFormat("es-AR",{day:"numeric",month:"long",year:"numeric",timeZone:"UTC"}).format(new Date(`${date}T12:00:00Z`));
-  const schema={"@context":"https://schema.org","@type":"BlogPosting",headline:title,description,datePublished:date,dateModified:date,inLanguage:"es-AR",mainEntityOfPage:`https://www.aquabonlavanderia.com${path}`,...(image?{image:`https://www.aquabonlavanderia.com${image}`}:{}),author:{"@type":"Organization",name:"Aquabon Lavandería"},publisher:{"@id":"https://www.aquabonlavanderia.com/#business"}};
-  return <main className="blog-article">
-    <SiteHeader event="whatsapp_blog_header"/>
-    <Breadcrumbs items={[{label:"Inicio",href:"/"},{label:"Guías",href:"/blog"},{label:title,href:path}]}/>
-    <header className="article-hero">
-      <div className="article-hero-copy"><p className="eyebrow">GUÍA · {cluster.toUpperCase()}</p><h1>{title}</h1><p>{description}</p><div className="article-meta"><time dateTime={date}>{displayDate}</time><span>{readingTime}</span></div></div>
-      <div className="article-hero-art" aria-hidden="true"><span>{isTintoreria?"TI":isZapatillas?"ZA":isValet?"VA":"AC"}</span><div className="quilt"><i/><i/><i/><i/><i/><i/></div><p>{isTintoreria?"ETIQUETA · TEJIDO · ACABADO":isZapatillas?"MATERIAL · UNIONES · SECADO":isValet?"COLOR · TEJIDO · TEMPERATURA":"RELLENO · ETIQUETA · SECADO"}</p></div>
-    </header>
-    <div className="article-shell"><article className="article-body">{children}</article><aside className="article-aside"><p className="eyebrow">¿PREFERÍS NO HACERLO EN CASA?</p><h2>{serviceName}</h2><p>{serviceCopy}</p><Link href={servicePath}>Ver el servicio <span>↗</span></Link><WhatsAppLink message={serviceMessage} event="whatsapp_blog_sidebar">Consultar por WhatsApp ↗</WhatsAppLink></aside></div>
-    <section className="article-next"><p className="eyebrow">SEGUÍ CUIDANDO TUS PRENDAS</p><h2>Servicios relacionados</h2><div><Link href={servicePath}>{serviceName} ↗</Link><Link href={isTintoreria||isZapatillas?"/servicios/valet-de-ropa":"/servicios/tintoreria"}>{isTintoreria||isZapatillas?"Valet de ropa":"Tintorería"} ↗</Link><Link href="/blog">Todas las guías ↗</Link></div></section>
-    <SiteFooter/>
-    <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema)}}/>
-  </main>;
+const serviceInfo = {
+  acolchados: { path: "/servicios/lavado-de-acolchados", name: "Lavado de acolchados", copy: "Revisamos tamaño, tejido, relleno y estado antes de confirmar el proceso.", message: "Hola Aquabon, quería consultar por el lavado de un acolchado." },
+  tintoreria: { path: "/servicios/tintoreria", name: "Tintorería", copy: "Revisamos etiqueta, tejido, forro, adornos y manchas antes de confirmar el tratamiento.", message: "Hola Aquabon, quería consultar por una prenda de tintorería." },
+  zapatillas: { path: "/servicios/lavado-de-zapatillas", name: "Lavado de zapatillas", copy: "Revisamos material, uniones, color, manchas y desgaste antes de confirmar el proceso.", message: "Hola Aquabon, quería consultar por el lavado de unas zapatillas." },
+  valet: { path: "/servicios/valet-de-ropa", name: "Valet de ropa", copy: "Separamos las prendas por color, tejido y cuidado antes de lavar, secar y doblar.", message: "Hola Aquabon, quería consultar por el servicio de valet de ropa." },
+};
+
+function sentence(text: string) {
+  const t = text.trim().toLowerCase();
+  return t.charAt(0).toUpperCase() + t.slice(1);
+}
+
+export default function ArticleLayout({ title, description, slug, date, readingTime, cluster, image, service = "acolchados", children }: ArticleLayoutProps) {
+  const path = `/blog/${slug}`;
+  const info = serviceInfo[service];
+  const displayDate = new Intl.DateTimeFormat("es-AR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${date}T12:00:00Z`));
+  const schema = {
+    "@context": "https://schema.org", "@type": "Article", headline: title, description,
+    datePublished: date, dateModified: date, inLanguage: "es-AR",
+    mainEntityOfPage: SITE_URL + path,
+    ...(image ? { image: SITE_URL + image } : {}),
+    author: { "@type": "Organization", name: "Aquabon Lavandería", url: SITE_URL + "/" },
+    publisher: { "@id": SITE_URL + "/#business" },
+  };
+  const more = guides.filter(g => g.href !== path && g.cluster.toLowerCase() === cluster.toLowerCase()).concat(guides.filter(g => g.href !== path && g.cluster.toLowerCase() !== cluster.toLowerCase())).slice(0, 3);
+  const heroImage = image ?? "/laundry-hero-v2.webp";
+  const serviceImage = services.find(x => x.href === info.path)?.image ?? "/laundry-hero-v2.webp";
+  return <>
+    <SiteHeader event="whatsapp_blog_header" overlay />
+    <div className="read-progress" aria-hidden="true" />
+    <main id="contenido" className="page">
+      <section className="p-hero a-hero" aria-labelledby="page-titulo">
+        <div className="wrap">
+          <div className="p-hero__crumbs"><Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Guías", href: "/blog" }, { label: title, href: path }]} /></div>
+          <div className="p-hero__grid">
+            <div className="p-hero__copy">
+              <p className="h-hero__kicker">Guía de {sentence(cluster).toLowerCase()}</p>
+              <h1 id="page-titulo">{title}</h1>
+              <p className="p-hero__lead">{description}</p>
+              <div className="a-meta"><time dateTime={date}>{displayDate}</time><span>{sentence(readingTime)}</span><span>Aquabon, Mar del Plata</span></div>
+            </div>
+            <div className="p-hero__media"><div className="p-hero__photo"><Img src={heroImage} alt={guides.find(g => g.href === path)?.alt ?? title} width={1400} height={933} sizes="(max-width: 960px) 92vw, 520px" priority /></div></div>
+          </div>
+        </div>
+        <Waves className="waves--hero" />
+      </section>
+      <div className="wrap">
+        <div className="article-grid">
+          <article className="article-body">{children}</article>
+          <aside className="article-aside a-aside" aria-labelledby="aside-titulo">
+            <div className="a-aside__img"><Img src={serviceImage} alt="" width={480} height={360} sizes="320px" /></div>
+            <p>¿Preferís no hacerlo en casa?</p>
+            <h2 id="aside-titulo">{info.name} en Mar del Plata</h2>
+            <span>{info.copy}</span>
+            <WhatsAppLink className="btn btn--azul" message={info.message} event="whatsapp_blog_sidebar"><WhatsAppIcon />Consultar por WhatsApp</WhatsAppLink>
+            <Link className="link link--light" href={info.path}>Ver el servicio</Link>
+          </aside>
+        </div>
+      </div>
+      <section className="p-sec p-sec--espuma" aria-labelledby="mas-guias">
+        <div className="wrap">
+          <div className="h-head h-head--split" data-reveal><h2 id="mas-guias">Seguí leyendo</h2><p><Link className="link" href="/blog">Ver todas las guías</Link></p></div>
+          <GuideCards guides={more} />
+        </div>
+        <Clothesline title="¿Lo hacemos por vos?" items={services} />
+      </section>
+    </main>
+    <SiteFooter />
+    <JsonLd data={schema} />
+  </>;
 }

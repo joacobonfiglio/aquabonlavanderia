@@ -1,66 +1,47 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL, services, businessLinks } from "./site";
+import { guides } from "./guides";
+import { areas } from "./LocalLanding";
 
-const base="https://www.aquabonlavanderia.com";
-const paths=[
-  "/blog/como-lavar-un-sweater-de-lana","/servicios/limpieza-de-vestidos-de-fiesta",
-  "/blog/como-sacar-olor-a-humo-de-la-ropa",
-  "/blog/como-secar-ropa-dentro-de-casa",
-  "/blog/hay-que-lavar-la-ropa-nueva","/empresas/lavado-de-uniformes",
-  "/blog/cuanto-detergente-usar",
-  "/blog/como-evitar-que-la-ropa-destina",
-  "/blog/como-lavar-jeans-sin-perder-color",
-  "/blog/como-sacar-manchas-de-transpiracion","/servicios/lavado-y-planchado-de-camisas",
-  "/blog/como-lavar-ropa-delicada",
-  "/blog/como-lavar-camisas-sin-arruinarlas",
-  "/blog/como-sacar-maquillaje-de-la-ropa","/empresas/lavanderia-centros-de-estetica",
-  "/blog/simbolos-de-lavado-de-la-ropa",
-  "/blog/como-sacar-manchas-de-sangre-de-la-ropa",
-  "","/servicios","/tintoreria-centro-mar-del-plata","/servicios/valet-de-ropa","/servicios/retiro-y-entrega-de-ropa","/servicios/lavado-de-camperas-y-tapados","/servicios/lavado-de-acolchados","/servicios/tintoreria","/servicios/planchado","/servicios/tenido-de-prendas","/servicios/arreglos-y-costura","/servicios/lavado-de-zapatillas",
-  "/blog","/blog/como-sacar-manchas-de-vino-de-la-ropa","/blog/como-lavar-un-acolchado-de-plumas","/blog/simbolos-de-lavado-de-un-acolchado","/blog/como-secar-un-acolchado","/blog/cada-cuanto-lavar-un-acolchado","/blog/como-sacar-olor-a-humedad-de-un-acolchado","/blog/diferencia-entre-lavanderia-y-tintoreria","/blog/que-prendas-conviene-llevar-a-la-tintoreria","/blog/como-limpiar-un-tapado-sin-danarlo","/blog/como-limpiar-un-saco","/blog/que-es-la-limpieza-en-seco","/blog/se-pueden-lavar-zapatillas-en-el-lavarropas","/blog/como-secar-zapatillas-sin-deformarlas","/blog/como-sacar-el-olor-de-las-zapatillas","/blog/como-sacar-manchas-de-aceite-de-la-ropa","/blog/como-guardar-la-ropa-de-invierno","/blog/como-evitar-que-la-ropa-se-encoja",
-  "/nosotros","/lavanderia-mar-del-plata","/lavanderia-centro-mar-del-plata","/empresas","/empresas/lavanderia-airbnb","/empresas/lavanderia-hoteles","/empresas/lavanderia-restaurantes","/empresas/lavado-ropa-deportiva"
+// Se arma solo desde los registros de contenido: un servicio, guía, rubro o barrio nuevo entra sin tocar
+// este archivo. tests/sitemap-coverage.test.mjs falla si alguna página de app/ queda afuera.
+// (Las legales tienen noindex y no van.)
+export const sitemapPaths = [
+  "/", "/servicios", "/empresas", "/blog", "/nosotros", "/lavanderia-mar-del-plata", "/tintoreria-centro-mar-del-plata",
+  ...Object.keys(areas).map(slug => "/" + slug),
+  ...services.map(s => s.href),
+  ...businessLinks.map(b => b.href),
+  ...guides.map(g => g.href),
 ];
-const dates:Record<string,string>={
-  "/blog/como-lavar-un-sweater-de-lana":"2026-10-16",
-  "/servicios/limpieza-de-vestidos-de-fiesta":"2026-10-16",
-  "/blog/como-sacar-olor-a-humo-de-la-ropa":"2026-10-15",
-  "/blog/como-secar-ropa-dentro-de-casa":"2026-10-14",
-  "/blog/hay-que-lavar-la-ropa-nueva":"2026-10-13",
-  "/empresas/lavado-de-uniformes":"2026-10-13",
-  "/blog/cuanto-detergente-usar":"2026-10-12",
-  "/blog/como-evitar-que-la-ropa-destina":"2026-10-11",
-  "/blog/como-lavar-jeans-sin-perder-color":"2026-10-10",
-  "/blog/como-sacar-manchas-de-transpiracion":"2026-10-09",
-  "/servicios/lavado-y-planchado-de-camisas":"2026-10-09",
-  "/blog/como-lavar-ropa-delicada":"2026-10-08",
-  "/blog/como-lavar-camisas-sin-arruinarlas":"2026-10-07",
-  "/blog/como-sacar-maquillaje-de-la-ropa":"2026-10-06",
-  "/empresas/lavanderia-centros-de-estetica":"2026-10-06",
-  "/blog":"2026-10-16",
-  "/servicios/valet-de-ropa":"2026-10-02",
-  "/blog/simbolos-de-lavado-de-la-ropa":"2026-10-05",
-  "/blog/como-sacar-manchas-de-sangre-de-la-ropa":"2026-10-04",
-  "/blog/como-sacar-manchas-de-vino-de-la-ropa":"2026-10-03",
-  "/tintoreria-centro-mar-del-plata":"2026-09-25",
-  "/servicios/lavado-de-camperas-y-tapados":"2026-09-22",
-  "/servicios/retiro-y-entrega-de-ropa":"2026-09-18",
-  "/blog/como-lavar-un-acolchado-de-plumas":"2026-09-15",
-  "/blog/simbolos-de-lavado-de-un-acolchado":"2026-09-16",
-  "/blog/como-secar-un-acolchado":"2026-09-17",
-  "/blog/cada-cuanto-lavar-un-acolchado":"2026-09-18",
-  "/blog/como-sacar-olor-a-humedad-de-un-acolchado":"2026-09-19",
-  "/blog/diferencia-entre-lavanderia-y-tintoreria":"2026-09-20",
-  "/blog/que-prendas-conviene-llevar-a-la-tintoreria":"2026-09-21",
-  "/blog/como-limpiar-un-tapado-sin-danarlo":"2026-09-22",
-  "/blog/como-limpiar-un-saco":"2026-09-23",
-  "/blog/que-es-la-limpieza-en-seco":"2026-09-24",
-  "/blog/se-pueden-lavar-zapatillas-en-el-lavarropas":"2026-09-25",
-  "/blog/como-secar-zapatillas-sin-deformarlas":"2026-09-26",
-  "/blog/como-sacar-el-olor-de-las-zapatillas":"2026-09-27",
-  "/blog/como-sacar-manchas-de-aceite-de-la-ropa":"2026-09-28",
-  "/blog/como-guardar-la-ropa-de-invierno":"2026-09-29",
-  "/blog/como-evitar-que-la-ropa-se-encoja":"2026-09-30"
+
+// Última modificación conocida por ruta (las que no figuran usan la fecha del rediseño).
+const REDESIGN = "2026-10-15";
+const dates: Record<string, string> = {
+  "/blog/como-lavar-un-sweater-de-lana": "2026-10-16", "/servicios/limpieza-de-vestidos-de-fiesta": "2026-10-16", "/blog": "2026-10-16",
+  "/blog/como-sacar-olor-a-humo-de-la-ropa": "2026-10-15", "/blog/como-secar-ropa-dentro-de-casa": "2026-10-14",
+  "/blog/hay-que-lavar-la-ropa-nueva": "2026-10-13", "/blog/cuanto-detergente-usar": "2026-10-12",
+  "/blog/como-evitar-que-la-ropa-destina": "2026-10-11", "/blog/como-lavar-jeans-sin-perder-color": "2026-10-10",
+  "/blog/como-sacar-manchas-de-transpiracion": "2026-10-09", "/blog/como-lavar-ropa-delicada": "2026-10-08",
+  "/blog/como-lavar-camisas-sin-arruinarlas": "2026-10-07", "/blog/como-sacar-maquillaje-de-la-ropa": "2026-10-06",
+  "/blog/simbolos-de-lavado-de-la-ropa": "2026-10-05", "/blog/como-sacar-manchas-de-sangre-de-la-ropa": "2026-10-04",
+  "/blog/como-sacar-manchas-de-vino-de-la-ropa": "2026-10-03", "/blog/como-lavar-un-acolchado-de-plumas": "2026-09-15",
+  "/blog/simbolos-de-lavado-de-un-acolchado": "2026-09-16", "/blog/como-secar-un-acolchado": "2026-09-17",
+  "/blog/cada-cuanto-lavar-un-acolchado": "2026-09-18", "/blog/como-sacar-olor-a-humedad-de-un-acolchado": "2026-09-19",
+  "/blog/diferencia-entre-lavanderia-y-tintoreria": "2026-09-20", "/blog/que-prendas-conviene-llevar-a-la-tintoreria": "2026-09-21",
+  "/blog/como-limpiar-un-tapado-sin-danarlo": "2026-09-22", "/blog/como-limpiar-un-saco": "2026-09-23",
+  "/blog/que-es-la-limpieza-en-seco": "2026-09-24", "/blog/se-pueden-lavar-zapatillas-en-el-lavarropas": "2026-09-25",
+  "/blog/como-secar-zapatillas-sin-deformarlas": "2026-09-26", "/blog/como-sacar-el-olor-de-las-zapatillas": "2026-09-27",
+  "/blog/como-sacar-manchas-de-aceite-de-la-ropa": "2026-09-28", "/blog/como-guardar-la-ropa-de-invierno": "2026-09-29",
+  "/blog/como-evitar-que-la-ropa-se-encoja": "2026-09-30",
 };
 
-export default function sitemap():MetadataRoute.Sitemap{
-  return paths.map((p,i)=>({url:base+p,lastModified:dates[p]?new Date(dates[p]):undefined,changeFrequency:i===0?"weekly":p.startsWith("/blog")?"weekly":"monthly",priority:i===0?1:(p.startsWith("/servicios/")?0.9:p==="/blog"?0.8:0.7)}));
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [...new Set(sitemapPaths)]
+    .sort((a, b) => (a === "/" ? -1 : b === "/" ? 1 : a.localeCompare(b)))
+    .map(p => ({
+      url: SITE_URL + (p === "/" ? "/" : p),
+      lastModified: new Date(dates[p] ?? REDESIGN),
+      changeFrequency: p === "/" || p === "/blog" ? "weekly" : "monthly",
+      priority: p === "/" ? 1 : p.startsWith("/servicios/") ? 0.9 : p.startsWith("/blog/") ? 0.6 : 0.7,
+    }));
 }
