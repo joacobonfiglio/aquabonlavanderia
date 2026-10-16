@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 const base="https://www.aquabonlavanderia.com";
 const paths=[
+  "/blog/como-lavar-un-sweater-de-lana","/servicios/limpieza-de-vestidos-de-fiesta",
   "/blog/como-sacar-olor-a-humo-de-la-ropa",
   "/blog/como-secar-ropa-dentro-de-casa",
   "/blog/hay-que-lavar-la-ropa-nueva","/empresas/lavado-de-uniformes",
@@ -19,6 +20,8 @@ const paths=[
   "/nosotros","/lavanderia-mar-del-plata","/lavanderia-centro-mar-del-plata","/empresas","/empresas/lavanderia-airbnb","/empresas/lavanderia-hoteles","/empresas/lavanderia-restaurantes","/empresas/lavado-ropa-deportiva"
 ];
 const dates:Record<string,string>={
+  "/blog/como-lavar-un-sweater-de-lana":"2026-10-16",
+  "/servicios/limpieza-de-vestidos-de-fiesta":"2026-10-16",
   "/blog/como-sacar-olor-a-humo-de-la-ropa":"2026-10-15",
   "/blog/como-secar-ropa-dentro-de-casa":"2026-10-14",
   "/blog/hay-que-lavar-la-ropa-nueva":"2026-10-13",
@@ -32,7 +35,7 @@ const dates:Record<string,string>={
   "/blog/como-lavar-camisas-sin-arruinarlas":"2026-10-07",
   "/blog/como-sacar-maquillaje-de-la-ropa":"2026-10-06",
   "/empresas/lavanderia-centros-de-estetica":"2026-10-06",
-  "/blog":"2026-10-15",
+  "/blog":"2026-10-16",
   "/servicios/valet-de-ropa":"2026-10-02",
   "/blog/simbolos-de-lavado-de-la-ropa":"2026-10-05",
   "/blog/como-sacar-manchas-de-sangre-de-la-ropa":"2026-10-04",

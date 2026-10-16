@@ -32,6 +32,19 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
       { title: "Tapados y camperas", copy: "Forro, relleno y accesorios también cuentan. Recibimos el abrigo y confirmamos si necesita lavado o un tratamiento especializado." }
     ], closing: ["Tu prenda especial.", "Nuestro seguimiento."], variant: "tailored"
   },
+  "limpieza-de-vestidos-de-fiesta": {
+    name: "Limpieza de vestidos de fiesta", title: ["Tu vestido de fiesta.", "Primero, lo revisamos."],
+    image: "/blog/revisar-prendas-tintoreria.webp", alt: "Revisión profesional de prendas especiales antes de definir su limpieza",
+    tag: "TEJIDO · FORRO · ADORNOS · MANCHAS", caption: "Recepción y seguimiento en Gascón 2189",
+    heading: ["Una prenda con muchos detalles.", "Una evaluación completa."],
+    intro: "Recibimos vestidos de fiesta para revisar etiqueta, tejido, forro, estructura, adornos y manchas. Confirmamos viabilidad, límites, precio y plazo antes de aceptar el trabajo.",
+    prepare: "Enviá fotos del vestido completo, la etiqueta, los adornos y cualquier mancha. Contanos qué pasó, cuándo y si aplicaste algún producto; la confirmación final requiere revisión presencial.",
+    guideTitle: "Qué revisamos antes de confirmar", guide: [
+      { title: "Capas, forro y estructura", copy: "El material exterior es solo una parte. Costuras, copas, varillas, entretelas y forros pueden limitar o cambiar el tratamiento." },
+      { title: "Lentejuelas, bordados y pedrería", copy: "Comprobamos cómo están sujetos, su estado y su posible reacción. No asumimos que todos los adornos toleran el mismo proceso." },
+      { title: "Manchas y tratamientos previos", copy: "El origen, la antigüedad y los productos aplicados influyen. Evaluamos posibilidades sin garantizar una remoción total." }
+    ], closing: ["Ese vestido especial.", "Revisémoslo antes."], variant: "tailored"
+  },
   planchado: {
     name: "Planchado", title: ["Menos arrugas.", "Más tiempo para vos."],
     image: "/services/planchado-v3.webp", alt: "Plancha de vapor sobre una camisa de algodón celeste en una tabla de planchar",
