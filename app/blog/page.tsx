@@ -12,7 +12,7 @@ export default function BlogPage() {
   const topics: { name: string; id: string; clusters: string[] }[] = [
     { name: "Acolchados", id: "acolchados", clusters: ["Acolchados"] },
     { name: "Manchas y olores", id: "manchas-y-olores", clusters: ["Manchas", "Olores"] },
-    { name: "Lavado y secado en casa", id: "lavado-y-secado", clusters: ["Lavado", "Secado", "Cuidado de ropa", "Jeans", "Camisas"] },
+    { name: "Lavado y secado en casa", id: "lavado-y-secado", clusters: ["Lavado", "Secado", "Cuidado de ropa", "Jeans", "Camisas", "Lana"] },
     { name: "Prendas especiales y tintorería", id: "prendas-especiales", clusters: ["Tintorería", "Sacos", "Tapados"] },
     { name: "Zapatillas", id: "zapatillas", clusters: ["Zapatillas"] },
   ];

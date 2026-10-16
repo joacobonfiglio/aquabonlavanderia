@@ -53,7 +53,7 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
     <main id="contenido" className="page">
       <PageHero
         crumbs={data.crumbs}
-        kicker={design.title.join(" ")}
+        kicker={design.title.join(" ") === data.h1 ? design.closing.join(" ") : design.title.join(" ")}
         title={data.h1}
         lead={data.intro}
         image={{ src: design.image, alt: design.alt }}
