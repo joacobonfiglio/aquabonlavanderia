@@ -20,7 +20,7 @@ export default function WhatsAppContact() {
   const message = service ? `Hola Aquabon, quiero consultar por ${service}.`
     : isBusiness ? "Hola Aquabon, quería consultar por un servicio de lavandería para mi negocio."
     : "Hola Aquabon, quería hacer una consulta.";
-  return <WhatsAppLink className="wa-fab" message={message} event="whatsapp_floating" aria-label="Escribinos por WhatsApp">
+  return <WhatsAppLink className="wa-fab" message={message} ubicacion="flotante" aria-label="Escribinos por WhatsApp">
     <span className="wa-fab__icon"><WhatsAppIcon /><i aria-hidden="true" /></span>
     <span className="wa-fab__text" aria-hidden="true"><strong>¿Te ayudamos?</strong><small>Escribinos por WhatsApp</small></span>
   </WhatsAppLink>;

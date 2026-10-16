@@ -2,9 +2,10 @@ import type { Metadata, Viewport } from "next";
 import WhatsAppContact from "./WhatsAppContact";
 import Motion from "./Motion";
 import JsonLd from "./JsonLd";
-import Analytics from "./Analytics";
-import { gtmHeadScript } from "./analytics-head";
-import { GTM_ID, SITE_URL, business, hours } from "./site";
+import CookieConsent from "./CookieConsent";
+import GoogleAnalyticsTag from "./GoogleAnalyticsTag";
+import { GA_ID, consentScript } from "./ga";
+import { SITE_URL, business, hours } from "./site";
 import "./aquabon.css";
 import "./sections.css";
 
@@ -48,16 +49,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <head>
       {/* Solo se precarga la tipografía de texto; la manuscrita del ticket se baja cuando aparece. */}
       <link rel="preload" href="/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossOrigin="" />
-      {GTM_ID ? <script dangerouslySetInnerHTML={{ __html: gtmHeadScript(GTM_ID) }} /> : null}
+      {GA_ID ? <script dangerouslySetInnerHTML={{ __html: consentScript }} /> : null}
     </head>
     <body>
-      {GTM_ID ? <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`} height="0" width="0" style={{ display: "none", visibility: "hidden" }} /></noscript> : null}
       <a className="skip" href="#contenido">Ir al contenido</a>
       <JsonLd data={businessSchema} />
       {children}
       <WhatsAppContact />
-      <Analytics />
+      <CookieConsent />
       <Motion />
     </body>
+    {GA_ID ? <GoogleAnalyticsTag gaId={GA_ID} /> : null}
   </html>;
 }

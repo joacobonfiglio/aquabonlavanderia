@@ -17,7 +17,7 @@ export default function BlogPage() {
     { name: "Zapatillas", id: "zapatillas", clusters: ["Zapatillas"] },
   ];
   return <>
-    <SiteHeader event="whatsapp_blog_index" overlay />
+    <SiteHeader overlay />
     <main id="contenido" className="page">
       <PageHero
         crumbs={[{ label: "Inicio", href: "/" }, { label: "Guías", href: "/blog" }]}

@@ -19,7 +19,7 @@ export default function LegalPage({ title, path, children }: { title: string; pa
         title={title}
         lead="Aquabon Lavandería, Gascón 2189, Mar del Plata. Si tenés una consulta sobre esta información, escribinos."
         facts={false}
-        actions={<WhatsAppLink className="btn btn--outline-light btn--xl" message="Hola Aquabon, tengo una consulta sobre la información legal de la web." event="whatsapp_legal"><WhatsAppIcon />Consultar</WhatsAppLink>}
+        actions={<WhatsAppLink className="btn btn--outline-light btn--xl" message="Hola Aquabon, tengo una consulta sobre la información legal de la web." ubicacion="hero"><WhatsAppIcon />Consultar</WhatsAppLink>}
       />
       <section className="p-sec"><div className="wrap"><article className="prose legal">{children}<p>Última actualización: 14 de septiembre de 2026.</p></article></div></section>
     </main>

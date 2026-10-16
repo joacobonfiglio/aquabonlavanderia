@@ -49,7 +49,7 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
   const pool = [design.image, ...relatedGuides.map(g => g.image), "/laundry-detail-v2.webp"];
   const words = data.items.every(i => i.title.length <= 28) ? data.items.map(i => i.title) : [design.name, "Mar del Plata", "Gascón 2189"];
   return <>
-    <SiteHeader event={data.event + "_header"} overlay />
+    <SiteHeader overlay />
     <main id="contenido" className="page">
       <PageHero
         crumbs={data.crumbs}
@@ -59,7 +59,7 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
         image={{ src: design.image, alt: design.alt }}
         chip={{ symbol: design.symbol, text: "Te avisamos por WhatsApp" }}
         actions={<>
-          <WhatsAppLink className="btn btn--azul btn--xl" message={data.message} event={data.event} data-primary-cta=""><WhatsAppIcon />{data.cta}</WhatsAppLink>
+          <WhatsAppLink className="btn btn--azul btn--xl" message={data.message} ubicacion="hero" data-primary-cta=""><WhatsAppIcon />{data.cta}</WhatsAppLink>
           <a className="btn btn--outline-light btn--xl" href="#como-funciona">Cómo funciona</a>
         </>}
       />
@@ -92,7 +92,7 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
       </section>
 
       <Process title="Así funciona" steps={steps} cta={<>
-        <WhatsAppLink className="btn btn--light btn--xl" message={data.message} event={data.event + "_proceso"}><WhatsAppIcon />{data.cta}</WhatsAppLink>
+        <WhatsAppLink className="btn btn--light btn--xl" message={data.message} ubicacion="proceso"><WhatsAppIcon />{data.cta}</WhatsAppLink>
         <Link className="link link--light" href="/servicios/retiro-y-entrega-de-ropa">¿Necesitás retiro y entrega?</Link>
       </>} />
 
@@ -111,7 +111,7 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
           </div>
           <div className="h-pick__ticket" data-reveal>
             <p className="pick-step"><b>✓</b>Tu consulta, lista para enviar</p>
-            <ChatPreview data={{ service: design.name.toLowerCase(), message: data.message, event: data.event + "_chat" }} />
+            <ChatPreview data={{ service: design.name.toLowerCase(), message: data.message }} />
           </div>
         </div>
       </section>

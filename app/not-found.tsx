@@ -19,7 +19,7 @@ export default function NotFound() {
           <div className="h-hero__actions">
             <Link className="btn btn--light btn--xl" href="/">Volver al inicio</Link>
             <Link className="btn btn--outline-light btn--xl" href="/servicios">Ver servicios</Link>
-            <WhatsAppLink className="btn btn--azul btn--xl" message="Hola Aquabon, quería consultar por un servicio." event="whatsapp_404"><WhatsAppIcon />Escribinos</WhatsAppLink>
+            <WhatsAppLink className="btn btn--azul btn--xl" message="Hola Aquabon, quería consultar por un servicio." ubicacion="pagina_404"><WhatsAppIcon />Escribinos</WhatsAppLink>
           </div>
         </div>
         <Waves className="waves--hero" />

@@ -62,7 +62,7 @@ export default function SeoLanding({ data }: { data: LandingData }) {
   const words = isBusiness ? ["Airbnb", "Hoteles", "Restaurantes", "Estética", "Uniformes", "Deportes"] : ["Valet", "Acolchados", "Tintorería", "Planchado", "Zapatillas", "Arreglos"];
   const lineItems = isBusiness ? businessLinks.filter(b => b.href !== data.path) : services;
   return <>
-    <SiteHeader event={data.event + "_header"} overlay />
+    <SiteHeader overlay />
     <main id="contenido" className="page">
       <PageHero
         crumbs={data.crumbs}
@@ -73,7 +73,7 @@ export default function SeoLanding({ data }: { data: LandingData }) {
         chip={{ text: isBusiness ? "Volumen y frecuencia a medida" : "Te avisamos por WhatsApp" }}
         facts={!isBusiness}
         actions={<>
-          <WhatsAppLink className="btn btn--azul btn--xl" message={data.message} event={data.event} data-primary-cta=""><WhatsAppIcon />{data.cta}</WhatsAppLink>
+          <WhatsAppLink className="btn btn--azul btn--xl" message={data.message} ubicacion="hero" data-primary-cta=""><WhatsAppIcon />{data.cta}</WhatsAppLink>
           <a className="btn btn--outline-light btn--xl" href="#como-funciona">Cómo trabajamos</a>
         </>}
       />
@@ -104,7 +104,7 @@ export default function SeoLanding({ data }: { data: LandingData }) {
         </div>
       </section>
 
-      <Process title="Cómo trabajamos" steps={steps} cta={<WhatsAppLink className="btn btn--light btn--xl" message={data.message} event={data.event + "_proceso"}><WhatsAppIcon />{data.cta}</WhatsAppLink>} />
+      <Process title="Cómo trabajamos" steps={steps} cta={<WhatsAppLink className="btn btn--light btn--xl" message={data.message} ubicacion="proceso"><WhatsAppIcon />{data.cta}</WhatsAppLink>} />
 
       <section className="p-sec" aria-labelledby="faq-titulo">
         <div className="wrap h-pick__grid">
@@ -117,7 +117,7 @@ export default function SeoLanding({ data }: { data: LandingData }) {
             <ChatPreview data={{
               service: isBusiness ? data.h1.replace(/ en Mar del Plata$/, "").toLowerCase() : undefined,
               next: isBusiness ? "te respondemos con una propuesta según volumen y frecuencia" : undefined,
-              message: data.message, event: data.event + "_chat",
+              message: data.message,
             }} />
           </div>
         </div>

@@ -505,7 +505,7 @@ legend.pick-step { display: flex; }
 .nf h1 { font-size: clamp(2.4rem, 6vw, 4.6rem); font-weight: 800; line-height: 1; letter-spacing: -0.04em; margin-top: 12px; max-width: 16ch; }
 .legal h2 { font-size: 1.5rem; font-weight: 800; }
 
-/* ---------- Aviso de cookies (solo si hay GTM_ID y no hay elección guardada) ---------- */
+/* ---------- Aviso de cookies (solo si GA está activo y no hay elección guardada) ---------- */
 .consent { display: none; }
 html[data-consent="pending"] .consent {
   position: fixed; z-index: 46; left: max(16px, env(safe-area-inset-left)); bottom: calc(16px + env(safe-area-inset-bottom));
