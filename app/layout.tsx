@@ -2,7 +2,9 @@ import type { Metadata, Viewport } from "next";
 import WhatsAppContact from "./WhatsAppContact";
 import Motion from "./Motion";
 import JsonLd from "./JsonLd";
-import { SITE_URL, business, hours } from "./site";
+import Analytics from "./Analytics";
+import { analyticsHeadScript } from "./analytics-head";
+import { GA_ID, SITE_URL, business, hours } from "./site";
 import "./aquabon.css";
 import "./sections.css";
 
@@ -42,16 +44,18 @@ const businessSchema = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="es-AR">
+  return <html lang="es-AR" suppressHydrationWarning>
     <head>
       {/* Solo se precarga la tipografía de texto; la manuscrita del ticket se baja cuando aparece. */}
       <link rel="preload" href="/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossOrigin="" />
+      {GA_ID ? <script dangerouslySetInnerHTML={{ __html: analyticsHeadScript(GA_ID) }} /> : null}
     </head>
     <body>
       <a className="skip" href="#contenido">Ir al contenido</a>
       <JsonLd data={businessSchema} />
       {children}
       <WhatsAppContact />
+      <Analytics />
       <Motion />
     </body>
   </html>;
