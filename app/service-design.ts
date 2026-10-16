@@ -33,7 +33,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     ], closing: ["Tu prenda especial.", "Nuestro seguimiento."], variant: "tailored"
   },
   "limpieza-de-vestidos-de-fiesta": {
-    name: "Limpieza de vestidos de fiesta", title: ["Tu vestido de fiesta.", "Primero, lo revisamos."],
+    name: "Limpieza de vestidos de fiesta", title: ["Limpieza de vestidos de fiesta", "en Mar del Plata"],
     image: "/blog/revisar-prendas-tintoreria.webp", alt: "Revisión profesional de prendas especiales antes de definir su limpieza",
     tag: "TEJIDO · FORRO · ADORNOS · MANCHAS", caption: "Recepción y seguimiento en Gascón 2189",
     heading: ["Una prenda con muchos detalles.", "Una evaluación completa."],
