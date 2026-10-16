@@ -44,7 +44,7 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
   const relatedGuides = design.guides.map(guide);
   const sideImage = relatedGuides[0]?.image ?? "/laundry-detail-v2.webp";
   const imgs = stepImages(data.steps.length, design.image);
-  const steps: Step[] = data.steps.map((s, i) => ({ ...s, image: imgs[i % imgs.length], alt: "" }));
+  const steps: Step[] = data.steps.map((s, i) => ({ ...s, image: imgs[i % imgs.length], alt: `${s.title}, ${design.name.toLowerCase()} en Aquabon` }));
   const others = services.filter(s => s.href !== data.path);
   const pool = [design.image, ...relatedGuides.map(g => g.image), "/laundry-detail-v2.webp"];
   const words = data.items.every(i => i.title.length <= 28) ? data.items.map(i => i.title) : [design.name, "Mar del Plata", "Gascón 2189"];
@@ -73,7 +73,7 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
           </div>
           <ul className="inc-cards" style={{ ["--n" as string]: data.items.length }}>
             {data.items.map((item, i) => <li key={item.title} data-reveal style={{ transitionDelay: `${i * 80}ms` }}>
-              <Img src={itemImage(item.title, i, pool)} alt="" width={800} height={1000} sizes="(max-width: 760px) 80vw, 300px" />
+              <Img src={itemImage(item.title, i, pool)} alt={`${item.title} en el servicio de ${design.name.toLowerCase()}`} width={800} height={1000} sizes="(max-width: 760px) 80vw, 300px" />
               <div><h3>{item.title}</h3><p>{item.copy}</p></div>
             </li>)}
           </ul>

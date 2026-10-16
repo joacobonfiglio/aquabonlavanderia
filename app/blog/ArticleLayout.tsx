@@ -64,7 +64,7 @@ export default function ArticleLayout({ title, description, slug, date, readingT
               <p className="p-hero__lead">{description}</p>
               <div className="a-meta"><time dateTime={date}>{displayDate}</time><span>{sentence(readingTime)}</span><span>Aquabon, Mar del Plata</span></div>
             </div>
-            <div className="p-hero__media"><div className="p-hero__photo"><Img src={heroImage} alt="" width={1400} height={933} sizes="(max-width: 960px) 92vw, 520px" priority /></div></div>
+            <div className="p-hero__media"><div className="p-hero__photo"><Img src={heroImage} alt={guides.find(g => g.href === path)?.alt ?? title} width={1400} height={933} sizes="(max-width: 960px) 92vw, 520px" priority /></div></div>
           </div>
         </div>
         <Waves className="waves--hero" />

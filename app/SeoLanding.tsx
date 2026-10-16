@@ -58,7 +58,7 @@ export default function SeoLanding({ data }: { data: LandingData }) {
   const stepImgs = isBusiness
     ? ["/blog/elegir-lavanderia-o-tintoreria.webp", "/blog/medir-detergente-para-lavar.webp", "/laundry-hero-v2.webp", "/services/retiro-v3.webp"]
     : ["/blog/leer-simbolos-etiqueta-ropa.webp", "/blog/medir-detergente-para-lavar.webp", "/laundry-hero-v2.webp", "/services/retiro-v3.webp"];
-  const steps: Step[] = data.steps.map((s, i) => ({ ...s, image: stepImgs[i % stepImgs.length], alt: "" }));
+  const steps: Step[] = data.steps.map((s, i) => ({ ...s, image: stepImgs[i % stepImgs.length], alt: s.title }));
   const words = isBusiness ? ["Airbnb", "Hoteles", "Restaurantes", "Estética", "Uniformes", "Deportes"] : ["Valet", "Acolchados", "Tintorería", "Planchado", "Zapatillas", "Arreglos"];
   const lineItems = isBusiness ? businessLinks.filter(b => b.href !== data.path) : services;
   return <>
@@ -69,7 +69,7 @@ export default function SeoLanding({ data }: { data: LandingData }) {
         kicker={isBusiness ? "Aquabon para empresas" : "Gascón 2189, centro de Mar del Plata"}
         title={data.h1}
         lead={data.intro}
-        image={{ src: image, alt: "" }}
+        image={{ src: image, alt: businessLinks.find(b => b.href === data.path)?.alt ?? "Ropa lavada y doblada en Aquabon Lavandería, Mar del Plata" }}
         chip={{ text: isBusiness ? "Volumen y frecuencia a medida" : "Te avisamos por WhatsApp" }}
         facts={!isBusiness}
         actions={<>

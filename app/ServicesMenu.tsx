@@ -24,7 +24,7 @@ export default function ServicesMenu() {
   const enter = () => { if (!fine()) return; window.clearTimeout(timer.current); setOpen(true); };
   const leave = () => { if (!fine()) return; timer.current = window.setTimeout(() => setOpen(false), 140); };
   return <div className="mega" ref={root} onPointerEnter={enter} onPointerLeave={leave}>
-    <button type="button" className="mega__trigger" aria-expanded={open} aria-controls="mega-servicios" onClick={() => setOpen(o => !o)}>
+    <button type="button" className="mega__trigger" aria-expanded={open} aria-controls="mega-servicios" onClick={() => setOpen(o => fine() ? true : !o)}>
       Servicios <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
     </button>
     <div className="mega__panel" id="mega-servicios" data-open={open} onClick={e => { if ((e.target as Element).closest("a")) setOpen(false); }}>
