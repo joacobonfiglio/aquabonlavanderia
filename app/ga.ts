@@ -4,6 +4,7 @@ export const GA_ID = process.env.NODE_ENV === "production" ? process.env.NEXT_PU
 
 // Nombre corto del servicio para el parámetro "servicio" de los eventos, según la URL.
 const byPath: Record<string, string> = {
+  "/lavanderia-centro-mar-del-plata": "zona_centro",
   "/servicios/valet-de-ropa": "valet",
   "/servicios/lavado-de-acolchados": "acolchados",
   "/servicios/tintoreria": "tintoreria",
