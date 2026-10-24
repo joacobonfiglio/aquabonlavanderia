@@ -1,1 +1,5 @@
-import SeoLanding,{landingMetadata}from"../SeoLanding";import{localData}from"../LocalLanding";const data=localData("lavanderia-centro-mar-del-plata");export const metadata=landingMetadata(data);export default function Page(){return <SeoLanding data={data}/>}
+import CentroLanding from "../CentroLanding";
+import { landingMetadata } from "../SeoLanding";
+import { localData } from "../LocalLanding";
+export const metadata = landingMetadata(localData("lavanderia-centro-mar-del-plata"));
+export default function Page() { return <CentroLanding />; }

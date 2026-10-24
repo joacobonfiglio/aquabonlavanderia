@@ -1,3 +1,4 @@
+import { neighborhoods } from "./neighborhoods";
 import type { LandingData } from "./SeoLanding";
 import { business, hoursSentence } from "./site";
 
@@ -7,6 +8,7 @@ import { business, hoursSentence } from "./site";
 // 3. El sitemap la toma solo.
 // TODO(joaco): no publicar barrios nuevos sin confirmar que hay cobertura real de retiro y entrega o que el local les queda a mano.
 type Area = {
+  h1?: string;
   name: string;          // "el centro de Mar del Plata"
   crumb: string;         // "Centro"
   title: string;
@@ -16,6 +18,7 @@ type Area = {
 };
 
 export const areas: Record<string, Area> = {
+  ...Object.fromEntries(Object.entries(neighborhoods).map(([slug, n]) => [slug, { name: n.name, crumb: n.name, title: n.title, description: n.description, intro: n.intro, nearby: n.focus, h1: n.h1 }])),
   "lavanderia-centro-mar-del-plata": {
     name: "el centro de Mar del Plata", crumb: "Centro",
     title: "Lavandería en el centro de Mar del Plata | Aquabon",
@@ -62,7 +65,7 @@ export function localData(kind: "general" | keyof typeof areas | string): Landin
       items: commonItems,
       steps: [{ title: "Elegí el servicio", copy: "Mirá las páginas de cada servicio o mandanos una foto." }, { title: "Acercate o consultá", copy: `Estamos en ${business.street}.` }, { title: "Recibí el aviso", copy: "Te escribimos cuando el pedido está listo." }],
       faqs: commonFaqs,
-      related: [{ label: "Lavandería en el centro", href: "/lavanderia-centro-mar-del-plata" }, { label: "Tintorería en el centro", href: "/tintoreria-centro-mar-del-plata" }, ...commonRelated],
+      related: [...Object.entries(neighborhoods).map(([slug, n]) => ({ label: `Lavadero para ${n.name}`, href: "/" + slug })), { label: "Lavandería en el centro", href: "/lavanderia-centro-mar-del-plata" }, { label: "Tintorería en el centro", href: "/tintoreria-centro-mar-del-plata" }, ...commonRelated],
       showLocation: true,
     };
   }
@@ -71,7 +74,7 @@ export function localData(kind: "general" | keyof typeof areas | string): Landin
   const path = "/" + kind;
   return {
     path, title: area.title, description: area.description, eyebrow: "",
-    h1: "Lavandería en " + area.name,
+    h1: area.h1 ?? "Lavandería en " + area.name,
     intro: area.intro, event: "whatsapp_" + kind.replace(/-/g, "_"),
     message: "Hola Aquabon, quería consultar por un servicio de lavandería.", cta: "Consultar por WhatsApp",
     crumbs: [{ label: "Inicio", href: "/" }, { label: "Lavandería en Mar del Plata", href: "/lavanderia-mar-del-plata" }, { label: area.crumb, href: path }],

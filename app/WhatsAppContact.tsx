@@ -5,6 +5,9 @@ import WhatsAppLink from "./WhatsAppLink";
 import { WhatsAppIcon } from "./ui";
 
 const services: Record<string, string> = {
+  "lavanderia-guemes-mar-del-plata": "ropa y acolchados desde Güemes",
+  "lavanderia-chauvin-mar-del-plata": "ropa y acolchados desde Chauvin",
+  "lavanderia-la-perla-mar-del-plata": "ropa y acolchados desde La Perla",
   "valet-de-ropa": "el valet de ropa", "lavado-de-acolchados": "el lavado de un acolchado", tintoreria: "una prenda de tintorería", "limpieza-de-vestidos-de-fiesta": "la limpieza de un vestido de fiesta", planchado: "el servicio de planchado",
   "lavado-y-planchado-de-camisas": "el lavado y planchado de camisas", "tenido-de-prendas": "el teñido de una prenda", "arreglos-y-costura": "un arreglo de costura",
   "lavado-de-zapatillas": "el lavado de unas zapatillas", "lavado-de-camperas-y-tapados": "la limpieza de una campera o un tapado", "retiro-y-entrega-de-ropa": "retiro y entrega en mi zona",

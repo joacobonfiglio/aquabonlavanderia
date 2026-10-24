@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { areas } from "./LocalLanding";
 import type { LandingData } from "./SeoLanding";
 import type { ServiceDesign } from "./service-design";
 import SiteHeader from "./SiteHeader";
@@ -65,6 +66,14 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
       />
       <Ribbon words={words} />
 
+      {data.path === "/servicios/retiro-y-entrega-de-ropa" ? <section className="p-sec p-sec--espuma" id="zonas" aria-labelledby="zonas-titulo">
+        <div className="wrap">
+          <div className="h-head h-head--split"><h2 id="zonas-titulo">Zonas con retiro y entrega</h2><p>Retiramos en Centro, Güemes, Chauvin y La Perla. Elegí tu zona para ver los servicios o mandanos tu dirección para coordinar costo y disponibilidad.</p></div>
+          <ul className="feature-grid">{Object.entries(areas).map(([slug, area]) => <li key={slug}><h3>{area.crumb}</h3><p>Ropa cotidiana y acolchados, con retiro y entrega coordinados.</p><Link className="link" href={"/" + slug}>Ver lavadero para {area.crumb}</Link></li>)}</ul>
+          <p className="note">¿Estás en otra zona? <WhatsAppLink message="Hola Aquabon, estoy en __ y necesito lavar __. ¿Pueden retirar en mi dirección?" ubicacion="otras_zonas">Consultanos tu dirección</WhatsAppLink>. Te indicamos si podemos coordinar el pedido.</p>
+        </div>
+      </section> : null}
+
       <section className="p-sec" aria-labelledby="incluye-titulo" id="que-incluye">
         <div className="wrap">
           <div className="h-head h-head--split" data-reveal>
@@ -93,7 +102,7 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
 
       <Process title="Así funciona" steps={steps} cta={<>
         <WhatsAppLink className="btn btn--light btn--xl" message={data.message} ubicacion="proceso"><WhatsAppIcon />{data.cta}</WhatsAppLink>
-        <Link className="link link--light" href="/servicios/retiro-y-entrega-de-ropa">¿Necesitás retiro y entrega?</Link>
+        {data.path !== "/servicios/retiro-y-entrega-de-ropa" ? <Link className="link link--light" href="/servicios/retiro-y-entrega-de-ropa">Retiro a domicilio y zonas</Link> : <a className="link link--light" href="#zonas">Ver zonas con cobertura</a>}
       </>} />
 
       <section className="p-sec p-sec--espuma" style={{ paddingBottom: "clamp(40px, 6vw, 64px)" }} aria-labelledby="otros-titulo">
