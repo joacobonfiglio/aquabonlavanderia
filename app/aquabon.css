@@ -300,10 +300,16 @@ body:has(#p-arreglo:checked) .tickets > [data-for="arreglo"] { display: block; }
 .label-card__symbols div:last-child { border-right: 0; }
 
 /* ---------- Reseñas ---------- */
+.reviews-section { padding: 32px 0 48px; }
+.reviews-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px 24px; margin-bottom: 20px; }
+.reviews-heading h2 { font-size: var(--fs-h3); }
+.reviews-heading a { font-size: var(--fs-small); }
+.reviews-stars { color: var(--azul); font-size: var(--fs-small); letter-spacing: 2px; margin-bottom: 10px; }
+.reviews-source { display: block; margin-top: 4px; font-size: 0.75rem; }
 .reviews { display: grid; gap: 20px; list-style: none; padding: 0; }
-.reviews blockquote { font-size: 1.1rem; }
+.reviews blockquote { font-size: 1rem; }
 .reviews figcaption { margin-top: 12px; color: var(--tinta); font-size: var(--fs-small); }
-.reviews li { padding-top: 20px; border-top: 2px solid var(--marino); }
+.reviews li { padding-top: 20px; border-top: 1px solid var(--linea); }
 @media (min-width: 960px) { .reviews { grid-template-columns: repeat(3, 1fr); gap: 40px; } }
 
 /* ---------- Empresas (franja) ---------- */

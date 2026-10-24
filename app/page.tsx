@@ -181,8 +181,6 @@ export default function Home() {
         <Link className="link link--light" href="/servicios/retiro-y-entrega-de-ropa">Cómo funciona el retiro</Link>
       </>} />
 
-      <Reviews />
-
       {/* 8. Empresas */}
       <section className="h-biz" aria-labelledby="empresas-titulo">
         <Img src="/blog/secar-ropa-adentro-ventilacion.webp" alt="" width={1400} height={933} sizes="100vw" />
@@ -202,6 +200,7 @@ export default function Home() {
         </div>
       </section>
 
+      <Reviews />
 
     </main>
     <SiteFooter />
