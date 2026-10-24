@@ -24,7 +24,7 @@ export default function NeighborhoodLanding({ slug }: { slug: NeighborhoodSlug }
   const faqs = [
     { question: `¿Tienen local en ${n.name}?`, answer: `Nuestro local está en ${business.address}. Desde esta página podés consultar por tu ropa y abrir el mapa para organizar tu visita desde ${n.name}.` },
     { question: n.question, answer: n.answer },
-    { question: `¿Retiran ropa y acolchados en ${n.name}?`, answer: "Consultá si llegamos a tu dirección. La cobertura, el costo y la disponibilidad se confirman para cada pedido antes de coordinar." },
+    { question: `¿Retiran ropa y acolchados en ${n.name}?`, answer: "Sí. Coordinamos retiro y entrega en esta zona. Mandanos tu dirección y qué necesitás lavar para confirmar costo y disponibilidad." },
     { question: "¿Cómo se lava mi acolchado?", answer: "Revisamos etiqueta, tamaño, relleno y estado para indicar el proceso adecuado. Mandanos fotos si tiene manchas, roturas o si no encontrás la etiqueta." },
     { question: "¿El valet incluye planchado?", answer: "Incluye lavado, secado y doblado de ropa cotidiana. El planchado se solicita aparte." },
     { question: "¿Qué horario tienen y cuánto demora un pedido?", answer: `${hoursSentence}. El plazo depende de las prendas y del trabajo: consultalo antes de traer tu pedido.` },
@@ -67,7 +67,7 @@ export default function NeighborhoodLanding({ slug }: { slug: NeighborhoodSlug }
             <div className="h-head" data-reveal><p className="pick-step">{n.name.toUpperCase()} · MAR DEL PLATA</p><h2 id="zona-direccion">Nos encontrás en {business.street}</h2><p>Nuestro local está en {business.street}, Mar del Plata. Consultá el recorrido desde tu ubicación antes de venir.</p></div>
             <ul className="fit-cards" data-reveal>
               <li><h3>Organizá tu visita</h3><p>{hoursSentence}. Abrí la ruta desde tu ubicación para elegir cómo venir.<br /><TrackedLink className="link link--light" href={mapsDirections} target="_blank" rel="noreferrer" gaEvent="click_como_llegar" ubicacion="zona_direccion">Ver recorrido en Google Maps</TrackedLink></p></li>
-              <li><h3>¿Preferís consultar por retiro?</h3><p>Mandanos tu dirección y el tipo de prendas. Te confirmamos si llegamos a tu zona, el costo y la disponibilidad antes de coordinar.<br /><WhatsAppLink className="link link--light" message={pickup} ubicacion="zona_retiro">Consultar mi dirección</WhatsAppLink></p></li>
+              <li><h3>¿Preferís consultar por retiro?</h3><p>Hacemos retiro y entrega en esta zona. Mandanos tu dirección y el tipo de prendas para coordinar costo y disponibilidad.<br /><WhatsAppLink className="link link--light" message={pickup} ubicacion="zona_retiro">Consultar mi dirección</WhatsAppLink><br /><Link className="link link--light" href="/servicios/retiro-y-entrega-de-ropa">Ver retiro a domicilio y zonas</Link></p></li>
             </ul>
           </div>
         </div>

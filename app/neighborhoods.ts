@@ -1,6 +1,7 @@
 import { business } from "./site";
 
-// TODO(joaco): confirmar cobertura y condiciones por barrio antes de publicar.
+// Cobertura de Centro, Güemes, Chauvin y La Perla confirmada por Joaco el 24/10/2026.
+// Costos y disponibilidad se coordinan por pedido.
 // Vistas previas autorizadas: no declaran sucursales ni retiro garantizado.
 export const neighborhoods = {
   "lavanderia-guemes-mar-del-plata": {

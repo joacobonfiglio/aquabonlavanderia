@@ -155,15 +155,14 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     guides: ["como-secar-ropa-dentro-de-casa", "cuanto-detergente-usar"],
     name: "Retiro y entrega", title: ["Tu ropa va y vuelve.", "Vos seguís con tu día."],
     image: "/services/retiro-v3.webp", alt: "Entrega de una bolsa de ropa cerrada en la puerta de una vivienda",
-    tag: "MENOS TRASLADOS EN TU DÍA", caption: "Centro y zonas cercanas · Consultá cobertura",
+    tag: "MENOS TRASLADOS EN TU DÍA", caption: "Centro · Güemes · Chauvin · La Perla",
     heading: ["El cuidado de siempre.", "Una forma de acercarlo."],
     intro: "Coordinamos el retiro de tu ropa y su devolución cuando está lista, según zona y disponibilidad. Escribinos con tu dirección y el servicio: confirmamos recorrido, costo y condiciones antes de acordar.",
     prepare: "Prepará la ropa en una bolsa bien cerrada. Informanos cantidad de prendas, manchas, daños y requisitos particulares antes del retiro.",
     guideTitle: "¿Qué querés que retiremos?", guide: [
       { title: "Una bolsa de ropa cotidiana", copy: "El retiro se solicita principalmente para valet: lavado, secado y doblado. Contanos la cantidad y tu dirección para verificar el recorrido." },
       { title: "Acolchados o prendas especiales", copy: "Consultanos antes de coordinar. La disponibilidad depende del volumen y de la evaluación del servicio que necesita cada pieza." },
-      // TODO(joaco): confirmar que "el centro y zonas cercanas" describe bien la cobertura real de retiro y entrega.
-      { title: "Tu zona y tus horarios", copy: "Priorizamos el centro de Mar del Plata y zonas cercanas. La cobertura, el costo y la franja se confirman para cada pedido." }
+      { title: "Tu zona y tus horarios", copy: "Retiramos en Centro, Güemes, Chauvin y La Perla. Coordinamos la dirección exacta, el costo y la franja para cada pedido." }
     ], closing: ["Menos idas y vueltas.", "Empezá con un mensaje."], variant: "detail"
   }
 };

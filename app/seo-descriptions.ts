@@ -3,7 +3,7 @@ export const seoDescriptions: Record<string, string> = {
   "/servicios": "Servicios de lavandería y tintorería en Mar del Plata: valet, acolchados, zapatillas, planchado, teñido y costura. Consultá a Aquabon por WhatsApp.",
   "/tintoreria-centro-mar-del-plata": "Tintorería en el centro de Mar del Plata. Recibimos sacos, tapados y vestidos en Aquabon, Gascón 2189, y coordinamos su tratamiento y entrega.",
   "/servicios/lavado-de-camperas-y-tapados": "Lavado de camperas y tapados en Mar del Plata. En Aquabon evaluamos etiqueta, forro y relleno para definir su limpieza. Consultá por WhatsApp.",
-  "/servicios/retiro-y-entrega-de-ropa": "Retiro y entrega de ropa en el centro de Mar del Plata con Aquabon. Lavado, secado y doblado; consultá cobertura, costo y disponibilidad por WhatsApp.",
+  "/servicios/retiro-y-entrega-de-ropa": "Lavandería a domicilio en Mar del Plata: retiro en Centro, Güemes, Chauvin y La Perla. Consultá por ropa y acolchados, costo y disponibilidad.",
   "/servicios/valet-de-ropa": "Valet de ropa en Mar del Plata: lavado, secado y doblado en Aquabon, Gascón 2189. Consultá precio, plazo y retiro y entrega por WhatsApp.",
   "/servicios/lavado-de-acolchados": "Lavado de acolchados en Mar del Plata. Aquabon lava y seca acolchados, frazadas y cubrecamas según tejido y relleno. Consultá por WhatsApp.",
   "/servicios/tintoreria": "Tintorería en Mar del Plata con recepción en Aquabon, Gascón 2189. Coordinamos el cuidado de sacos, vestidos y tapados. Consultá tu prenda.",

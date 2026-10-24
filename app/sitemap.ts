@@ -17,10 +17,11 @@ export const sitemapPaths = [
 // Última modificación conocida por ruta (las que no figuran usan la fecha del rediseño).
 const REDESIGN = "2026-10-15";
 const dates: Record<string, string> = {
-  "/lavanderia-la-perla-mar-del-plata": "2026-10-23",
-  "/lavanderia-chauvin-mar-del-plata": "2026-10-23",
-  "/lavanderia-guemes-mar-del-plata": "2026-10-23",
-  "/lavanderia-centro-mar-del-plata": "2026-10-23",
+  "/servicios/retiro-y-entrega-de-ropa": "2026-10-24",
+  "/lavanderia-la-perla-mar-del-plata": "2026-10-24",
+  "/lavanderia-chauvin-mar-del-plata": "2026-10-24",
+  "/lavanderia-guemes-mar-del-plata": "2026-10-24",
+  "/lavanderia-centro-mar-del-plata": "2026-10-24",
   "/blog/como-lavar-un-sweater-de-lana": "2026-10-16", "/servicios/limpieza-de-vestidos-de-fiesta": "2026-10-16", "/blog": "2026-10-16",
   "/blog/como-sacar-olor-a-humo-de-la-ropa": "2026-10-15", "/blog/como-secar-ropa-dentro-de-casa": "2026-10-14",
   "/blog/hay-que-lavar-la-ropa-nueva": "2026-10-13", "/blog/cuanto-detergente-usar": "2026-10-12",

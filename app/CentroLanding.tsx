@@ -21,7 +21,7 @@ const faqs = [
   { question: "¿Dónde queda la lavandería?", answer: `Aquabon está en ${business.address}. Abrí el mapa para ver el recorrido desde tu ubicación.` },
   { question: "¿En qué horario puedo acercarme?", answer: `${hoursSentence}. Si tenés dudas sobre una prenda, podés consultar por WhatsApp antes de venir.` },
   { question: "¿Puedo llevar ropa de la semana y un acolchado?", answer: "Sí. El valet corresponde a ropa cotidiana; el acolchado se evalúa como otro servicio según tamaño, relleno y etiqueta." },
-  { question: "¿Retiran y entregan en mi dirección?", answer: "Mandanos tu dirección y qué necesitás lavar. Confirmamos cobertura, costo y disponibilidad para ese pedido antes de coordinar." },
+  { question: "¿Retiran y entregan en mi dirección?", answer: "Sí. Hacemos retiro y entrega en el Centro. Mandanos la dirección y qué necesitás lavar para coordinar costo y disponibilidad." },
   { question: "¿El valet incluye planchado?", answer: "Incluye lavado, secado y doblado. El planchado se solicita aparte." },
   { question: "¿Cuánto cuesta y cuándo puedo retirar?", answer: "Depende del servicio, la cantidad y el estado de las prendas. Te confirmamos importe y plazo antes de aceptar el pedido y te avisamos cuando está listo." },
 ];
@@ -58,7 +58,7 @@ export default function CentroLanding() {
             <div className="h-head" data-reveal><p className="pick-step">CENTRO · MAR DEL PLATA</p><h2 id="centro-direccion">Nos encontrás en {business.street}</h2><p>Si vivís, trabajás o estás de paso por el Centro, podés acercarte al local con tu ropa. Revisamos qué necesitás y te indicamos cómo sigue el pedido.</p></div>
             <ul className="fit-cards" data-reveal>
               <li><h3>Organizá tu visita</h3><p>{hoursSentence}. Abrí la ruta desde tu ubicación para elegir cómo venir.<br /><TrackedLink className="link link--light" href={mapsDirections} target="_blank" rel="noreferrer" gaEvent="click_como_llegar" ubicacion="zona_direccion">Ver recorrido en Google Maps</TrackedLink></p></li>
-              <li><h3>¿Preferís consultar por retiro?</h3><p>Mandanos tu dirección y el tipo de prendas. Te confirmamos si llegamos a tu zona, el costo y la disponibilidad antes de coordinar.<br /><WhatsAppLink className="link link--light" message={pickup} ubicacion="zona_retiro">Consultar mi dirección</WhatsAppLink></p></li>
+              <li><h3>¿Preferís consultar por retiro?</h3><p>Hacemos retiro y entrega en esta zona. Mandanos tu dirección y el tipo de prendas para coordinar costo y disponibilidad.<br /><WhatsAppLink className="link link--light" message={pickup} ubicacion="zona_retiro">Consultar mi dirección</WhatsAppLink><br /><Link className="link link--light" href="/servicios/retiro-y-entrega-de-ropa">Ver retiro a domicilio y zonas</Link></p></li>
             </ul>
           </div>
         </div>

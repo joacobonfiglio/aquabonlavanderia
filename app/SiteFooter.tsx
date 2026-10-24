@@ -56,6 +56,7 @@ export default function SiteFooter() {
             <li><Link href="/lavanderia-mar-del-plata">Lavandería en Mar del Plata</Link></li>
             <li><Link href="/lavanderia-centro-mar-del-plata">Lavandería en el centro</Link></li>
             <li><Link href="/tintoreria-centro-mar-del-plata">Tintorería en el centro</Link></li>
+            <li><Link href="/servicios/retiro-y-entrega-de-ropa">Retiro a domicilio y zonas</Link></li>
             <li><Link href="/blog">Guías para cuidar tu ropa</Link></li>
             <li><Link href="/nosotros">Nosotros</Link></li>
           </ul>
