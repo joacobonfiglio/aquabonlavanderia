@@ -7,7 +7,7 @@ const data:LandingData={
   description:"Lavandería para centros de estética, salones y gabinetes en Mar del Plata. Consultá por toallas, batas y textiles según volumen y frecuencia.",
   eyebrow:"LAVANDERÍA PARA ESTÉTICA · MAR DEL PLATA",
   h1:"Lavandería para centros de estética en Mar del Plata",
-  intro:"Evaluamos toallas, batas, capas y textiles de trabajo para coordinar un servicio acorde al volumen, la frecuencia y las indicaciones de cuidado de cada negocio.",
+  intro:"Vos atendés a tus clientes; las toallas, batas y capas nos las dejás a nosotros. Coordinamos un servicio acorde al volumen, la frecuencia y las indicaciones de cuidado de tu negocio.",
   event:"whatsapp_centros_estetica",
   message:"Hola Aquabon, quiero consultar por lavandería para un centro de estética o salón. Los textiles son: __. Cantidad aproximada: __. Frecuencia: __.",
   cta:"Consultar mi operación",

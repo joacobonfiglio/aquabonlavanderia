@@ -17,7 +17,7 @@ type Option = { id: string; label: string; image: string; ticket: TicketData };
 
 const options: Option[] = [
   { id: "semana", label: "Ropa de la semana", image: "/laundry-detail-v2.webp", ticket: {
-    rows: [{ label: "Prenda", value: "ropa de la semana" }, { label: "Servicio", value: "valet: lavado, secado y doblado" }, { label: "Cómo sigue", value: "traés la bolsa y te avisamos cuando está lista" }],
+    rows: [{ label: "Prenda", value: "ropa de la semana" }, { label: "Servicio", value: "valet: lavado, secado y doblado" }, { label: "Cómo sigue", value: "la dejás en el local y te avisamos cuando está lista" }],
     message: "Hola Aquabon, tengo ropa de la semana para el valet. Son más o menos __ prendas. ¿Me pasan importe y plazo?",
     servicio: "valet", link: { href: "/servicios/valet-de-ropa", label: "Cómo funciona el valet" } } },
   { id: "acolchado", label: "Acolchado", image: "/blog/revisar-cuando-lavar-acolchado.webp", ticket: {
@@ -55,9 +55,16 @@ const featured = services.slice(0, 3);
 const line = services.filter(s => !featured.includes(s));
 
 const steps = [
-  { title: "Traés la bolsa o la retiramos", copy: "Pasá por Gascón 2189 o consultá retiro y entrega para tu zona.", image: "/services/retiro-v3.webp", alt: "Entrega de una bolsa de ropa en la puerta de una casa" },
-  { title: "Lavamos y secamos según cada prenda", copy: "Separamos por color, tejido y etiqueta antes de elegir el proceso.", image: "/blog/medir-detergente-para-lavar.webp", alt: "Detergente medido junto a un lavarropas cargado" },
-  { title: "Doblada, lista y te avisamos", copy: "Te escribimos por WhatsApp cuando podés pasar a buscarla.", image: "/laundry-hero-v2.webp", alt: "Pila de ropa lavada y doblada en tonos blancos y azules" },
+  { title: "Nos dejás la ropa", copy: "En el local de Gascón 2189 o, si llegamos a tu zona, la pasamos a buscar.", image: "/services/retiro-v3.webp", alt: "Entrega de una bolsa de ropa en la puerta de una casa" },
+  { title: "Nos ocupamos de todo", copy: "Separamos por color y tejido, leemos cada etiqueta y elegimos el lavado. Si algo nos genera dudas, te escribimos antes.", image: "/blog/medir-detergente-para-lavar.webp", alt: "Detergente medido junto a un lavarropas cargado" },
+  { title: "Te avisamos cuando está lista", copy: "Te llega un WhatsApp y la pasás a buscar doblada, lista para guardar. Si coordinaste retiro, te la llevamos.", image: "/laundry-hero-v2.webp", alt: "Pila de ropa lavada y doblada en tonos blancos y azules" },
+];
+
+// Por qué Aquabon: solo datos que ya figuran en la web (dirección, horario, años, forma de trabajo).
+const pillars = [
+  { title: "Cerca", copy: `Estamos en ${business.street}, de lunes a sábado. Nos escribís por WhatsApp y te orientamos antes de que vengas.` },
+  { title: "Con oficio", copy: "Más de 10 años en el rubro. Cada prenda se revisa antes de elegir cómo lavarla." },
+  { title: "Claros", copy: "Te confirmamos importe y plazo antes de que dejes la ropa. Si una prenda tiene riesgo, te lo decimos antes de mojarla." },
 ];
 
 const words = ["Lavamos", "Secamos", "Doblamos", "Planchamos", "Teñimos", "Cosemos", "Cuidamos"];
@@ -86,9 +93,9 @@ export default function Home() {
           <div className="h-hero__copy">
             <h1 id="hero-titulo">
               <span className="h-hero__kicker">Lavandería y tintorería en Mar del Plata</span>
-              <span className="h-hero__title"><span>Vos traés</span> <span>la bolsa.</span> <span className="is-azul">Nosotros,</span> <span className="is-azul">el resto.</span></span>
+              <span className="h-hero__title"><span>Olvidate</span> <span>de lavar,</span> <span className="is-azul">nosotros</span> <span className="is-azul">nos ocupamos</span></span>
             </h1>
-            <p className="h-hero__lead">Lavamos, secamos y doblamos la ropa de la semana, y cuidamos las prendas que te dan dudas. Más de 10 años en el rubro.</p>
+            <p className="h-hero__lead">Dejás tu ropa en {business.street}, o la pasamos a buscar si llegamos a tu zona, y te la devolvemos lavada, seca y doblada. Sin lavarropas, sin tender, sin doblar. Más de 10 años cuidando la ropa de Mar del Plata.</p>
             <div className="h-hero__actions">
               <WhatsAppLink className="btn btn--azul btn--xl" message="Hola Aquabon, quiero consultar por el lavado de mi ropa." ubicacion="hero" data-primary-cta=""><WhatsAppIcon />Escribinos por WhatsApp</WhatsAppLink>
               <a className="btn btn--outline-light btn--xl" href="#pendiente">¿Qué tenés para lavar?</a>
@@ -116,13 +123,12 @@ export default function Home() {
         <Waves className="waves--hero" />
       </section>
 
-      {/* 2. Cinta + cifras reales, compactas */}
+      {/* 2. Cinta + por qué Aquabon */}
       <Ribbon words={words} />
-      <section className="h-kpis" aria-label="Aquabon en números">
-        <div className="wrap h-kpis__grid">
-          <div><b>+<span data-count="10">10</span></b><span>años en el rubro</span></div>
-          <div><b><span data-count="6">6</span></b><span>días abiertos, de lunes a sábado</span></div>
-          <div><b><span data-count="10">10</span></b><span>servicios en un mismo mostrador</span></div>
+      <section className="p-sec" aria-labelledby="porque-titulo">
+        <div className="wrap">
+          <div className="h-head h-head--split" data-reveal><h2 id="porque-titulo">Por qué Aquabon</h2><p>Te sacamos el lavado de encima, con el cuidado de alguien que conoce cada prenda.</p></div>
+          <ul className="feature-grid feature-grid--tres">{pillars.map((p, i) => <li key={p.title} data-reveal style={{ transitionDelay: `${i * 70}ms` }}><h3>{p.title}</h3><p>{p.copy}</p></li>)}</ul>
         </div>
       </section>
 
@@ -158,7 +164,7 @@ export default function Home() {
         <div className="wrap">
           <div className="h-head h-head--split" data-reveal>
             <h2 id="svc-titulo">Lo que hacemos</h2>
-            <p>Cada prenda pasa por el mostrador antes de lavarse: miramos etiqueta, tejido y estado, y recién ahí elegimos el proceso.</p>
+            <p>Antes de lavar, miramos etiqueta, tejido y estado de cada prenda. Si hay riesgo, te lo decimos antes de mojarla, no después.</p>
           </div>
           <div className="bento">
             {featured.map((s, i) => <Link key={s.href} href={s.href} className={"bento__card" + (i === 0 ? " bento__card--big" : "")} data-reveal style={{ transitionDelay: `${i * 80}ms` }}>
@@ -176,7 +182,7 @@ export default function Home() {
       </section>
 
       {/* 5. Proceso */}
-      <Process title="Así de simple" lead="Retiro y entrega según tu zona, o pasás por el local." steps={steps} cta={<>
+      <Process title="Así de simple" lead="Tres pasos, y el lavado deja de ser tu problema." steps={steps} cta={<>
         <WhatsAppLink className="btn btn--light btn--xl" message="Hola Aquabon, quiero consultar retiro y entrega. Mi dirección es: " ubicacion="retiro" servicio="retiro_y_entrega"><WhatsAppIcon />Consultar retiro en mi zona</WhatsAppLink>
         <Link className="link link--light" href="/servicios/retiro-y-entrega-de-ropa">Cómo funciona el retiro</Link>
       </>} />

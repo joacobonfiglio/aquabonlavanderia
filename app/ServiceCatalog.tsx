@@ -20,7 +20,7 @@ export default function ServiceCatalog() {
         crumbs={servicesHub.crumbs}
         kicker="Todo en un mismo mostrador"
         title="Servicios de lavandería y tintorería en Mar del Plata"
-        lead="Ropa de todos los días, acolchados, prendas delicadas, teñido, arreglos y zapatillas. Si no sabés cuál necesitás, mandanos una foto de la prenda y su etiqueta."
+        lead="Todo lo que no querés resolver en casa, en un mismo mostrador: ropa de todos los días, acolchados, prendas delicadas, teñido, arreglos y zapatillas. Si no sabés cuál necesitás, mandanos una foto de la prenda y su etiqueta."
         image={{ src: "/laundry-hero-v2.webp", alt: "Pila de ropa lavada y doblada en tonos blancos y azules" }}
         chip={{ symbol: "wash", text: `${services.length} servicios` }}
         actions={<>

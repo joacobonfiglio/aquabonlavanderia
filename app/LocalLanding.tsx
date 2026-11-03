@@ -54,7 +54,7 @@ export function localData(kind: "general" | keyof typeof areas | string): Landin
       path, title: "Lavandería en Mar del Plata | Aquabon",
       description: "Lavandería y tintorería en Mar del Plata: valet de ropa, acolchados, tintorería y más en Gascón 2189. Consultá por WhatsApp.",
       eyebrow: "", h1: "Lavandería en Mar del Plata",
-      intro: "Valet de ropa, acolchados, tintorería y cuidados específicos para la ropa de todos los días y las prendas especiales. Más de 10 años en el rubro.",
+      intro: "Te sacamos el lavado de encima: ropa de todos los días, acolchados y prendas especiales, revisadas una por una. Local en Gascón 2189 y retiro en Centro, Güemes, Chauvin y La Perla. Más de 10 años en el rubro.",
       event: "whatsapp_lavanderia_mdp", message: "Hola Aquabon, quería consultar por un servicio de lavandería.", cta: "Consultar por WhatsApp",
       crumbs: [{ label: "Inicio", href: "/" }, { label: "Lavandería en Mar del Plata", href: path }],
       sections: [

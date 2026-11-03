@@ -35,7 +35,7 @@ export default function NeighborhoodLanding({ slug }: { slug: NeighborhoodSlug }
       <PageHero crumbs={data.crumbs} kicker={`Aquabon · ${business.street}`} title={data.h1}
         lead={n.intro}
         image={{ src: "/laundry-hero-v2.webp", alt: "Ropa limpia doblada en tonos blancos y azules" }}
-        chip={{ symbol: "wash", text: "Vos traés la bolsa" }}
+        chip={{ symbol: "wash", text: "Te ahorrás el lavado" }}
         actions={<>
           <WhatsAppLink className="btn btn--azul btn--xl" message={message} ubicacion="hero" data-primary-cta=""><WhatsAppIcon />Consultar por mi ropa</WhatsAppLink>
           <a className="btn btn--outline-light btn--xl" href="#venir-al-local">Cómo llegar</a>

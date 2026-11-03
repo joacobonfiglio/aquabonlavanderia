@@ -30,7 +30,7 @@ export default function Page() {
         crumbs={[{ label: "Inicio", href: "/" }, { label: "Nosotros", href: "/nosotros" }]}
         kicker="Más de 10 años en el rubro"
         title="Una lavandería de barrio en Mar del Plata"
-        lead={`Somos Aquabon, en ${business.street}, Mar del Plata. Recibimos la ropa de la semana, acolchados y prendas que necesitan un cuidado especial.`}
+        lead={`Somos Aquabon, en ${business.street}, Mar del Plata. Hace más de 10 años que nos ocupamos de la ropa de la semana, los acolchados y las prendas que necesitan un cuidado especial, para que vos no tengas que hacerlo.`}
         image={{ src: "/laundry-detail-v2.webp", alt: "Ropa de algodón lavada y doblada, lista para entregar" }}
         chip={{ symbol: "wash", text: "Lavandería y tintorería" }}
         actions={<WhatsAppLink className="btn btn--azul btn--xl" message="Hola Aquabon, quería hacer una consulta." ubicacion="hero" data-primary-cta=""><WhatsAppIcon />Escribinos por WhatsApp</WhatsAppLink>}

@@ -31,9 +31,9 @@ export default function CentroLanding() {
     <SiteHeader overlay />
     <main id="contenido" className="page">
       <PageHero crumbs={data.crumbs} kicker={`Tu lavandería en ${business.street}`} title={data.h1}
-        lead={`En ${business.street}, lavamos, secamos y doblamos tu ropa de todos los días. También recibimos acolchados y prendas de tintorería: contanos qué tenés para lavar y te orientamos antes de venir.`}
+        lead={`Te sacamos el lavado de encima: en ${business.street} lavamos, secamos y doblamos tu ropa de todos los días, y en el Centro también la retiramos y entregamos. Recibimos acolchados y prendas de tintorería: contanos qué tenés y te orientamos antes de venir.`}
         image={{ src: "/laundry-hero-v2.webp", alt: "Ropa limpia doblada en tonos blancos y azules" }}
-        chip={{ symbol: "wash", text: "Vos traés la bolsa" }}
+        chip={{ symbol: "wash", text: "Te ahorrás el lavado" }}
         actions={<>
           <WhatsAppLink className="btn btn--azul btn--xl" message={message} ubicacion="hero" data-primary-cta=""><WhatsAppIcon />Consultar por mi ropa</WhatsAppLink>
           <a className="btn btn--outline-light btn--xl" href="#venir-al-local">Cómo llegar</a>
