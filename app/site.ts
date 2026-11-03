@@ -16,10 +16,12 @@ export const business = {
   whatsappNumber: "5492235607738",
   instagram: "https://www.instagram.com/aquabonlavanderia/",
   instagramHandle: "@aquabonlavanderia",
-  googleBusiness: "https://share.google/zMYKqQKydXo7nuhxn",
+  // Ficha de Google Maps por CID (link directo y estable, sin acortador).
+  googleBusiness: "https://maps.google.com/?cid=16265134030335527067",
   experience: "Más de 10 años en el rubro",
-  // TODO(joaco): pasar latitud y longitud exactas del local (desde Google Business) para sumar "geo" al JSON-LD.
-  geo: null as null | { latitude: number; longitude: number },
+  postalCode: "B7600FMQ",
+  // Pin de la ficha de Google Maps.
+  geo: { latitude: -38.0081341, longitude: -57.5480847 } as null | { latitude: number; longitude: number },
 };
 
 // TODO(joaco): datos del titular para las páginas legales (Ley 25.326 pide identificar al responsable).

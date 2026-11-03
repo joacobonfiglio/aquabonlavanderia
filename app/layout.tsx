@@ -35,7 +35,7 @@ const businessSchema = {
   telephone: business.phoneE164,
   image: SITE_URL + "/laundry-hero-v2.webp",
   logo: SITE_URL + "/logo-aquabon.png",
-  address: { "@type": "PostalAddress", streetAddress: business.street, addressLocality: business.city, addressRegion: business.region, addressCountry: business.country },
+  address: { "@type": "PostalAddress", streetAddress: business.street, postalCode: business.postalCode, addressLocality: business.city, addressRegion: business.region, addressCountry: business.country },
   ...(business.geo ? { geo: { "@type": "GeoCoordinates", ...business.geo } } : {}),
   openingHoursSpecification: hours.map(h => ({ "@type": "OpeningHoursSpecification", dayOfWeek: h.days.map(d => "https://schema.org/" + d), opens: h.opens, closes: h.closes })),
   areaServed: { "@type": "City", name: "Mar del Plata" },
