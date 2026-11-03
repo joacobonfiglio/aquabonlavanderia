@@ -64,7 +64,7 @@ export default function SiteFooter() {
       </div>
       <div className="ftr__base">
         <p className="ftr__legal">© {business.name}. <Link href="/politica-de-privacidad">Privacidad</Link> <Link href="/politica-de-cookies">Cookies</Link> <Link href="/terminos-y-condiciones">Términos y condiciones</Link></p>
-        <p className="ftr__credit">Diseño y desarrollo: {TRAKA_URL ? <a href={TRAKA_URL} rel="noreferrer" target="_blank">Traka</a> : <span>Traka</span>}</p>
+        <p className="ftr__credit">Diseño y desarrollo: {TRAKA_URL ? <a href={TRAKA_URL} rel="noopener" target="_blank">Traka</a> : <span>Traka</span>}</p>
       </div>
     </div>
   </footer>;

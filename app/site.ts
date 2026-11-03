@@ -68,5 +68,5 @@ export const businessLinks = [
   { name: "Ropa deportiva", href: "/empresas/lavado-ropa-deportiva", short: "Camisetas, shorts y equipos de entrenamiento.", image: "/blog/evitar-encogimiento-ropa.webp", alt: "Prendas de algodón revisadas antes del lavado" },
 ];
 
-// TODO(joaco): URL de la web de Traka. Mientras esté vacía, el crédito del footer se muestra sin link.
-export const TRAKA_URL = "";
+// Web de Traka (crédito del footer). Si se vacía, el crédito se muestra sin link.
+export const TRAKA_URL = "https://trakadigital.com";
