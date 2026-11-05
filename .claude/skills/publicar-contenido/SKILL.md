@@ -5,7 +5,7 @@ description: Analiza, desarrolla, revisa y publica contenido nuevo en aquabonlav
 
 # Publicar contenido en Aquabon
 
-Leé primero `CLAUDE.md`: las reglas de ahí mandan sobre todo lo que está acá. Este skill dice **cómo** hacer cada pieza, en 5 etapas. No saltees ninguna.
+Leé primero `INSTRUCCIONES.md`: las reglas de ahí mandan sobre todo lo que está acá. Este skill dice **cómo** hacer cada pieza, en 5 etapas. No saltees ninguna.
 
 ```
 1. Análisis  →  2. Brief (OK de Joaco)  →  3. Desarrollo  →  4. Revisión  →  5. Vista previa (OK de Joaco) → main
@@ -124,7 +124,7 @@ Solo con un servicio confirmado por Joaco. Tocá **todos** estos archivos; el te
 
 ### 3d. Página por barrio
 
-Solo cuando Joaco confirme por escrito que el retiro llega a ese barrio (hoy está como `TODO` en `app/LocalLanding.tsx`). Cada página tiene que tener contenido propio del barrio, no una copia con el nombre cambiado. Se agrega en `areas`.
+Solo cuando Joaco confirme por escrito que el retiro llega a ese barrio. Hoy hay cuatro confirmados: Centro, Güemes, Chauvin y La Perla. Un barrio nuevo se agrega en `app/neighborhoods.ts` (con sus propios textos, tarjetas, pregunta y guías) y en una página `app/<slug>/page.tsx` copiada de `app/lavanderia-guemes-mar-del-plata/page.tsx`. Cada página tiene que tener contenido propio del barrio, no una copia con el nombre cambiado. Actualizá también la lista de zonas en `INSTRUCCIONES.md` y en las frases de retiro.
 
 ### Imágenes
 
