@@ -6,7 +6,7 @@ export const metadata = legalMetadata("Términos y condiciones", "/terminos-y-co
 export default function Page() {
   return <LegalPage title="Términos y condiciones" path="/terminos-y-condiciones">
     <h2>Quiénes somos</h2>
-    <p>Esta web es de {business.name}{legal.holder ? ` (${legal.holder}${legal.cuit ? `, CUIT ${legal.cuit}` : ""})` : ""}, lavandería y tintorería en {business.street}, {business.city}. Contacto: WhatsApp {business.phoneDisplay}.</p>
+    <p>Esta web es de {business.name}{legal.holder ? ` (${legal.holder}${legal.cuit ? `, CUIT ${legal.cuit}` : ""})` : ""}, con local en {business.street}, {business.city}. Contacto: WhatsApp {business.phoneDisplay}.</p>
 
     <h2>Para qué sirve esta web</h2>
     <p>La web es informativa: describe nuestros servicios y te permite escribirnos por WhatsApp. No se contratan ni se pagan servicios a través de ella y no publica precios.</p>

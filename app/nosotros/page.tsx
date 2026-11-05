@@ -12,7 +12,7 @@ const description = "Aquabon es una lavandería y tintorería de barrio en Gasc�
 export const metadata: Metadata = {
   title: "Nosotros: lavandería de barrio en Mar del Plata | Aquabon", description,
   alternates: { canonical: "/nosotros" },
-  openGraph: { title: "Nosotros | Aquabon Lavandería", description, url: "/nosotros", type: "website", locale: "es_AR", images: [{ url: "/laundry-hero-v2.webp", width: 1536, height: 1024, alt: "Ropa lavada y doblada en tonos blancos y azules, Aquabon Lavandería" }] },
+  openGraph: { title: "Nosotros | Aquabon Lavandería y Tintorería", description, url: "/nosotros", type: "website", locale: "es_AR", images: [{ url: "/laundry-hero-v2.webp", width: 1536, height: 1024, alt: "Ropa lavada y doblada en tonos blancos y azules, Aquabon Lavandería" }] },
 };
 
 const ways = [

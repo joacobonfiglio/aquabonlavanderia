@@ -29,7 +29,7 @@ const businessSchema = {
   "@type": "DryCleaningOrLaundry",
   "@id": SITE_URL + "/#business",
   name: business.name,
-  alternateName: "Lavandería Aquabon",
+  alternateName: ["Aquabon Lavandería", "Aquabon"],
   description: "Lavandería y tintorería en Mar del Plata con más de 10 años en el rubro: valet de ropa, lavado de acolchados, tintorería, planchado, teñido, arreglos y costura, lavado de zapatillas, camperas y tapados, y retiro y entrega a consultar.",
   url: SITE_URL + "/",
   telephone: business.phoneE164,

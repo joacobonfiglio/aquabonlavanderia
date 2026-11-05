@@ -6,7 +6,7 @@ import SiteFooter from "../SiteFooter";
 import WhatsAppLink from "../WhatsAppLink";
 import JsonLd from "../JsonLd";
 import { WhatsAppIcon } from "../ui";
-import { SITE_URL, businessLinks, services } from "../site";
+import { SITE_URL, business, businessLinks, services } from "../site";
 import { servicioFromPath } from "../ga";
 import Img from "../Img";
 import { Clothesline, GuideCards, Waves } from "../Blocks";
@@ -46,7 +46,7 @@ export default function ArticleLayout({ title, description, slug, date, readingT
     datePublished: date, dateModified: date, inLanguage: "es-AR",
     mainEntityOfPage: SITE_URL + path,
     ...(image ? { image: SITE_URL + image } : {}),
-    author: { "@type": "Organization", name: "Aquabon Lavandería", url: SITE_URL + "/" },
+    author: { "@type": "Organization", name: business.name, url: SITE_URL + "/" },
     publisher: { "@id": SITE_URL + "/#business" },
   };
   const more = guides.filter(g => g.href !== path && g.cluster.toLowerCase() === cluster.toLowerCase()).concat(guides.filter(g => g.href !== path && g.cluster.toLowerCase() !== cluster.toLowerCase())).slice(0, 3);

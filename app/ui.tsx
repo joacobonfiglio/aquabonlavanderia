@@ -12,7 +12,7 @@ export function WavesMark() {
 export function Brand() {
   return <span className="brand">
     <WavesMark />
-    <span><b>Aquabon</b><small>Lavandería</small></span>
+    <span><b>Aquabon</b><small>Lavandería y tintorería</small></span>
   </span>;
 }
 

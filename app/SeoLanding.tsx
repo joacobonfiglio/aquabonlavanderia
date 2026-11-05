@@ -29,7 +29,7 @@ export function landingMetadata(data: LandingData): Metadata {
   const description = seoDescriptions[data.path] ?? data.description;
   const images = design
     ? [{ url: design.image, alt: design.alt }]
-    : [{ url: "/laundry-hero-v2.webp", width: 1536, height: 1024, alt: "Ropa lavada y doblada en tonos blancos y azules, Aquabon Lavandería" }];
+    : [{ url: "/laundry-hero-v2.webp", width: 1536, height: 1024, alt: "Ropa lavada y doblada en tonos blancos y azules, Aquabon Lavandería y Tintorería" }];
   return { title: data.title, description, alternates: { canonical: data.path }, openGraph: { title: data.title, description, type: "website", locale: "es_AR", url: data.path, images } };
 }
 

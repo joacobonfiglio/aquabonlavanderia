@@ -4,7 +4,7 @@
 export const SITE_URL = "https://www.aquabonlavanderia.com";
 
 export const business = {
-  name: "Aquabon Lavandería",
+  name: "Aquabon Lavandería y Tintorería",
   shortName: "Aquabon",
   street: "Gascón 2189",
   city: "Mar del Plata",
