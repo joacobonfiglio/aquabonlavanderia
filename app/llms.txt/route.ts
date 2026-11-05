@@ -17,7 +17,7 @@ export function GET() {
     `- WhatsApp y teléfono: ${business.phoneDisplay}`,
     `- Instagram: ${business.instagram}`,
     `- Perfil en Google: ${business.googleBusiness}`,
-    "- Zona: Mar del Plata. Retiro y entrega a domicilio según zona y disponibilidad, a confirmar por WhatsApp.",
+    "- Zona: Mar del Plata. Retiro y entrega a domicilio en Centro, Güemes, Chauvin y La Perla; costo y disponibilidad se confirman por WhatsApp.",
     "",
     "## Servicios",
     ...services.map(s => `- [${s.name}](${SITE_URL}${s.href}): ${s.short}`),

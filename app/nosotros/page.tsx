@@ -12,14 +12,14 @@ const description = "Aquabon es una lavandería y tintorería de barrio en Gasc�
 export const metadata: Metadata = {
   title: "Nosotros: lavandería de barrio en Mar del Plata | Aquabon", description,
   alternates: { canonical: "/nosotros" },
-  openGraph: { title: "Nosotros | Aquabon Lavandería", description, url: "/nosotros", type: "website", locale: "es_AR", images: [{ url: "/laundry-hero-v2.webp", width: 1536, height: 1024, alt: "Ropa lavada y doblada en tonos blancos y azules, Aquabon Lavandería" }] },
+  openGraph: { title: "Nosotros | Aquabon Lavandería y Tintorería", description, url: "/nosotros", type: "website", locale: "es_AR", images: [{ url: "/laundry-hero-v2.webp", width: 1536, height: 1024, alt: "Ropa lavada y doblada en tonos blancos y azules, Aquabon Lavandería" }] },
 };
 
 const ways = [
-  { title: "Todo empieza en el mostrador", copy: "Escuchamos qué necesitás, miramos la etiqueta, el tejido y el estado de la prenda, y recién ahí elegimos el servicio." },
+  { title: "Todo empieza en el mostrador", copy: "Escuchamos qué necesitás, miramos etiqueta, tejido y estado de la prenda, y recién ahí elegimos el servicio. Así no hay sorpresas." },
   { title: "Te decimos la verdad antes", copy: "Hay manchas que no salen y desgastes que no se revierten. Preferimos explicarlo de entrada a sorprenderte al retirar." },
-  { title: "Te avisamos por WhatsApp", copy: `Cuando el pedido está listo, te escribimos. Podés pasar a buscarlo (${hoursSentence.toLowerCase()}) o consultar por retiro y entrega.` },
-  { title: "Un solo punto de contacto", copy: "Para prendas que necesitan un tratamiento especializado, recibimos la prenda, coordinamos el tratamiento y hacemos el seguimiento hasta que vuelve." },
+  { title: "Te avisamos por WhatsApp", copy: `Cuando el pedido está listo, te escribimos. Lo pasás a buscar (${hoursSentence.toLowerCase()}) o, si estás en Centro, Güemes, Chauvin y La Perla, te lo llevamos.` },
+  { title: "Un solo punto de contacto", copy: "Si una prenda necesita un tratamiento especializado, la recibimos, coordinamos el tratamiento y hacemos el seguimiento hasta que vuelve. Vos tratás solo con nosotros." },
 ];
 
 export default function Page() {
@@ -30,7 +30,7 @@ export default function Page() {
         crumbs={[{ label: "Inicio", href: "/" }, { label: "Nosotros", href: "/nosotros" }]}
         kicker="Más de 10 años en el rubro"
         title="Una lavandería de barrio en Mar del Plata"
-        lead={`Somos Aquabon, en ${business.street}, Mar del Plata. Recibimos la ropa de la semana, acolchados y prendas que necesitan un cuidado especial.`}
+        lead={`Somos Aquabon, en ${business.street}, Mar del Plata. Hace más de 10 años que nos ocupamos de la ropa de la semana, los acolchados y las prendas que necesitan un cuidado especial, para que vos no tengas que hacerlo.`}
         image={{ src: "/laundry-detail-v2.webp", alt: "Ropa de algodón lavada y doblada, lista para entregar" }}
         chip={{ symbol: "wash", text: "Lavandería y tintorería" }}
         actions={<WhatsAppLink className="btn btn--azul btn--xl" message="Hola Aquabon, quería hacer una consulta." ubicacion="hero" data-primary-cta=""><WhatsAppIcon />Escribinos por WhatsApp</WhatsAppLink>}

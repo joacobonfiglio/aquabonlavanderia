@@ -4,7 +4,7 @@
 export const SITE_URL = "https://www.aquabonlavanderia.com";
 
 export const business = {
-  name: "Aquabon Lavandería",
+  name: "Aquabon Lavandería y Tintorería",
   shortName: "Aquabon",
   street: "Gascón 2189",
   city: "Mar del Plata",
@@ -16,10 +16,12 @@ export const business = {
   whatsappNumber: "5492235607738",
   instagram: "https://www.instagram.com/aquabonlavanderia/",
   instagramHandle: "@aquabonlavanderia",
-  googleBusiness: "https://share.google/zMYKqQKydXo7nuhxn",
+  // Ficha de Google Maps por CID (link directo y estable, sin acortador).
+  googleBusiness: "https://maps.google.com/?cid=16265134030335527067",
   experience: "Más de 10 años en el rubro",
-  // TODO(joaco): pasar latitud y longitud exactas del local (desde Google Business) para sumar "geo" al JSON-LD.
-  geo: null as null | { latitude: number; longitude: number },
+  postalCode: "B7600FMQ",
+  // Pin de la ficha de Google Maps.
+  geo: { latitude: -38.0081341, longitude: -57.5480847 } as null | { latitude: number; longitude: number },
 };
 
 // TODO(joaco): datos del titular para las páginas legales (Ley 25.326 pide identificar al responsable).
@@ -56,7 +58,7 @@ export const services: { name: string; href: string; short: string; symbol?: Car
   { name: "Lavado de zapatillas", href: "/servicios/lavado-de-zapatillas", short: "Limpieza según el material de tu par.", image: "/blog/revisar-zapatillas-antes-lavar.webp", alt: "Zapatillas blancas revisadas antes de lavarlas" },
   { name: "Teñido de prendas", href: "/servicios/tenido-de-prendas", short: "Recuperar o cambiar el color, si la prenda lo permite.", image: "/services/tenido-v3.webp", alt: "Prenda en un baño de tinte azul" },
   { name: "Arreglos y costura", href: "/servicios/arreglos-y-costura", short: "Ajustes y reparaciones para seguir usándola.", image: "/services/costura-v3.webp", alt: "Máquina de coser sobre el dobladillo de un jean" },
-  { name: "Retiro y entrega", href: "/servicios/retiro-y-entrega-de-ropa", short: "Consultá si llegamos a tu zona.", image: "/services/retiro-v3.webp", alt: "Entrega de una bolsa de ropa en la puerta de una casa" },
+  { name: "Retiro y entrega", href: "/servicios/retiro-y-entrega-de-ropa", short: "En Centro, Güemes, Chauvin y La Perla.", image: "/services/retiro-v3.webp", alt: "Entrega de una bolsa de ropa en la puerta de una casa" },
 ];
 
 export const businessLinks = [
@@ -68,5 +70,5 @@ export const businessLinks = [
   { name: "Ropa deportiva", href: "/empresas/lavado-ropa-deportiva", short: "Camisetas, shorts y equipos de entrenamiento.", image: "/blog/evitar-encogimiento-ropa.webp", alt: "Prendas de algodón revisadas antes del lavado" },
 ];
 
-// TODO(joaco): URL de la web de Traka. Mientras esté vacía, el crédito del footer se muestra sin link.
-export const TRAKA_URL = "";
+// Web de Traka (crédito del footer). Si se vacía, el crédito se muestra sin link.
+export const TRAKA_URL = "https://trakadigital.com";

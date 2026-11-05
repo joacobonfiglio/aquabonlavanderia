@@ -8,11 +8,11 @@ import Img from "./Img";
 import ChatPreview from "./ChatPreview";
 import { PageHero, Ribbon } from "./Blocks";
 import { CareSymbol, WhatsAppIcon } from "./ui";
-import { SITE_URL, services, businessLinks } from "./site";
+import { SITE_URL, business, services, businessLinks } from "./site";
 import { servicesHub } from "./landing-data";
 
 export default function ServiceCatalog() {
-  const list = { "@context": "https://schema.org", "@type": "ItemList", name: "Servicios de Aquabon Lavandería", itemListElement: services.map((s, i) => ({ "@type": "ListItem", position: i + 1, name: s.name, url: SITE_URL + s.href })) };
+  const list = { "@context": "https://schema.org", "@type": "ItemList", name: `Servicios de ${business.name}`, itemListElement: services.map((s, i) => ({ "@type": "ListItem", position: i + 1, name: s.name, url: SITE_URL + s.href })) };
   return <>
     <SiteHeader overlay />
     <main id="contenido" className="page">
@@ -20,7 +20,7 @@ export default function ServiceCatalog() {
         crumbs={servicesHub.crumbs}
         kicker="Todo en un mismo mostrador"
         title="Servicios de lavandería y tintorería en Mar del Plata"
-        lead="Ropa de todos los días, acolchados, prendas delicadas, teñido, arreglos y zapatillas. Si no sabés cuál necesitás, mandanos una foto de la prenda y su etiqueta."
+        lead="Todo lo que no querés resolver en casa, en un mismo mostrador: ropa de todos los días, acolchados, prendas delicadas, teñido, arreglos y zapatillas. Si no sabés cuál necesitás, mandanos una foto de la prenda y su etiqueta."
         image={{ src: "/laundry-hero-v2.webp", alt: "Pila de ropa lavada y doblada en tonos blancos y azules" }}
         chip={{ symbol: "wash", text: `${services.length} servicios` }}
         actions={<>
