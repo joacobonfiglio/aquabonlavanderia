@@ -58,7 +58,7 @@ export const services: { name: string; href: string; short: string; symbol?: Car
   { name: "Lavado de zapatillas", href: "/servicios/lavado-de-zapatillas", short: "Limpieza según el material de tu par.", image: "/blog/revisar-zapatillas-antes-lavar.webp", alt: "Zapatillas blancas revisadas antes de lavarlas" },
   { name: "Teñido de prendas", href: "/servicios/tenido-de-prendas", short: "Recuperar o cambiar el color, si la prenda lo permite.", image: "/services/tenido-v3.webp", alt: "Prenda en un baño de tinte azul" },
   { name: "Arreglos y costura", href: "/servicios/arreglos-y-costura", short: "Ajustes y reparaciones para seguir usándola.", image: "/services/costura-v3.webp", alt: "Máquina de coser sobre el dobladillo de un jean" },
-  { name: "Retiro y entrega", href: "/servicios/retiro-y-entrega-de-ropa", short: "Consultá si llegamos a tu zona.", image: "/services/retiro-v3.webp", alt: "Entrega de una bolsa de ropa en la puerta de una casa" },
+  { name: "Retiro y entrega", href: "/servicios/retiro-y-entrega-de-ropa", short: "En Centro, Güemes, Chauvin y La Perla.", image: "/services/retiro-v3.webp", alt: "Entrega de una bolsa de ropa en la puerta de una casa" },
 ];
 
 export const businessLinks = [

@@ -22,12 +22,12 @@ export default function NeighborhoodLanding({ slug }: { slug: NeighborhoodSlug }
   const pickup = `Hola Aquabon, ¿llegan a mi dirección en ${n.name}? Es __ y necesito lavar __. Quisiera consultar cobertura, costo y disponibilidad.`;
   const featured = services.filter(s => ["/servicios/valet-de-ropa", "/servicios/lavado-de-acolchados", "/servicios/tintoreria"].includes(s.href));
   const faqs = [
-    { question: `¿Tienen local en ${n.name}?`, answer: `Nuestro local está en ${business.address}. Desde esta página podés consultar por tu ropa y abrir el mapa para organizar tu visita desde ${n.name}.` },
+    { question: `¿Tienen local en ${n.name}?`, answer: `No, nuestro local está en ${business.address}. Pero no hace falta que vengas: en ${n.name} pasamos a buscar la ropa y te la llevamos cuando está lista.` },
     { question: n.question, answer: n.answer },
-    { question: `¿Retiran ropa y acolchados en ${n.name}?`, answer: "Sí. Coordinamos retiro y entrega en esta zona. Mandanos tu dirección y qué necesitás lavar para confirmar costo y disponibilidad." },
-    { question: "¿Cómo se lava mi acolchado?", answer: "Revisamos etiqueta, tamaño, relleno y estado para indicar el proceso adecuado. Mandanos fotos si tiene manchas, roturas o si no encontrás la etiqueta." },
-    { question: "¿El valet incluye planchado?", answer: "Incluye lavado, secado y doblado de ropa cotidiana. El planchado se solicita aparte." },
-    { question: "¿Qué horario tienen y cuánto demora un pedido?", answer: `${hoursSentence}. El plazo depende de las prendas y del trabajo: consultalo antes de traer tu pedido.` },
+    { question: `¿Retiran ropa y acolchados en ${n.name}?`, answer: "Sí, retiramos y entregamos en esta zona. Mandanos tu dirección y qué tenés para lavar, y te confirmamos costo y horario." },
+    { question: "¿Cómo se lava mi acolchado?", answer: "Según lo que diga su etiqueta. Revisamos tamaño, relleno y estado antes de lavarlo. Si tiene manchas, roturas o no encontrás la etiqueta, mandanos fotos." },
+    { question: "¿El valet incluye planchado?", answer: "No. Incluye lavado, secado y doblado de la ropa de todos los días; el planchado lo pedís aparte." },
+    { question: "¿Qué horario tienen y cuánto demora un pedido?", answer: `${hoursSentence}. El plazo depende de las prendas y del trabajo de esa semana: te lo confirmamos cuando hacés el pedido.` },
   ];
   return <>
     <SiteHeader overlay />
@@ -64,17 +64,17 @@ export default function NeighborhoodLanding({ slug }: { slug: NeighborhoodSlug }
         <div className="wrap split-media">
           <div className="split-media__img" data-reveal><Img src="/service-still-v2.webp" alt="Ropa cotidiana doblada y preparada para retirar" width={1000} height={1250} sizes="(max-width: 960px) 100vw, 460px" /></div>
           <div>
-            <div className="h-head" data-reveal><p className="pick-step">{n.name.toUpperCase()} · MAR DEL PLATA</p><h2 id="zona-direccion">Nos encontrás en {business.street}</h2><p>Nuestro local está en {business.street}, Mar del Plata. Consultá el recorrido desde tu ubicación antes de venir.</p></div>
+            <div className="h-head" data-reveal><p className="pick-step">{n.name.toUpperCase()} · MAR DEL PLATA</p><h2 id="zona-direccion">Nos encontrás en {business.street}</h2><p>Si preferís traerla, nuestro local está en {business.street}, Mar del Plata. Mirá el recorrido desde donde estás.</p></div>
             <ul className="fit-cards" data-reveal>
               <li><h3>Organizá tu visita</h3><p>{hoursSentence}. Abrí la ruta desde tu ubicación para elegir cómo venir.<br /><TrackedLink className="link link--light" href={mapsDirections} target="_blank" rel="noreferrer" gaEvent="click_como_llegar" ubicacion="zona_direccion">Ver recorrido en Google Maps</TrackedLink></p></li>
-              <li><h3>¿Preferís consultar por retiro?</h3><p>Hacemos retiro y entrega en esta zona. Mandanos tu dirección y el tipo de prendas para coordinar costo y disponibilidad.<br /><WhatsAppLink className="link link--light" message={pickup} ubicacion="zona_retiro">Consultar mi dirección</WhatsAppLink><br /><Link className="link link--light" href="/servicios/retiro-y-entrega-de-ropa">Ver retiro a domicilio y zonas</Link></p></li>
+              <li><h3>¿Preferís que la pasemos a buscar?</h3><p>Retiramos y entregamos en esta zona. Mandanos tu dirección y qué tenés para lavar, y coordinamos costo y horario.<br /><WhatsAppLink className="link link--light" message={pickup} ubicacion="zona_retiro">Consultar mi dirección</WhatsAppLink><br /><Link className="link link--light" href="/servicios/retiro-y-entrega-de-ropa">Ver retiro a domicilio y zonas</Link></p></li>
             </ul>
           </div>
         </div>
       </section>
       <Process title="De tu bolsa al aviso de retiro" steps={[
         { title: "Contanos qué necesitás", copy: "Elegí el servicio o mandanos fotos de la prenda y su etiqueta. Si tiene manchas, contanos qué pasó.", image: "/blog/leer-simbolos-etiqueta-ropa.webp", alt: "Revisión de la etiqueta de una prenda" },
-        { title: "Acercá tu pedido", copy: `Te esperamos en ${business.street}. Revisamos las prendas y confirmamos el importe y el plazo antes de aceptar el trabajo.`, image: "/blog/elegir-lavanderia-o-tintoreria.webp", alt: "Prendas cotidianas y especiales separadas según su cuidado" },
+        { title: "Nos la dejás", copy: `La pasamos a buscar o la traés a ${business.street}. Revisamos las prendas y te confirmamos importe y plazo antes de aceptar el trabajo.`, image: "/blog/elegir-lavanderia-o-tintoreria.webp", alt: "Prendas cotidianas y especiales separadas según su cuidado" },
         { title: "Te avisamos cuando está", copy: "Recibís el aviso por WhatsApp para pasar a retirar. Si solicitaste entrega, la coordinamos según lo acordado.", image: "/laundry-hero-v2.webp", alt: "Pila de ropa limpia y doblada" },
       ]} cta={<WhatsAppLink className="btn btn--light btn--xl" message={message} ubicacion="proceso"><WhatsAppIcon />Consultar por mi ropa</WhatsAppLink>} />
       <section className="p-sec" aria-labelledby="zona-faq">

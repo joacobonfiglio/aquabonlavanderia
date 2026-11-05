@@ -70,16 +70,16 @@ const pillars = [
 const words = ["Lavamos", "Secamos", "Doblamos", "Planchamos", "Teñimos", "Cosemos", "Cuidamos"];
 
 const faqs: FaqItem[] = [
-  { question: "¿Dónde queda Aquabon?", answer: `En ${business.street}, en el centro de Mar del Plata. Podés traer tu ropa en el horario del local o escribirnos antes por WhatsApp.` },
+  { question: "¿Dónde queda Aquabon?", answer: `En ${business.street}, en el centro de Mar del Plata. Podés venir en el horario del local, sin turno, o escribirnos antes por WhatsApp.` },
   { question: "¿Qué horario tiene la lavandería?", answer: `${hoursSentence}.` },
-  { question: "¿Cuánto cuesta y cuándo está listo?", answer: "Depende del servicio, la cantidad y las características de la prenda. Escribinos con lo que necesitás lavar y te confirmamos el importe y el plazo antes de que lo dejes." },
-  { question: "¿Retiran y entregan a domicilio?", answer: "Coordinamos según tu zona y nuestra disponibilidad. Mandanos tu dirección por WhatsApp para consultar cobertura, costo y horarios." },
-  { question: "¿Y si no sé qué servicio necesita mi prenda?", answer: "Mandanos una foto de la prenda y de la etiqueta. Si necesitamos verla en persona, te lo decimos. La composición y el estado de la prenda definen el tratamiento." },
-  { question: "¿El valet incluye planchado?", answer: "No. El valet incluye lavado, secado y doblado de ropa de uso diario. El planchado se pide aparte." },
-  { question: "¿Lavan acolchados de plumas?", answer: "Los recibimos para evaluarlos. Revisamos etiqueta, relleno y estado antes de confirmar si admiten lavado y cómo secarlos." },
-  { question: "¿La tintorería se hace en el local?", answer: "Aquabon es el punto de recepción y seguimiento. Cuando la prenda necesita un tratamiento especializado, lo coordinamos fuera del local y te avisamos cuando vuelve." },
-  { question: "¿Necesito sacar turno?", answer: "No. Podés acercarte en el horario del local. Para prendas especiales o pedidos grandes, conviene escribirnos antes." },
-  { question: "¿Trabajan con empresas y alojamientos?", answer: "Sí: alquileres temporarios, hoteles, restaurantes, centros de estética, uniformes y ropa deportiva. Acordamos volumen y frecuencia antes de empezar." },
+  { question: "¿Cuánto cuesta y cuándo está listo?", answer: "Depende del servicio, la cantidad y la prenda. Escribinos con lo que tenés para lavar y te pasamos el importe y el plazo antes de que lo dejes, para que no haya sorpresas." },
+  { question: "¿Retiran y entregan a domicilio?", answer: "Sí, en Centro, Güemes, Chauvin y La Perla. Mandanos tu dirección por WhatsApp y te confirmamos costo y disponibilidad antes de pasar. Si estás en otra zona, consultanos igual." },
+  { question: "¿Y si no sé qué servicio necesita mi prenda?", answer: "No hace falta que lo sepas. Mandanos una foto de la prenda y de la etiqueta y te decimos qué le conviene. Si necesitamos verla en persona, te avisamos." },
+  { question: "¿El valet incluye planchado?", answer: "No. El valet es lavado, secado y doblado de la ropa de todos los días. Si querés algo planchado, pedilo aparte y lo sumamos al pedido." },
+  { question: "¿Lavan acolchados de plumas?", answer: "Sí, después de revisarlos. Miramos etiqueta, relleno y estado, y te decimos si admite lavado y cómo lo vamos a secar antes de aceptarlo." },
+  { question: "¿La tintorería se hace en el local?", answer: "No toda. Vos la dejás en Aquabon y nosotros nos encargamos del resto: cuando necesita un tratamiento especializado, lo coordinamos fuera del local, hacemos el seguimiento y te avisamos cuando vuelve." },
+  { question: "¿Necesito sacar turno?", answer: "No. Venís en el horario del local y te atendemos. Para prendas especiales o pedidos grandes, escribinos antes así te esperamos con todo listo." },
+  { question: "¿Trabajan con empresas y alojamientos?", answer: "Sí: alquileres temporarios, hoteles, restaurantes, centros de estética, uniformes y ropa deportiva. Acordamos volumen y frecuencia antes de empezar, para que tu equipo no tenga que ocuparse del lavado." },
 ];
 
 export default function Home() {

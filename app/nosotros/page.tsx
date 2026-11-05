@@ -16,10 +16,10 @@ export const metadata: Metadata = {
 };
 
 const ways = [
-  { title: "Todo empieza en el mostrador", copy: "Escuchamos qué necesitás, miramos la etiqueta, el tejido y el estado de la prenda, y recién ahí elegimos el servicio." },
+  { title: "Todo empieza en el mostrador", copy: "Escuchamos qué necesitás, miramos etiqueta, tejido y estado de la prenda, y recién ahí elegimos el servicio. Así no hay sorpresas." },
   { title: "Te decimos la verdad antes", copy: "Hay manchas que no salen y desgastes que no se revierten. Preferimos explicarlo de entrada a sorprenderte al retirar." },
-  { title: "Te avisamos por WhatsApp", copy: `Cuando el pedido está listo, te escribimos. Podés pasar a buscarlo (${hoursSentence.toLowerCase()}) o consultar por retiro y entrega.` },
-  { title: "Un solo punto de contacto", copy: "Para prendas que necesitan un tratamiento especializado, recibimos la prenda, coordinamos el tratamiento y hacemos el seguimiento hasta que vuelve." },
+  { title: "Te avisamos por WhatsApp", copy: `Cuando el pedido está listo, te escribimos. Lo pasás a buscar (${hoursSentence.toLowerCase()}) o, si estás en Centro, Güemes, Chauvin y La Perla, te lo llevamos.` },
+  { title: "Un solo punto de contacto", copy: "Si una prenda necesita un tratamiento especializado, la recibimos, coordinamos el tratamiento y hacemos el seguimiento hasta que vuelve. Vos tratás solo con nosotros." },
 ];
 
 export default function Page() {

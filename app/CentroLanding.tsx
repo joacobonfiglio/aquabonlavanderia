@@ -18,12 +18,12 @@ const message = "Hola Aquabon, estoy en el Centro de Mar del Plata y quiero cons
 const pickup = "Hola Aquabon, quería consultar si tienen retiro y entrega. Mi dirección es __ y necesito lavar __.";
 const featured = services.filter(s => ["/servicios/valet-de-ropa", "/servicios/lavado-de-acolchados", "/servicios/tintoreria"].includes(s.href));
 const faqs = [
-  { question: "¿Dónde queda la lavandería?", answer: `Aquabon está en ${business.address}. Abrí el mapa para ver el recorrido desde tu ubicación.` },
-  { question: "¿En qué horario puedo acercarme?", answer: `${hoursSentence}. Si tenés dudas sobre una prenda, podés consultar por WhatsApp antes de venir.` },
-  { question: "¿Puedo llevar ropa de la semana y un acolchado?", answer: "Sí. El valet corresponde a ropa cotidiana; el acolchado se evalúa como otro servicio según tamaño, relleno y etiqueta." },
-  { question: "¿Retiran y entregan en mi dirección?", answer: "Sí. Hacemos retiro y entrega en el Centro. Mandanos la dirección y qué necesitás lavar para coordinar costo y disponibilidad." },
-  { question: "¿El valet incluye planchado?", answer: "Incluye lavado, secado y doblado. El planchado se solicita aparte." },
-  { question: "¿Cuánto cuesta y cuándo puedo retirar?", answer: "Depende del servicio, la cantidad y el estado de las prendas. Te confirmamos importe y plazo antes de aceptar el pedido y te avisamos cuando está listo." },
+  { question: "¿Dónde queda la lavandería?", answer: `En ${business.address}, en pleno centro. Abrí el mapa para ver cómo llegar desde donde estás.` },
+  { question: "¿En qué horario puedo acercarme?", answer: `${hoursSentence}, sin turno. Si tenés dudas sobre una prenda, escribinos por WhatsApp antes de venir.` },
+  { question: "¿Puedo llevar ropa de la semana y un acolchado?", answer: "Sí, en el mismo viaje. La ropa de todos los días va al valet y el acolchado lo revisamos aparte según tamaño, relleno y etiqueta." },
+  { question: "¿Retiran y entregan en mi dirección?", answer: "Sí, en el Centro pasamos a buscar la ropa y te la llevamos. Mandanos la dirección y qué tenés para lavar, y coordinamos costo y horario." },
+  { question: "¿El valet incluye planchado?", answer: "No. Incluye lavado, secado y doblado; el planchado lo pedís aparte y lo sumamos." },
+  { question: "¿Cuánto cuesta y cuándo puedo retirar?", answer: "Depende del servicio, la cantidad y el estado de las prendas. Te pasamos importe y plazo antes de aceptar el pedido y te avisamos por WhatsApp cuando está listo." },
 ];
 
 export default function CentroLanding() {
@@ -65,7 +65,7 @@ export default function CentroLanding() {
       </section>
       <Process title="De tu bolsa al aviso de retiro" steps={[
         { title: "Contanos qué necesitás", copy: "Elegí el servicio o mandanos fotos de la prenda y su etiqueta. Si tiene manchas, contanos qué pasó.", image: "/blog/leer-simbolos-etiqueta-ropa.webp", alt: "Revisión de la etiqueta de una prenda" },
-        { title: "Acercá tu pedido", copy: `Te esperamos en ${business.street}. Revisamos las prendas y confirmamos el importe y el plazo antes de aceptar el trabajo.`, image: "/blog/elegir-lavanderia-o-tintoreria.webp", alt: "Prendas cotidianas y especiales separadas según su cuidado" },
+        { title: "Nos la dejás", copy: `En ${business.street} o la pasamos a buscar. Revisamos las prendas y te confirmamos importe y plazo antes de aceptar el trabajo.`, image: "/blog/elegir-lavanderia-o-tintoreria.webp", alt: "Prendas cotidianas y especiales separadas según su cuidado" },
         { title: "Te avisamos cuando está", copy: "Recibís el aviso por WhatsApp para pasar a retirar. Si solicitaste entrega, la coordinamos según lo acordado.", image: "/laundry-hero-v2.webp", alt: "Pila de ropa limpia y doblada" },
       ]} cta={<WhatsAppLink className="btn btn--light btn--xl" message={message} ubicacion="proceso"><WhatsAppIcon />Consultar por mi ropa</WhatsAppLink>} />
       <section className="p-sec" aria-labelledby="centro-faq">
