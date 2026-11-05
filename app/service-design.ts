@@ -26,7 +26,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     ], closing: ["Menos tiempo lavando,", "más tiempo para vos"], variant: "soft"
   },
   "lavado-de-acolchados": {
-    symbol: "tumble", guides: ["cada-cuanto-lavar-un-acolchado", "como-lavar-un-acolchado-de-plumas", "como-secar-un-acolchado", "simbolos-de-lavado-de-un-acolchado", "como-sacar-olor-a-humedad-de-un-acolchado"],
+    symbol: "tumble", guides: ["cuanto-cuesta-lavar-un-acolchado", "cada-cuanto-lavar-un-acolchado", "como-lavar-un-acolchado-de-plumas", "como-secar-un-acolchado", "simbolos-de-lavado-de-un-acolchado", "como-sacar-olor-a-humedad-de-un-acolchado"],
     name: "Lavado de acolchados", title: ["Sin pelearte con el lavarropas", "ni con el tender"],
     image: "/blog/revisar-cuando-lavar-acolchado.webp", alt: "Revisión de un acolchado blanco sobre una cama antes de su lavado",
     tag: "EL CUIDADO TAMBIÉN DESCANSA", caption: "Acolchados · Cubrecamas · Frazadas",
@@ -152,7 +152,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     ], closing: ["Cuando vuelva el frío,", "volvé a tu abrigo"], variant: "tailored"
   },
   "retiro-y-entrega-de-ropa": {
-    guides: ["como-secar-ropa-dentro-de-casa", "cuanto-detergente-usar"],
+    guides: ["como-preparar-la-ropa-blanca-de-un-alquiler-temporario", "checklist-recambio-ropa-blanca-airbnb", "como-secar-ropa-dentro-de-casa", "cuanto-detergente-usar"],
     name: "Retiro y entrega", title: ["Tu ropa va y vuelve,", "vos seguís con tu día"],
     image: "/services/retiro-v3.webp", alt: "Entrega de una bolsa de ropa cerrada en la puerta de una vivienda",
     tag: "MENOS TRASLADOS EN TU DÍA", caption: "Centro · Güemes · Chauvin · La Perla",

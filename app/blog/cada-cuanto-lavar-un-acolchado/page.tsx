@@ -49,7 +49,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
 
   <h2 id="profesional">Cuándo conviene llevarlo a una lavandería</h2>
   <p>Pedí una evaluación si el acolchado no entra holgado en tu lavarropas, si no podés reproducir el tratamiento de la etiqueta, si tiene una mancha extensa, costuras débiles o un relleno que necesita secado controlado. Forzar una pieza voluminosa reduce el movimiento y puede impedir un enjuague uniforme.</p>
-  <p>En Aquabon revisamos tamaño, tejido, relleno y estado antes de confirmar el <Link href="/servicios/lavado-de-acolchados">servicio de lavado de acolchados</Link>. Podés acercarte a Gascón 2189, en el centro de Mar del Plata, o enviarnos por WhatsApp una foto del acolchado y su etiqueta.</p>
+  <p>En Aquabon revisamos tamaño, tejido, relleno y estado antes de confirmar el <Link href="/servicios/lavado-de-acolchados">servicio de lavado de acolchados</Link>. Podés acercarte a Gascón 2189, en el centro de Mar del Plata, o enviarnos por WhatsApp una foto del acolchado y su etiqueta. Si querés saber qué cambia el precio, mirá <Link href="/blog/cuanto-cuesta-lavar-un-acolchado">cuánto cuesta lavar un acolchado</Link>.</p>
 
   <h2>Preguntas frecuentes</h2>
   {faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}

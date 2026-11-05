@@ -55,7 +55,7 @@ export const neighborhoods = {
     ],
     question: "¿Puedo consultar por la ropa de un alquiler temporario en La Perla?",
     answer: "Sí. Decinos cantidad de sábanas, fundas y toallas, cada cuánto hacés recambio y la dirección. Te confirmamos condiciones y retiro antes de empezar.",
-    guides: ["como-secar-ropa-dentro-de-casa", "simbolos-de-lavado-de-un-acolchado", "como-secar-un-acolchado"],
+    guides: ["como-preparar-la-ropa-blanca-de-un-alquiler-temporario", "checklist-recambio-ropa-blanca-airbnb", "como-secar-un-acolchado"],
     extra: { href: "/empresas/lavanderia-airbnb", label: "Ver el servicio para Airbnb y alquileres temporarios" },
   },
 } as const;

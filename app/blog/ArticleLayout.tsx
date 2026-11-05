@@ -6,7 +6,7 @@ import SiteFooter from "../SiteFooter";
 import WhatsAppLink from "../WhatsAppLink";
 import JsonLd from "../JsonLd";
 import { WhatsAppIcon } from "../ui";
-import { SITE_URL, services } from "../site";
+import { SITE_URL, businessLinks, services } from "../site";
 import { servicioFromPath } from "../ga";
 import Img from "../Img";
 import { Clothesline, GuideCards, Waves } from "../Blocks";
@@ -20,7 +20,7 @@ type ArticleLayoutProps = {
   readingTime: string;
   cluster: string;
   image?: string;
-  service?: "acolchados" | "tintoreria" | "zapatillas" | "valet";
+  service?: "acolchados" | "tintoreria" | "zapatillas" | "valet" | "airbnb";
   children: ReactNode;
 };
 
@@ -28,6 +28,7 @@ const serviceInfo = {
   acolchados: { path: "/servicios/lavado-de-acolchados", name: "Lavado de acolchados", copy: "Revisamos tamaño, tejido, relleno y estado antes de confirmar el proceso.", message: "Hola Aquabon, quería consultar por el lavado de un acolchado." },
   tintoreria: { path: "/servicios/tintoreria", name: "Tintorería", copy: "Revisamos etiqueta, tejido, forro, adornos y manchas antes de confirmar el tratamiento.", message: "Hola Aquabon, quería consultar por una prenda de tintorería." },
   zapatillas: { path: "/servicios/lavado-de-zapatillas", name: "Lavado de zapatillas", copy: "Revisamos material, uniones, color, manchas y desgaste antes de confirmar el proceso.", message: "Hola Aquabon, quería consultar por el lavado de unas zapatillas." },
+  airbnb: { path: "/empresas/lavanderia-airbnb", name: "Lavandería para Airbnb", copy: "Sábanas, fundas y toallas lavadas, secas y dobladas para los recambios entre huéspedes.", message: "Hola Aquabon, quería consultar por el servicio de lavandería para un alojamiento." },
   valet: { path: "/servicios/valet-de-ropa", name: "Valet de ropa", copy: "Separamos las prendas por color, tejido y cuidado antes de lavar, secar y doblar.", message: "Hola Aquabon, quería consultar por el servicio de valet de ropa." },
 };
 
@@ -50,7 +51,7 @@ export default function ArticleLayout({ title, description, slug, date, readingT
   };
   const more = guides.filter(g => g.href !== path && g.cluster.toLowerCase() === cluster.toLowerCase()).concat(guides.filter(g => g.href !== path && g.cluster.toLowerCase() !== cluster.toLowerCase())).slice(0, 3);
   const heroImage = image ?? "/laundry-hero-v2.webp";
-  const serviceImage = services.find(x => x.href === info.path)?.image ?? "/laundry-hero-v2.webp";
+  const serviceImage = services.find(x => x.href === info.path)?.image ?? businessLinks.find(x => x.href === info.path)?.image ?? "/laundry-hero-v2.webp";
   return <>
     <SiteHeader overlay />
     <div className="read-progress" aria-hidden="true" />

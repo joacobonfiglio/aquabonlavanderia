@@ -3,13 +3,14 @@ import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 
-const title="¿Cuál es la diferencia entre lavandería y tintorería?";
-const description="La lavandería suele resolver ropa cotidiana con procesos basados en agua, secado y doblado. La tintorería evalúa prendas estructuradas, delicadas o con cuidados profesionales y puede usar limpieza en seco o limpieza húmeda profesional según la etiqueta.";
+const title="¿Cuál es la diferencia entre lavandería, lavadero y tintorería?";
+const description="Lavandería y lavadero se usan casi como sinónimos: resuelven la ropa de todos los días con agua, secado y doblado. La tintorería evalúa prendas estructuradas, delicadas o con cuidados profesionales y puede usar limpieza en seco o limpieza húmeda profesional según la etiqueta.";
 const path="/blog/diferencia-entre-lavanderia-y-tintoreria";
 
-export const metadata:Metadata={title:"Diferencia entre lavandería y tintorería | Aquabon",description:"Diferencia entre lavandería y tintorería: qué servicio necesita tu ropa. En Aquabon, Mar del Plata, hacemos valet y recibimos prendas de tintorería.",alternates:{canonical:path},openGraph:{title,description:"Diferencia entre lavandería y tintorería: qué servicio necesita tu ropa. En Aquabon, Mar del Plata, hacemos valet y recibimos prendas de tintorería.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-20",images:[{url:"/blog/elegir-lavanderia-o-tintoreria.webp",width:1400,height:788,alt:"Ropa cotidiana y prendas estructuradas separadas para elegir el servicio de limpieza"}]}};
+export const metadata:Metadata={title:"Lavandería, lavadero o tintorería: cuál elegir | Aquabon",description:"Diferencia entre lavandería, lavadero y tintorería: qué llevar a cada uno. En Aquabon, Mar del Plata, hacemos valet y recibimos prendas de tintorería.",alternates:{canonical:path},openGraph:{title,description:"Diferencia entre lavandería, lavadero y tintorería: qué llevar a cada uno. En Aquabon, Mar del Plata, hacemos valet y recibimos prendas de tintorería.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-20",images:[{url:"/blog/elegir-lavanderia-o-tintoreria.webp",width:1400,height:788,alt:"Ropa cotidiana y prendas estructuradas separadas para elegir el servicio de limpieza"}]}};
 
 const faqs=[
+  {question:"¿Lavadero y lavandería son lo mismo?",answer:"En el uso de todos los días, casi siempre sí: los dos nombres se usan para el lugar donde dejás la ropa y te la devuelven lavada, seca y doblada. A veces “lavadero” también se refiere a un autoservicio, donde lavás vos con las máquinas del local."},
   {question:"¿Tintorería y limpieza en seco son lo mismo?",answer:"No exactamente. La tintorería es el servicio profesional que evalúa la prenda; la limpieza en seco es uno de los procesos posibles. También existe limpieza húmeda profesional cuando la etiqueta y el material la admiten."},
   {question:"¿Una campera va a lavandería o tintorería?",answer:"Depende de la etiqueta, el relleno, los recubrimientos, los adornos y la estructura. Una campera lavable puede tratarse con agua; una pieza delicada o estructurada necesita evaluación de tintorería."},
   {question:"¿Los acolchados se llevan a tintorería?",answer:"No de forma automática. Muchos acolchados admiten lavado con agua, pero requieren equipos con capacidad y secado controlado. La etiqueta y el tipo de relleno determinan el proceso."},
@@ -17,9 +18,9 @@ const faqs=[
 ];
 
 export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="diferencia-entre-lavanderia-y-tintoreria" date="2026-09-20" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image="/blog/elegir-lavanderia-o-tintoreria.webp" service="tintoreria">
-  <p className="article-lead"><strong>Respuesta corta:</strong> la lavandería se ocupa principalmente de ropa cotidiana y textiles lavables con agua, además del secado y doblado. La tintorería recibe prendas que necesitan una evaluación profesional por su tejido, estructura, forro, color o terminación. Eso no significa que toda prenda de tintorería se limpie en seco: el proceso se elige después de leer la etiqueta y revisar la pieza completa.</p>
+  <p className="article-lead"><strong>Respuesta corta:</strong> lavandería y lavadero se usan casi como sinónimos. La lavandería se ocupa principalmente de ropa cotidiana y textiles lavables con agua, además del secado y doblado. La tintorería recibe prendas que necesitan una evaluación profesional por su tejido, estructura, forro, color o terminación. Eso no significa que toda prenda de tintorería se limpie en seco: el proceso se elige después de leer la etiqueta y revisar la pieza completa.</p>
 
-  <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#comparacion">La diferencia principal</a></li><li><a href="#lavanderia">Qué llevar a lavandería</a></li><li><a href="#tintoreria">Qué llevar a tintorería</a></li><li><a href="#seco">Qué significa limpieza en seco</a></li><li><a href="#elegir">Cómo elegir el servicio</a></li><li><a href="#aquabon">Cómo funciona en Aquabon</a></li></ol></nav>
+  <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#comparacion">La diferencia principal</a></li><li><a href="#lavadero">¿Y un lavadero?</a></li><li><a href="#lavanderia">Qué llevar a lavandería</a></li><li><a href="#tintoreria">Qué llevar a tintorería</a></li><li><a href="#seco">Qué significa limpieza en seco</a></li><li><a href="#elegir">Cómo elegir el servicio</a></li><li><a href="#mar-del-plata">Qué llevar a cada uno en Mar del Plata</a></li><li><a href="#aquabon">Cómo funciona en Aquabon</a></li></ol></nav>
 
   <h2 id="comparacion">La diferencia no está solo en usar agua o solvente</h2>
   <p>En el uso cotidiano, “lavandería” suele asociarse con lavar, secar y doblar ropa de todos los días. “Tintorería” describe un cuidado profesional más individualizado para prendas cuyo material o construcción exige revisar el método antes de empezar.</p>
@@ -30,6 +31,10 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
     <article><strong>Qué no lo define por sí solo</strong><p>El precio de la prenda, su color o que tenga una mancha difícil. Primero hay que revisar el conjunto completo.</p></article>
   </div>
   <p>La etiqueta establece el tratamiento máximo permitido. El símbolo de la tina se refiere al lavado doméstico; el círculo informa sobre cuidado profesional. Podés consultar nuestra <Link href="/blog/simbolos-de-lavado-de-un-acolchado">guía visual de símbolos de cuidado</Link> para entender la lógica general.</p>
+
+  <h2 id="lavadero">¿Y un lavadero? ¿Es lo mismo que una lavandería?</h2>
+  <p>En el uso de todos los días, casi siempre sí. En Mar del Plata, como en buena parte del país, mucha gente dice “lavadero” o “lavadero de ropa” para hablar de la lavandería: el lugar donde dejás la bolsa de la semana y te la devuelven lavada, seca y doblada. A veces la palabra también se usa para los autoservicios, donde lavás y secás vos con las máquinas del local.</p>
+  <p>La diferencia que importa no es el nombre, sino quién se ocupa: en un autoservicio el trabajo lo hacés vos; en una lavandería o lavadero con servicio, dejás la ropa y te la devuelven lista. En los dos casos, las prendas delicadas o estructuradas siguen siendo tema de tintorería.</p>
 
   <h2 id="lavanderia">Qué prendas suelen ir a lavandería</h2>
   <p>La lavandería es la opción habitual para textiles resistentes y de uso frecuente cuando la etiqueta permite lavado con agua. El objetivo no es solamente limpiar: también hay que ajustar carga, programa, temperatura y secado al material.</p>
@@ -61,9 +66,17 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   </ol>
   <div className="article-callout warning"><strong>“Se puede lavar” no significa “cualquier lavado sirve”</strong><p>La temperatura, la acción mecánica, la carga y el secado también forman parte de la instrucción. Respetá las barras, puntos, temperaturas y prohibiciones de la etiqueta.</p></div>
 
+  <h2 id="mar-del-plata">Qué llevar a cada uno en Mar del Plata</h2>
+  <div className="frequency-grid">
+    <article><strong>Ropa de la semana</strong><p>Lavandería o lavadero. Te la devuelven lavada, seca y doblada, sin tender ni esperar a que se seque con la humedad de la costa.</p></article>
+    <article><strong>Acolchados y frazadas</strong><p>Lavandería con equipos grandes, según la etiqueta. Mirá <Link href="/blog/cuanto-cuesta-lavar-un-acolchado">de qué depende el precio de lavar un acolchado</Link>.</p></article>
+    <article><strong>Sacos, tapados y vestidos</strong><p>Tintorería. Necesitan una revisión de tejido, forro, estructura y adornos antes de elegir el proceso.</p></article>
+    <article><strong>Ropa blanca de un alquiler</strong><p>Lavandería con frecuencia acordada. Ver <Link href="/blog/como-preparar-la-ropa-blanca-de-un-alquiler-temporario">cómo preparar la ropa blanca para la temporada</Link>.</p></article>
+  </div>
+
   <h2 id="aquabon">Cómo funciona en Aquabon</h2>
   <p>Para ropa cotidiana podés consultar el valet. Para sacos, vestidos, tapados, camperas y piezas especiales, Aquabon funciona como punto de recepción y seguimiento del <Link href="/servicios/tintoreria">servicio de tintorería</Link>: registramos la prenda, revisamos sus características y coordinamos el tratamiento especializado cuando corresponde.</p>
-  <p>Estamos en Gascón 2189, en el centro de Mar del Plata. Si no sabés qué servicio elegir, enviá por WhatsApp una foto de la prenda, la etiqueta y la mancha para una primera orientación; la confirmación final se realiza al verla.</p>
+  <p>Estamos en Gascón 2189, en el centro de Mar del Plata, y hacemos <Link href="/servicios/retiro-y-entrega-de-ropa">retiro y entrega</Link> en Centro, Güemes, Chauvin y La Perla. Si no sabés qué servicio elegir, enviá por WhatsApp una foto de la prenda, la etiqueta y la mancha para una primera orientación; la confirmación final se realiza al verla.</p>
 
   <h2>Preguntas frecuentes</h2>
   {faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}

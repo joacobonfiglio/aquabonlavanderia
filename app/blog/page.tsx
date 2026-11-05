@@ -15,6 +15,7 @@ export default function BlogPage() {
     { name: "Lavado y secado en casa", id: "lavado-y-secado", clusters: ["Lavado", "Secado", "Cuidado de ropa", "Jeans", "Camisas", "Lana"] },
     { name: "Prendas especiales y tintorería", id: "prendas-especiales", clusters: ["Tintorería", "Sacos", "Tapados"] },
     { name: "Zapatillas", id: "zapatillas", clusters: ["Zapatillas"] },
+    { name: "Alquileres temporarios", id: "alquileres", clusters: ["Alquiler temporario"] },
   ];
   return <>
     <SiteHeader overlay />
