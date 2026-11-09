@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cómo sacar el olor a humedad de un acolchado";
 const description="Primero identificá si el olor viene del encierro, de humedad retenida después del lavado o de moho visible. Ventilar puede ayudar en el primer caso; los demás requieren secado completo, lavado compatible con la etiqueta o una evaluación profesional.";
@@ -16,10 +17,11 @@ const faqs=[
   {question:"¿Qué hago si veo puntos de moho?",answer:"Dejá de usar el acolchado y evitá sacudirlo dentro de la casa. Los materiales porosos pueden ser difíciles de descontaminar por completo; si el área es extensa, hubo agua contaminada o existen problemas de salud, consultá a un especialista."}
 ];
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="como-sacar-olor-a-humedad-de-un-acolchado" date="2026-09-19" readingTime="8 MIN DE LECTURA" cluster="Acolchados" image="/blog/comprobar-humedad-acolchado.webp">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout service="acolchados" title={title} description={description} slug="como-sacar-olor-a-humedad-de-un-acolchado" date="2026-09-19" readingTime="8 MIN DE LECTURA" cluster="Acolchados" image="/blog/comprobar-humedad-acolchado.webp">
   <p className="article-lead"><strong>Respuesta corta:</strong> no tapes el olor con perfume ni guardes el acolchado otra vez. Extendelo, revisá manchas, costuras y relleno, y comprobá si está realmente seco. El olor leve por encierro puede mejorar con ventilación; la humedad interna exige completar un secado permitido por la etiqueta y el olor persistente puede requerir un nuevo lavado. Si hay moho visible, tratá el caso como contaminación, no como un simple mal olor.</p>
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#origen">Identificar de dónde viene el olor</a></li><li><a href="#encierro">Qué hacer si estuvo guardado</a></li><li><a href="#humedo">Qué hacer si quedó húmedo</a></li><li><a href="#lavado">Cuándo volver a lavarlo</a></li><li><a href="#moho">Qué hacer si hay moho visible</a></li><li><a href="#prevenir">Cómo evitar que vuelva</a></li></ol></nav>
+  <p className="note">Si el olor no se va con lo de acá abajo, consultanos: hacemos <Link href="/servicios/lavado-de-acolchados">lavado de acolchados en Mar del Plata</Link> y te decimos si es encierro o moho antes de aceptarlo.</p>
 
   <h2 id="origen">Primero: distinguí olor a encierro, humedad y moho</h2>
   <p>“Olor a humedad” puede describir problemas distintos. Antes de aplicar cualquier producto, extendé el acolchado en un lugar ventilado y revisalo por ambos lados. Presioná con las manos las esquinas, los bordes y las costuras gruesas: suelen tardar más en secar que la tela exterior.</p>
@@ -61,6 +63,8 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <h2 id="prevenir">Cómo evitar que el olor vuelva</h2>
   <ul><li>No guardes el acolchado hasta comprobar que costuras y relleno estén completamente secos.</li><li>Elegí una funda transpirable y evitá bolsas herméticas si pueden retener humedad.</li><li>Guardalo en un espacio seco, separado de paredes o pisos con condensación.</li><li>Revisá el placard después de filtraciones, condensación o períodos de humedad alta.</li><li>Ventilalo al cambiar de temporada y controlá su estado antes de volver a usarlo.</li></ul>
   <p>Si el acolchado no entra holgado en tu lavarropas, la etiqueta exige un proceso que no podés reproducir o el olor persiste sin moho visible, podés consultar el <Link href="/servicios/lavado-de-acolchados">servicio de lavado de acolchados de Aquabon</Link>. Revisamos tamaño, tejido, relleno y estado en Gascón 2189, centro de Mar del Plata, antes de confirmar el tratamiento.</p>
+
+  <LocalCta service="acolchados" />
 
   <h2>Preguntas frecuentes</h2>
   {faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}

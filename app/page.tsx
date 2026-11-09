@@ -11,7 +11,7 @@ import Reviews from "./Reviews";
 import Img from "./Img";
 import { CareSymbol, WhatsAppIcon } from "./ui";
 import { Clothesline, Process, Ribbon, Waves } from "./Blocks";
-import { business, businessLinks, hours, hoursSentence, services } from "./site";
+import { business, businessLinks, hours, hoursSentence, pickupZones, services } from "./site";
 
 type Option = { id: string; label: string; image: string; ticket: TicketData };
 
@@ -73,7 +73,7 @@ const faqs: FaqItem[] = [
   { question: "¿Dónde queda Aquabon?", answer: `En ${business.street}, en el centro de Mar del Plata. Podés venir en el horario del local, sin turno, o escribirnos antes por WhatsApp.` },
   { question: "¿Qué horario tiene la lavandería?", answer: `${hoursSentence}.` },
   { question: "¿Cuánto cuesta y cuándo está listo?", answer: "Depende del servicio, la cantidad y la prenda. Escribinos con lo que tenés para lavar y te pasamos el importe y el plazo antes de que lo dejes, para que no haya sorpresas." },
-  { question: "¿Retiran y entregan a domicilio?", answer: "Sí, en Centro, Güemes, Chauvin y La Perla. Mandanos tu dirección por WhatsApp y te confirmamos costo y disponibilidad antes de pasar. Si estás en otra zona, consultanos igual." },
+  { question: "¿Retiran y entregan a domicilio?", answer: `Sí, en once barrios: ${pickupZones.map(z => z.name).join(", ").replace(/, ([^,]*)$/, " y $1")}. Mandanos tu dirección por WhatsApp y te confirmamos costo y disponibilidad antes de pasar. Si estás en otra zona, consultanos igual.` },
   { question: "¿Y si no sé qué servicio necesita mi prenda?", answer: "No hace falta que lo sepas. Mandanos una foto de la prenda y de la etiqueta y te decimos qué le conviene. Si necesitamos verla en persona, te avisamos." },
   { question: "¿El valet incluye planchado?", answer: "No. El valet es lavado, secado y doblado de la ropa de todos los días. Si querés algo planchado, pedilo aparte y lo sumamos al pedido." },
   { question: "¿Lavan acolchados de plumas?", answer: "Sí, después de revisarlos. Miramos etiqueta, relleno y estado, y te decimos si admite lavado y cómo lo vamos a secar antes de aceptarlo." },
@@ -129,6 +129,8 @@ export default function Home() {
         <div className="wrap">
           <div className="h-head h-head--split" data-reveal><h2 id="porque-titulo">Por qué Aquabon</h2><p>Te sacamos el lavado de encima, con el cuidado de alguien que conoce cada prenda.</p></div>
           <ul className="feature-grid feature-grid--tres">{pillars.map((p, i) => <li key={p.title} data-reveal style={{ transitionDelay: `${i * 70}ms` }}><h3>{p.title}</h3><p>{p.copy}</p></li>)}</ul>
+          {/* Enlace en el primer scroll al servicio con más búsqueda estacional (plan SEO 07/11/2026). */}
+          <p className="note" data-reveal>Lo que más nos piden al cambiar de estación: <Link className="link" href="/servicios/lavado-de-acolchados">lavado de acolchados en Mar del Plata</Link>, con secado completo y retiro a domicilio.</p>
         </div>
       </section>
 
@@ -188,6 +190,24 @@ export default function Home() {
       </>} />
 
       <Reviews />
+
+      {/* 7. Barrios donde retiramos */}
+      <section className="p-sec p-sec--espuma" id="barrios" aria-labelledby="barrios-titulo">
+        <div className="wrap">
+          <div className="h-head h-head--split" data-reveal>
+            <h2 id="barrios-titulo">Barrios donde retiramos</h2>
+            <p>Pasamos a buscar la ropa y te la llevamos cuando está lista. Elegí tu barrio o mandanos tu dirección: te confirmamos costo y disponibilidad antes de pasar.</p>
+          </div>
+          <ul className="feature-grid feature-grid--zonas">
+            {pickupZones.map(z => <li key={z.slug}>
+              <h3>{z.name}</h3>
+              <p>Ropa de la semana, acolchados y prendas especiales.</p>
+              <Link className="link" href={"/" + z.slug}>Lavandería en {z.name}</Link>
+            </li>)}
+          </ul>
+          <p className="note">¿Estás en otra zona? <WhatsAppLink className="link" message="Hola Aquabon, estoy en __ y necesito lavar __. ¿Pueden retirar en mi dirección?" ubicacion="otras_zonas">Consultanos tu dirección</WhatsAppLink>. También podés ver la <Link className="link" href="/lavanderia-mar-del-plata">lavandería en Mar del Plata</Link> y cómo llegar al local.</p>
+        </div>
+      </section>
 
       {/* 8. Empresas */}
       <section className="h-biz" aria-labelledby="empresas-titulo">

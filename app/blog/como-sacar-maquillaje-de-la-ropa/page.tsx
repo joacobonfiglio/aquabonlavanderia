@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cómo sacar maquillaje de la ropa sin extender la mancha";
 const description="Qué hacer con base, labial, polvo o máscara: retirar el exceso, pretratar según el tejido y revisar antes de secar.";
@@ -70,7 +71,9 @@ export default function Page(){
 
     <h2 id="consulta">Cuándo conviene llevar la prenda a tintorería</h2>
     <p>Consultá si la etiqueta pide cuidado profesional, la prenda es delicada o estructurada, la mancha es antigua, ya pasó por secadora o plancha, o probaste productos sin resultado. En Aquabon recibimos prendas para evaluación de <Link href="/servicios/tintoreria">tintorería</Link> en Gascón 2189, Centro de Mar del Plata. Confirmamos proceso, plazo y precio después de revisarlas; ninguna mancha puede garantizarse sin esa evaluación.</p>
-    <p>Si administrás un salón y necesitás resolver toallas, capas o textiles de trabajo de forma recurrente, consultá la propuesta de <Link href="/empresas/lavanderia-centros-de-estetica">lavandería para centros de estética</Link>. También podés comparar esta guía con las de <Link href="/blog/como-sacar-manchas-de-aceite-de-la-ropa">manchas de aceite</Link> y <Link href="/blog/simbolos-de-lavado-de-la-ropa">símbolos de lavado</Link>.</p>
+    <p>Si administrás un salón y necesitás resolver toallas, capas o textiles de trabajo de forma recurrente, consultá la propuesta de <Link href="/empresas/lavanderia-centros-de-estetica">lavandería para centros de estética</Link>. También podés comparar esta guía con las de <Link href="/blog/como-sacar-manchas-dificiles-de-la-ropa">manchas de aceite</Link> y <Link href="/blog/simbolos-de-lavado-de-la-ropa">símbolos de lavado</Link>.</p>
+
+    <LocalCta service="tintoreria" />
 
     <h2>Preguntas frecuentes</h2>
     {faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}

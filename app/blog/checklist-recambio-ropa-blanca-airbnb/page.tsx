@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 import WhatsAppLink from "../../WhatsAppLink";
 import { WhatsAppIcon } from "../../ui";
 
@@ -18,7 +19,7 @@ const faqs=[
   {question:"¿Qué hago si encuentro una mancha en una sábana?",answer:"Separala del resto, no la frotes ni le apliques productos fuertes, y avisá qué la produjo si lo sabés. Si no sale con el lavado, no vuelve a la cama: va a la pila de reemplazo."},
   {question:"¿Cómo evito que falten piezas en el recambio?",answer:"Contá lo que sale de cada unidad y lo que vuelve limpio. Con kits armados por cama y por baño es fácil ver si falta algo antes de que llegue el próximo huésped."},
   {question:"¿Puedo poner sábanas apenas salen de la secadora?",answer:"Sí, si están secas del todo, incluidas costuras y dobladillos. Ropa blanca apenas húmeda en un placard o en una cama hecha toma olor rápido."},
-  {question:"¿Aquabon puede encargarse del lavado de los recambios?",answer:"Sí. Lavamos, secamos y doblamos la ropa blanca de alquileres temporarios, y la retiramos y entregamos en Centro, Güemes, Chauvin y La Perla. Acordamos frecuencia y cantidades antes de empezar."}
+  {question:"¿Aquabon puede encargarse del lavado de los recambios?",answer:"Sí. Lavamos, secamos y doblamos la ropa blanca de alquileres temporarios, y la retiramos y entregamos en once barrios de Mar del Plata. Acordamos frecuencia y cantidades antes de empezar."}
 ];
 
 export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="checklist-recambio-ropa-blanca-airbnb" date="2026-11-05" readingTime="5 MIN DE LECTURA" cluster="Alquiler temporario" image={image} service="airbnb">
@@ -31,7 +32,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
 
   <h2 id="revisar">2. Revisar manchas y daños</h2>
   <ul><li>Extendé cada pieza y mirá con buena luz.</li><li>Separá en una bolsa aparte lo que tenga manchas (maquillaje, sangre, vino, protector solar) y anotá de qué son si lo sabés.</li><li>No frotes ni apliques lavandina o productos fuertes: pueden fijar la mancha o dañar el tejido.</li><li>Separá lo roto o muy gastado para reemplazo.</li></ul>
-  <div className="article-callout"><strong>Una mancha tratada a tiempo tiene más chances</strong><p>Las manchas frescas suelen responder mejor que las que se dejan días en una bolsa. Si no sabés cómo actuar, mirá nuestras guías de <Link href="/blog/como-sacar-manchas-de-sangre-de-la-ropa">manchas de sangre</Link> y <Link href="/blog/como-sacar-maquillaje-de-la-ropa">maquillaje</Link>. Y aceptá que no todas salen: lo que sigue marcado no vuelve a la cama.</p></div>
+  <div className="article-callout"><strong>Una mancha tratada a tiempo tiene más chances</strong><p>Las manchas frescas suelen responder mejor que las que se dejan días en una bolsa. Si no sabés cómo actuar, mirá nuestras guías de <Link href="/blog/como-sacar-manchas-dificiles-de-la-ropa">manchas de sangre</Link> y <Link href="/blog/como-sacar-maquillaje-de-la-ropa">maquillaje</Link>. Y aceptá que no todas salen: lo que sigue marcado no vuelve a la cama.</p></div>
 
   <h2 id="lavar">3. Embolsar para lavar</h2>
   <ol className="article-steps">
@@ -57,7 +58,9 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
 
   <h2 id="despues">5. Después del recambio</h2>
   <ul><li>Anotá qué piezas salieron, cuáles fueron a lavar y cuáles quedaron para reemplazo.</li><li>Revisá cuántos kits completos te quedan para el próximo recambio.</li><li>Si una pieza se repite manchada o gastada, reponela antes de que se note en una reseña.</li></ul>
-  <p>Si preferís no ocuparte del lavado en temporada, en Aquabon trabajamos con <Link href="/empresas/lavanderia-airbnb">alquileres temporarios y Airbnb</Link>: acordamos frecuencia y cantidades antes de empezar, y hacemos <Link href="/servicios/retiro-y-entrega-de-ropa">retiro y entrega</Link> en Centro, Güemes, Chauvin y La Perla.</p>
+  <p>Si preferís no ocuparte del lavado en temporada, en Aquabon trabajamos con <Link href="/empresas/lavanderia-airbnb">alquileres temporarios y Airbnb</Link>: acordamos frecuencia y cantidades antes de empezar, y hacemos <Link href="/servicios/retiro-y-entrega-de-ropa">retiro y entrega</Link> en once barrios de Mar del Plata.</p>
+
+  <LocalCta service="airbnb" />
 
   <h2>Preguntas frecuentes</h2>
   {faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}

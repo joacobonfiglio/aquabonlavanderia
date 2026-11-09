@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="¿Cuál es la diferencia entre lavandería, lavadero y tintorería?";
 const description="Lavandería y lavadero se usan casi como sinónimos: resuelven la ropa de todos los días con agua, secado y doblado. La tintorería evalúa prendas estructuradas, delicadas o con cuidados profesionales y puede usar limpieza en seco o limpieza húmeda profesional según la etiqueta.";
@@ -75,8 +76,11 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   </div>
 
   <h2 id="aquabon">Cómo funciona en Aquabon</h2>
+  <p>Somos las dos cosas en el mismo mostrador: <Link href="/lavanderia-mar-del-plata">lavandería en Mar del Plata</Link> para la ropa de todos los días y <Link href="/servicios/tintoreria">tintorería</Link> para lo que necesita otro cuidado. Si no sabés a cuál corresponde tu prenda, no tenés que decidirlo vos: traela y la revisamos.</p>
   <p>Para ropa cotidiana podés consultar el valet. Para sacos, vestidos, tapados, camperas y piezas especiales, Aquabon funciona como punto de recepción y seguimiento del <Link href="/servicios/tintoreria">servicio de tintorería</Link>: registramos la prenda, revisamos sus características y coordinamos el tratamiento especializado cuando corresponde.</p>
-  <p>Estamos en Gascón 2189, en el centro de Mar del Plata, y hacemos <Link href="/servicios/retiro-y-entrega-de-ropa">retiro y entrega</Link> en Centro, Güemes, Chauvin y La Perla. Si no sabés qué servicio elegir, enviá por WhatsApp una foto de la prenda, la etiqueta y la mancha para una primera orientación; la confirmación final se realiza al verla.</p>
+  <p>Estamos en Gascón 2189, en el centro de Mar del Plata, y hacemos <Link href="/servicios/retiro-y-entrega-de-ropa">retiro y entrega</Link> en once barrios de Mar del Plata. Si no sabés qué servicio elegir, enviá por WhatsApp una foto de la prenda, la etiqueta y la mancha para una primera orientación; la confirmación final se realiza al verla.</p>
+
+  <LocalCta service="tintoreria" />
 
   <h2>Preguntas frecuentes</h2>
   {faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}

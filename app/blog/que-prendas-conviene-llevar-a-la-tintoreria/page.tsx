@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="¿Qué prendas conviene llevar a la tintorería?";
 const description="Sacos, trajes, tapados, vestidos de fiesta y prendas con forros o adornos merecen una evaluación profesional. La etiqueta y la construcción completa deciden el tratamiento: no todas necesitan limpieza en seco.";
@@ -51,6 +52,8 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <h2 id="aquabon">Dónde consultar en el centro de Mar del Plata</h2>
   <p>Aquabon recibe sacos, tapados, camperas, vestidos y otras prendas especiales en Gascón 2189. Funcionamos como punto de recepción y seguimiento del <Link href="/servicios/tintoreria">servicio de tintorería</Link>; cuando hace falta tratamiento especializado, se coordina fuera del local. Revisamos la prenda y comunicamos si es viable, el plazo y los límites esperables antes de confirmarla.</p>
   <p>Podés enviarnos una foto de la prenda, la etiqueta y la mancha por WhatsApp para una orientación inicial. La confirmación requiere verla en persona.</p>
+
+  <LocalCta service="tintoreria" />
 
   <h2>Preguntas frecuentes</h2>
   {faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}

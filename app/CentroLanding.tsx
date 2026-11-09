@@ -9,7 +9,7 @@ import WhatsAppLink from "./WhatsAppLink";
 import TrackedLink from "./TrackedLink";
 import ChatPreview from "./ChatPreview";
 import { WhatsAppIcon } from "./ui";
-import { business, hoursSentence, mapsDirections, services, SITE_URL } from "./site";
+import { business, hoursSentence, mapsDirections, pickupZones, services, SITE_URL } from "./site";
 import { guide } from "./guides";
 import { localData } from "./LocalLanding";
 
@@ -22,6 +22,8 @@ const faqs = [
   { question: "¿En qué horario puedo acercarme?", answer: `${hoursSentence}, sin turno. Si tenés dudas sobre una prenda, escribinos por WhatsApp antes de venir.` },
   { question: "¿Puedo llevar ropa de la semana y un acolchado?", answer: "Sí, en el mismo viaje. La ropa de todos los días va al valet y el acolchado lo revisamos aparte según tamaño, relleno y etiqueta." },
   { question: "¿Retiran y entregan en mi dirección?", answer: "Sí, en el Centro pasamos a buscar la ropa y te la llevamos. Mandanos la dirección y qué tenés para lavar, y coordinamos costo y horario." },
+  { question: "Trabajo en el Centro, ¿puedo dejar la ropa de camino?", answer: "Sí, es lo más común acá. Dejás la bolsa en el horario del local, sin turno, y te avisamos por WhatsApp cuando está lista para que la pases a buscar." },
+  { question: "¿Atienden sin turno?", answer: "Sí. Venís en el horario del local y te atendemos. Para prendas especiales o pedidos grandes, escribinos antes así te esperamos con todo listo." },
   { question: "¿El valet incluye planchado?", answer: "No. Incluye lavado, secado y doblado; el planchado lo pedís aparte y lo sumamos." },
   { question: "¿Cuánto cuesta y cuándo puedo retirar?", answer: "Depende del servicio, la cantidad y el estado de las prendas. Te pasamos importe y plazo antes de aceptar el pedido y te avisamos por WhatsApp cuando está listo." },
 ];
@@ -36,7 +38,7 @@ export default function CentroLanding() {
         chip={{ symbol: "wash", text: "Te ahorrás el lavado" }}
         actions={<>
           <WhatsAppLink className="btn btn--azul btn--xl" message={message} ubicacion="hero" data-primary-cta=""><WhatsAppIcon />Consultar por mi ropa</WhatsAppLink>
-          <a className="btn btn--outline-light btn--xl" href="#venir-al-local">Cómo llegar</a>
+          <a className="btn btn--outline-light btn--xl" href="#retiro">Retiro en el Centro</a>
         </>} />
       <Ribbon words={["Ropa de la semana", "Acolchados", "Tintorería", "Centro de Mar del Plata"]} />
       <section className="p-sec" aria-labelledby="centro-servicios">
@@ -51,6 +53,36 @@ export default function CentroLanding() {
           <p className="note">¿Necesitás planchado, zapatillas o un arreglo? <Link className="link" href="/servicios">Mirá todos los servicios</Link>.</p>
         </div>
       </section>
+      <section className="p-sec p-sec--espuma" id="retiro" aria-labelledby="centro-retiro">
+        <div className="wrap">
+          <div className="h-head h-head--split" data-reveal>
+            <h2 id="centro-retiro">Retiro y entrega en el Centro</h2>
+            <p>Estar en el Centro tiene una ventaja: es la zona que tenemos más a mano. Pasamos a buscar la ropa y te la devolvemos lavada, seca y doblada. Mandanos la dirección, el piso y qué tenés para lavar, y te confirmamos costo y franja horaria antes de pasar.</p>
+          </div>
+          <ul className="feature-grid">
+            <li><h3>De camino, sin turno</h3><p>{business.street} queda sobre la zona céntrica: dejás la bolsa cuando te queda cómodo, en el horario del local, y te avisamos cuando está.</p></li>
+            <li><h3>O lo coordinamos</h3><p>Si no te da el día, retiramos y entregamos en tu dirección del Centro. El retiro se cotiza aparte según la zona y te lo confirmamos antes.</p></li>
+            <li><h3>Edificios y oficinas</h3><p>Coordinamos en la puerta del edificio o en recepción, donde nos indiques. Decinos en qué franja hay alguien.</p></li>
+          </ul>
+          <p className="note">También retiramos en los barrios de alrededor: {pickupZones.filter(z => z.slug !== "lavanderia-centro-mar-del-plata").slice(0, 5).map((z, i, arr) => <span key={z.slug}><Link className="link" href={"/" + z.slug}>{z.name}</Link>{i < arr.length - 1 ? ", " : ""}</span>)} y más. <Link className="link" href="/lavanderia-mar-del-plata">Ver todos los barrios</Link>.</p>
+        </div>
+      </section>
+
+      <section className="p-sec" id="que-traen" aria-labelledby="centro-que-traen">
+        <div className="wrap">
+          <div className="h-head h-head--split" data-reveal>
+            <h2 id="centro-que-traen">Lo que más nos traen del Centro</h2>
+            <p>El Centro es departamentos, oficinas y mucha gente de paso. Eso define los pedidos: ropa de la semana de casas sin lugar para tender, camisas de trabajo y prendas de vestir que necesitan revisión antes de cualquier proceso.</p>
+          </div>
+          <ul className="feature-grid feature-grid--tres">
+            <li><h3>La bolsa de la semana</h3><p>Valet: lavado, secado y doblado. Es el pedido más frecuente de quienes viven en departamento y no tienen dónde secar.</p></li>
+            <li><h3>Camisas y ropa de trabajo</h3><p>Lavado y planchado en un mismo pedido. Revisamos cuello, puños y axilas, y te decimos qué marcas pueden quedar según el tejido.</p></li>
+            <li><h3>Un saco, un traje, un vestido</h3><p>Lo recibimos, lo revisamos y hacemos el seguimiento del tratamiento. Tratás con un solo mostrador.</p></li>
+          </ul>
+          <p className="note">Un acolchado o una campera también entran en el mismo viaje: cada pieza se cotiza por separado porque cada una necesita su proceso. <Link className="link" href="/servicios">Ver todos los servicios</Link>.</p>
+        </div>
+      </section>
+
       <section className="p-sec p-sec--espuma" id="venir-al-local" aria-labelledby="centro-direccion">
         <div className="wrap split-media">
           <div className="split-media__img" data-reveal><Img src="/service-still-v2.webp" alt="Ropa cotidiana doblada y preparada para retirar" width={1000} height={1250} sizes="(max-width: 960px) 100vw, 460px" /></div>
@@ -70,7 +102,7 @@ export default function CentroLanding() {
       ]} cta={<WhatsAppLink className="btn btn--light btn--xl" message={message} ubicacion="proceso"><WhatsAppIcon />Consultar por mi ropa</WhatsAppLink>} />
       <section className="p-sec" aria-labelledby="centro-faq">
         <div className="wrap h-pick__grid">
-          <div><div className="h-head" data-reveal><h2 id="centro-faq">Antes de venir</h2></div><Faq items={faqs} /></div>
+          <div><div className="h-head" data-reveal><h2 id="centro-faq">Preguntas frecuentes del Centro</h2></div><Faq items={faqs} /></div>
           <div className="h-pick__ticket" data-reveal><p className="pick-step"><b>✓</b>Tu consulta, lista para enviar</p><ChatPreview data={{ service: "lavandería en el Centro", message, next: "te orientamos con el servicio y las condiciones de tu pedido" }} /></div>
         </div>
       </section>
@@ -79,6 +111,6 @@ export default function CentroLanding() {
       </section>
     </main>
     <SiteFooter />
-    <JsonLd data={{ "@context": "https://schema.org", "@type": "Service", "@id": SITE_URL + data.path + "#service", name: data.h1, description: data.description, url: SITE_URL + data.path, provider: { "@id": SITE_URL + "/#business" }, availableChannel: { "@type": "ServiceChannel", serviceLocation: { "@id": SITE_URL + "/#business" } } }} />
+    <JsonLd data={{ "@context": "https://schema.org", "@type": "Service", "@id": SITE_URL + data.path + "#service", name: data.h1, description: data.description, url: SITE_URL + data.path, serviceType: "Lavandería", provider: { "@id": SITE_URL + "/#business" }, areaServed: [{ "@type": "Place", name: "Centro, Mar del Plata" }, { "@type": "City", name: "Mar del Plata" }], availableChannel: { "@type": "ServiceChannel", serviceLocation: { "@id": SITE_URL + "/#business" } } }} />
   </>;
 }

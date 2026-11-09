@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 import WhatsAppLink from "../../WhatsAppLink";
 import { WhatsAppIcon } from "../../ui";
 
@@ -18,7 +19,7 @@ const faqs=[
   {question:"¿Hay que lavar la ropa blanca que estuvo guardada todo el año?",answer:"Sí. Aunque esté limpia, después de meses en un placard puede tomar olor a encierro o marcas de humedad. Un lavado antes del primer huésped evita sorpresas."},
   {question:"¿Qué hago con las sábanas o toallas manchadas o amarillentas?",answer:"Separalas y revisalas antes de la temporada. Algunas manchas mejoran con un tratamiento, otras no salen; lo que no queda presentable conviene reemplazarlo antes de que lo vea un huésped."},
   {question:"¿Conviene lavar la ropa blanca afuera?",answer:"Depende de cuántas unidades manejás y de cuánto tiempo tenés entre huéspedes. Si el lavado y el secado te comen el día de recambio, tercerizarlo te deja ese tiempo para limpiar y recibir."},
-  {question:"¿Aquabon retira la ropa blanca del alojamiento?",answer:"Sí, en Centro, Güemes, Chauvin y La Perla. Contanos la dirección, cuántas piezas son y cada cuánto hacés recambio, y coordinamos días y costo antes de empezar."}
+  {question:"¿Aquabon retira la ropa blanca del alojamiento?",answer:"Sí, en once barrios de Mar del Plata. Contanos la dirección, cuántas piezas son y cada cuánto hacés recambio, y coordinamos días y costo antes de empezar."}
 ];
 
 export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="como-preparar-la-ropa-blanca-de-un-alquiler-temporario" date="2026-11-05" readingTime="7 MIN DE LECTURA" cluster="Alquiler temporario" image={image} service="airbnb">
@@ -66,7 +67,9 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
 
   <h2 id="quien">Definí quién lava, y cuándo, antes de diciembre</h2>
   <p>En temporada, el día de recambio es corto: sale un huésped, entra otro y en el medio hay que limpiar, hacer camas y reponer. Si además hay que lavar y secar sábanas y toallas, el tiempo no alcanza o la ropa vuelve húmeda a la cama. Por eso conviene decidir antes quién lava y cómo vuelve la ropa limpia.</p>
-  <p>Si lo hacés vos, calculá cuánto lavado y secado podés resolver por día. Si lo tercerizás, acordá frecuencia, cantidades y días antes de que arranque la temporada. En Aquabon trabajamos con <Link href="/empresas/lavanderia-airbnb">alquileres temporarios</Link>: lavamos, secamos y doblamos la ropa blanca, y la <Link href="/servicios/retiro-y-entrega-de-ropa">pasamos a buscar y la devolvemos</Link> en Centro, Güemes, Chauvin y La Perla.</p>
+  <p>Si lo hacés vos, calculá cuánto lavado y secado podés resolver por día. Si lo tercerizás, acordá frecuencia, cantidades y días antes de que arranque la temporada. En Aquabon trabajamos con <Link href="/empresas/lavanderia-airbnb">alquileres temporarios</Link>: lavamos, secamos y doblamos la ropa blanca, y la <Link href="/servicios/retiro-y-entrega-de-ropa">pasamos a buscar y la devolvemos</Link> en once barrios de Mar del Plata.</p>
+
+  <LocalCta service="airbnb" />
 
   <h2>Preguntas frecuentes</h2>
   {faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}

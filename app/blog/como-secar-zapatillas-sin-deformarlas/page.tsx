@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cómo secar zapatillas sin deformarlas";
 const description="Secalas con aire, ventilación y paciencia: aprendé a retirar humedad, conservar la forma y evitar el calor que puede afectar espuma, adhesivos y materiales.";
@@ -59,6 +60,8 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
 
   <h2>¿Y si no sabés si el par tolera el proceso?</h2>
   <p>Primero revisá nuestra guía sobre <Link href="/blog/se-pueden-lavar-zapatillas-en-el-lavarropas">zapatillas y lavarropas</Link>. Si combina materiales, tiene manchas difíciles o una unión debilitada, en Aquabon podemos evaluar el <Link href="/servicios/lavado-de-zapatillas">lavado de zapatillas</Link> antes de confirmar el proceso, el precio y el plazo. La recepción es en Gascón 2189, en el centro de Mar del Plata.</p>
+
+  <LocalCta service="zapatillas" />
 
   <h2>Preguntas frecuentes</h2>{faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}
   <section className="article-sources"><strong>Fuentes técnicas consultadas</strong><p><a href="https://www.nike.com/es/a/mejor-forma-de-secar-zapatillas" target="_blank" rel="noreferrer">Nike: secado con papel, ventilación y riesgos del calor</a> y <a href="https://www.newbalance.com/faqs/care-maintenance/" target="_blank" rel="noreferrer">New Balance: cuidado y secado al aire</a>.</p></section>

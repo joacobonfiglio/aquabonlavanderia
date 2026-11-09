@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cuánto detergente usar en el lavarropas";
 const description="Una guía para ajustar la dosis según el producto, el tamaño de la carga, la suciedad y el agua, sin dejar residuos ni lavar de menos.";
@@ -76,7 +77,7 @@ export default function Page(){
       <li>Las manchas puntuales se lavaron sin el pretratamiento que necesitaban.</li>
       <li>La carga era mayor o estaba más sucia que el nivel elegido en la tabla.</li>
     </ul>
-    <p>Antes de aumentar indiscriminadamente, comprobá que el tambor no esté sobrecargado, el programa sea correcto y las manchas hayan recibido un tratamiento compatible. Por ejemplo, una <Link href="/blog/como-sacar-manchas-de-aceite-de-la-ropa">mancha de aceite</Link> requiere un enfoque distinto de la suciedad cotidiana.</p>
+    <p>Antes de aumentar indiscriminadamente, comprobá que el tambor no esté sobrecargado, el programa sea correcto y las manchas hayan recibido un tratamiento compatible. Por ejemplo, una <Link href="/blog/como-sacar-manchas-dificiles-de-la-ropa">mancha de aceite</Link> requiere un enfoque distinto de la suciedad cotidiana.</p>
 
     <h2 id="formatos">Detergente líquido, en polvo o cápsulas</h2>
     <div className="frequency-grid">
@@ -90,6 +91,8 @@ export default function Page(){
     <h2>Una regla práctica para el próximo lavado</h2>
     <p>En lugar de buscar una cifra universal, seguí este orden: <strong>envase del detergente → tamaño y suciedad de la carga → dureza del agua → manual del lavarropas → resultado del enjuague</strong>. Si cambiás de marca, concentración o formato, volvé a leer la tabla.</p>
     <p>Si preferís resolver el lavado cotidiano sin calcular cada carga, en Aquabon podés consultar el <Link href="/servicios/valet-de-ropa">servicio de valet de ropa</Link>. Estamos en Gascón 2189, en el centro de Mar del Plata, y también podés preguntar por <Link href="/servicios/retiro-y-entrega-de-ropa">retiro y entrega</Link> según zona y disponibilidad.</p>
+
+    <LocalCta service="valet" />
 
     <h2>Preguntas frecuentes</h2>{faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}
     <section className="article-sources"><strong>Fuentes técnicas consultadas</strong><p><a href="https://www.cleaninginstitute.org/cleaning-tips/clothes/laundry-basics" target="_blank" rel="noreferrer">American Cleaning Institute: fundamentos del lavado</a>, <a href="https://www.cleaninginstitute.org/cleaning-tips/clothes/laundry-products-and-detergents" target="_blank" rel="noreferrer">ACI: productos y detergentes</a>, <a href="https://producthelp.whirlpool.com/Laundry/Washers/Product_Info/Washer_Product_Assistance/HE_Detergent_use_in_a_Washer" target="_blank" rel="noreferrer">Whirlpool: uso de detergente HE</a> y <a href="https://www.lg.com/us/support/help-library/lg-washing-machine-troubleshooting-laundry-detergent-residue-CT10000012-20154755889312" target="_blank" rel="noreferrer">LG: residuos de detergente</a>.</p></section>

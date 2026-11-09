@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cómo limpiar un tapado sin dañarlo";
 const description="Antes de lavar un tapado de paño o lana, revisá etiqueta, forro y estructura. Qué podés hacer en casa, cuándo no mojarlo y cómo prepararlo para una limpieza profesional.";
@@ -15,7 +16,7 @@ const faqs=[
 
 export const metadata:Metadata={title:"Cómo limpiar un tapado de paño o lana sin dañarlo | Aquabon",description:"Cómo limpiar un tapado sin dañarlo: etiqueta, paño, lana y manchas. En Aquabon, Mar del Plata, evaluamos su cuidado y recibimos prendas de tintorería.",alternates:{canonical:path},openGraph:{title,description:"Cómo limpiar un tapado sin dañarlo: etiqueta, paño, lana y manchas. En Aquabon, Mar del Plata, evaluamos su cuidado y recibimos prendas de tintorería.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-22",images:[{url:"/blog/revisar-tapado-etiqueta-forro.webp",width:1400,height:788,alt:"Revisión del forro y etiqueta de un tapado de paño azul"}]}};
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="como-limpiar-un-tapado-sin-danarlo" date="2026-09-22" readingTime="6 MIN DE LECTURA" cluster="Tapados" image="/blog/revisar-tapado-etiqueta-forro.webp" service="tintoreria">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="como-limpiar-un-tapado-sin-danarlo" date="2026-09-22" readingTime="6 MIN DE LECTURA" cluster="Tapados" image="/blog/revisar-tapado-etiqueta-forro.webp" service="camperas">
   <p className="article-lead"><strong>Primero, no lo mojes por reflejo.</strong> Un tapado de paño combina tejido exterior, forro, entretelas y, a veces, hombreras o apliques. Buscá la etiqueta interior: si permite lavado doméstico, seguí sus límites; si lo prohíbe o la estructura genera dudas, pedí una evaluación profesional. Mientras tanto, ventilar y retirar pelusa sin frotar suelen ser cuidados menos invasivos.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#etiqueta">La decisión según etiqueta</a></li><li><a href="#rutina">Cuidados entre usos</a></li><li><a href="#lavado">Si permite lavado</a></li><li><a href="#manchas">Manchas y errores</a></li><li><a href="#consulta">Cuándo consultar</a></li></ol></nav>
 
@@ -45,6 +46,8 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <h2 id="consulta">Cuándo conviene consultar en el centro de Mar del Plata</h2>
   <p>Si la etiqueta indica cuidado profesional, falta información, el tapado está estructurado o tiene manchas difíciles, podés llevarlo a Aquabon en Gascón 2189. En nuestra <Link href="/servicios/lavado-de-camperas-y-tapados">recepción de camperas y tapados</Link> revisamos cada prenda y confirmamos proceso, viabilidad, precio y plazo antes de aceptarla. Si requiere tratamiento especializado, coordinamos con el servicio correspondiente fuera del local.</p>
   <p>Mandanos una foto de la etiqueta y del problema por WhatsApp para una orientación inicial. La decisión definitiva requiere ver la prenda. Si querés entender las opciones, leé <Link href="/blog/diferencia-entre-lavanderia-y-tintoreria">en qué se diferencian lavandería y tintorería</Link>.</p>
+
+  <LocalCta service="camperas" />
 
   <h2>Preguntas frecuentes</h2>{faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}
   <section className="article-sources"><strong>Fuentes técnicas consultadas</strong><p><a href="https://www.ginetex.net/gb/labelling/care-symbols.asp" target="_blank" rel="noreferrer">GINETEX: símbolos de cuidado</a>; <a href="https://www.woolmark.com/it/care/" target="_blank" rel="noreferrer">Woolmark: cuidado de prendas de lana</a>; <a href="https://www.ftc.gov/business-guidance/resources/clothes-captioning-complying-care-labeling-rule" target="_blank" rel="noreferrer">FTC: instrucciones para la prenda completa</a>.</p></section>

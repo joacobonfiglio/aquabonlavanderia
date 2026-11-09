@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cómo sacar el olor de las zapatillas sin dañarlas";
 const description="Una guía para encontrar la causa del olor, secar el interior, tratar las plantillas y evitar que la humedad vuelva a acumularse.";
@@ -54,6 +55,8 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
 
   <h2>Cuando la ventilación no alcanza</h2>
   <p>Un olor persistente puede requerir una limpieza más profunda de plantilla, forro y capellada. En Aquabon evaluamos el par antes de confirmar el <Link href="/servicios/lavado-de-zapatillas">lavado de zapatillas</Link>, el precio y el plazo. Podés acercarlo a Gascón 2189, en el centro de Mar del Plata.</p>
+
+  <LocalCta service="zapatillas" />
 
   <h2>Preguntas frecuentes</h2>{faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}
   <section className="article-sources"><strong>Fuentes técnicas consultadas</strong><p><a href="https://www.nike.com/es/a/como-quitar-el-olor-de-las-zapatillas" target="_blank" rel="noreferrer">Nike: humedad, plantillas y opciones para absorber olores</a> y <a href="https://www.adidas.com/qa/en/help-page.html" target="_blank" rel="noreferrer">Adidas: ventilación de plantillas, bicarbonato y secado a temperatura ambiente</a>.</p></section>

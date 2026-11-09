@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Símbolos de lavado de un acolchado: cómo leer la etiqueta";
 const description="La tina indica el lavado, el triángulo el blanqueo, el cuadrado el secado, la plancha el calor y el círculo el cuidado profesional. Te explicamos qué mirar antes de lavar un acolchado.";
@@ -19,7 +20,7 @@ const symbols=[
   {kind:"professional" as const,title:"Círculo: cuidado profesional",copy:"Las letras y líneas orientan al profesional sobre el proceso permitido. Un círculo tachado prohíbe ese tratamiento; no significa que la prenda pueda lavarse de cualquier otra manera."}
 ];
 
-export default function Page(){return <ArticleLayout title={title} description={description} slug="simbolos-de-lavado-de-un-acolchado" date="2026-09-16" readingTime="7 MIN DE LECTURA" cluster="Acolchados" image="/blog/leer-etiqueta-acolchado.webp">
+export default function Page(){return <ArticleLayout service="acolchados" title={title} description={description} slug="simbolos-de-lavado-de-un-acolchado" date="2026-09-16" readingTime="7 MIN DE LECTURA" cluster="Acolchados" image="/blog/leer-etiqueta-acolchado.webp">
   <p className="article-lead"><strong>Respuesta corta:</strong> leé la etiqueta de izquierda a derecha y no interpretes un símbolo de forma aislada. La tina habla del lavado, el triángulo del blanqueo, el cuadrado del secado, la plancha del planchado y el círculo del cuidado profesional. Los números y puntos fijan límites máximos; las líneas inferiores piden un tratamiento más suave y una cruz prohíbe ese proceso.</p>
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#orden">En qué orden leer los símbolos</a></li><li><a href="#significado">Qué significa cada familia</a></li><li><a href="#acolchado">Cómo aplicar la etiqueta al acolchado</a></li><li><a href="#ejemplos">Ejemplos frecuentes</a></li><li><a href="#dudas">Qué hacer si la etiqueta no se entiende</a></li></ol></nav>
@@ -63,6 +64,8 @@ export default function Page(){return <ArticleLayout title={title} description={
   <h2 id="dudas">Qué hacer si no entendés la etiqueta</h2>
   <p>Sacale una foto nítida y revisá también la composición del tejido y del relleno. En Aquabon podemos darte una primera orientación por WhatsApp y, al recibir el acolchado, evaluamos tamaño, estado y etiqueta antes de confirmar el proceso. Estamos en Gascón 2189, en el centro de Mar del Plata.</p>
   <p>Para conocer el sistema completo, consultá la guía de <Link href="/blog/simbolos-de-lavado-de-la-ropa">símbolos de lavado de ropa</Link>. Si tu acolchado es de plumas, también podés ver <Link href="/blog/como-lavar-un-acolchado-de-plumas">cómo lavarlo sin dañarlo</Link>.</p>
+
+  <LocalCta service="acolchados" />
 
   <h2>Preguntas frecuentes</h2>
   <h3>¿El número dentro de la tina es la temperatura recomendada?</h3><p>Es la temperatura máxima permitida. Podés usar una menor si el programa, el detergente y el nivel de suciedad lo permiten, pero no deberías superarla.</p>

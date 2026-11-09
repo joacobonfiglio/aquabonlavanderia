@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="¿Se pueden lavar las zapatillas en el lavarropas?";
 const description="No existe una respuesta universal: depende de las instrucciones del fabricante, los materiales, las uniones y el estado del par. Aprendé qué revisar antes de decidir.";
@@ -54,6 +55,8 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
 
   <h2>Cuándo consultar por limpieza profesional</h2>
   <p>Puede ser útil si el par combina materiales, tiene una mancha difícil, una construcción delicada o un valor que no querés arriesgar con una prueba doméstica. En Aquabon evaluamos material, color, uniones, manchas y desgaste antes de confirmar el <Link href="/servicios/lavado-de-zapatillas">lavado de zapatillas</Link>, el precio y el plazo. Podés acercarlas a Gascón 2189, en el centro de Mar del Plata.</p>
+
+  <LocalCta service="zapatillas" />
 
   <h2>Preguntas frecuentes</h2>{faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}
   <section className="article-sources"><strong>Fuente técnica consultada</strong><p><a href="https://www.nike.com/a/how-to-clean-shoes" target="_blank" rel="noreferrer">Nike: limpieza manual, materiales y secado de zapatillas</a>. Consultá además las instrucciones específicas del fabricante de tu modelo.</p></section>

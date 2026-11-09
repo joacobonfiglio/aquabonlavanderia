@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="¿Qué es la limpieza en seco y cómo funciona?";
 const description="La limpieza en seco no se hace sin líquidos: utiliza un solvente distinto del agua en equipos profesionales. Conocé sus etapas, qué indica la etiqueta y cuándo puede convenir.";
@@ -14,11 +15,15 @@ const faqs=[
   {question:"¿Puedo hacer limpieza en seco en casa?",answer:"No con productos o solventes domésticos. Los símbolos de cuidado profesional están dirigidos a especialistas con equipos, procesos y terminaciones que no reproduce un lavarropas doméstico."}
 ];
 
-export const metadata:Metadata={title:"Qué es la limpieza en seco y cómo funciona | Aquabon",description:"Qué es la limpieza en seco y cuándo conviene según la etiqueta. En Aquabon, Mar del Plata, recibimos y coordinamos prendas que requieren tintorería.",alternates:{canonical:path},openGraph:{title,description:"Qué es la limpieza en seco y cuándo conviene según la etiqueta. En Aquabon, Mar del Plata, recibimos y coordinamos prendas que requieren tintorería.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-24",images:[{url:"/blog/inspeccion-limpieza-en-seco.webp",width:1400,height:788,alt:"Inspección profesional de un saco antes de su tratamiento en una máquina especializada"}]}};
+export const metadata:Metadata={title:"Limpieza en seco: qué es y cuándo conviene | Aquabon",description:"Qué es la limpieza en seco, cuándo conviene según la etiqueta y dónde hacerla en Mar del Plata. Aquabon recibe y coordina prendas de tintorería.",alternates:{canonical:path},openGraph:{title,description:"Qué es la limpieza en seco y cuándo conviene según la etiqueta. En Aquabon, Mar del Plata, recibimos y coordinamos prendas que requieren tintorería.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-24",images:[{url:"/blog/inspeccion-limpieza-en-seco.webp",width:1400,height:788,alt:"Inspección profesional de un saco antes de su tratamiento en una máquina especializada"}]}};
 
 export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="que-es-la-limpieza-en-seco" date="2026-09-24" readingTime="6 MIN DE LECTURA" cluster="Tintorería" image="/blog/inspeccion-limpieza-en-seco.webp" service="tintoreria">
   <p className="article-lead"><strong>La limpieza en seco sí utiliza líquido.</strong> La diferencia es que la prenda se trata con un solvente profesional distinto del agua dentro de una máquina especializada. El objetivo es limpiar ciertos tejidos y prendas estructuradas respetando los límites de su etiqueta; no es el mejor proceso para todo ni garantiza eliminar cualquier mancha.</p>
-  <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#significa">Qué significa “en seco”</a></li><li><a href="#proceso">Cómo es el proceso</a></li><li><a href="#etiqueta">Qué dice la etiqueta</a></li><li><a href="#conviene">Cuándo puede convenir</a></li><li><a href="#entrega">Cómo entregar una prenda</a></li></ol></nav>
+  <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#significa">Qué significa “en seco”</a></li><li><a href="#proceso">Cómo es el proceso</a></li><li><a href="#etiqueta">Qué dice la etiqueta</a></li><li><a href="#conviene">Cuándo puede convenir</a></li><li><a href="#entrega">Cómo entregar una prenda</a></li><li><a href="#mdp">Dónde hacerla en Mar del Plata</a></li></ol></nav>
+
+  <h2 id="mdp">Limpieza en seco en Mar del Plata: por qué acá importa más</h2>
+  <p>Vivir frente al mar le suma dos problemas a las prendas estructuradas. El primero es la humedad: un saco o un tapado guardado en un placard húmedo vuelve con olor a encierro aunque esté limpio, y a veces con moho en el forro. El segundo es el salitre, que se deposita en el tejido y con el tiempo lo deja más rígido al tacto.</p>
+  <p>Por eso en Mar del Plata conviene no estirar el guardado de un abrigo de invierno sin limpiarlo, y revisar lo guardado antes de volver a usarlo. Si la etiqueta marca el círculo de cuidado profesional, ahí no hay solución doméstica: la prenda necesita <Link href="/servicios/tintoreria">tintorería en Mar del Plata</Link>, y nosotros la recibimos en Gascón 2189 y coordinamos el tratamiento.</p>
 
   <h2 id="significa">“En seco” significa sin agua como medio principal</h2>
   <p>El nombre puede confundir: la ropa no se limpia solo con aire ni permanece seca durante todo el ciclo. Se utiliza un solvente líquido no acuoso, elegido y controlado por el profesional según el equipo, el material y las indicaciones de cuidado. La prenda se procesa, el líquido se extrae y luego se seca dentro de un sistema especializado.</p>
@@ -55,6 +60,8 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <h2 id="entrega">Cómo preparar la prenda para llevarla</h2>
   <ul><li>No cortes la etiqueta de cuidado.</li><li>Vaciá los bolsillos y avisá si falta un botón o hay una costura abierta.</li><li>Señalá cada mancha e informá qué la produjo y cuándo ocurrió.</li><li>Contá si aplicaste agua, calor, alcohol, quitamanchas u otro producto.</li><li>Si pertenece a un conjunto, como saco y pantalón, llevalo o informalo para evaluar ambas piezas.</li></ul>
   <p>En Aquabon recibimos prendas en Gascón 2189, en el centro de Mar del Plata. Revisamos cada caso antes de confirmar el <Link href="/servicios/tintoreria">servicio de tintorería</Link>, el precio y el plazo. Cuando se requiere limpieza especializada, coordinamos el tratamiento fuera del local y hacemos el seguimiento hasta la entrega.</p>
+
+  <LocalCta service="tintoreria" />
 
   <h2>Preguntas frecuentes</h2>{faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}
   <section className="article-sources"><strong>Fuentes técnicas consultadas</strong><p><a href="https://www.ginetex.net/gb/labelling/care-symbols.asp" target="_blank" rel="noreferrer">GINETEX: cuidado profesional y símbolos</a>, <a href="https://www.cinet-online.com/professional-textile-care/" target="_blank" rel="noreferrer">CINET: cuidado textil profesional</a> y <a href="https://www.ftc.gov/business-guidance/resources/clothes-captioning-complying-care-labeling-rule" target="_blank" rel="noreferrer">FTC: instrucciones para la prenda completa</a>.</p></section>

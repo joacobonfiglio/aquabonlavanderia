@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="¿Cada cuánto hay que lavar un acolchado?";
 const description="Como orientación, un acolchado con funda y uso normal puede necesitar una limpieza profunda una o dos veces al año. Sin funda, con mascotas, manchas o uso intenso, conviene revisarlo y lavarlo antes, siempre según la etiqueta.";
@@ -16,9 +17,10 @@ const faqs=[
   {question:"¿Qué pasa si lo lavo demasiado seguido?",answer:"Los ciclos repetidos, el calor y la manipulación pueden desgastar la tela, las costuras o el relleno. Por eso conviene combinar funda, ventilación y limpieza localizada cuando la etiqueta lo permita."}
 ];
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="cada-cuanto-lavar-un-acolchado" date="2026-09-18" readingTime="7 MIN DE LECTURA" cluster="Acolchados" image="/blog/revisar-cuando-lavar-acolchado.webp">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout service="acolchados" title={title} description={description} slug="cada-cuanto-lavar-un-acolchado" date="2026-09-18" readingTime="7 MIN DE LECTURA" cluster="Acolchados" image="/blog/revisar-cuando-lavar-acolchado.webp">
   <p className="article-lead"><strong>Respuesta corta:</strong> si usás funda removible y el acolchado no tiene manchas, olor ni contacto directo intenso, lavarlo en profundidad una o dos veces al año suele ser una referencia razonable. Sin funda, con mascotas, transpiración frecuente o un derrame, revisalo y limpialo antes. La etiqueta siempre define qué proceso admite.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#frecuencia">Una frecuencia según el uso</a></li><li><a href="#senales">Señales para adelantar el lavado</a></li><li><a href="#material">Qué cambia según el relleno</a></li><li><a href="#mantener">Cómo mantenerlo entre lavados</a></li><li><a href="#profesional">Cuándo llevarlo a lavandería</a></li></ol></nav>
+  <p className="note">Cuando le toque, podés dejárnoslo: hacemos <Link href="/servicios/lavado-de-acolchados">lavado de acolchados en Mar del Plata</Link>, con retiro y entrega a domicilio.</p>
 
   <h2 id="frecuencia">No hay una frecuencia única para todos los acolchados</h2>
   <p>El calendario sirve como recordatorio, no como una orden automática. Un acolchado protegido por una funda lavable recibe menos contacto directo que uno usado sin funda; uno que permanece doblado gran parte del año no acumula lo mismo que otro utilizado todas las noches.</p>
@@ -50,6 +52,8 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <h2 id="profesional">Cuándo conviene llevarlo a una lavandería</h2>
   <p>Pedí una evaluación si el acolchado no entra holgado en tu lavarropas, si no podés reproducir el tratamiento de la etiqueta, si tiene una mancha extensa, costuras débiles o un relleno que necesita secado controlado. Forzar una pieza voluminosa reduce el movimiento y puede impedir un enjuague uniforme.</p>
   <p>En Aquabon revisamos tamaño, tejido, relleno y estado antes de confirmar el <Link href="/servicios/lavado-de-acolchados">servicio de lavado de acolchados</Link>. Podés acercarte a Gascón 2189, en el centro de Mar del Plata, o enviarnos por WhatsApp una foto del acolchado y su etiqueta. Si querés saber qué cambia el precio, mirá <Link href="/blog/cuanto-cuesta-lavar-un-acolchado">cuánto cuesta lavar un acolchado</Link>.</p>
+
+  <LocalCta service="acolchados" />
 
   <h2>Preguntas frecuentes</h2>
   {faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}

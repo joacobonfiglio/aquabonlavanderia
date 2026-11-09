@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cómo sacar olor a humo de la ropa sin dañar el tejido";
 const description="Qué hacer con olor a cigarrillo, cocina, parrilla o humo intenso: aireado, lavado según etiqueta y señales para consultar antes de tratar la prenda.";
@@ -19,7 +20,7 @@ export const metadata:Metadata={title:"Cómo sacar olor a humo de la ropa | Aqua
 
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
-  return <ArticleLayout title={title} description={description} slug="como-sacar-olor-a-humo-de-la-ropa" date="2026-10-15" readingTime="7 MIN DE LECTURA" cluster="Olores" image="/blog/revisar-ropa-con-olor-a-humo.webp" service="tintoreria"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
+  return <ArticleLayout title={title} description={description} slug="como-sacar-olor-a-humo-de-la-ropa" date="2026-10-15" readingTime="7 MIN DE LECTURA" cluster="Olores" image="/blog/revisar-ropa-con-olor-a-humo.webp" service="camperas"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
     <p className="article-lead"><strong>Para sacar olor a humo, primero separá la prenda, aireala y revisá su etiqueta.</strong> Si es lavable, tratala en una carga pequeña con detergente y el ciclo permitido; después secala al aire para comprobar el resultado. No tapes el olor con perfume ni frotes el hollín.</p>
 
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#tipo">Identificar el tipo de humo</a></li><li><a href="#pasos">Método para ropa lavable</a></li><li><a href="#hollin">Qué hacer si hay hollín</a></li><li><a href="#productos">Productos y mezclas</a></li><li><a href="#delicadas">Prendas delicadas</a></li><li><a href="#errores">Errores frecuentes</a></li></ol></nav>
@@ -58,6 +59,8 @@ export default function Page(){
 
     <h2 id="errores">Errores que pueden empeorar el problema</h2>
     <ul><li>Guardar la prenda para tratarla “más adelante”.</li><li>Mezclarla con una carga de ropa limpia.</li><li>Frotar hollín o cepillarlo dentro de casa.</li><li>Rociar perfume para tapar el olor.</li><li>Agregar suavizante antes de retirar el humo.</li><li>Usar agua caliente, blanqueador o secadora sin revisar la etiqueta.</li><li>Mezclar vinagre, bicarbonato, cloro u otros limpiadores.</li></ul>
+
+    <LocalCta service="camperas" />
 
     <h2>Preguntas frecuentes</h2>{faqs.map(f=><section key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></section>)}
 

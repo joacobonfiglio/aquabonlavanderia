@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 import WhatsAppLink from "../../WhatsAppLink";
 import { CareSymbol, WhatsAppIcon } from "../../ui";
 
@@ -10,7 +11,7 @@ const description="Revisá la etiqueta antes de empezar, elegí un método que e
 
 export const metadata:Metadata={title:"Cómo secar un acolchado sin que quede húmedo | Aquabon",description:"Cómo secar un acolchado sin humedad ni relleno apelmazado. En Aquabon, Mar del Plata, evaluamos su tejido y relleno para lavar y secar con cuidado.",alternates:{canonical:"/blog/como-secar-un-acolchado"},openGraph:{title,description:"Cómo secar un acolchado sin humedad ni relleno apelmazado. En Aquabon, Mar del Plata, evaluamos su tejido y relleno para lavar y secar con cuidado.",type:"article",locale:"es_AR",url:"/blog/como-secar-un-acolchado",publishedTime:"2026-09-17",images:[{url:"/blog/comprobar-secado-acolchado.webp",width:1400,height:933,alt:"Revisión del relleno de un acolchado durante el secado"}]}};
 
-export default function Page(){return <ArticleLayout title={title} description={description} slug="como-secar-un-acolchado" date="2026-09-17" readingTime="8 MIN DE LECTURA" cluster="Acolchados" image="/blog/comprobar-secado-acolchado.webp">
+export default function Page(){return <ArticleLayout service="acolchados" title={title} description={description} slug="como-secar-un-acolchado" date="2026-09-17" readingTime="8 MIN DE LECTURA" cluster="Acolchados" image="/blog/comprobar-secado-acolchado.webp">
   <p className="article-lead"><strong>Respuesta corta:</strong> secá el acolchado únicamente con el método y el nivel de calor que autoriza su etiqueta. Si admite secadora, necesita un tambor amplio y revisiones periódicas para redistribuir el relleno. Si debe secarse al aire, apoyalo según las indicaciones del fabricante en un espacio bien ventilado y cambialo de posición. No lo guardes hasta que costuras, esquinas y zonas gruesas estén completamente secas.</p>
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#antes">Qué revisar antes del secado</a></li><li><a href="#secadora">Cómo secarlo en secadora</a></li><li><a href="#aire">Cómo secarlo al aire</a></li><li><a href="#comprobar">Cómo saber si está completamente seco</a></li><li><a href="#errores">Errores frecuentes</a></li><li><a href="#profesional">Cuándo pedir ayuda profesional</a></li></ol></nav>
@@ -20,6 +21,7 @@ export default function Page(){return <ArticleLayout title={title} description={
     <div><CareSymbol name="line" /><strong>Al aire, bien ventilado</strong><p>Extendido como indique la etiqueta, dándolo vuelta y separando el relleno.</p></div>
     <div><svg className="care" viewBox="0 0 32 32" aria-hidden="true"><path d="M7 16.5l6 6L25 10" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg><strong>Seco de verdad</strong><p>Esquinas, bordes y costuras sin frío ni peso. Recién ahí, a guardarlo.</p></div>
   </section>
+  <p className="note">Si el secado es el paso que te frena, nosotros lo hacemos: <Link href="/servicios/lavado-de-acolchados">lavado de acolchados en Mar del Plata</Link>, con secado completo antes de entregarlo. Nunca lo devolvemos a medio secar.</p>
 
   <h2 id="antes">Qué revisar antes de secar un acolchado</h2>
   <p>El secado se decide antes de lavar. Buscá el cuadrado en la etiqueta: el círculo dentro del cuadrado se refiere a la secadora, los puntos limitan la intensidad térmica y una cruz prohíbe ese método. Las líneas horizontales o verticales dentro del cuadrado indican formas de secado natural. Si no recordás los símbolos, consultá nuestra <Link href="/blog/simbolos-de-lavado-de-un-acolchado">guía para leer la etiqueta de un acolchado</Link>.</p>
@@ -63,6 +65,8 @@ export default function Page(){return <ArticleLayout title={title} description={
   <h2 id="profesional">Cuándo conviene llevarlo a una lavandería</h2>
   <p>Pedí una evaluación si el acolchado no entra holgado en tu secadora, si no tenés un espacio adecuado para secarlo al aire, si el relleno permanece agrupado o si la etiqueta exige un proceso que no podés reproducir en casa. También conviene consultar cuando hay olor previo a humedad, manchas extensas, costuras débiles o un relleno especial.</p>
   <p>En Aquabon revisamos tamaño, tejido, relleno y estado antes de confirmar el <Link href="/servicios/lavado-de-acolchados">lavado y secado de acolchados</Link>. Podés acercarte a Gascón 2189, en el centro de Mar del Plata, o enviarnos una foto de la etiqueta por WhatsApp para una primera orientación.</p>
+
+  <LocalCta service="acolchados" />
 
   <h2>Preguntas frecuentes</h2>
   <h3>¿Cuánto tarda en secarse un acolchado?</h3><p>No existe un tiempo universal. Depende del tamaño, el relleno, el agua retenida, el método autorizado y la ventilación. El criterio de finalización debe ser la ausencia de humedad en todo el espesor, no una cantidad fija de horas.</p>

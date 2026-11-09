@@ -1,4 +1,4 @@
-import { SITE_URL, business, hours, services, businessLinks } from "../site";
+import { SITE_URL, business, hours, services, businessLinks, pickupZones, pickupZonesSentence } from "../site";
 import { guides } from "../guides";
 
 // /llms.txt: resumen en texto plano para asistentes de IA. Mismos datos que el resto de la web.
@@ -17,7 +17,10 @@ export function GET() {
     `- WhatsApp y teléfono: ${business.phoneDisplay}`,
     `- Instagram: ${business.instagram}`,
     `- Perfil en Google: ${business.googleBusiness}`,
-    "- Zona: Mar del Plata. Retiro y entrega a domicilio en Centro, Güemes, Chauvin y La Perla; costo y disponibilidad se confirman por WhatsApp.",
+    `- Zona: Mar del Plata. Retiro y entrega a domicilio en ${pickupZonesSentence}; costo y disponibilidad se confirman por WhatsApp.`,
+    "",
+    "## Barrios con retiro y entrega",
+    ...pickupZones.map(z => `- [Lavandería en ${z.name}](${SITE_URL}/${z.slug})`),
     "",
     "## Servicios",
     ...services.map(s => `- [${s.name}](${SITE_URL}${s.href}): ${s.short}`),
