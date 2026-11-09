@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cómo guardar la ropa de invierno sin que se arruine";
 const description="Cómo lavar, secar, doblar y proteger sweaters, tapados y camperas antes del cambio de temporada para evitar olor, manchas, deformación y polillas.";
@@ -16,7 +17,7 @@ const faqs=[
 
 export const metadata:Metadata={title:"Cómo guardar la ropa de invierno | Aquabon",description:"Cómo guardar la ropa de invierno limpia y seca para evitar humedad. Consultá lavado de camperas y recepción de tintorería en Aquabon, Mar del Plata.",alternates:{canonical:path},openGraph:{title,description:"Cómo guardar la ropa de invierno limpia y seca para evitar humedad. Consultá lavado de camperas y recepción de tintorería en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-29",images:[{url:"/blog/guardar-ropa-invierno.webp",width:1400,height:788,alt:"Sweaters doblados en una caja y un tapado en percha ancha dentro de un placard limpio"}]}};
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="como-guardar-la-ropa-de-invierno" date="2026-09-29" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image="/blog/guardar-ropa-invierno.webp" service="tintoreria">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="como-guardar-la-ropa-de-invierno" date="2026-09-29" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image="/blog/guardar-ropa-invierno.webp" service="camperas">
   <p className="article-lead"><strong>La ropa de invierno se guarda limpia, totalmente seca y sin comprimir de más.</strong> Los sweaters pesados conviene doblarlos; los tapados estructurados necesitan una percha ancha y espacio. El recipiente importa, pero la preparación previa es lo que evita que una mancha invisible, humedad o deformación aparezcan meses después.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#preparar">Preparar antes de guardar</a></li><li><a href="#prenda">Cómo guardar cada prenda</a></li><li><a href="#contenedores">Cajas, fundas y vacío</a></li><li><a href="#polillas">Prevenir polillas y humedad</a></li><li><a href="#lista">Lista de control</a></li></ol></nav>
 
@@ -59,6 +60,8 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <h2>Qué conviene limpiar antes del cambio de temporada</h2>
   <p>Tapados, sacos y prendas con forro pueden necesitar cuidado profesional antes de guardarse. En Aquabon recibimos prendas para evaluación de <Link href="/servicios/tintoreria">tintorería</Link> y <Link href="/servicios/lavado-de-camperas-y-tapados">lavado de camperas y tapados</Link> en Gascón 2189, en el centro de Mar del Plata. Revisamos etiqueta, construcción y manchas antes de confirmar proceso, precio y plazo.</p>
   <p>Si vas a guardar un tapado, consultá también nuestra guía sobre <Link href="/blog/como-limpiar-un-tapado-sin-danarlo">cómo limpiarlo sin dañar su estructura</Link>.</p>
+
+  <LocalCta service="camperas" />
 
   <h2>Preguntas frecuentes</h2>{faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}
   <section className="article-sources"><strong>Fuentes técnicas consultadas</strong><p><a href="https://www.woolmark.com/care/how-to-store-wool-clothes/" target="_blank" rel="noreferrer">Woolmark: cómo guardar prendas de lana</a> y <a href="https://extension.usu.edu/planthealth/research/clothes-moth" target="_blank" rel="noreferrer">Utah State University Extension: prevención de polillas de la ropa</a>.</p></section>

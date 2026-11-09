@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { areas } from "./LocalLanding";
 import type { LandingData } from "./SeoLanding";
 import type { ServiceDesign } from "./service-design";
+import { serviceCopy, type ServiceSection } from "./service-copy";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import WhatsAppLink from "./WhatsAppLink";
@@ -11,7 +11,7 @@ import JsonLd from "./JsonLd";
 import Img from "./Img";
 import { Clothesline, GuideCards, PageHero, Process, Ribbon, type Step } from "./Blocks";
 import { WhatsAppIcon } from "./ui";
-import { SITE_URL, business, services } from "./site";
+import { SITE_URL, business, pickupZones, services } from "./site";
 import { guide } from "./guides";
 import { seoDescriptions } from "./seo-descriptions";
 
@@ -31,15 +31,41 @@ function stepImages(n: number, main: string) {
   return [main, "/blog/leer-simbolos-etiqueta-ropa.webp", "/laundry-hero-v2.webp"];
 }
 
+// Secciones propias de cada servicio (app/service-copy.ts). Van antes de los bloques compartidos.
+function OwnSection({ section }: { section: ServiceSection }) {
+  return <section className={"p-sec" + (section.tone === "espuma" ? " p-sec--espuma" : "")} id={section.id} aria-labelledby={section.id + "-titulo"}>
+    <div className="wrap">
+      <div className="h-head h-head--split" data-reveal>
+        <h2 id={section.id + "-titulo"}>{section.heading}</h2>
+        {section.lead ? <p>{section.lead}</p> : null}
+      </div>
+      {section.blocks.map((block, i) => {
+        if (block.kind === "text") return <div key={i} className="prose" data-reveal>{block.paragraphs.map(t => <p key={t.slice(0, 24)}>{t}</p>)}</div>;
+        if (block.kind === "cards") return <ul key={i} className="feature-grid feature-grid--tres" style={{ marginTop: 24 }}>
+          {block.cards.map((c, j) => <li key={c.title} data-reveal style={{ transitionDelay: `${(j % 3) * 70}ms` }}><h3>{c.title}</h3><p>{c.copy}</p></li>)}
+        </ul>;
+        return <ul key={i} className="prose-list" data-reveal>{block.items.map(it => <li key={it}>{it}</li>)}</ul>;
+      })}
+      {section.note ? <p className="note" data-reveal><strong>Para tener en cuenta:</strong> {section.note}</p> : null}
+      {section.links?.length ? <p className="note" data-reveal>
+        {section.links.map((l, i) => <span key={l.href}>{i > 0 ? " · " : ""}<Link className="link" href={l.href}>{l.label}</Link></span>)}
+      </p> : null}
+    </div>
+  </section>;
+}
+
 export default function ServiceLanding({ data, design }: { data: LandingData; design: ServiceDesign }) {
   const url = SITE_URL + data.path;
+  const slug = data.path.split("/").at(-1) ?? "";
+  const copy = serviceCopy[slug];
+  const h = copy?.headings;
   const description = seoDescriptions[data.path] ?? data.description;
   const serviceSchema = {
     "@context": "https://schema.org", "@type": "Service", "@id": url + "#service",
     name: data.h1, serviceType: design.name, description, url,
     image: SITE_URL + design.image,
     provider: { "@id": SITE_URL + "/#business" },
-    areaServed: { "@type": "City", name: "Mar del Plata" },
+    areaServed: [{ "@type": "City", name: "Mar del Plata" }, ...pickupZones.map(z => ({ "@type": "Place", name: `${z.name}, Mar del Plata` }))],
     availableChannel: { "@type": "ServiceChannel", serviceLocation: { "@id": SITE_URL + "/#business" }, servicePhone: business.phoneE164 },
   };
   const relatedGuides = design.guides.map(guide);
@@ -61,23 +87,26 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
         chip={{ symbol: design.symbol, text: "Te avisamos por WhatsApp" }}
         actions={<>
           <WhatsAppLink className="btn btn--azul btn--xl" message={data.message} ubicacion="hero" data-primary-cta=""><WhatsAppIcon />{data.cta}</WhatsAppLink>
-          <a className="btn btn--outline-light btn--xl" href="#como-funciona">Cómo funciona</a>
+          <a className="btn btn--outline-light btn--xl" href={copy?.sections?.[0] ? "#" + copy.sections[0].id : "#como-funciona"}>Ver más</a>
         </>}
       />
       <Ribbon words={words} />
 
       {data.path === "/servicios/retiro-y-entrega-de-ropa" ? <section className="p-sec p-sec--espuma" id="zonas" aria-labelledby="zonas-titulo">
         <div className="wrap">
-          <div className="h-head h-head--split"><h2 id="zonas-titulo">Zonas con retiro y entrega</h2><p>Retiramos en Centro, Güemes, Chauvin y La Perla. Elegí tu zona para ver los servicios o mandanos tu dirección para coordinar costo y disponibilidad.</p></div>
-          <ul className="feature-grid">{Object.entries(areas).map(([slug, area]) => <li key={slug}><h3>{area.crumb}</h3><p>Ropa cotidiana y acolchados, con retiro y entrega coordinados.</p><Link className="link" href={"/" + slug}>Ver lavadero para {area.crumb}</Link></li>)}</ul>
+          <div className="h-head h-head--split"><h2 id="zonas-titulo">Barrios con retiro y entrega</h2><p>Retiramos y entregamos en once barrios de Mar del Plata. Elegí tu zona para ver cómo coordinamos ahí, o mandanos tu dirección para confirmar costo y disponibilidad.</p></div>
+          <ul className="feature-grid feature-grid--zonas">{pickupZones.map(z => <li key={z.slug}><h3>{z.name}</h3><p>Ropa cotidiana, acolchados y prendas especiales, con retiro y entrega coordinados.</p><Link className="link" href={"/" + z.slug}>Lavandería en {z.name}</Link></li>)}</ul>
           <p className="note">¿Estás en otra zona? <WhatsAppLink message="Hola Aquabon, estoy en __ y necesito lavar __. ¿Pueden retirar en mi dirección?" ubicacion="otras_zonas">Consultanos tu dirección</WhatsAppLink>. Te indicamos si podemos coordinar el pedido.</p>
         </div>
       </section> : null}
 
+      {/* Contenido propio del servicio, antes de los bloques compartidos. */}
+      {copy?.sections?.map(section => <OwnSection key={section.id} section={section} />)}
+
       <section className="p-sec" aria-labelledby="incluye-titulo" id="que-incluye">
         <div className="wrap">
           <div className="h-head h-head--split" data-reveal>
-            <h2 id="incluye-titulo">Qué incluye</h2>
+            <h2 id="incluye-titulo">{h?.incluye ?? "Qué incluye"}</h2>
             <p>{design.intro}</p>
           </div>
           <ul className="inc-cards" style={{ ["--n" as string]: data.items.length }}>
@@ -93,29 +122,22 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
         <div className="wrap split-media">
           <div className="split-media__img" data-reveal><Img src={sideImage} alt={relatedGuides[0]?.alt ?? ""} width={1000} height={1250} sizes="(max-width: 960px) 100vw, 460px" /></div>
           <div>
-            <div className="h-head" data-reveal><h2 id="prendas-titulo">Para qué prendas sirve</h2>{data.sections[0] ? <p>{data.sections[0].text}</p> : null}</div>
+            <div className="h-head" data-reveal><h2 id="prendas-titulo">{h?.prendas ?? "Para qué prendas sirve"}</h2>{data.sections[0] ? <p>{data.sections[0].text}</p> : null}</div>
             <ul className="fit-cards" data-reveal>{design.guide.map(g => <li key={g.title}><h3>{g.title}</h3><p>{g.copy}</p></li>)}</ul>
             <div className="note" data-reveal><strong>Antes de traerlo</strong>{design.prepare}</div>
           </div>
         </div>
       </section>
 
-      <Process title="Así funciona" steps={steps} cta={<>
+      <Process title={h?.proceso ?? "Así funciona"} steps={steps} cta={<>
         <WhatsAppLink className="btn btn--light btn--xl" message={data.message} ubicacion="proceso"><WhatsAppIcon />{data.cta}</WhatsAppLink>
         {data.path !== "/servicios/retiro-y-entrega-de-ropa" ? <Link className="link link--light" href="/servicios/retiro-y-entrega-de-ropa">Retiro a domicilio y zonas</Link> : <a className="link link--light" href="#zonas">Ver zonas con cobertura</a>}
       </>} />
 
-      <section className="p-sec p-sec--espuma" style={{ paddingBottom: "clamp(40px, 6vw, 64px)" }} aria-labelledby="otros-titulo">
-        <div className="wrap">
-          <div className="h-head h-head--split" data-reveal><h2 id="otros-titulo">También te podemos ayudar con</h2><p>Todo en el mismo mostrador de {business.street}. Escribinos y lo resolvemos juntos.</p></div>
-        </div>
-        <Clothesline title="" items={others} />
-      </section>
-
       <section className="p-sec" aria-labelledby="faq-titulo">
         <div className="wrap h-pick__grid">
           <div>
-            <div className="h-head" data-reveal><h2 id="faq-titulo">Preguntas frecuentes</h2></div>
+            <div className="h-head" data-reveal><h2 id="faq-titulo">{h?.faq ?? "Preguntas frecuentes"}</h2></div>
             <Faq items={data.faqs} />
           </div>
           <div className="h-pick__ticket" data-reveal>
@@ -127,9 +149,17 @@ export default function ServiceLanding({ data, design }: { data: LandingData; de
 
       <section className="p-sec p-sec--espuma" style={{ paddingBlock: "clamp(48px, 6vw, 72px)" }} aria-labelledby="guias-titulo">
         <div className="wrap">
-          <div className="h-head h-head--split" style={{ marginBottom: 24 }}><h2 id="guias-titulo" style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)" }}>Si preferís hacerlo en casa</h2><p><Link className="link" href="/blog">Ver todas las guías</Link></p></div>
+          <div className="h-head h-head--split" style={{ marginBottom: 24 }}><h2 id="guias-titulo" style={{ fontSize: "clamp(1.6rem, 3vw, 2.2rem)" }}>{h?.guias ?? "Si preferís hacerlo en casa"}</h2><p><Link className="link" href="/blog">Ver todas las guías</Link></p></div>
           <GuideCards compact guides={relatedGuides.slice(0, 3)} />
         </div>
+      </section>
+
+      {/* Bloque compartido: va después del contenido propio. */}
+      <section className="p-sec" style={{ paddingBottom: "clamp(40px, 6vw, 64px)" }} aria-labelledby="otros-titulo">
+        <div className="wrap">
+          <div className="h-head h-head--split" data-reveal><h2 id="otros-titulo">{h?.otros ?? "También te podemos ayudar con"}</h2><p>Todo en el mismo mostrador de {business.street}. Escribinos y lo resolvemos juntos.</p></div>
+        </div>
+        <Clothesline title="" items={others} />
       </section>
     </main>
     <SiteFooter />

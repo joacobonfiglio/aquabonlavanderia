@@ -5,12 +5,12 @@ import JsonLd from "./JsonLd";
 import CookieConsent from "./CookieConsent";
 import GoogleAnalyticsTag from "./GoogleAnalyticsTag";
 import { GA_ID, consentScript } from "./ga";
-import { SITE_URL, business, hours } from "./site";
+import { SITE_URL, business, hours, pickupZones } from "./site";
 import "./aquabon.css";
 import "./sections.css";
 
 
-const description = "Lavandería y tintorería en Gascón 2189, Mar del Plata. Valet de ropa, acolchados, tintorería y más. Consultá por WhatsApp o pasá por el local.";
+const description = "Valet, tintorería, acolchados y zapatillas en Mar del Plata. Más de 10 años lavando con cuidado. Retiro y entrega a domicilio. Consultá por WhatsApp.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -38,8 +38,12 @@ const businessSchema = {
   address: { "@type": "PostalAddress", streetAddress: business.street, postalCode: business.postalCode, addressLocality: business.city, addressRegion: business.region, addressCountry: business.country },
   ...(business.geo ? { geo: { "@type": "GeoCoordinates", ...business.geo } } : {}),
   openingHoursSpecification: hours.map(h => ({ "@type": "OpeningHoursSpecification", dayOfWeek: h.days.map(d => "https://schema.org/" + d), opens: h.opens, closes: h.closes })),
-  areaServed: { "@type": "City", name: "Mar del Plata" },
+  areaServed: [
+    { "@type": "City", name: "Mar del Plata" },
+    ...pickupZones.map(z => ({ "@type": "Place", name: `${z.name}, Mar del Plata` })),
+  ],
   hasMap: business.googleBusiness,
+  // TODO(joaco): sumar acá Facebook, Apple Business Connect y Bing Places cuando estén dados de alta.
   sameAs: [business.instagram, business.googleBusiness],
   contactPoint: { "@type": "ContactPoint", telephone: business.phoneE164, contactType: "customer service", availableLanguage: "es", contactOption: "WhatsApp" },
 };

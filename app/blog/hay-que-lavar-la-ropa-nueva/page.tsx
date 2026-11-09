@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="¿Hay que lavar la ropa nueva antes de usarla?";
 const description="Cuándo conviene lavar una prenda nueva, qué revisar antes del primer lavado y cómo evitar irritación, desteñido o deformación.";
@@ -45,6 +46,8 @@ export default function Page(){
 
     <h2>Si preferís delegar el cuidado</h2>
     <p>En Aquabon podemos evaluar prendas de uso cotidiano para nuestro <Link href="/servicios/valet-de-ropa">servicio de valet</Link> y prendas especiales para <Link href="/servicios/tintoreria">tintorería</Link>. Escribinos por WhatsApp con una foto de la prenda y su etiqueta; confirmamos el servicio adecuado según material, estado y capacidad.</p>
+
+    <LocalCta service="valet" />
 
     <h2>Preguntas frecuentes</h2>{faqs.map(f=><section key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></section>)}
 

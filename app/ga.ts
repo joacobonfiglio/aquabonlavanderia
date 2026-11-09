@@ -11,7 +11,6 @@ const byPath: Record<string, string> = {
   "/servicios/valet-de-ropa": "valet",
   "/servicios/lavado-de-acolchados": "acolchados",
   "/servicios/tintoreria": "tintoreria",
-  "/tintoreria-centro-mar-del-plata": "tintoreria",
   "/servicios/limpieza-de-vestidos-de-fiesta": "vestidos_de_fiesta",
   "/servicios/lavado-de-camperas-y-tapados": "camperas_y_tapados",
   "/servicios/planchado": "planchado",

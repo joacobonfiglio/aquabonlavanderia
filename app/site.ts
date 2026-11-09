@@ -38,6 +38,28 @@ export const hours = [
 ];
 export const hoursSentence = "Lunes a viernes de 8:30 a 20:00 y sábados de 9:00 a 14:00";
 
+// Barrios con retiro y entrega. Centro, Güemes, Chauvin y La Perla los confirmó Joaco el 24/10/2026;
+// los otros siete, con el plan de SEO del 07/11/2026. Costo y disponibilidad se coordinan en cada pedido.
+// Orden: primero los que tienen página publicada desde antes.
+export const pickupZones = [
+  { name: "Centro", slug: "lavanderia-centro-mar-del-plata" },
+  { name: "Güemes", slug: "lavanderia-guemes-mar-del-plata" },
+  { name: "Chauvin", slug: "lavanderia-chauvin-mar-del-plata" },
+  { name: "La Perla", slug: "lavanderia-la-perla-mar-del-plata" },
+  { name: "Playa Grande", slug: "lavanderia-playa-grande-mar-del-plata" },
+  { name: "Plaza Mitre", slug: "lavanderia-plaza-mitre-mar-del-plata" },
+  { name: "Stella Maris", slug: "lavanderia-stella-maris-mar-del-plata" },
+  { name: "Los Troncos", slug: "lavanderia-los-troncos-mar-del-plata" },
+  { name: "Parque Luro", slug: "lavanderia-parque-luro-mar-del-plata" },
+  { name: "Punta Mogotes", slug: "lavanderia-punta-mogotes-mar-del-plata" },
+  { name: "Constitución", slug: "lavanderia-constitucion-mar-del-plata" },
+];
+
+// "A, B y C" con los once barrios, para el texto visible.
+export const pickupZonesSentence = pickupZones.map(z => z.name).reduce((acc, name, i, all) => i === 0 ? name : i === all.length - 1 ? `${acc} y ${name}` : `${acc}, ${name}`, "");
+// Versión corta para metas y frases donde no entran los once.
+export const pickupZonesShort = "Centro, Güemes, Chauvin, La Perla, Playa Grande y más barrios";
+
 export const mapsDirections = "https://www.google.com/maps/dir/?api=1&destination=Gasc%C3%B3n+2189%2C+Mar+del+Plata%2C+Argentina";
 export const mapsEmbed = "https://www.google.com/maps?q=Gasc%C3%B3n+2189%2C+Mar+del+Plata%2C+Argentina&output=embed";
 
@@ -58,7 +80,7 @@ export const services: { name: string; href: string; short: string; symbol?: Car
   { name: "Lavado de zapatillas", href: "/servicios/lavado-de-zapatillas", short: "Limpieza según el material de tu par.", image: "/blog/revisar-zapatillas-antes-lavar.webp", alt: "Zapatillas blancas revisadas antes de lavarlas" },
   { name: "Teñido de prendas", href: "/servicios/tenido-de-prendas", short: "Recuperar o cambiar el color, si la prenda lo permite.", image: "/services/tenido-v3.webp", alt: "Prenda en un baño de tinte azul" },
   { name: "Arreglos y costura", href: "/servicios/arreglos-y-costura", short: "Ajustes y reparaciones para seguir usándola.", image: "/services/costura-v3.webp", alt: "Máquina de coser sobre el dobladillo de un jean" },
-  { name: "Retiro y entrega", href: "/servicios/retiro-y-entrega-de-ropa", short: "En Centro, Güemes, Chauvin y La Perla.", image: "/services/retiro-v3.webp", alt: "Entrega de una bolsa de ropa en la puerta de una casa" },
+  { name: "Retiro y entrega", href: "/servicios/retiro-y-entrega-de-ropa", short: "En once barrios de Mar del Plata.", image: "/services/retiro-v3.webp", alt: "Entrega de una bolsa de ropa en la puerta de una casa" },
 ];
 
 export const businessLinks = [

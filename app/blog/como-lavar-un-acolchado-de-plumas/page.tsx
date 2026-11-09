@@ -2,16 +2,18 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="¿Cómo lavar un acolchado de plumas sin dañarlo?";
 const description="Primero revisá la etiqueta, el estado de las costuras y la capacidad real del lavarropas. Si el acolchado queda apretado, no puede moverse ni enjuagarse bien: en ese caso conviene usar una máquina de mayor capacidad o consultar un servicio profesional. El secado completo y uniforme es tan importante como el lavado.";
 
 export const metadata:Metadata={title:"Cómo lavar un acolchado de plumas sin dañarlo | Aquabon",description:"Cómo lavar un acolchado de plumas según su etiqueta y cuidar el relleno al secarlo. Consultá lavado de acolchados en Aquabon, Mar del Plata.",alternates:{canonical:"/blog/como-lavar-un-acolchado-de-plumas"},openGraph:{title,description:"Cómo lavar un acolchado de plumas según su etiqueta y cuidar el relleno al secarlo. Consultá lavado de acolchados en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:"/blog/como-lavar-un-acolchado-de-plumas",publishedTime:"2026-09-15",images:[{url:"/blog/revisar-etiqueta-acolchado-plumas.webp",width:1400,height:933,alt:"Revisión de la etiqueta y las costuras de un acolchado de plumas"}]}};
 
-export default function Page(){return <ArticleLayout title={title} description={description} slug="como-lavar-un-acolchado-de-plumas" date="2026-09-15" readingTime="8 MIN DE LECTURA" cluster="Acolchados" image="/blog/revisar-etiqueta-acolchado-plumas.webp">
+export default function Page(){return <ArticleLayout service="acolchados" title={title} description={description} slug="como-lavar-un-acolchado-de-plumas" date="2026-09-15" readingTime="8 MIN DE LECTURA" cluster="Acolchados" image="/blog/revisar-etiqueta-acolchado-plumas.webp">
   <p className="article-lead"><strong>Respuesta corta:</strong> un acolchado de plumas puede lavarse en casa únicamente si su etiqueta permite lavado con agua, no tiene roturas y entra holgado en el tambor. Usá el programa y la temperatura indicados por el fabricante. Después, asegurate de secar por completo el relleno y desarmar los grupos de plumas durante el proceso. Si queda comprimido, tarda demasiado en secar o la etiqueta exige limpieza profesional, no lo fuerces.</p>
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#antes">Qué revisar antes de lavarlo</a></li><li><a href="#lavarropas">Cómo saber si entra en el lavarropas</a></li><li><a href="#lavado">Cómo lavarlo paso a paso</a></li><li><a href="#secado">Cómo secarlo sin apelmazar las plumas</a></li><li><a href="#errores">Errores frecuentes</a></li><li><a href="#profesional">Cuándo recurrir a una lavandería</a></li></ol></nav>
+  <p className="note">¿No querés arriesgarlo? En Mar del Plata hacemos <Link href="/servicios/lavado-de-acolchados">lavado de acolchados en Mar del Plata</Link>, con el espacio y el secado completo que un lavarropas doméstico no puede dar. Mandanos una foto de la etiqueta y te orientamos.</p>
 
   <h2 id="antes">Qué revisar antes de lavar un acolchado de plumas</h2>
   <p>La decisión no empieza en el lavarropas, sino en la etiqueta. Ahí se indica el tratamiento máximo permitido: si admite lavado con agua, cuál es la temperatura límite, si puede centrifugarse y si acepta secadora. Esas instrucciones tienen prioridad sobre cualquier consejo general.</p>
@@ -51,6 +53,8 @@ export default function Page(){return <ArticleLayout title={title} description={
   <h2 id="profesional">Cuándo conviene llevarlo a una lavandería profesional</h2>
   <p>Conviene pedir una valoración si el acolchado no entra holgado en tu lavarropas, si es de dos plazas y muy voluminoso, si presenta manchas difíciles, si tiene una construcción delicada o si no podés garantizar un secado completo. También es preferible consultar cuando la etiqueta exige un tratamiento que tu equipo doméstico no ofrece.</p>
   <p>En Aquabon, antes de aceptar el trabajo revisamos la etiqueta, el estado y el tipo de relleno. No todas las manchas ni todos los daños pueden eliminarse, por eso la evaluación previa permite explicar qué resultado es razonable esperar. Podés acercarte a Gascón 2189, en el Centro, o enviar una foto por WhatsApp para una primera orientación.</p>
+
+  <LocalCta service="acolchados" />
 
   <h2>Preguntas frecuentes</h2>
   <h3>¿Se puede centrifugar un acolchado de plumas?</h3><p>Solo si la etiqueta lo permite y la máquina puede mantener la carga equilibrada. Respetá el programa indicado; no repitas centrifugados fuertes para compensar un tambor demasiado pequeño.</p>

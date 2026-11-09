@@ -12,7 +12,7 @@ export type ServiceDesign = {
 
 export const serviceDesigns: Record<string, ServiceDesign> = {
   "valet-de-ropa": {
-    symbol: "wash", guides: ["simbolos-de-lavado-de-la-ropa","cuanto-detergente-usar","como-evitar-que-la-ropa-se-encoja","como-secar-ropa-dentro-de-casa","como-sacar-manchas-de-sangre-de-la-ropa","como-sacar-olor-a-humo-de-la-ropa"],
+    symbol: "wash", guides: ["simbolos-de-lavado-de-la-ropa","cuanto-detergente-usar","como-evitar-que-la-ropa-se-encoja","como-secar-ropa-dentro-de-casa","como-sacar-manchas-dificiles-de-la-ropa","como-sacar-olor-a-humo-de-la-ropa"],
     name: "Valet de ropa", title: ["Menos tiempo lavando,", "más tiempo para vos"],
     image: "/service-still-v2.webp", alt: "Ropa de uso diario lavada, seca y doblada, lista para guardar",
     tag: "", caption: "",
@@ -40,7 +40,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     ], closing: ["Tu cama renovada,", "sin ocupar tu casa"], variant: "soft"
   },
   tintoreria: {
-    symbol: "dryclean", guides: ["que-prendas-conviene-llevar-a-la-tintoreria", "que-es-la-limpieza-en-seco", "diferencia-entre-lavanderia-y-tintoreria", "como-lavar-ropa-delicada", "como-sacar-manchas-de-vino-de-la-ropa", "como-sacar-manchas-de-aceite-de-la-ropa"],
+    symbol: "dryclean", guides: ["que-prendas-conviene-llevar-a-la-tintoreria", "que-es-la-limpieza-en-seco", "diferencia-entre-lavanderia-y-tintoreria", "como-lavar-ropa-delicada", "como-sacar-manchas-dificiles-de-la-ropa", "como-sacar-manchas-dificiles-de-la-ropa"],
     name: "Tintorería", title: ["Tu prenda especial,", "con seguimiento de principio a fin"],
     image: "/blog/revisar-prendas-tintoreria.webp", alt: "Revisión de un saco de vestir junto a otras prendas especiales",
     tag: "UN SOLO PUNTO DE CONTACTO", caption: "Recepción · Evaluación · Seguimiento",
@@ -54,7 +54,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     ], closing: ["Tu prenda especial,", "nuestro seguimiento"], variant: "tailored"
   },
   "limpieza-de-vestidos-de-fiesta": {
-    symbol: "dryclean", guides: ["que-prendas-conviene-llevar-a-la-tintoreria", "que-es-la-limpieza-en-seco", "como-lavar-ropa-delicada", "como-sacar-manchas-de-vino-de-la-ropa"],
+    symbol: "dryclean", guides: ["que-prendas-conviene-llevar-a-la-tintoreria", "que-es-la-limpieza-en-seco", "como-lavar-ropa-delicada", "como-sacar-manchas-dificiles-de-la-ropa"],
     name: "Limpieza de vestidos de fiesta", title: ["Limpieza de vestidos de fiesta", "en Mar del Plata"],
     image: "/blog/revisar-prendas-tintoreria.webp", alt: "Revisión profesional de prendas especiales antes de definir su limpieza",
     tag: "TEJIDO · FORRO · ADORNOS · MANCHAS", caption: "Recepción y seguimiento en Gascón 2189",
@@ -155,14 +155,14 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     guides: ["como-preparar-la-ropa-blanca-de-un-alquiler-temporario", "checklist-recambio-ropa-blanca-airbnb", "como-secar-ropa-dentro-de-casa", "cuanto-detergente-usar"],
     name: "Retiro y entrega", title: ["Tu ropa va y vuelve,", "vos seguís con tu día"],
     image: "/services/retiro-v3.webp", alt: "Entrega de una bolsa de ropa cerrada en la puerta de una vivienda",
-    tag: "MENOS TRASLADOS EN TU DÍA", caption: "Centro · Güemes · Chauvin · La Perla",
+    tag: "MENOS TRASLADOS EN TU DÍA", caption: "Once barrios · Retiro y entrega",
     heading: ["El cuidado de siempre.", "Una forma de acercarlo."],
-    intro: "Pasamos a buscar tu ropa y te la llevamos cuando está lista, en Centro, Güemes, Chauvin y La Perla. Escribinos con tu dirección y el servicio, y te confirmamos costo y horario antes de pasar.",
+    intro: "Pasamos a buscar tu ropa y te la llevamos cuando está lista, en once barrios de Mar del Plata. Escribinos con tu dirección y el servicio, y te confirmamos costo y horario antes de pasar.",
     prepare: "Poné la ropa en una bolsa bien cerrada y contanos cuántas prendas son y si hay manchas, daños o algo especial.",
     guideTitle: "¿Qué querés que retiremos?", guide: [
       { title: "Una bolsa de ropa de todos los días", copy: "Lo más común: valet con retiro. Te la devolvemos lavada, seca y doblada. Contanos cuánta ropa es y tu dirección." },
       { title: "Acolchados o prendas especiales", copy: "Consultanos antes de coordinar: depende del volumen y de lo que necesite cada pieza." },
-      { title: "Tu zona y tus horarios", copy: "Retiramos en Centro, Güemes, Chauvin y La Perla. Coordinamos la dirección, el costo y la franja horaria de cada pedido." }
+      { title: "Tu zona y tus horarios", copy: "Retiramos en once barrios de Mar del Plata. Coordinamos la dirección, el costo y la franja horaria de cada pedido." }
     ], closing: ["Menos idas y vueltas,", "empezá con un mensaje"], variant: "detail"
   }
 };

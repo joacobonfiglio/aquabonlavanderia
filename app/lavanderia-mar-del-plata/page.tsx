@@ -1,1 +1,5 @@
-import SeoLanding,{landingMetadata}from"../SeoLanding";import{localData}from"../LocalLanding";const data=localData("general");export const metadata=landingMetadata(data);export default function Page(){return <SeoLanding data={data}/>}
+import MdpLanding from "../MdpLanding";
+import { landingMetadata } from "../SeoLanding";
+import { localData } from "../LocalLanding";
+export const metadata = landingMetadata(localData("general"));
+export default function Page() { return <MdpLanding />; }

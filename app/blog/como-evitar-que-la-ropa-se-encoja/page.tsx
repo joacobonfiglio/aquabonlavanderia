@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cómo evitar que la ropa se encoja al lavarla";
 const description="Cómo interpretar la etiqueta, elegir temperatura, ciclo y secado, y cuidar algodón, lana y prendas mixtas para reducir el riesgo de encogimiento.";
@@ -17,7 +18,7 @@ const faqs=[
 export const metadata:Metadata={title:"Cómo evitar que la ropa se encoja | Aquabon",description:"Cómo evitar que la ropa se encoja: etiqueta, temperatura y secado según tejido. En Aquabon, Mar del Plata, te orientamos sobre el cuidado de tus prendas.",alternates:{canonical:path},openGraph:{title,description:"Cómo evitar que la ropa se encoja: etiqueta, temperatura y secado según tejido. En Aquabon, Mar del Plata, te orientamos sobre el cuidado de tus prendas.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-30",images:[{url:"/blog/evitar-encogimiento-ropa.webp",width:1400,height:788,alt:"Revisión de la etiqueta de una remera junto a un sweater secándose en plano"}]}};
 
 export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="como-evitar-que-la-ropa-se-encoja" date="2026-09-30" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image="/blog/evitar-encogimiento-ropa.webp" service="valet">
-  <p className="article-lead"><strong>La mejor prevención está en la etiqueta y en el secado.</strong> Usá la temperatura máxima permitida, reducí fricción y centrifugado cuando el símbolo indique un proceso suave, y no lleves una prenda a la secadora si no está autorizada. “Agua fría para todo” tampoco reemplaza las instrucciones específicas.</p>
+  <p className="article-lead"><strong>La mejor prevención está en la etiqueta y en el secado, y en Mar del Plata casi siempre falla el secado.</strong> Usá la temperatura máxima permitida, reducí fricción y centrifugado cuando el símbolo indique un proceso suave, y no lleves una prenda a la secadora si no está autorizada. “Agua fría para todo” tampoco reemplaza las instrucciones específicas.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#causas">Por qué encoge la ropa</a></li><li><a href="#pasos">Cómo prevenirlo</a></li><li><a href="#tejidos">Cuidados por tejido</a></li><li><a href="#secado">El secado importa</a></li><li><a href="#encogida">Si ya encogió</a></li></ol></nav>
 
   <h2 id="causas">Por qué una prenda puede encoger</h2>
@@ -61,6 +62,8 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
 
   <h2>Cuando preferís delegar el lavado</h2>
   <p>En Aquabon revisamos material, etiqueta y estado general antes de confirmar el <Link href="/servicios/valet-de-ropa">valet de ropa</Link> o derivar una prenda a <Link href="/servicios/tintoreria">tintorería</Link>. Podés acercarte a Gascón 2189, en el centro de Mar del Plata. Para símbolos específicos, consultá también nuestra <Link href="/blog/simbolos-de-lavado-de-un-acolchado">guía para leer etiquetas de cuidado</Link>.</p>
+
+  <LocalCta service="valet" />
 
   <h2>Preguntas frecuentes</h2>{faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}
   <section className="article-sources"><strong>Fuentes técnicas consultadas</strong><p><a href="https://www.ginetex.net/gb/labelling/care-symbols.asp" target="_blank" rel="noreferrer">GINETEX: símbolos y niveles de lavado y secado</a> y <a href="https://www.woolmark.com/care/how-to-wash-wool-sweater/" target="_blank" rel="noreferrer">Woolmark: lavado y secado de sweaters de lana</a>.</p></section>

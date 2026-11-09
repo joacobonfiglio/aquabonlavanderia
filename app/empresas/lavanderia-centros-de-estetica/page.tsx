@@ -32,7 +32,7 @@ const data:LandingData={
     {question:"¿Trabajan con peluquerías, barberías y spas?",answer:"Sí: salones, barberías, gabinetes, spas y centros de estética. Contanos qué textiles son, cuántos y cada cuánto."},
     {question:"¿Salen las manchas de maquillaje, aceite o tintura?",answer:"Las tratamos, pero no siempre salen del todo, y te lo decimos antes. Depende del producto, la antigüedad, el tejido y el color."},
     {question:"¿Hay una cantidad mínima o un precio fijo?",answer:"No publicamos un mínimo ni un precio único, porque cada negocio es distinto. Escribinos con volumen y frecuencia y te pasamos condiciones antes de empezar."},
-    {question:"¿Pueden retirar y entregar los textiles?",answer:"Sí, en Centro, Güemes, Chauvin y La Perla. Contanos la dirección, el volumen y la frecuencia, y coordinamos días y costo antes de empezar. Si estás en otra zona, consultanos."},
+    {question:"¿Pueden retirar y entregar los textiles?",answer:"Sí, en once barrios de Mar del Plata. Contanos la dirección, el volumen y la frecuencia, y coordinamos días y costo antes de empezar. Si estás en otra zona, consultanos."},
     {question:"¿Dónde está Aquabon?",answer:"En Gascón 2189, en el centro de Mar del Plata. Si te queda más cómodo, arrancamos por WhatsApp."}
   ],
   related:[{label:"Servicios para empresas",href:"/empresas"},{label:"Retiro y entrega",href:"/servicios/retiro-y-entrega-de-ropa"},{label:"Valet de ropa",href:"/servicios/valet-de-ropa"},{label:"Guía: manchas de maquillaje",href:"/blog/como-sacar-maquillaje-de-la-ropa"}],

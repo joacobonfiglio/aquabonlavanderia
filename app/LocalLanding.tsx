@@ -1,12 +1,13 @@
 import { neighborhoods } from "./neighborhoods";
 import type { LandingData } from "./SeoLanding";
-import { business, hoursSentence } from "./site";
+import { business, hoursSentence, pickupZonesSentence } from "./site";
 
 // Páginas locales. Para sumar un barrio:
 // 1. Agregá una entrada en `areas` (slug = la URL sin la barra).
 // 2. Creá app/<slug>/page.tsx copiando app/lavanderia-centro-mar-del-plata/page.tsx y cambiando el slug.
 // 3. El sitemap la toma solo.
-// TODO(joaco): no publicar barrios nuevos sin confirmar que hay cobertura real de retiro y entrega o que el local les queda a mano.
+// Regla: no publicar un barrio nuevo sin que Joaco confirme que hay retiro y entrega real.
+// Los once barrios actuales están en `pickupZones` (app/site.ts) con la fecha en que se confirmaron.
 type Area = {
   h1?: string;
   name: string;          // "el centro de Mar del Plata"
@@ -37,7 +38,7 @@ const commonItems = [
 const commonFaqs = [
   { question: "¿Dónde está Aquabon?", answer: `En ${business.street}, en el centro de Mar del Plata. Si no podés venir, en algunas zonas pasamos a buscar la ropa.` },
   { question: "¿Cuál es el horario?", answer: `${hoursSentence}.` },
-  { question: "¿Hacen retiro y entrega?", answer: "Sí, en Centro, Güemes, Chauvin y La Perla. Mandanos tu dirección por WhatsApp y te confirmamos costo y disponibilidad antes de pasar. Si estás en otra zona, consultanos igual." },
+  { question: "¿Hacen retiro y entrega?", answer: "Sí, en once barrios de Mar del Plata. Mandanos tu dirección por WhatsApp y te confirmamos costo y disponibilidad antes de pasar. Si estás en otra zona, consultanos igual." },
   { question: "¿Puedo consultar con una foto?", answer: "Sí. Mandá una foto de la prenda y de la etiqueta por WhatsApp y te orientamos antes de que vengas." },
   { question: "¿Atienden prendas delicadas?", answer: "Sí. Las revisamos antes de aceptarlas y te decimos qué servicio les conviene y si hay algún riesgo." },
 ];
@@ -51,21 +52,21 @@ export function localData(kind: "general" | keyof typeof areas | string): Landin
   if (kind === "general") {
     const path = "/lavanderia-mar-del-plata";
     return {
-      path, title: "Lavandería en Mar del Plata | Aquabon",
-      description: "Lavandería y tintorería en Mar del Plata: valet de ropa, acolchados, tintorería y más en Gascón 2189. Consultá por WhatsApp.",
+      path, title: "Lavandería en Mar del Plata con retiro a domicilio | Aquabon",
+      description: "Lavandería en Mar del Plata: valet, acolchados, tintorería y zapatillas. Retiramos y entregamos en tu casa. Gascón 2189. Respondemos por WhatsApp.",
       eyebrow: "", h1: "Lavandería en Mar del Plata",
-      intro: "Te sacamos el lavado de encima: ropa de todos los días, acolchados y prendas especiales, revisadas una por una. Local en Gascón 2189 y retiro en Centro, Güemes, Chauvin y La Perla. Más de 10 años en el rubro.",
+      intro: "Te sacamos el lavado de encima: ropa de todos los días, acolchados y prendas especiales, revisadas una por una. Local en Gascón 2189 y retiro en once barrios de Mar del Plata. Más de 10 años en el rubro.",
       event: "whatsapp_lavanderia_mdp", message: "Hola Aquabon, quería consultar por un servicio de lavandería.", cta: "Consultar por WhatsApp",
       crumbs: [{ label: "Inicio", href: "/" }, { label: "Lavandería en Mar del Plata", href: path }],
       sections: [
         { heading: "Todo en un mismo lugar", text: "Desde la ropa de todos los días hasta acolchados o prendas delicadas: te orientamos según el material y el estado, y nos ocupamos del resto." },
         { heading: "Un local en el centro", text: `Nos encontrás en ${business.street}. ${hoursSentence}.` },
-        { heading: "Retiro y entrega", text: "Pasamos a buscar la ropa y te la llevamos en Centro, Güemes, Chauvin y La Perla. Para otras zonas, consultanos." },
+        { heading: "Retiro y entrega", text: `Pasamos a buscar la ropa y te la llevamos en ${pickupZonesSentence}. Para otras zonas, consultanos.` },
       ],
       items: commonItems,
       steps: [{ title: "Contanos qué tenés", copy: "Elegí el servicio o mandanos una foto por WhatsApp." }, { title: "Nos la dejás", copy: `En ${business.street} o, si estás en una zona con retiro, la pasamos a buscar.` }, { title: "Te avisamos", copy: "Te escribimos cuando el pedido está listo." }],
       faqs: commonFaqs,
-      related: [...Object.entries(neighborhoods).map(([slug, n]) => ({ label: `Lavadero para ${n.name}`, href: "/" + slug })), { label: "Lavandería en el centro", href: "/lavanderia-centro-mar-del-plata" }, { label: "Tintorería en el centro", href: "/tintoreria-centro-mar-del-plata" }, ...commonRelated],
+      related: [{ label: "Lavandería en el Centro de Mar del Plata", href: "/lavanderia-centro-mar-del-plata" }, ...Object.entries(neighborhoods).map(([slug, n]) => ({ label: `Lavandería en ${n.name}`, href: "/" + slug })), ...commonRelated],
       showLocation: true,
     };
   }
@@ -80,7 +81,7 @@ export function localData(kind: "general" | keyof typeof areas | string): Landin
     crumbs: [{ label: "Inicio", href: "/" }, { label: "Lavandería en Mar del Plata", href: "/lavanderia-mar-del-plata" }, { label: area.crumb, href: path }],
     sections: [
       { heading: "Una ubicación práctica", text: area.nearby },
-      { heading: "Retiro y entrega", text: "Pasamos a buscar la ropa y te la llevamos en Centro, Güemes, Chauvin y La Perla. Costo y horario se coordinan en cada pedido." },
+      { heading: "Retiro y entrega", text: "Pasamos a buscar la ropa y te la llevamos en once barrios de Mar del Plata. Costo y horario se coordinan en cada pedido." },
     ],
     items: commonItems,
     steps: [{ title: "Contanos qué tenés", copy: "Elegí el servicio o mandanos una foto por WhatsApp." }, { title: "Nos la dejás", copy: `En ${business.street} o la pasamos a buscar.` }, { title: "Te avisamos", copy: "Te escribimos cuando el pedido está listo." }],

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Símbolos de lavado de ropa: cómo leer la etiqueta";
 const description="Una guía visual para entender lavado, blanqueo, secado, planchado y cuidado profesional antes de tratar una prenda.";
@@ -79,6 +80,8 @@ export default function Page(){
     <h2 id="dudas">Qué hacer si la etiqueta falta o no se entiende</h2>
     <p>Sin etiqueta no hay una temperatura universal segura. La composición ayuda, pero no revela siempre acabados, tintes, adhesivos o entretelas. Evitá probar calor, lavandina o mezclas de productos en una prenda delicada, estructurada o valiosa.</p>
     <p>En Aquabon podemos revisar la prenda antes de confirmar el proceso. Estamos en Gascón 2189, Centro de Mar del Plata. Para ropa cotidiana también podés consultar el <Link href="/servicios/valet-de-ropa">servicio de valet</Link>; si necesitás interpretar una pieza voluminosa, tenés la guía específica de <Link href="/blog/simbolos-de-lavado-de-un-acolchado">símbolos de lavado de acolchados</Link>. También explicamos <Link href="/blog/que-prendas-conviene-llevar-a-la-tintoreria">qué prendas conviene llevar a tintorería</Link>.</p>
+
+    <LocalCta service="valet" />
 
     <h2>Preguntas frecuentes</h2>
     {faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}

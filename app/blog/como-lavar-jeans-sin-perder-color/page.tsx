@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cómo lavar jeans sin que pierdan color";
 const description="Una rutina práctica para cuidar jeans azules, negros o con elastano: etiqueta, lavado del revés, poca fricción y secado sin calor innecesario.";
@@ -25,10 +26,11 @@ export const metadata:Metadata={
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
   return <ArticleLayout title={title} description={description} slug="como-lavar-jeans-sin-perder-color" date="2026-10-10" readingTime="7 MIN DE LECTURA" cluster="Jeans" image="/blog/preparar-jeans-antes-lavar.webp" service="valet">
-    <p className="article-lead"><strong>Para reducir la pérdida de color, revisá la etiqueta, lavá el jean del revés con prendas oscuras similares y evitá más temperatura, fricción y secado de los necesarios.</strong> El color no se conserva con un único truco: depende del tinte, el acabado, la composición y de todo el ciclo de cuidado.</p>
+    <p className="article-lead"><strong>Para que el jean no pierda color: etiqueta, lavado del revés con prendas oscuras similares, y la menor temperatura, fricción y exposición al sol posibles.</strong> El color no se conserva con un único truco: depende del tinte, el acabado, la composición y de todo el ciclo de cuidado.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#antes">Antes de lavar</a></li><li><a href="#maquina">Lavado en máquina</a></li><li><a href="#tipos">Qué cambia según el jean</a></li><li><a href="#secado">Secado</a></li><li><a href="#errores">Errores frecuentes</a></li><li><a href="#frecuencia">Cuándo lavarlos</a></li></ol></nav>
 
     <h2 id="antes">Antes de lavar: mirá más que el color</h2>
+    <p>Si juntás la ropa oscura de toda la semana y no querés pensar en separar cargas, el <Link href="/servicios/valet-de-ropa">valet de ropa en Mar del Plata</Link> lo resuelve: separamos por color, tejido y cuidado antes de lavar, que es justo donde se arruina el color de un jean.</p>
     <p>Dos jeans azul oscuro pueden necesitar cuidados distintos. Uno puede ser algodón rígido; otro, una mezcla con elastano; y un denim crudo puede transferir color durante los primeros lavados. La etiqueta de la prenda terminada tiene prioridad sobre cualquier consejo general.</p>
     <ol className="article-steps">
       <li><strong>Leé lavado y secado.</strong><span>Revisá temperatura, intensidad del ciclo, blanqueo y secadora. Las líneas debajo de la tina piden menor acción mecánica.</span></li>
@@ -61,6 +63,10 @@ export default function Page(){
     </div>
     <p>No presupongas que todo denim encoge igual. Si te preocupa el calce, ampliá con la guía sobre <Link href="/blog/como-evitar-que-la-ropa-se-encoja">cómo evitar que la ropa se encoja</Link>.</p>
 
+    <h2 id="sol-y-humedad">En Mar del Plata: sol fuerte afuera, humedad adentro</h2>
+    <p>Acá el secado del denim tiene dos trampas opuestas. En verano, colgar el jean al sol directo sobre una terraza o un balcón decolora la cara expuesta y deja una diferencia de tono entre el frente y la espalda. Secalo a la sombra y del revés.</p>
+    <p>En invierno el problema es el otro: secarlo adentro, en un ambiente cerrado y húmedo, hace que el jean tarde dos días y quede con olor a encierro. Si vivís en departamento sin balcón, dejalo cerca de una ventana con circulación de aire, no sobre una estufa. Ver también <Link href="/blog/como-secar-ropa-dentro-de-casa">cómo secar ropa dentro de casa sin olor a humedad</Link>.</p>
+
     <h2 id="secado">Cómo secar jeans sin castigar color ni calce</h2>
     <p>Levi’s recomienda secar el denim del revés y en un lugar sombreado para ayudar a preservar el color. Si la etiqueta permite secado al aire, acomodá costuras y bolsillos y colgalo con suficiente ventilación. Evitá sol fuerte durante horas, radiadores y otras fuentes de calor directo.</p>
     <p>Usá secadora únicamente cuando el cuadrado con círculo lo autorice y respetá sus puntos de temperatura. En jeans con elastano, el calor merece especial atención. Antes de guardar, comprobá que cintura, bolsillos y costuras gruesas estén completamente secos.</p>
@@ -78,6 +84,8 @@ export default function Page(){
     <h2 id="frecuencia">¿Cada cuánto conviene lavar los jeans?</h2>
     <p>No hay un número válido para todos. Considerá uso, sudor, suciedad, olor, manchas, contacto con superficies y la recomendación del fabricante. Entre usos, airealos en un lugar ventilado. Si hay una mancha, tratala pronto con un producto compatible en lugar de dejar que envejezca.</p>
     <p>Para ropa cotidiana que admite lavado, Aquabon ofrece <Link href="/servicios/valet-de-ropa">valet de ropa en Mar del Plata</Link>: lavado, secado y doblado, con recepción en Gascón 2189. Informanos si el jean es nuevo, pierde color, tiene elastano o necesita una atención particular; proceso, precio y plazo se confirman al recibir el pedido.</p>
+
+    <LocalCta service="valet" />
 
     <h2>Preguntas frecuentes</h2>{faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}
     <section className="article-sources"><strong>Fuentes técnicas consultadas</strong><p><a href="https://help.levi.com/hc/en-us/articles/15463553339917-Denim-care-and-washing" target="_blank" rel="noreferrer">Levi’s: cuidado y lavado del denim</a>, <a href="https://www.cleaninginstitute.org/cleaning-tips/clothes/fabric-care/keep-dark-clothes-fading" target="_blank" rel="noreferrer">American Cleaning Institute: cuidado de ropa oscura</a> y <a href="https://www.ginetex.net/gb/labelling/care-symbols.asp" target="_blank" rel="noreferrer">GINETEX: símbolos de cuidado textil</a>.</p></section>

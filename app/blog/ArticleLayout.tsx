@@ -11,6 +11,7 @@ import { servicioFromPath } from "../ga";
 import Img from "../Img";
 import { Clothesline, GuideCards, Waves } from "../Blocks";
 import { guides } from "../guides";
+import { serviceInfo, type ServiceKey } from "./service-info";
 
 type ArticleLayoutProps = {
   title: string;
@@ -20,32 +21,30 @@ type ArticleLayoutProps = {
   readingTime: string;
   cluster: string;
   image?: string;
-  service?: "acolchados" | "tintoreria" | "zapatillas" | "valet" | "airbnb";
+  // Fecha de la última revisión real del contenido (AAAA-MM-DD). Si falta, dateModified usa `date`.
+  updated?: string;
+  service?: ServiceKey;
   children: ReactNode;
 };
 
-const serviceInfo = {
-  acolchados: { path: "/servicios/lavado-de-acolchados", name: "Lavado de acolchados", copy: "Revisamos tamaño, tejido, relleno y estado antes de confirmar el proceso.", message: "Hola Aquabon, quería consultar por el lavado de un acolchado." },
-  tintoreria: { path: "/servicios/tintoreria", name: "Tintorería", copy: "Revisamos etiqueta, tejido, forro, adornos y manchas antes de confirmar el tratamiento.", message: "Hola Aquabon, quería consultar por una prenda de tintorería." },
-  zapatillas: { path: "/servicios/lavado-de-zapatillas", name: "Lavado de zapatillas", copy: "Revisamos material, uniones, color, manchas y desgaste antes de confirmar el proceso.", message: "Hola Aquabon, quería consultar por el lavado de unas zapatillas." },
-  airbnb: { path: "/empresas/lavanderia-airbnb", name: "Lavandería para Airbnb", copy: "Sábanas, fundas y toallas lavadas, secas y dobladas para los recambios entre huéspedes.", message: "Hola Aquabon, quería consultar por el servicio de lavandería para un alojamiento." },
-  valet: { path: "/servicios/valet-de-ropa", name: "Valet de ropa", copy: "Separamos las prendas por color, tejido y cuidado antes de lavar, secar y doblar.", message: "Hola Aquabon, quería consultar por el servicio de valet de ropa." },
-};
 
 function sentence(text: string) {
   const t = text.trim().toLowerCase();
   return t.charAt(0).toUpperCase() + t.slice(1);
 }
 
-export default function ArticleLayout({ title, description, slug, date, readingTime, cluster, image, service = "acolchados", children }: ArticleLayoutProps) {
+export default function ArticleLayout({ title, description, slug, date, readingTime, cluster, image, updated, service = "acolchados", children }: ArticleLayoutProps) {
   const path = `/blog/${slug}`;
   const info = serviceInfo[service];
   const displayDate = new Intl.DateTimeFormat("es-AR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${date}T12:00:00Z`));
   const schema = {
     "@context": "https://schema.org", "@type": "Article", headline: title, description,
-    datePublished: date, dateModified: date, inLanguage: "es-AR",
+    datePublished: date, dateModified: updated ?? date, inLanguage: "es-AR",
     mainEntityOfPage: SITE_URL + path,
     ...(image ? { image: SITE_URL + image } : {}),
+    // Las guías se escriben desde Mar del Plata y para quien vive acá: el schema lo dice.
+    spatialCoverage: { "@type": "City", name: "Mar del Plata", containedInPlace: { "@type": "AdministrativeArea", name: "Buenos Aires, Argentina" } },
+    about: [{ "@type": "Thing", name: sentence(cluster) }, { "@type": "Thing", name: "Cuidado de la ropa" }],
     author: { "@type": "Organization", name: business.name, url: SITE_URL + "/" },
     publisher: { "@id": SITE_URL + "/#business" },
   };

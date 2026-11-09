@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cómo limpiar un saco sin deformarlo";
 const description="Cómo cuidar un saco de vestir: qué revisar en la etiqueta, cómo ventilarlo entre usos, qué hacer con una mancha y cuándo conviene llevarlo a tintorería.";
@@ -46,6 +47,8 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <h2 id="profesional">Cuándo conviene llevar el saco a tintorería</h2>
   <p>Consultá si la etiqueta indica cuidado profesional, prohíbe el lavado, el saco está estructurado, tiene una mancha difícil o forma parte de un traje que querés conservar parejo. También si falta la etiqueta o desconocés qué producto se aplicó antes.</p>
   <p>En Aquabon recibimos sacos en Gascón 2189, en el centro de Mar del Plata. Revisamos etiqueta, forro, manchas y estado antes de confirmar el <Link href="/servicios/tintoreria">servicio de tintorería</Link>, el precio y el plazo. Cuando necesita tratamiento especializado, se coordina fuera del local. Podés mandar fotos por WhatsApp para una orientación inicial, pero la confirmación requiere ver la prenda.</p>
+
+  <LocalCta service="tintoreria" />
 
   <h2>Preguntas frecuentes</h2>{faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}
   <section className="article-sources"><strong>Fuentes técnicas consultadas</strong><p><a href="https://www.ginetex.net/gb/labelling/care-symbols.asp" target="_blank" rel="noreferrer">GINETEX: símbolos de cuidado</a> y <a href="https://www.ftc.gov/business-guidance/resources/clothes-captioning-complying-care-labeling-rule" target="_blank" rel="noreferrer">FTC: etiqueta de la prenda completa</a>.</p></section>

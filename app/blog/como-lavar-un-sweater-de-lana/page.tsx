@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cómo lavar un sweater de lana sin encogerlo ni deformarlo";
 const description="Etiqueta, lavado a mano o en máquina y secado plano: una rutina prudente para cuidar la forma y el tejido de un sweater de lana.";
@@ -83,6 +84,8 @@ export default function Page(){
     <h2 id="consulta">Cuándo dejar el cuidado en manos profesionales</h2>
     <p>Consultá antes de mojar si la etiqueta prohíbe lavar, exige cuidado profesional, el sweater tiene forro, hombreras, bordados, cuero, varios colores o materiales, o una mancha antigua. En Aquabon recibimos prendas para evaluación de <Link href="/servicios/tintoreria">tintorería en Mar del Plata</Link> y confirmamos proceso, precio y plazo después de revisarlas.</p>
     <p>Si la prenda es lavable pero querés entender mejor el cuidado de tejidos sensibles, leé también <Link href="/blog/como-lavar-ropa-delicada">cómo lavar ropa delicada</Link>.</p>
+
+    <LocalCta service="tintoreria" />
 
     <h2>Preguntas frecuentes sobre el cuidado de lana</h2>
     {faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}

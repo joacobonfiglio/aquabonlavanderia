@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cómo evitar que la ropa destiña al lavarla";
 const description="Cómo detectar una prenda con color inestable, separar la carga y actuar si ya hubo transferencia de tinte sin empeorar el problema.";
@@ -93,6 +94,8 @@ export default function Page(){
 
     <h2>Cuándo conviene pedir ayuda</h2>
     <p>Consultá si la etiqueta prohíbe el lavado, la prenda combina colores y materiales, una costura interior transfiere mucho tinte, ya hubo una transferencia importante o el textil requiere cuidado profesional. En Aquabon recibimos prendas en Gascón 2189, Centro de Mar del Plata, y evaluamos el <Link href="/servicios/tintoreria">servicio de tintorería</Link> cuando corresponde. Para ropa cotidiana lavable, podés consultar el <Link href="/servicios/valet-de-ropa">valet de ropa</Link>; informanos qué prenda te preocupa antes de incluirla en la bolsa.</p>
+
+    <LocalCta service="valet" />
 
     <h2>Preguntas frecuentes</h2>{faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}
     <section className="article-sources"><strong>Fuentes técnicas consultadas</strong><p><a href="https://www.cleaninginstitute.org/cleaning-tips/clothes/laundry-basics" target="_blank" rel="noreferrer">American Cleaning Institute: fundamentos del lavado</a>, <a href="https://www.cleaninginstitute.org/cleaning-tips/clothes/laundering-problems-solutions" target="_blank" rel="noreferrer">ACI: problemas de lavado y transferencia de color</a> y <a href="https://www.ginetex.net/gb/labelling/care-symbols.asp" target="_blank" rel="noreferrer">GINETEX: símbolos de cuidado textil</a>.</p></section>

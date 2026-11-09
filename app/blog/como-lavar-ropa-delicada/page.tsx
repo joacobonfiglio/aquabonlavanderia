@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cómo lavar ropa delicada a mano o en lavarropas";
 const description="Una guía para decidir el método según la etiqueta, proteger la prenda, reducir fricción y secarla sin deformarla.";
@@ -90,6 +91,8 @@ export default function Page(){
     <h2 id="consulta">Cuándo conviene consultar antes de lavar</h2>
     <p>Consultá si la tina está tachada, el círculo indica cuidado profesional, la prenda combina varios materiales, tiene estructura o apliques, el color migra al probar en una zona oculta o la mancha ya recibió otros productos. En Aquabon recibimos prendas para evaluación de <Link href="/servicios/tintoreria">tintorería</Link> en Gascón 2189, Centro de Mar del Plata. Proceso, plazo y precio se confirman al revisar cada pieza.</p>
     <p>Para ropa cotidiana que sí admite lavado, también podés consultar el <Link href="/servicios/valet-de-ropa">valet de ropa</Link>. Si tu principal duda es el cambio de talla, ampliá con la guía sobre <Link href="/blog/como-evitar-que-la-ropa-se-encoja">cómo evitar que la ropa se encoja</Link>.</p>
+
+    <LocalCta service="tintoreria" />
 
     <h2>Preguntas frecuentes</h2>
     {faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}

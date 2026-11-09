@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cómo lavar camisas sin arruinar cuello, puños ni forma";
 const description="Preparación, lavado, secado y planchado de camisas según tejido y etiqueta, con una rutina práctica para cuidar cuello, puños y calce.";
@@ -23,7 +24,7 @@ export const metadata:Metadata={
 
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
-  return <ArticleLayout title={title} description={description} slug="como-lavar-camisas-sin-arruinarlas" date="2026-10-07" readingTime="7 MIN DE LECTURA" cluster="Camisas" image="/blog/preparar-camisa-antes-lavar.webp" service="valet">
+  return <ArticleLayout title={title} description={description} slug="como-lavar-camisas-sin-arruinarlas" date="2026-10-07" readingTime="7 MIN DE LECTURA" cluster="Camisas" image="/blog/preparar-camisa-antes-lavar.webp" service="camisas">
     <p className="article-lead"><strong>Una camisa se cuida antes de encender el lavarropas.</strong> Leé la etiqueta, separá por color y tejido, desabrochá cuello y puños, retirale las ballenas removibles y tratá las zonas más usadas sin frotar de más. Después elegí lavado, secado y planchado según esa prenda, no con una receta única.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#antes">Antes de lavar</a></li><li><a href="#lavado">Ciclo y temperatura</a></li><li><a href="#tejidos">Qué cambia según el tejido</a></li><li><a href="#secado">Secado y planchado</a></li><li><a href="#errores">Errores frecuentes</a></li></ol></nav>
 
@@ -76,6 +77,8 @@ export default function Page(){
 
     <h2>¿Cuándo conviene dejarla en manos profesionales?</h2>
     <p>Si tenés varias camisas por semana, necesitás una terminación pareja o la prenda presenta manchas, estructura o una etiqueta restrictiva, podés consultar el <Link href="/servicios/valet-de-ropa">valet de ropa</Link> y el servicio de planchado. En Aquabon recibimos prendas en Gascón 2189, Centro de Mar del Plata, y confirmamos proceso, plazo y precio después de revisarlas. También conviene consultar antes si la camisa ya se encogió: la guía sobre <Link href="/blog/como-evitar-que-la-ropa-se-encoja">cómo evitar el encogimiento</Link> explica por qué no siempre es reversible.</p>
+
+    <LocalCta service="camisas" />
 
     <h2>Preguntas frecuentes</h2>
     {faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}

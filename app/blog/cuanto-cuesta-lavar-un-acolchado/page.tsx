@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 import WhatsAppLink from "../../WhatsAppLink";
 import { WhatsAppIcon } from "../../ui";
 
@@ -17,7 +18,7 @@ const faqs=[
   {question:"¿Por qué no publican un precio fijo para lavar un acolchado?",answer:"Porque dos acolchados del mismo tamaño pueden necesitar trabajos distintos según el relleno, el estado y las manchas. Preferimos verlo, o ver una foto, y pasarte el importe antes de que lo dejes."},
   {question:"¿Sale más caro lavar un acolchado de plumas?",answer:"Puede variar, porque la pluma necesita más cuidado en el lavado y, sobre todo, en el secado. Lo confirmamos después de revisar la etiqueta y el estado."},
   {question:"¿Qué tengo que mandar para saber el precio?",answer:"Una foto del acolchado completo, otra de la etiqueta y, si tiene, de las manchas o roturas. Sumá la medida (una plaza, dos plazas o más grande) y si necesitás que lo pasemos a buscar."},
-  {question:"¿El retiro y la entrega están incluidos?",answer:"Se cotizan aparte según la zona. Hoy retiramos y entregamos en Centro, Güemes, Chauvin y La Perla, y te decimos el costo antes de coordinar."},
+  {question:"¿El retiro y la entrega están incluidos?",answer:"Se cotizan aparte según la zona. Hoy retiramos y entregamos en once barrios de Mar del Plata, y te decimos el costo antes de coordinar."},
   {question:"¿Conviene más lavarlo en casa?",answer:"Si la etiqueta lo permite y entra holgado en tu lavarropas y tu secadora, se puede. Si no entra, si es de pluma o si no tenés dónde secarlo bien, el ahorro puede terminar en un relleno apelmazado o con olor a humedad."}
 ];
 
@@ -63,7 +64,9 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
 
   <h2 id="cuando">Cuándo conviene llevarlo a una lavandería</h2>
   <p>Conviene cuando no entra holgado en tu lavarropas, cuando es de pluma o lana, cuando no tenés dónde secarlo bien o cuando tiene olor a humedad o manchas. También es una buena idea antes de guardarlo al terminar el invierno: guardarlo limpio y bien seco evita que tome olor durante los meses de placard. Si no sabés cada cuánto lavarlo, mirá <Link href="/blog/cada-cuanto-lavar-un-acolchado">cada cuánto hay que lavar un acolchado</Link>.</p>
-  <p>En Aquabon revisamos tamaño, tejido, relleno y estado antes de confirmar el <Link href="/servicios/lavado-de-acolchados">lavado de acolchados</Link>, y te pasamos importe y plazo antes de que lo dejes. Estamos en Gascón 2189, en el centro de Mar del Plata, y también lo podemos <Link href="/servicios/retiro-y-entrega-de-ropa">pasar a buscar</Link> en Centro, Güemes, Chauvin y La Perla.</p>
+  <p>En Aquabon revisamos tamaño, tejido, relleno y estado antes de confirmar el <Link href="/servicios/lavado-de-acolchados">lavado de acolchados</Link>, y te pasamos importe y plazo antes de que lo dejes. Estamos en Gascón 2189, en el centro de Mar del Plata, y también lo podemos <Link href="/servicios/retiro-y-entrega-de-ropa">pasar a buscar</Link> en once barrios de Mar del Plata.</p>
+
+  <LocalCta service="acolchados" />
 
   <h2>Preguntas frecuentes</h2>
   {faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}

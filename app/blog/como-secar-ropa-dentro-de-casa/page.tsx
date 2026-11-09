@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cómo secar ropa dentro de casa sin olor a humedad";
 const description="Un método práctico para tender ropa en interiores: centrifugado, separación, ventilación y control de humedad para que se seque de forma pareja.";
@@ -61,6 +62,8 @@ export default function Page(){
     <h2 id="seca">Cómo comprobar que está seca antes de guardarla</h2>
     <p>No te guíes solo por la superficie. Tocá costuras, el interior de los bolsillos, puños, cintura, capucha y zonas con varias capas. Si una parte se siente fría, pesada o húmeda, necesita más tiempo. Guardar la prenda antes de completar el secado favorece el olor a encierro y traslada humedad al placard.</p>
     <p>Si necesitás resolver una carga cotidiana sin tenderla en casa, consultá el <Link href="/servicios/valet-de-ropa">valet de ropa</Link> de Aquabon. Confirmamos recepción, capacidad y plazo por WhatsApp. Para prendas especiales o estructuradas, revisamos si corresponde <Link href="/servicios/tintoreria">tintorería</Link>.</p>
+
+    <LocalCta service="valet" />
 
     <h2>Preguntas frecuentes</h2>{faqs.map(f=><section key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></section>)}
 

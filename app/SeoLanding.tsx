@@ -6,7 +6,7 @@ import { type Crumb } from "./Breadcrumbs";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import WhatsAppLink from "./WhatsAppLink";
-import Faq from "./Faq";
+import Faq, { type FaqItem as FaqEntry } from "./Faq";
 import JsonLd from "./JsonLd";
 import Link from "next/link";
 import Img from "./Img";
@@ -16,7 +16,7 @@ import { Clothesline, PageHero, Process, Ribbon, type Step } from "./Blocks";
 import { SITE_URL, businessLinks, services } from "./site";
 
 type Item = { title: string; copy: string };
-type FaqEntry = { question: string; answer: string };
+
 export type LandingData = {
   path: string; title: string; description: string; eyebrow: string; h1: string; intro: string;
   crumbs: Crumb[]; event: string; message: string; cta: string;
@@ -36,7 +36,6 @@ export function landingMetadata(data: LandingData): Metadata {
 const heroImages: Record<string, string> = {
   "/empresas": "/blog/secar-ropa-adentro-ventilacion.webp",
   ...Object.fromEntries(businessLinks.map(b => [b.href, b.image])),
-  "/tintoreria-centro-mar-del-plata": "/blog/revisar-prendas-tintoreria.webp",
 };
 const check = <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 

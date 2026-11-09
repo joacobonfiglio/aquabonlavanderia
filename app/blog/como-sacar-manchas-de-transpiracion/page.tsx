@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
+import LocalCta from "../LocalCta";
 
 const title="Cómo sacar manchas de transpiración de la ropa";
 const description="Qué hacer con marcas amarillas o rígidas en axilas: identificar la prenda, pretratar con cuidado y evitar calor hasta comprobar el resultado.";
@@ -23,7 +24,7 @@ export const metadata:Metadata={
 
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
-  return <ArticleLayout title={title} description={description} slug="como-sacar-manchas-de-transpiracion" date="2026-10-09" readingTime="7 MIN DE LECTURA" cluster="Manchas" image="/blog/tratar-mancha-transpiracion-camisa.webp" service="valet">
+  return <ArticleLayout title={title} description={description} slug="como-sacar-manchas-de-transpiracion" date="2026-10-09" readingTime="7 MIN DE LECTURA" cluster="Manchas" image="/blog/tratar-mancha-transpiracion-camisa.webp" service="camisas">
     <p className="article-lead"><strong>Para tratar una mancha de transpiración, primero revisá la etiqueta y distinguí si hay residuo, rigidez o cambio de color.</strong> Retirá el exceso, pretratá con un producto compatible durante el tiempo indicado, lavá según la prenda y comprobá la zona antes de aplicar secadora o plancha.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#identificar">Qué tipo de marca es</a></li><li><a href="#pasos">Paso a paso</a></li><li><a href="#tejidos">Qué cambia según la prenda</a></li><li><a href="#errores">Errores frecuentes</a></li><li><a href="#profesional">Cuándo consultar</a></li></ol></nav>
 
@@ -60,6 +61,8 @@ export default function Page(){
 
     <h2 id="profesional">Cuándo conviene consultar por lavado y planchado</h2>
     <p>Si la marca es antigua, la camisa es delicada, necesitás varias prendas listas o querés lavado con terminación, consultá el <Link href="/servicios/lavado-y-planchado-de-camisas">lavado y planchado de camisas en Mar del Plata</Link>. En Aquabon recibimos en Gascón 2189, revisamos cada prenda y confirmamos proceso, precio y plazo antes de aceptar el trabajo. No garantizamos la remoción total de una mancha.</p>
+
+    <LocalCta service="camisas" />
 
     <h2>Preguntas frecuentes</h2>{faqs.map(f=><div key={f.question}><h3>{f.question}</h3><p>{f.answer}</p></div>)}
     <section className="article-sources"><strong>Fuentes técnicas consultadas</strong><p><a href="https://www.cleaninginstitute.org/cleaning-tips/clothes/stain-removal-guide" target="_blank" rel="noreferrer">American Cleaning Institute: guía para quitar manchas</a> y <a href="https://www.ginetex.net/gb/labelling/care-symbols.asp" target="_blank" rel="noreferrer">GINETEX: símbolos de cuidado textil</a>.</p></section>
