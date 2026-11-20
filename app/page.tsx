@@ -9,7 +9,7 @@ const toChat = (t: TicketData): ChatData => ({ service: t.rows.find(r => r.label
 import Faq, { type FaqItem } from "./Faq";
 import Reviews from "./Reviews";
 import Img from "./Img";
-import { CareSymbol, WhatsAppIcon } from "./ui";
+import { CareSymbol, PinIcon, WhatsAppIcon } from "./ui";
 import { Clothesline, Process, Ribbon, Waves } from "./Blocks";
 import { business, businessLinks, hours, hoursSentence, pickupZones, services } from "./site";
 
@@ -194,18 +194,28 @@ export default function Home() {
       {/* 7. Barrios donde retiramos */}
       <section className="p-sec p-sec--espuma" id="barrios" aria-labelledby="barrios-titulo">
         <div className="wrap">
-          <div className="h-head h-head--split" data-reveal>
-            <h2 id="barrios-titulo">Barrios donde retiramos</h2>
-            <p>Pasamos a buscar la ropa y te la llevamos cuando está lista. Elegí tu barrio o mandanos tu dirección: te confirmamos costo y disponibilidad antes de pasar.</p>
+          <div className="h-zones">
+            <div className="h-zones__intro">
+              <p className="h-zones__eyebrow">Retiro y entrega a domicilio</p>
+              <h2 id="barrios-titulo">Barrios donde retiramos</h2>
+              <p>Pasamos a buscar tu ropa y te la llevamos cuando está lista. Un pendiente menos, sin salir de casa.</p>
+              <WhatsAppLink className="btn btn--light" message="Hola Aquabon, quiero consultar retiro y entrega. Mi dirección es __ y tengo __ para lavar." ubicacion="retiro" servicio="retiro_y_entrega"><WhatsAppIcon />Consultar mi dirección</WhatsAppLink>
+              <p className="h-zones__conditions">Te confirmamos costo y disponibilidad antes de pasar.</p>
+            </div>
+            <div className="h-zones__directory">
+              <div className="h-zones__heading">
+                <p><PinIcon />Elegí tu barrio</p>
+                <span>{pickupZones.length} barrios</span>
+              </div>
+              <ul className="h-zones__list" aria-label="Barrios con retiro y entrega">
+                {[...pickupZones].sort((a, b) => a.name.localeCompare(b.name, "es")).map(z => <li key={z.slug}>
+                  <Link href={"/" + z.slug}>{z.name}</Link>
+                </li>)}
+                <li className="h-zones__other"><WhatsAppLink message="Hola Aquabon, estoy en __ y necesito lavar __. ¿Pueden retirar en mi dirección?" ubicacion="otras_zonas" servicio="retiro_y_entrega">¿Otro barrio? Consultanos</WhatsAppLink></li>
+              </ul>
+              <p className="h-zones__local">¿Preferís traerla? Estamos en {business.street}. <Link className="link" href="/lavanderia-mar-del-plata">Conocé el local y cómo llegar</Link>.</p>
+            </div>
           </div>
-          <ul className="feature-grid feature-grid--zonas">
-            {pickupZones.map(z => <li key={z.slug}>
-              <h3>{z.name}</h3>
-              <p>Ropa de la semana, acolchados y prendas especiales.</p>
-              <Link className="link" href={"/" + z.slug}>Lavandería en {z.name}</Link>
-            </li>)}
-          </ul>
-          <p className="note">¿Estás en otra zona? <WhatsAppLink className="link" message="Hola Aquabon, estoy en __ y necesito lavar __. ¿Pueden retirar en mi dirección?" ubicacion="otras_zonas">Consultanos tu dirección</WhatsAppLink>. También podés ver la <Link className="link" href="/lavanderia-mar-del-plata">lavandería en Mar del Plata</Link> y cómo llegar al local.</p>
         </div>
       </section>
 

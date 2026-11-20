@@ -282,12 +282,30 @@ html.js .clothesline[data-hscroll]:not(.is-static) .clothesline__scroller { over
 @media (min-width: 760px) { .feature-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
 @media (min-width: 960px) { .feature-grid--tres { grid-template-columns: repeat(3, 1fr); } }
 /* Barrios con retiro: muchas tarjetas chicas, sin que la lista ocupe una pantalla entera. */
-.feature-grid--zonas { gap: 12px; }
-.feature-grid--zonas li { padding: clamp(16px, 2vw, 22px); gap: 6px; }
-.feature-grid--zonas h3 { font-size: 1.15rem; margin-top: 0; }
-.feature-grid--zonas p { font-size: var(--fs-small); }
-@media (min-width: 760px) { .feature-grid--zonas { grid-template-columns: repeat(3, 1fr); gap: 14px; } }
-@media (min-width: 1100px) { .feature-grid--zonas { grid-template-columns: repeat(4, 1fr); } }
+/* Home: un directorio compacto de barrios, separado de las tarjetas de beneficios. */
+.h-zones { display: grid; background: #fff; border: 1px solid var(--linea); border-radius: 28px; overflow: hidden; }
+.h-zones > * { min-width: 0; }
+.h-zones__intro { padding: clamp(24px, 3.4vw, 42px); background: var(--marino); color: #fff; }
+.h-zones__eyebrow { font-size: var(--fs-small); font-weight: 600; color: var(--ola-claro); margin-bottom: 18px; }
+.h-zones__intro h2 { max-width: 12ch; font-size: clamp(2rem, 3.8vw, 3.2rem); line-height: 1.05; font-weight: 800; text-wrap: balance; }
+.h-zones__intro > h2 + p { margin-top: 20px; max-width: 34ch; color: var(--ola-claro); }
+.h-zones__intro .btn { margin-top: 28px; min-height: 48px; max-width: 100%; white-space: normal; }
+.h-zones__conditions { margin-top: 14px; font-size: var(--fs-small); color: var(--ola-claro); max-width: 32ch; }
+.h-zones__directory { padding: clamp(20px, 3vw, 36px); align-self: center; }
+.h-zones__heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin-bottom: 20px; }
+.h-zones__heading p { display: flex; align-items: center; gap: 8px; font-weight: 700; }
+.h-zones__heading svg { width: 22px; height: 22px; flex-shrink: 0; color: var(--azul); }
+.h-zones__heading > span { font-size: var(--fs-small); color: var(--tinta); }
+.h-zones__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; list-style: none; margin: 0; padding: 0; }
+.h-zones__list li { min-width: 0; }
+.h-zones__list a { display: flex; align-items: center; min-height: 58px; height: 100%; padding: 12px 16px; border: 1px solid var(--linea); border-radius: 12px; background: #f6f8fc; color: var(--azul); font-size: 1rem; font-weight: 700; line-height: 1.3; overflow-wrap: anywhere; transition: background .2s, border-color .2s; }
+.h-zones__other a { background: #fff; border-style: dashed; font-weight: 500; }
+.h-zones__list a:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
+.h-zones__local { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--linea); color: var(--tinta); font-size: var(--fs-small); }
+@media (hover: hover) { .h-zones__list a:hover { background: var(--espuma); border-color: var(--ola); text-decoration: underline; text-underline-offset: 4px; } }
+@media (min-width: 960px) { .h-zones { grid-template-columns: minmax(0, .85fr) minmax(0, 1.5fr); } }
+@media (min-width: 1180px) { .h-zones__list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 380px) { .h-zones__directory { padding: 20px 16px; } .h-zones__list { gap: 8px; } .h-zones__list a { min-height: 64px; padding: 10px 12px; } }
 .feature-grid li { background: #fff; border-radius: 24px; padding: clamp(22px, 3vw, 32px); box-shadow: 0 1px 0 var(--linea), 0 24px 40px -34px rgba(11, 26, 69, 0.5); display: grid; gap: 8px; align-content: start; }
 .p-sec--espuma .feature-grid li { background: #fff; }
 .feature-grid b { width: 44px; height: 44px; border-radius: 14px; background: var(--azul); color: #fff; display: grid; place-content: center; font-size: 1.1rem; }

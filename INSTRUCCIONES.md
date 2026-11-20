@@ -286,6 +286,7 @@ El paso a paso completo está en el skill `.claude/skills/publicar-contenido/SKI
 
 | Fecha | Decisión |
 |---|---|
+| 20/11/2026 | **Barrios en la home:** directorio compacto con enlaces ordenados alfabéticamente, consulta de dirección por WhatsApp y acceso al local. Reemplaza las once tarjetas que repetían el mismo texto. Los barrios siguen saliendo de `pickupZones`; el estilo es propio de este bloque y no modifica las tarjetas de otras páginas. |
 | 24/10/2026 | Joaco confirma retiro y entrega en Centro, Güemes, Chauvin y La Perla. Se publican las páginas de esos barrios. |
 | 03/11/2026 | Auditoría SEO y UX (`docs/plan-seo-ux-2026-11.md`). Fase 0 verificada: JSON-LD, eventos de WhatsApp y Consent Mode ya existían. |
 | 03/11/2026 | Ficha de Google por CID en lugar de `share.google`; `geo` y código postal en el JSON-LD; crédito de Traka con link. |
