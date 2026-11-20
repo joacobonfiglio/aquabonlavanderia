@@ -12,7 +12,7 @@ export type ServiceDesign = {
 
 export const serviceDesigns: Record<string, ServiceDesign> = {
   "valet-de-ropa": {
-    symbol: "wash", guides: ["simbolos-de-lavado-de-la-ropa","cuanto-detergente-usar","como-evitar-que-la-ropa-se-encoja","como-secar-ropa-dentro-de-casa","como-sacar-manchas-dificiles-de-la-ropa","como-sacar-olor-a-humo-de-la-ropa"],
+    symbol: "wash", guides: ["mancha-de-mate-en-la-ropa","como-lavar-la-ropa-despues-de-la-playa","simbolos-de-lavado-de-la-ropa","cuanto-detergente-usar","como-evitar-que-la-ropa-se-encoja","como-secar-ropa-dentro-de-casa","como-sacar-manchas-dificiles-de-la-ropa","como-sacar-olor-a-humo-de-la-ropa"],
     name: "Valet de ropa", title: ["Menos tiempo lavando,", "más tiempo para vos"],
     image: "/service-still-v2.webp", alt: "Ropa de uso diario lavada, seca y doblada, lista para guardar",
     tag: "", caption: "",
@@ -26,7 +26,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     ], closing: ["Menos tiempo lavando,", "más tiempo para vos"], variant: "soft"
   },
   "lavado-de-acolchados": {
-    symbol: "tumble", guides: ["cuanto-cuesta-lavar-un-acolchado", "cada-cuanto-lavar-un-acolchado", "como-lavar-un-acolchado-de-plumas", "como-secar-un-acolchado", "simbolos-de-lavado-de-un-acolchado", "como-sacar-olor-a-humedad-de-un-acolchado"],
+    symbol: "tumble", guides: ["como-lavar-un-acolchado", "como-guardar-acolchados-en-verano", "cuanto-cuesta-lavar-un-acolchado", "cada-cuanto-lavar-un-acolchado", "como-lavar-un-acolchado-de-plumas", "como-secar-un-acolchado", "simbolos-de-lavado-de-un-acolchado", "como-sacar-olor-a-humedad-de-un-acolchado"],
     name: "Lavado de acolchados", title: ["Sin pelearte con el lavarropas", "ni con el tender"],
     image: "/blog/revisar-cuando-lavar-acolchado.webp", alt: "Revisión de un acolchado blanco sobre una cama antes de su lavado",
     tag: "EL CUIDADO TAMBIÉN DESCANSA", caption: "Acolchados · Cubrecamas · Frazadas",
@@ -124,7 +124,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     ], closing: ["Ese detalle pendiente,", "empecemos por verlo"], variant: "detail"
   },
   "lavado-de-zapatillas": {
-    guides: ["se-pueden-lavar-zapatillas-en-el-lavarropas", "como-secar-zapatillas-sin-deformarlas", "como-sacar-el-olor-de-las-zapatillas"],
+    guides: ["como-lavar-zapatillas-blancas", "se-pueden-lavar-zapatillas-en-el-lavarropas", "como-secar-zapatillas-sin-deformarlas", "como-sacar-el-olor-de-las-zapatillas"],
     name: "Lavado de zapatillas", title: ["Tus zapatillas limpias,", "sin lavarlas en casa"],
     image: "/blog/revisar-zapatillas-antes-lavar.webp", alt: "Revisión de zapatillas de tela y materiales combinados antes de su limpieza",
     tag: "EL PRÓXIMO PASO EMPIEZA ACÁ", caption: "Material · Limpieza · Secado",
@@ -138,7 +138,7 @@ export const serviceDesigns: Record<string, ServiceDesign> = {
     ], closing: ["Más caminos por andar,", "consultá por tu par"], variant: "soft"
   },
   "lavado-de-camperas-y-tapados": {
-    guides: ["como-limpiar-un-tapado-sin-danarlo", "como-limpiar-un-saco", "como-guardar-la-ropa-de-invierno", "que-es-la-limpieza-en-seco"],
+    guides: ["lavar-campera-de-plumas", "como-limpiar-un-tapado-sin-danarlo", "como-limpiar-un-saco", "como-guardar-la-ropa-de-invierno", "que-es-la-limpieza-en-seco"],
     name: "Camperas y tapados", title: ["Tu abrigo favorito,", "con el cuidado que necesita"],
     image: "/blog/revisar-tapado-etiqueta-forro.webp", alt: "Revisión de la etiqueta y el forro de un tapado de paño azul",
     tag: "CUIDAMOS LO QUE TE ABRIGA", caption: "Etiqueta · Forro · Relleno",

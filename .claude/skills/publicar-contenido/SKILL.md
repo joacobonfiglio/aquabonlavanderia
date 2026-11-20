@@ -91,7 +91,7 @@ Presentale a Joaco una tabla por pieza y esperá su OK. Puede aprobar varias jun
    - `title`, `description` (la de la tarjeta), `href`, `cluster`.
    - `date` con formato `"21 OCT"`.
    - `image` y `alt`.
-3. **Cluster:** tiene que existir en algún tema de `app/blog/page.tsx`. Si es nuevo, sumalo al tema que corresponda; no crees un tema por una sola guía.
+3. **Cluster:** tiene que existir en algún tema de `guidePillars` (`app/guides.ts`). Si es nuevo, sumalo al tema que corresponda; no crees un tema por una sola guía. El cluster define el tema principal (migas de pan y página `/blog/tema/<tema>`). Si la guía también pertenece a otro tema, sumá su id en `tags` (solo ids de temas existentes).
 4. **Fecha en el sitemap:** agregá `"/blog/<slug>": "AAAA-MM-DD"` en `dates` de `app/sitemap.ts` y actualizá la fecha de `"/blog"`.
 5. **Enlazado:**
    - Sumá el slug a `guides` del servicio relacionado en `app/service-design.ts`, que se muestra al final de esa landing.

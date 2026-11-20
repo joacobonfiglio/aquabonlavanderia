@@ -46,7 +46,7 @@ export default function Page() {
     <h2 id="tipos">Campera de pluma, inflable o tapado de paño: no es lo mismo</h2>
     <p>La etiqueta a veces habla solo del tejido exterior, pero el proceso lo define la prenda completa: forro, relleno, entretelas, cierres, botones, capucha y piel desmontable.</p>
     <ul>
-      <li><strong>Campera de pluma.</strong> El secado es la etapa decisiva. Si queda humedad entre los canutos, la pluma se apelmaza y aparece olor; si hay una costura abierta, el relleno se escapa en el lavado y hay que resolverla primero.</li>
+      <li><strong>Campera de pluma.</strong> El secado es la etapa decisiva. Si queda humedad entre los canutos, la pluma se apelmaza y aparece olor; si hay una costura abierta, el relleno se escapa en el lavado y hay que resolverla primero. Lo explicamos en <Link href="/blog/lavar-campera-de-plumas">cómo limpiar una campera de plumas antes de guardarla</Link>.</li>
       <li><strong>Inflable con relleno sintético.</strong> El vellón se puede correr y juntarse en un extremo. Necesita movimiento y espacio para que el relleno vuelva a distribuirse.</li>
       <li><strong>Tapado de paño o lana.</strong> Casi siempre cuidado profesional: el agua encoge la lana y deforma hombreras y entretelas. Un tapado deformado no vuelve a su forma con planchado.</li>
       <li><strong>Rompevientos e impermeables.</strong> Tienen tratamientos de superficie que algunos procesos remueven. Si la prenda repele agua, decilo al consultar.</li>

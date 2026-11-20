@@ -1,5 +1,5 @@
 import { SITE_URL, business, hours, services, businessLinks, pickupZones, pickupZonesSentence } from "../site";
-import { guides } from "../guides";
+import { guides, guidePillars, pillarOf, pillarPath } from "../guides";
 
 // /llms.txt: resumen en texto plano para asistentes de IA. Mismos datos que el resto de la web.
 export const dynamic = "force-static";
@@ -36,7 +36,11 @@ export function GET() {
     "- Avisamos por WhatsApp cuando el pedido está listo.",
     "",
     "## Guías para cuidar la ropa",
-    ...guides.map(g => `- [${g.title}](${SITE_URL}${g.href})`),
+    `Índice por tema: ${SITE_URL}/blog`,
+    ...guidePillars.flatMap(t => {
+      const list = guides.filter(g => pillarOf(g)?.id === t.id);
+      return list.length ? ["", `### [${t.name}](${SITE_URL}${pillarPath(t.id)})`, ...list.map(g => `- [${g.title}](${SITE_URL}${g.href}): ${g.description}`)] : [];
+    }),
     "",
   ];
   return new Response(lines.join("\n"), { headers: { "content-type": "text/plain; charset=utf-8", "cache-control": "public, max-age=3600" } });

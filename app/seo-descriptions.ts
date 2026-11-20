@@ -14,7 +14,7 @@ export const seoDescriptions: Record<string, string> = {
   "/lavanderia-mar-del-plata": "Lavandería en Mar del Plata: valet, acolchados, tintorería y zapatillas. Retiramos y entregamos en tu casa. Gascón 2189. Escribinos por WhatsApp.",
   "/lavanderia-centro-mar-del-plata": "Lavandería en el centro de Mar del Plata, Gascón 2189. Aquabon lava, seca y dobla tu ropa; también recibe acolchados. Consultá por WhatsApp.",
   "/empresas": "Lavandería para empresas en Mar del Plata. Aquabon lava ropa blanca, textiles gastronómicos y ropa deportiva según volumen y frecuencia. Consultanos.",
-  "/empresas/lavanderia-airbnb": "Lavandería para Airbnb en Mar del Plata. Aquabon lava, seca y dobla tus sábanas y toallas para recambios. Consultá por retiro y entrega.",
+  "/empresas/lavanderia-airbnb": "Lavandería para Airbnb en Mar del Plata: sábanas, toallas y acolchados lavados, secos y doblados por juego, con retiro y entrega. Pedí tu propuesta.",
   "/empresas/lavanderia-hoteles": "Lavandería para hoteles en Mar del Plata. Aquabon lava sábanas, fundas y toallas con volumen y frecuencia acordados. Consultá capacidad y plazos.",
   "/empresas/lavanderia-restaurantes": "Lavandería para restaurantes en Mar del Plata. Aquabon evalúa el lavado de manteles, servilletas y uniformes según tejido y volumen. Consultanos.",
   "/empresas/lavado-ropa-deportiva": "Lavado de ropa deportiva en Mar del Plata. Aquabon recibe camisetas, shorts y uniformes de clubes y equipos. Consultá volumen, frecuencia y plazos."

@@ -32,7 +32,7 @@ function stepImages(n: number, main: string) {
 }
 
 // Secciones propias de cada servicio (app/service-copy.ts). Van antes de los bloques compartidos.
-function OwnSection({ section }: { section: ServiceSection }) {
+export function OwnSection({ section }: { section: ServiceSection }) {
   return <section className={"p-sec" + (section.tone === "espuma" ? " p-sec--espuma" : "")} id={section.id} aria-labelledby={section.id + "-titulo"}>
     <div className="wrap">
       <div className="h-head h-head--split" data-reveal>

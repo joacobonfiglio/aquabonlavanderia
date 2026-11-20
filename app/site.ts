@@ -14,8 +14,8 @@ export const business = {
   phoneDisplay: "+54 9 223 560-7738",
   phoneE164: "+5492235607738",
   whatsappNumber: "5492235607738",
-  instagram: "https://www.instagram.com/aquabonlavanderia/",
-  instagramHandle: "@aquabonlavanderia",
+  instagram: "https://www.instagram.com/aquabon.lavanderia/",
+  instagramHandle: "@aquabon.lavanderia",
   // Ficha de Google Maps por CID (link directo y estable, sin acortador).
   googleBusiness: "https://maps.google.com/?cid=16265134030335527067",
   experience: "Más de 10 años en el rubro",

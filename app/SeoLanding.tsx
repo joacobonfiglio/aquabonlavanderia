@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { seoDescriptions } from "./seo-descriptions";
-import ServiceLanding from "./ServiceLanding";
+import ServiceLanding, { OwnSection } from "./ServiceLanding";
+import type { ServiceSection } from "./service-copy";
 import { serviceDesigns } from "./service-design";
 import { type Crumb } from "./Breadcrumbs";
 import SiteHeader from "./SiteHeader";
@@ -22,6 +23,8 @@ export type LandingData = {
   crumbs: Crumb[]; event: string; message: string; cta: string;
   sections: { heading: string; text: string }[]; items: Item[]; steps: Item[]; faqs: FaqEntry[];
   related?: { label: string; href: string }[]; showLocation?: boolean;
+  // Contenido propio largo (mismas secciones que las páginas de servicio). Va después de "Qué podemos resolver".
+  longform?: ServiceSection[];
 };
 
 export function landingMetadata(data: LandingData): Metadata {
@@ -102,6 +105,8 @@ export default function SeoLanding({ data }: { data: LandingData }) {
           {data.sections.length > 1 ? <ul className="fit-cards" style={{ marginTop: 28 }} data-reveal>{data.sections.slice(1).map(s => <li key={s.heading}><h3>{s.heading}</h3><p>{s.text}</p></li>)}</ul> : null}
         </div>
       </section>
+
+      {data.longform?.map(s => <OwnSection key={s.id} section={s} />)}
 
       <Process title="Cómo trabajamos" steps={steps} cta={<WhatsAppLink className="btn btn--light btn--xl" message={data.message} ubicacion="proceso"><WhatsAppIcon />{data.cta}</WhatsAppLink>} />
 

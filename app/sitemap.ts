@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL, services, businessLinks } from "./site";
-import { guides } from "./guides";
+import { guides, guidePillars, pillarPath } from "./guides";
 import { areas } from "./LocalLanding";
 
 // Se arma solo desde los registros de contenido: un servicio, guía, rubro o barrio nuevo entra sin tocar
@@ -12,11 +12,17 @@ export const sitemapPaths = [
   ...services.map(s => s.href),
   ...businessLinks.map(b => b.href),
   ...guides.map(g => g.href),
+  ...guidePillars.map(p => pillarPath(p.id)),
 ];
 
 // Última modificación conocida por ruta (las que no figuran usan la fecha del rediseño).
 const REDESIGN = "2026-10-15";
 const dates: Record<string, string> = {
+  "/blog/mancha-de-mate-en-la-ropa": "2026-11-19", "/blog/como-lavar-zapatillas-blancas": "2026-11-19",
+  "/blog/como-lavar-un-acolchado": "2026-11-19", "/blog": "2026-11-20",
+  "/blog/como-guardar-acolchados-en-verano": "2026-11-20", "/blog/como-lavar-la-ropa-despues-de-la-playa": "2026-11-20",
+  "/blog/lavar-campera-de-plumas": "2026-11-20", "/empresas/lavanderia-airbnb": "2026-11-20",
+  ...Object.fromEntries(guidePillars.map(p => [pillarPath(p.id), "2026-11-20"])),
   "/blog/cuando-llevar-la-campera-a-la-tintoreria": "2026-11-08",
   "/blog/como-sacar-manchas-dificiles-de-la-ropa": "2026-11-07",
   "/blog/checklist-recambio-ropa-blanca-airbnb": "2026-11-05", "/blog/como-preparar-la-ropa-blanca-de-un-alquiler-temporario": "2026-11-05",
@@ -26,7 +32,7 @@ const dates: Record<string, string> = {
   "/lavanderia-chauvin-mar-del-plata": "2026-10-24",
   "/lavanderia-guemes-mar-del-plata": "2026-10-24",
   "/lavanderia-centro-mar-del-plata": "2026-10-24",
-  "/blog/como-lavar-un-sweater-de-lana": "2026-10-16", "/servicios/limpieza-de-vestidos-de-fiesta": "2026-10-16", "/blog": "2026-11-05",
+  "/blog/como-lavar-un-sweater-de-lana": "2026-10-16", "/servicios/limpieza-de-vestidos-de-fiesta": "2026-10-16",
   "/blog/como-sacar-olor-a-humo-de-la-ropa": "2026-10-15", "/blog/como-secar-ropa-dentro-de-casa": "2026-10-14",
   "/blog/hay-que-lavar-la-ropa-nueva": "2026-10-13", "/blog/cuanto-detergente-usar": "2026-10-12",
   "/blog/como-evitar-que-la-ropa-destina": "2026-10-11", "/blog/como-lavar-jeans-sin-perder-color": "2026-10-10",
@@ -38,7 +44,7 @@ const dates: Record<string, string> = {
   "/blog/cada-cuanto-lavar-un-acolchado": "2026-09-18", "/blog/como-sacar-olor-a-humedad-de-un-acolchado": "2026-09-19",
   "/blog/diferencia-entre-lavanderia-y-tintoreria": "2026-11-05", "/blog/que-prendas-conviene-llevar-a-la-tintoreria": "2026-09-21",
   "/blog/como-limpiar-un-tapado-sin-danarlo": "2026-09-22", "/blog/como-limpiar-un-saco": "2026-09-23",
-  "/blog/que-es-la-limpieza-en-seco": "2026-09-24", "/blog/se-pueden-lavar-zapatillas-en-el-lavarropas": "2026-09-25",
+  "/blog/que-es-la-limpieza-en-seco": "2026-09-24", "/blog/se-pueden-lavar-zapatillas-en-el-lavarropas": "2026-11-19",
   "/blog/como-secar-zapatillas-sin-deformarlas": "2026-09-26", "/blog/como-sacar-el-olor-de-las-zapatillas": "2026-09-27",
   "/blog/como-guardar-la-ropa-de-invierno": "2026-09-29",
   "/blog/como-evitar-que-la-ropa-se-encoja": "2026-09-30",
