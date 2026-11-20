@@ -149,6 +149,45 @@ html.js [data-reveal].is-in { opacity: 1; transform: none; }
 @media (hover: hover) and (pointer: fine) { .tile label:hover img { transform: scale(1.06); } }
 .h-pick .ticket { border-radius: 18px 18px 0 0; }
 
+/* Home orientada a consultas: una sola acción por prenda, sin selector previo. */
+.h-quote { padding-top: clamp(40px, 6vw, 72px); padding-bottom: clamp(40px, 6vw, 72px); }
+.h-quote .h-head { margin-bottom: 24px; }
+.h-quote__list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; list-style: none; padding: 0; margin: 0; }
+.h-quote__list li { min-width: 0; }
+.h-quote__link { display: flex; align-items: center; gap: 14px; height: 100%; min-height: 92px; padding: 14px 18px; border: 1px solid var(--linea); border-radius: 18px; background: #fff; color: var(--marino); text-decoration: none; transition: background .2s, border-color .2s; }
+.h-quote__link > picture, .h-quote__link > img, .h-quote__symbol { width: 64px; height: 64px; flex: none; overflow: hidden; border-radius: 12px; }
+.h-quote__link img { width: 100%; height: 100%; object-fit: cover; }
+.h-quote__link > span:not(.h-quote__symbol) { display: grid; gap: 4px; min-width: 0; flex: 1; overflow-wrap: anywhere; }
+.h-quote__link strong { font-size: 1.08rem; line-height: 1.25; }
+.h-quote__link small { color: var(--tinta); font-size: var(--fs-small); line-height: 1.3; }
+.h-quote__link > svg { width: 23px; height: 23px; flex: none; color: #087449; }
+.h-quote__link:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; }
+.h-quote__link--help { background: var(--espuma); }
+.h-quote__symbol { display: grid; place-items: center; background: #fff; }
+.h-quote__symbol .care { width: 32px; height: 32px; }
+.h-quote__note { margin-top: 22px; color: var(--tinta); font-size: var(--fs-small); }
+@media (hover: hover) { .h-quote__link:hover { border-color: var(--ola); background: var(--espuma); } }
+@media (min-width: 760px) { .h-quote__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 639px) {
+  .home .h-hero { min-height: auto; padding-top: calc(72px + env(safe-area-inset-top) + 24px); padding-bottom: 64px; }
+  .home .h-hero__grid { gap: 0; }
+  .home .porthole, .home .ribbon { display: none; }
+  .home .h-hero__title { font-size: clamp(2.4rem, 10vw, 3.4rem); }
+  .home .h-hero__kicker { font-size: .95rem; }
+  .home .h-hero__lead { font-size: 1rem; margin-top: 18px; }
+  .home .h-hero__actions { display: grid; gap: 8px; margin-top: 22px; }
+  .home .h-hero__actions .btn { width: 100%; min-height: 52px; white-space: normal; font-size: 1rem; padding: 13px 16px; }
+  .home .h-hero__actions .btn--outline-light { min-height: 44px; border-color: transparent; padding: 10px 12px; text-decoration: underline; text-underline-offset: 4px; }
+  .home .h-hero__facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; margin-top: 18px; padding-top: 16px; }
+  .home .h-hero__facts > :first-child { grid-column: 1 / -1; }
+  .home .h-hero__facts dd { font-size: .95rem; }
+  .home .waves--hero { height: 44px; }
+  .h-quote__link { gap: 12px; padding: 12px 14px; min-height: 82px; }
+  .h-quote__link > picture, .h-quote__link > img, .h-quote__symbol { width: 50px; height: 50px; }
+  .h-quote__link strong { font-size: 1rem; }
+  .h-quote__link > svg { width: 20px; height: 20px; }
+}
+
 /* ---------- 4. Servicios ---------- */
 .h-svc { padding: clamp(72px, 9vw, 120px) 0 clamp(80px, 10vw, 130px); background: var(--espuma); }
 .bento { display: grid; gap: 16px; }
@@ -561,7 +600,8 @@ html[data-consent="pending"] .consent {
 /* En el celular el aviso ocupa el ancho y el botón de WhatsApp sube mientras está visible. */
 @media (max-width: 640px) {
   html[data-consent="pending"] .consent { right: max(16px, env(safe-area-inset-right)); max-width: none; }
-  html[data-consent="pending"] .wa-fab { bottom: calc(150px + env(safe-area-inset-bottom)); }
+  /* No superponer dos elementos flotantes mientras se eligen las cookies. */
+  html[data-consent="pending"] .wa-fab { display: none; }
 }
 
 /* Texto largo de las páginas de servicio (app/service-copy.ts). */
