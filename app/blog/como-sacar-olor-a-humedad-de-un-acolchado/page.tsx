@@ -62,6 +62,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
 
   <h2 id="prevenir">Cómo evitar que el olor vuelva</h2>
   <ul><li>No guardes el acolchado hasta comprobar que costuras y relleno estén completamente secos.</li><li>Elegí una funda transpirable y evitá bolsas herméticas si pueden retener humedad.</li><li>Guardalo en un espacio seco, separado de paredes o pisos con condensación.</li><li>Revisá el placard después de filtraciones, condensación o períodos de humedad alta.</li><li>Ventilalo al cambiar de temporada y controlá su estado antes de volver a usarlo.</li></ul>
+  <p>El paso a paso para dejarlo listo antes del verano está en <Link href="/blog/como-guardar-acolchados-en-verano">cómo guardar el acolchado en verano</Link>.</p>
   <p>Si el acolchado no entra holgado en tu lavarropas, la etiqueta exige un proceso que no podés reproducir o el olor persiste sin moho visible, podés consultar el <Link href="/servicios/lavado-de-acolchados">servicio de lavado de acolchados de Aquabon</Link>. Revisamos tamaño, tejido, relleno y estado en Gascón 2189, centro de Mar del Plata, antes de confirmar el tratamiento.</p>
 
   <LocalCta service="acolchados" />

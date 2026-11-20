@@ -60,7 +60,7 @@ export default function Page(){
     <ul><li>Dejar la carga dentro del lavarropas después de terminar.</li><li>Colgar prendas dobladas, pegadas o superpuestas.</li><li>Tender una carga grande en un cuarto pequeño y cerrado.</li><li>Apoyar ropa sobre radiadores, estufas o calefactores.</li><li>Usar calor alto sin que la etiqueta lo permita.</li><li>Guardar ropa con costuras, bolsillos o cintura todavía húmedos.</li><li>Intentar cubrir el olor con perfume o suavizante.</li></ul>
 
     <h2 id="seca">Cómo comprobar que está seca antes de guardarla</h2>
-    <p>No te guíes solo por la superficie. Tocá costuras, el interior de los bolsillos, puños, cintura, capucha y zonas con varias capas. Si una parte se siente fría, pesada o húmeda, necesita más tiempo. Guardar la prenda antes de completar el secado favorece el olor a encierro y traslada humedad al placard.</p>
+    <p>No te guíes solo por la superficie. Tocá costuras, el interior de los bolsillos, puños, cintura, capucha y zonas con varias capas. Si una parte se siente fría, pesada o húmeda, necesita más tiempo. Guardar la prenda antes de completar el secado favorece el olor a encierro y traslada humedad al placard. En verano se suman la sal y la arena: lo contamos en <Link href="/blog/como-lavar-la-ropa-despues-de-la-playa">cómo lavar la ropa después de la playa</Link>.</p>
     <p>Si necesitás resolver una carga cotidiana sin tenderla en casa, consultá el <Link href="/servicios/valet-de-ropa">valet de ropa</Link> de Aquabon. Confirmamos recepción, capacidad y plazo por WhatsApp. Para prendas especiales o estructuradas, revisamos si corresponde <Link href="/servicios/tintoreria">tintorería</Link>.</p>
 
     <LocalCta service="valet" />

@@ -5,7 +5,7 @@ Este es el documento de referencia de la web de Aquabon: identidad del negocio, 
 - **Responsable del proyecto:** Joaco.
 - **Diseño y desarrollo:** Traka (https://trakadigital.com).
 - **Producción:** https://www.aquabonlavanderia.com (Vercel, se publica desde `main`).
-- **Última actualización de este manual:** 07/11/2026.
+- **Última actualización de este manual:** 20/11/2026.
 
 **Regla para mantener este manual:** si cambia un dato del negocio, una regla o una decisión, se actualiza este archivo en el mismo PR que hace el cambio, y se suma una línea en el [historial de decisiones](#12-historial-de-decisiones).
 
@@ -47,11 +47,15 @@ Fuente única en el código: `app/site.ts`. **Nunca escribir estos datos a mano 
 | Precios | **No se publican.** Se pasan por WhatsApp antes de que la persona deje la ropa. |
 | Ficha de Google | https://maps.google.com/?cid=16265134030335527067 (sin acortadores) |
 | Ubicación (pin de Google) | -38.0081341, -57.5480847 |
-| Instagram | https://www.instagram.com/aquabonlavanderia/ |
+| Instagram | https://www.instagram.com/aquabon.lavanderia/ (`@aquabon.lavanderia`, confirmado por Joaco el 19/11/2026) |
 
 **Cómo funciona la tintorería:** Aquabon recibe la prenda, la revisa y hace el seguimiento. Cuando necesita un tratamiento especializado (por ejemplo limpieza en seco), se coordina fuera del local. Decirlo así: "vos la dejás en Aquabon y nosotros nos encargamos".
 
 **Servicios (11):** valet de ropa, lavado de acolchados, tintorería, limpieza de vestidos de fiesta, camperas y tapados, planchado, lavado y planchado de camisas, lavado de zapatillas, teñido de prendas, arreglos y costura, retiro y entrega.
+
+**Acolchados:** se lavan en máquinas de 15 kg (dato confirmado por Joaco el 19/11/2026).
+
+**Foco:** lavadero primero (manchas, zapatillas, acolchados, ropa blanca, temporada en Mar del Plata); la tintorería es un servicio secundario.
 
 **Empresas (6 rubros):** Airbnb y alquiler temporario, hoteles y alojamientos, restaurantes, centros de estética, uniformes y ropa deportiva. Solo textiles lavables de uso general: **no** ropa hospitalaria, EPP ni procesos sanitarios regulados.
 
@@ -142,12 +146,18 @@ Empiezan con "Hola Aquabon," y piden lo que necesitamos para responder rápido, 
 | Empresas | `/empresas` y 6 rubros en `/empresas/<slug>` | `app/SeoLanding.tsx` + `app/BusinessLanding.tsx` |
 | Lavandería en Mar del Plata | `/lavanderia-mar-del-plata` | `app/MdpLanding.tsx` |
 | Barrios (11) | `/lavanderia-<barrio>-mar-del-plata`, uno por cada entrada de `pickupZones` | `CentroLanding` (Centro) y `NeighborhoodLanding` (los otros diez) |
-| Blog | `/blog` y 32 guías en `/blog/<slug>` | `app/blog/ArticleLayout.tsx` |
+| Blog | `/blog` y 38 guías en `/blog/<slug>` | `app/blog/ArticleLayout.tsx` |
+| Temas del blog (6) | `/blog/tema/<tema>`, uno por cada entrada de `guidePillars` | `app/blog/TopicPage.tsx` |
 | Nosotros | `/nosotros` | `app/nosotros/page.tsx` |
 | Legales (noindex) | privacidad, cookies, términos | `app/LegalPage.tsx` |
 | Para IAs | `/llms.txt`, `/robots.txt`, `/sitemap.xml` | se generan solos |
 
-**Temas del blog:** Acolchados · Manchas y olores · Lavado y secado en casa · Prendas especiales y tintorería · Zapatillas · Alquileres temporarios.
+**Temas del blog** (los pilares del plan de contenidos, `guidePillars` en `app/guides.ts`): Manchas · Zapatillas · Acolchados y blanquería · Cuidado de prendas · Consejos para Mar del Plata · Tintorería. ("Temporada" no se usa como nombre de tema: no es una búsqueda del rubro.) **Las guías siguen en `/blog/<slug>`**, aunque el plan proponga `/guias/`.
+
+- **Cada tema tiene su página indexable** en `/blog/tema/<tema>` (`manchas`, `zapatillas`, `acolchados`, `cuidado-de-prendas`, `consejos-mar-del-plata`, `tintoreria`), con H1, intro propia, todas sus guías y `CollectionPage` + `ItemList` en el JSON-LD. Es el filtro por tema para quien lee y la señal de cluster para Google. `/blog/tema` redirige con 301 a `/blog`.
+- **Tema principal:** sale del `cluster` de la guía. Define las migas de pan (Inicio > Guías > Tema > Guía), el antetítulo y el `isPartOf` del `Article`.
+- **Etiquetas:** `tags` en `guides.ts`, con ids de otros temas a los que la guía también pertenece (por ejemplo, la de guardar el acolchado lleva `consejos-mar-del-plata`). Se muestran como chips debajo del título y la guía aparece también en esa página de tema. Solo se usan ids de temas: no se crean etiquetas sueltas, para no generar páginas finas.
+- El hub `/blog` lista cada tema en secciones estáticas, sin JavaScript (solo con su tema principal), y enlaza a la página de cada tema. Un tema sin guías no se muestra en el hub.
 
 **Una intención por URL.** Mapa vigente desde el 07/11/2026 (sobre Search Console, 13/09 a 07/11): la home va por "lavandería **y tintorería** en Mar del Plata" y por la marca; `/lavanderia-mar-del-plata` se queda con "lavandería mar del plata", porque Google ya la prefiere (1.023 impresiones contra 483 de la home). Los dos titles y los dos H1 tienen que ser distintos. Nunca crear otra página que compita por lo mismo: se mejora la que ya existe.
 
@@ -165,17 +175,16 @@ Empiezan con "Hola Aquabon," y piden lo que necesitamos para responder rápido, 
 | Archivo | Qué guarda |
 |---|---|
 | `app/site.ts` | Datos del negocio, `services[]`, `businessLinks[]` y `pickupZones[]` (barrios con retiro) |
-| `app/guides.ts` | `guides[]`: todas las guías (la más nueva primero) |
+| `app/guides.ts` | `guides[]`: todas las guías (la más nueva primero, con `tags` opcionales) y `guidePillars[]`: temas del blog con sus `clusters`, textos de su página y servicio |
 | `app/landing-data.ts` | Textos y preguntas frecuentes de las landings de servicio y del catálogo |
 | `app/service-copy.ts` | **H2 propios y contenido extenso de cada página de servicio.** Prohibidos los H2 genéricos "Qué incluye" y "Para qué prendas sirve" |
 | `app/blog/service-info.ts` | Servicio al que deriva cada guía (lateral y bloque local) |
 | `app/service-design.ts` | Diseño de cada servicio, frase sobre el título y guías relacionadas |
-| `app/BusinessLanding.tsx` y `app/empresas/*/page.tsx` | Textos de empresas |
+| `app/BusinessLanding.tsx`, `app/empresas/*/page.tsx` y `app/empresas/airbnb-copy.ts` | Textos de empresas. `airbnb-copy.ts` es el contenido largo de la página de Airbnb (campo `longform` de `LandingData`, mismas secciones que las páginas de servicio) |
 | `app/neighborhoods.ts` y `app/LocalLanding.tsx` | Textos de barrios y del índice de zonas |
 | `app/seo-descriptions.ts` | Meta descriptions específicas por ruta |
 | `app/ga.ts` | Ruta → parámetro `servicio` de GA4 |
 | `app/sitemap.ts` | Fecha de última modificación por ruta (`dates`) |
-| `app/blog/page.tsx` | Temas del blog (`topics` con sus `clusters`) |
 | `app/Reviews.tsx` | Reseñas reales (vacío hasta tenerlas; el bloque no se muestra) |
 
 **Imágenes:** originales en `public/blog/` o `public/services/`. Después de agregar una, correr `node scripts/optimize-images.mjs` (genera AVIF/WebP en `public/img/` y actualiza `app/image-manifest.json`). En el código, siempre `<Img>` (`app/Img.tsx`), nunca `<img>` suelto.
@@ -293,6 +302,17 @@ El paso a paso completo está en el skill `.claude/skills/publicar-contenido/SKI
 | 07/11/2026 | **Bloque local en todas las guías** ("¿Estás en Mar del Plata? Lo hacemos por vos") y cada guía derivando a un servicio real. Guía nueva: cuándo llevar la campera a la tintorería. |
 | 07/11/2026 | **Constitución, con restricción:** su página no nombra "tintorería" en title, H1 ni H2, porque Tintorería Constitución es cliente de Traka en ese barrio. |
 | 07/11/2026 | Se mantiene la regla de title de 60 caracteres o menos terminado en ` | Aquabon`: los titles más largos que proponía el plan se adaptaron y la intención pasó a la description. |
+| 19/11/2026 | **Plan de contenidos web y redes** (`docs/AquaBon_Plan_Contenidos.xlsx`): las guías nuevas salen de ahí y cada fila lleva su pack de redes en `contenidos/redes/AQB-0XX.md`. Estados de web y redes por separado; "Publicado" solo con la confirmación de Joaco. |
+| 19/11/2026 | **Las guías siguen en `/blog/`**, no en `/guias/` como propone el plan, para no romper 32 URLs indexadas. El hub `/blog` se reordenó por los pilares del plan, con una intro local y sin el filtro con JavaScript. |
+| 19/11/2026 | **Instagram:** `@aquabon.lavanderia` (https://www.instagram.com/aquabon.lavanderia/), confirmado por Joaco. Reemplaza a `@aquabonlavanderia` en `app/site.ts`, el JSON-LD y `/llms.txt`. |
+| 19/11/2026 | **Regla de tono de las guías nuevas:** nunca "hacelo en casa" ni "esto no se puede"; cada guía muestra qué daña la prenda (qué fija, deforma, encoge o decolora) y cierra con Aquabon como quien la recupera, sin prometer resultados. Estructura: respuesta directa de 40 a 60 palabras, por qué pasa, errores comunes, cómo lo trabajamos, bloque local con WhatsApp precargado del tema y de 3 a 5 preguntas frecuentes. |
+| 19/11/2026 | Lote 1 del plan: guías nuevas de mancha de mate, zapatillas blancas y cómo lavar un acolchado; mejora de "zapatillas en el lavarropas" en su misma URL. |
+| 19/11/2026 | **Temas y etiquetas del blog:** una página indexable por tema en `/blog/tema/<tema>`, migas de pan con el tema y etiquetas (`tags`) que son ids de otros temas. Se descartaron las páginas por etiqueta suelta: serían páginas finas para Google. |
+| 20/11/2026 | **SEO y redes, separados:** los packs de redes los hace otro agente. Este repo y el agente de SEO se ocupan solo de la web. Los packs ya hechos quedan en `contenidos/redes/` para quien los use. |
+| 20/11/2026 | **"Temporada Mar del Plata" pasa a "Consejos para Mar del Plata"** (`/blog/tema/consejos-mar-del-plata`, H1 "Consejos para cuidar la ropa en Mar del Plata"): "temporada" no posiciona en el rubro. También en el Excel del plan. |
+| 20/11/2026 | **Se retoma la mejora de `/empresas/lavanderia-airbnb`** (T-11), sin precios, plazos ni kits cerrados: contenido propio de más de 700 palabras, coordinación de recambios, qué pasa si, preparación antes de la temporada y 6 preguntas frecuentes. La fila AQB-021 del plan se resolvió con esta página, no con una guía nueva. |
+| 20/11/2026 | **Fechas de publicación reales y escalonadas:** el lote 1 lleva 19/11 y el lote 2, las páginas de tema y Airbnb, 20/11. No se antedatan contenidos: de acá en adelante, una pieza por semana según el ritmo del manual. |
+| 19/11/2026 | Lote 2 del plan: guías de guardar el acolchado en verano, ropa después de la playa (abre el tema Temporada) y campera de plumas; pack de redes del detrás de escena de acolchados. Vino, sangre y aceite (AQB-002, 004 y 005) quedan sin página nueva hasta que Joaco decida, porque se fusionaron el 07/11. |
 
 ---
 
@@ -302,6 +322,7 @@ El paso a paso completo está en el skill `.claude/skills/publicar-contenido/SKI
 |---|---|---|
 | Reseñas reales de la ficha de Google (6 a 9, con nombre y fecha) | Joaco las comparte | `app/Reviews.tsx` |
 | Fotos propias: fachada, mostrador, acolchado, zapatillas, ropa blanca | Joaco | `public/…` y reemplazo de imágenes repetidas |
+| Confirmar si la ropa blanca de Airbnb se trabaja "por juego/kit" con nombre propio y si se cuentan las piezas al recibir y devolver | Joaco confirma | `app/empresas/airbnb-copy.ts` (`TODO(joaco)`) |
 | `/nosotros` con al menos una persona con nombre y dos fotos | Joaco | `app/nosotros/page.tsx` (`TODO(joaco)`) |
 | Titular y CUIT para las páginas legales | Joaco | `legal` en `app/site.ts` |
 | Exportación de Search Console (consultas y páginas, 3 meses) | Joaco | Para decidir landings nuevas |
@@ -314,6 +335,8 @@ El paso a paso completo está en el skill `.claude/skills/publicar-contenido/SKI
 | Cargar "Lavado de acolchados" como servicio en el perfil de Google Business, con el enlace a su URL | Joaco | Google Business |
 | Redirigir con 301 o dar de baja el subdominio viejo `aquabon-lavanderia.canellaenrama.chatgpt.site` | Joaco | Fuera de este repo |
 | Facebook, Apple Business Connect y Bing Places en `sameAs` cuando estén dados de alta | Joaco | `app/layout.tsx` (`TODO(joaco)`) |
+| Fotos propias de las guías del lote 1 del plan (remera con mancha de mate, zapatillas blancas antes y después, acolchado en la máquina de 15 kg) | Joaco | `public/blog/` y el `TODO(joaco)` de cada guía |
+| Revisar que el Instagram `@aquabon.lavanderia` figure igual en la ficha de Google y los directorios (NAP) | Joaco | Google Business y directorios |
 
 ---
 
@@ -325,3 +348,5 @@ El paso a paso completo está en el skill `.claude/skills/publicar-contenido/SKI
 - `docs/landings-zonas-2026-10.md` y `docs/retiro-zonas-2026-10.md`: trabajo de zonas y retiro.
 - `docs/tecnico-vinext.md`: notas técnicas del entorno vinext.
 - `.claude/skills/publicar-contenido/SKILL.md`: proceso para publicar guías y landings.
+- `docs/AquaBon_Plan_Contenidos.xlsx`: plan de contenidos web y redes (pestañas Contenidos, Pilares, Instrucciones y Resumen; Resumen se calcula sola y no se toca).
+- `contenidos/redes/AQB-0XX.md`: pack de redes de cada fila del plan (reel, carrusel, caption, historias y tomas a grabar).

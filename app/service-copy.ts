@@ -84,6 +84,7 @@ export const serviceCopy: Record<string, ServiceCopy> = {
             "Ropa de cama de alquileres temporarios y alojamientos",
           ] },
         ],
+        links: [{ label: "Cómo lavar un acolchado sin que se apelmace el relleno", href: "/blog/como-lavar-un-acolchado" }],
       },
       {
         id: "plazo-precio", heading: "Cuánto tarda y cuánto cuesta lavar un acolchado", tone: "claro",
@@ -287,7 +288,8 @@ export const serviceCopy: Record<string, ServiceCopy> = {
           ] },
         ],
         links: [
-          { label: "¿Se pueden lavar las zapatillas en el lavarropas?", href: "/blog/se-pueden-lavar-zapatillas-en-el-lavarropas" },
+          { label: "Cómo lavar zapatillas blancas sin dañarlas", href: "/blog/como-lavar-zapatillas-blancas" },
+          { label: "¿Se pueden lavar zapatillas en el lavarropas?", href: "/blog/se-pueden-lavar-zapatillas-en-el-lavarropas" },
           { label: "Cómo sacar el olor de las zapatillas", href: "/blog/como-sacar-el-olor-de-las-zapatillas" },
         ],
       },

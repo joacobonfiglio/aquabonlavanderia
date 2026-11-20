@@ -10,7 +10,7 @@ import { SITE_URL, business, businessLinks, services } from "../site";
 import { servicioFromPath } from "../ga";
 import Img from "../Img";
 import { Clothesline, GuideCards, Waves } from "../Blocks";
-import { guides } from "../guides";
+import { guides, pillarsOfGuide, pillarPath } from "../guides";
 import { serviceInfo, type ServiceKey } from "./service-info";
 
 type ArticleLayoutProps = {
@@ -36,6 +36,10 @@ function sentence(text: string) {
 export default function ArticleLayout({ title, description, slug, date, readingTime, cluster, image, updated, service = "acolchados", children }: ArticleLayoutProps) {
   const path = `/blog/${slug}`;
   const info = serviceInfo[service];
+  const entry = guides.find(g => g.href === path);
+  // Temas de la guía: el principal arma las migas de pan; todos se muestran como etiquetas y van al schema.
+  const topics = entry ? pillarsOfGuide(entry) : [];
+  const mainTopic = topics[0];
   const displayDate = new Intl.DateTimeFormat("es-AR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${date}T12:00:00Z`));
   const schema = {
     "@context": "https://schema.org", "@type": "Article", headline: title, description,
@@ -44,11 +48,15 @@ export default function ArticleLayout({ title, description, slug, date, readingT
     ...(image ? { image: SITE_URL + image } : {}),
     // Las guías se escriben desde Mar del Plata y para quien vive acá: el schema lo dice.
     spatialCoverage: { "@type": "City", name: "Mar del Plata", containedInPlace: { "@type": "AdministrativeArea", name: "Buenos Aires, Argentina" } },
-    about: [{ "@type": "Thing", name: sentence(cluster) }, { "@type": "Thing", name: "Cuidado de la ropa" }],
+    about: [{ "@type": "Thing", name: sentence(cluster) }, ...topics.map(t => ({ "@type": "Thing", name: t.name })), { "@type": "Thing", name: "Cuidado de la ropa" }],
+    ...(topics.length ? { keywords: topics.map(t => t.name).join(", "), isPartOf: topics.map(t => ({ "@type": "CollectionPage", "@id": SITE_URL + pillarPath(t.id) + "#tema", name: t.h1, url: SITE_URL + pillarPath(t.id) })) } : {}),
     author: { "@type": "Organization", name: business.name, url: SITE_URL + "/" },
     publisher: { "@id": SITE_URL + "/#business" },
   };
-  const more = guides.filter(g => g.href !== path && g.cluster.toLowerCase() === cluster.toLowerCase()).concat(guides.filter(g => g.href !== path && g.cluster.toLowerCase() !== cluster.toLowerCase())).slice(0, 3);
+  // "Seguí leyendo": primero el mismo cluster, después el resto del tema principal, después cualquier otra.
+  const sameTopic = (g: (typeof guides)[number]) => !!mainTopic && pillarsOfGuide(g).some(t => t.id === mainTopic.id);
+  const rank = (g: (typeof guides)[number]) => g.cluster.toLowerCase() === cluster.toLowerCase() ? 0 : sameTopic(g) ? 1 : 2;
+  const more = guides.filter(g => g.href !== path).map((g, i) => ({ g, i })).sort((a, b) => rank(a.g) - rank(b.g) || a.i - b.i).slice(0, 3).map(x => x.g);
   const heroImage = image ?? "/laundry-hero-v2.webp";
   const serviceImage = services.find(x => x.href === info.path)?.image ?? businessLinks.find(x => x.href === info.path)?.image ?? "/laundry-hero-v2.webp";
   return <>
@@ -57,13 +65,14 @@ export default function ArticleLayout({ title, description, slug, date, readingT
     <main id="contenido" className="page">
       <section className="p-hero a-hero" aria-labelledby="page-titulo">
         <div className="wrap">
-          <div className="p-hero__crumbs"><Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Guías", href: "/blog" }, { label: title, href: path }]} /></div>
+          <div className="p-hero__crumbs"><Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Guías", href: "/blog" }, ...(mainTopic ? [{ label: mainTopic.name, href: pillarPath(mainTopic.id) }] : []), { label: title, href: path }]} /></div>
           <div className="p-hero__grid">
             <div className="p-hero__copy">
-              <p className="h-hero__kicker">Guía de {sentence(cluster).toLowerCase()}</p>
+              <p className="h-hero__kicker">{mainTopic ? <Link href={pillarPath(mainTopic.id)}>Guía de {mainTopic.label}</Link> : <>Guía de {sentence(cluster).toLowerCase()}</>}</p>
               <h1 id="page-titulo">{title}</h1>
               <p className="p-hero__lead">{description}</p>
               <div className="a-meta"><time dateTime={date}>{displayDate}</time><span>{sentence(readingTime)}</span><span>Aquabon, Mar del Plata</span></div>
+              {topics.length ? <ul className="a-tags" aria-label="Temas de esta guía">{topics.map(t => <li key={t.id}><Link href={pillarPath(t.id)}>{t.name}</Link></li>)}</ul> : null}
             </div>
             <div className="p-hero__media"><div className="p-hero__photo"><Img src={heroImage} alt={guides.find(g => g.href === path)?.alt ?? title} width={1400} height={933} sizes="(max-width: 960px) 92vw, 520px" priority /></div></div>
           </div>
@@ -85,7 +94,7 @@ export default function ArticleLayout({ title, description, slug, date, readingT
       </div>
       <section className="p-sec p-sec--espuma" aria-labelledby="mas-guias">
         <div className="wrap">
-          <div className="h-head h-head--split" data-reveal><h2 id="mas-guias">Seguí leyendo</h2><p><Link className="link" href="/blog">Ver todas las guías</Link></p></div>
+          <div className="h-head h-head--split" data-reveal><h2 id="mas-guias">Seguí leyendo</h2><p>{mainTopic ? <><Link className="link" href={pillarPath(mainTopic.id)}>Más guías de {mainTopic.label}</Link> · </> : null}<Link className="link" href="/blog">Ver todas las guías</Link></p></div>
           <GuideCards guides={more} />
         </div>
         <Clothesline title="¿Lo hacemos por vos?" items={services} />

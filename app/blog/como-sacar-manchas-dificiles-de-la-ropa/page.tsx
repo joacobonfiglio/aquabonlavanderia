@@ -47,6 +47,7 @@ export default function Page() {
     <p>El vino tinto tiene color y azúcar. El color es lo que ves en el momento; el azúcar es lo que, meses después, aparece como una marca amarilla en una prenda que vos creías limpia. Por eso una mancha de vino que ya no se ve igual necesita lavado: si la guardás, vuelve.</p>
     <p>Apenas se derrama, absorbé con un paño blanco y enjuagá desde el reverso con agua fría abundante. Si tenés agua con soda, sirve, pero no hace magia: lo que funciona es el agua fría y la cantidad. La sal absorbe líquido mientras está mojado, aunque no quita el color ya fijado; conviene retirarla y enjuagar, no dejarla secando encima.</p>
     <p>Lo que no conviene: vino blanco sobre tinto, lavandina en prendas de color, agua caliente, ni secar al sol para “ver si se va”. En vino sobre lino, seda, lana o una prenda con forro, lo razonable es no insistir y consultar.</p>
+    <p>El mate, el té y el café se comportan parecido: también tiñen con taninos y el calor los fija. Lo contamos en <Link href="/blog/mancha-de-mate-en-la-ropa">mancha de mate en la ropa</Link>.</p>
 
     <h2 id="aceite">Manchas de aceite y grasa</h2>
     <p>El aceite no se lleva con agua: el agua lo rodea y no lo levanta. Por eso una mancha de aceite enjuagada parece que desaparece mientras está mojada y reaparece, más oscura y con bordes, cuando la prenda se seca.</p>

@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/servicios/acolchados", destination: "/servicios/lavado-de-acolchados", permanent: true },
+      // 19/11/2026: /blog/tema no tiene página propia; los temas viven en /blog/tema/<id> y el índice es /blog.
+      { source: "/blog/tema", destination: "/blog", permanent: true },
       // 07/11/2026: competía con /servicios/tintoreria por "tintorería mar del plata centro" y no tuvo
       // impresiones en 3 meses. Una sola página por servicio: el Centro se cubre con un H2 ahí.
       { source: "/tintoreria-centro-mar-del-plata", destination: "/servicios/tintoreria", permanent: true },

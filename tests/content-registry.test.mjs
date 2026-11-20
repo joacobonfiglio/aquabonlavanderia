@@ -17,10 +17,10 @@ const manifest = JSON.parse(read("app/image-manifest.json"));
 const slug = href => href.split("/").at(-1);
 const imageOk = src => existsSync(root + "public" + src);
 
-test("guías: registro, página, imagen, tema del blog y fecha del sitemap", () => {
+test("guías: registro, página, imagen, pilar del blog y fecha del sitemap", async () => {
   const problems = [];
-  const blogPage = read("app/blog/page.tsx");
-  const clusters = new Set([...blogPage.matchAll(/clusters: \[([^\]]*)\]/g)].flatMap(m => [...m[1].matchAll(/"([^"]+)"/g)].map(x => x[1])));
+  const { guidePillars } = await import(root + "app/guides.ts");
+  const clusters = new Set(guidePillars.flatMap(t => t.clusters));
   const sitemap = read("app/sitemap.ts");
   const seen = new Set();
   for (const g of guides) {
@@ -32,11 +32,13 @@ test("guías: registro, página, imagen, tema del blog y fecha del sitemap", () 
     if (!g.alt?.trim()) p("falta el alt de la imagen");
     if (!imageOk(g.image)) p(`no existe la imagen public${g.image}`);
     else if (!manifest[g.image]) p(`la imagen no tiene variantes optimizadas: corré node scripts/optimize-images.mjs`);
-    if (!clusters.has(g.cluster)) p(`el cluster "${g.cluster}" no está en ningún tema de app/blog/page.tsx`);
+    if (!clusters.has(g.cluster)) p(`el cluster "${g.cluster}" no está en ningún pilar (guidePillars en app/guides.ts)`);
+    for (const t of g.tags ?? []) if (!guidePillars.some(x => x.id === t)) p(`etiqueta inexistente: "${t}" (tiene que ser el id de un tema de guidePillars)`);
     if (!sitemap.includes(`"${g.href}"`)) p("falta su fecha en app/sitemap.ts");
     if (g.description.length > 200) p(`description de la tarjeta muy larga (${g.description.length})`);
   }
   if (new Set(guides.map(g => g.title)).size !== guides.length) problems.push("hay títulos de guía repetidos");
+  for (const t of guidePillars) if (!existsSync(root + `app/blog/tema/${t.id}/page.tsx`)) problems.push(`falta la página del tema app/blog/tema/${t.id}/page.tsx`);
   assert.deepEqual(problems, []);
 });
 
