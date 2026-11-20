@@ -1,18 +1,19 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
 // AQB-001 del plan de contenidos (docs/AquaBon_Plan_Contenidos.xlsx). Pilar: Manchas.
-// TODO(joaco): foto propia para reemplazar la imagen de stock: remera blanca con una mancha de mate
-// fresca sobre el mostrador del local, con la etiqueta a la vista. Mientras tanto se usa la de la guía de manchas.
+// Ilustración editorial generada; no representa un caso real del local.
+const illustration = guide("mancha-de-mate-en-la-ropa");
 const slug = "mancha-de-mate-en-la-ropa";
 const path = `/blog/${slug}`;
 const title = "Mancha de mate en la ropa: qué hacer (y qué no) para no arruinarla";
 const lead = "La yerba tiñe más de lo que parece. Lo que hacés en los primeros minutos define si la mancha sale o se queda para siempre.";
 const metaTitle = "Mancha de mate en la ropa: qué hacer y qué no | Aquabon";
 const metaDescription = "Mancha de mate en la ropa: por qué el agua caliente y frotar la fijan, y qué evitar para no arruinar la prenda. Te ayudamos en Aquabon, Mar del Plata.";
-const image = "/blog/tratar-mancha-vino-ropa.webp";
+const image = illustration.image;
 const whatsapp = "Hola Aquabon, se me volcó mate en una prenda. Es una __ de __ (tela) y la mancha es de hace __. Les mando una foto de la mancha y de la etiqueta.";
 
 const faqs = [
@@ -25,12 +26,12 @@ const faqs = [
 
 export const metadata: Metadata = {
   title: metaTitle, description: metaDescription, alternates: { canonical: path },
-  openGraph: { title, description: metaDescription, type: "article", locale: "es_AR", url: path, publishedTime: "2026-11-19", images: [{ url: image, width: 1400, height: 788, alt: "Paño blanco absorbiendo una mancha fresca en una prenda clara, sin frotar" }] },
+  openGraph: { title, description: metaDescription, type: "article", locale: "es_AR", url: path, publishedTime: "2026-11-19", images: [{ url: image, width: 1400, height: 788, alt: illustration.alt }] },
 };
 
 export default function Page() {
   const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(f => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) };
-  return <ArticleLayout title={title} description={lead} slug={slug} date="2026-11-19" readingTime="5 MIN DE LECTURA" cluster="Manchas" image={image} service="valet">
+  return <ArticleLayout updated="2026-11-20" title={title} description={lead} slug={slug} date="2026-11-19" readingTime="5 MIN DE LECTURA" cluster="Manchas" image={image} service="valet">
     <p className="article-lead"><strong>Absorbé sin frotar y no uses agua caliente.</strong> La yerba tiene taninos, el mismo tipo de pigmento que el té o el vino: el calor y el roce lo meten más adentro de la fibra y dejan una aureola marrón. Cuanto antes llegue la prenda sin tratamientos caseros encima, más chances hay de sacarla.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#por-que">Por qué la mancha de mate se fija</a></li><li><a href="#errores">Errores que la dejan para siempre</a></li><li><a href="#mdp">El mate en Mar del Plata</a></li><li><a href="#aquabon">Cómo la trabajamos en Aquabon</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li></ol></nav>
 

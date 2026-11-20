@@ -1,18 +1,19 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
 // AQB-017 del plan de contenidos (docs/AquaBon_Plan_Contenidos.xlsx). Pilar: Acolchados y blanquería.
-// TODO(joaco): foto propia para reemplazar la imagen de stock: un acolchado de dos plazas entrando en la
-// máquina de 15 kg del local, y el mismo acolchado doblado y seco listo para entregar.
+// Ilustración editorial generada; no representa un caso real del local.
+const illustration = guide("como-lavar-un-acolchado");
 const slug = "como-lavar-un-acolchado";
 const path = `/blog/${slug}`;
 const title = "Cómo lavar un acolchado sin que se apelmace el relleno";
 const lead = "Que entre en el lavarropas no significa que se lave. El espacio y el secado deciden si el acolchado vuelve esponjoso o con olor a humedad.";
 const metaTitle = "Cómo lavar un acolchado sin apelmazar el relleno | Aquabon";
 const metaDescription = "Cómo lavar un acolchado sin que el relleno se apelmace ni quede olor a humedad. Lo lavamos y secamos entero en Aquabon, Mar del Plata, con retiro.";
-const image = "/blog/comprobar-secado-acolchado.webp";
+const image = illustration.image;
 const whatsapp = "Hola Aquabon, quiero lavar un acolchado. Es de __ plazas, el relleno es __ (plumas, sintético, no sé) y lo necesito para __. Les mando una foto de la etiqueta.";
 
 const faqs = [
@@ -25,12 +26,12 @@ const faqs = [
 
 export const metadata: Metadata = {
   title: metaTitle, description: metaDescription, alternates: { canonical: path },
-  openGraph: { title, description: metaDescription, type: "article", locale: "es_AR", url: path, publishedTime: "2026-11-19", images: [{ url: image, width: 1400, height: 933, alt: "Revisión del relleno de un acolchado durante el secado para comprobar que no quede humedad" }] },
+  openGraph: { title, description: metaDescription, type: "article", locale: "es_AR", url: path, publishedTime: "2026-11-19", images: [{ url: image, width: 1400, height: 788, alt: illustration.alt }] },
 };
 
 export default function Page() {
   const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(f => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) };
-  return <ArticleLayout title={title} description={lead} slug={slug} date="2026-11-19" readingTime="5 MIN DE LECTURA" cluster="Acolchados" image={image} service="acolchados">
+  return <ArticleLayout updated="2026-11-20" title={title} description={lead} slug={slug} date="2026-11-19" readingTime="5 MIN DE LECTURA" cluster="Acolchados" image={image} service="acolchados">
     <p className="article-lead"><strong>Con espacio para que se mueva y con un secado completo, hasta el centro del relleno.</strong> En un lavarropas hogareño el acolchado suele entrar apretado: no se enjuaga bien, el relleno se amontona en una punta y tarda días en secar. Ahí aparece el olor a humedad. El tamaño de la máquina y el secado son los que deciden.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#por-que">Por qué se apelmaza el relleno</a></li><li><a href="#errores">Errores que lo arruinan</a></li><li><a href="#mdp">El problema del secado en Mar del Plata</a></li><li><a href="#aquabon">Cómo lo lavamos en Aquabon</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li></ol></nav>
 

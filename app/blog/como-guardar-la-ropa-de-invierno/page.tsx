@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("como-guardar-la-ropa-de-invierno");
 const title="Cómo guardar la ropa de invierno sin que se arruine";
 const description="Cómo lavar, secar, doblar y proteger sweaters, tapados y camperas antes del cambio de temporada para evitar olor, manchas, deformación y polillas.";
 const path="/blog/como-guardar-la-ropa-de-invierno";
@@ -15,9 +17,9 @@ const faqs=[
   {question:"¿Cómo evitar olor a humedad al guardar ropa?",answer:"No guardes ninguna prenda húmeda, elegí un espacio seco y ventilado, evitá sótanos o paredes con condensación y revisá el contenido durante la temporada. Si aparece olor o humedad, sacá las prendas y resolvé la causa antes de volver a cerrar."}
 ];
 
-export const metadata:Metadata={title:"Cómo guardar la ropa de invierno | Aquabon",description:"Cómo guardar la ropa de invierno limpia y seca para evitar humedad. Consultá lavado de camperas y recepción de tintorería en Aquabon, Mar del Plata.",alternates:{canonical:path},openGraph:{title,description:"Cómo guardar la ropa de invierno limpia y seca para evitar humedad. Consultá lavado de camperas y recepción de tintorería en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-29",images:[{url:"/blog/guardar-ropa-invierno.webp",width:1400,height:788,alt:"Sweaters doblados en una caja y un tapado en percha ancha dentro de un placard limpio"}]}};
+export const metadata:Metadata={title:"Cómo guardar la ropa de invierno | Aquabon",description:"Cómo guardar la ropa de invierno limpia y seca para evitar humedad. Consultá lavado de camperas y recepción de tintorería en Aquabon, Mar del Plata.",alternates:{canonical:path},openGraph:{title,description:"Cómo guardar la ropa de invierno limpia y seca para evitar humedad. Consultá lavado de camperas y recepción de tintorería en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-29",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}};
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="como-guardar-la-ropa-de-invierno" date="2026-09-29" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image="/blog/guardar-ropa-invierno.webp" service="camperas">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="como-guardar-la-ropa-de-invierno" date="2026-09-29" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image={illustration.image} service="camperas">
   <p className="article-lead"><strong>La ropa de invierno se guarda limpia, totalmente seca y sin comprimir de más.</strong> Los sweaters pesados conviene doblarlos; los tapados estructurados necesitan una percha ancha y espacio. El recipiente importa, pero la preparación previa es lo que evita que una mancha invisible, humedad o deformación aparezcan meses después.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#preparar">Preparar antes de guardar</a></li><li><a href="#prenda">Cómo guardar cada prenda</a></li><li><a href="#contenedores">Cajas, fundas y vacío</a></li><li><a href="#polillas">Prevenir polillas y humedad</a></li><li><a href="#lista">Lista de control</a></li></ol></nav>
 
@@ -42,7 +44,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
     <article><strong>Bufandas, gorros y guantes</strong><p>Limpialos y agrupá las piezas en una caja pequeña para evitar pérdida, enganches y peso sobre prendas delicadas.</p></article>
   </div>
 
-  <figure className="article-image"><Image src="/blog/guardar-ropa-invierno.webp" alt="Sweaters secos doblados con papel de protección en una caja y un tapado azul colgado en una percha ancha" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>El tejido de punto se conserva doblado; un tapado estructurado necesita una percha que sostenga los hombros sin aplastarlo.</figcaption></figure>
+  <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>El tejido de punto se conserva doblado; un tapado estructurado necesita una percha que sostenga los hombros sin aplastarlo.</figcaption></figure>
 
   <h2 id="contenedores">¿Caja, funda o bolsa al vacío?</h2>
   <h3>Cajas con tapa</h3><p>Son útiles para prendas dobladas. Deben estar limpias, secas y sin olor. No las apoyes directamente sobre un piso o pared que tenga condensación.</p>

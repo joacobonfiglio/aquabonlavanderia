@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("cuando-llevar-la-campera-a-la-tintoreria");
 const title = "¿Cuándo llevar la campera a la tintorería?";
 const description = "Las cuatro señales de que un abrigo necesita tintorería, por qué conviene antes de guardarlo y qué revisamos en una campera de pluma o un tapado de paño.";
 const path = "/blog/cuando-llevar-la-campera-a-la-tintoreria";
@@ -20,12 +22,12 @@ export const metadata: Metadata = {
   title: "Cuándo llevar la campera a la tintorería | Aquabon",
   description: "Las señales de que tu abrigo necesita tintorería y por qué conviene antes de guardarlo. Camperas y tapados en Aquabon, Mar del Plata.",
   alternates: { canonical: path },
-  openGraph: { title, description: "Las señales de que tu abrigo necesita tintorería y por qué conviene antes de guardarlo. Aquabon, Mar del Plata.", type: "article", locale: "es_AR", url: path, publishedTime: "2026-11-08", images: [{ url: "/blog/revisar-tapado-etiqueta-forro.webp", width: 1400, height: 788, alt: "Revisión del forro y la etiqueta de un tapado azul antes de definir su limpieza" }] },
+  openGraph: { title, description: "Las señales de que tu abrigo necesita tintorería y por qué conviene antes de guardarlo. Aquabon, Mar del Plata.", type: "article", locale: "es_AR", url: path, publishedTime: "2026-11-08", images: [{ url: illustration.image, width: 1400, height: 788, alt: illustration.alt }] },
 };
 
 export default function Page() {
   const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(f => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) };
-  return <ArticleLayout title={title} description={description} slug="cuando-llevar-la-campera-a-la-tintoreria" date="2026-11-08" readingTime="7 MIN DE LECTURA" cluster="Tapados" image="/blog/revisar-tapado-etiqueta-forro.webp" service="camperas">
+  return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="cuando-llevar-la-campera-a-la-tintoreria" date="2026-11-08" readingTime="7 MIN DE LECTURA" cluster="Tapados" image={illustration.image} service="camperas">
     <p className="article-lead"><strong>El mejor momento es el final del invierno, antes de guardarla.</strong> Un abrigo que se guarda sucio se guarda con transpiración en el cuello, polvo en el tejido y, si vivís cerca del mar, salitre. Nada de eso se ve en abril; en junio del año siguiente aparece como una marca amarilla, un olor a encierro o una zona del tejido más rígida. Si además tiene una mancha, no esperes: cuanto más vieja, menos margen hay. En Mar del Plata lo vemos todos los años, al abrir los placares.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#senales">Las cuatro señales</a></li><li><a href="#guardado">Antes de guardarla</a></li><li><a href="#tipos">Pluma, inflable o paño</a></li><li><a href="#entre-usos">Qué podés hacer entre usos</a></li><li><a href="#mdp">Humedad y salitre</a></li><li><a href="#llevarla">Cómo llevarla</a></li></ol></nav>
 
@@ -41,7 +43,7 @@ export default function Page() {
     <h2 id="guardado">Por qué conviene antes de guardarla, no después</h2>
     <p>Hay una razón química y una práctica. La química: la transpiración y el azúcar de las bebidas se oxidan con el tiempo y el calor, y una marca que hoy no se ve mañana es amarilla y está fijada. Lo mismo hace el protector solar en una prenda de media estación. La práctica: las polillas no comen el tejido limpio, comen el resto orgánico que quedó en él, así que una prenda de lana guardada sucia es una invitación.</p>
     <p>Guardar el abrigo limpio y seco, en una percha ancha o doblado sin presión, es lo que hace que el año siguiente lo saques y lo uses sin tener que resolver nada. Para el resto del placard, mirá <Link href="/blog/como-guardar-la-ropa-de-invierno">cómo guardar la ropa de invierno sin que se arruine</Link>.</p>
-    <figure className="article-image"><Image src="/blog/revisar-tapado-etiqueta-forro.webp" alt="Revisión del forro y la etiqueta de cuidado de un tapado azul de paño antes de definir su limpieza" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px" /><figcaption>En un abrigo, el forro y la etiqueta dicen tanto como el tejido de afuera: la estructura interna define el proceso.</figcaption></figure>
+    <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px" /><figcaption>En una campera de plumas, revisamos etiqueta, forro y relleno antes de definir el proceso de limpieza.</figcaption></figure>
 
     <h2 id="tipos">Campera de pluma, inflable o tapado de paño: no es lo mismo</h2>
     <p>La etiqueta a veces habla solo del tejido exterior, pero el proceso lo define la prenda completa: forro, relleno, entretelas, cierres, botones, capucha y piel desmontable.</p>

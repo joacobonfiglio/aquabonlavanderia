@@ -1,18 +1,19 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
 // AQB-020 del plan de contenidos (docs/AquaBon_Plan_Contenidos.xlsx). Tema: Acolchados y blanquería (etiqueta: Consejos para Mar del Plata).
-// TODO(joaco): foto propia para reemplazar la imagen de stock: placard abierto con un acolchado doblado,
-// limpio y seco, en una funda de tela, listo para guardar.
+// Ilustración editorial generada; no representa un caso real del local.
+const illustration = guide("como-guardar-acolchados-en-verano");
 const slug = "como-guardar-acolchados-en-verano";
 const path = `/blog/${slug}`;
 const title = "Cómo guardar el acolchado en verano para que no salga con hongos";
 const lead = "Lo que guardás en diciembre es lo que sacás en marzo. Si el acolchado entra al placard sucio o con humedad, sale con olor, manchas y menos volumen.";
 const metaTitle = "Cómo guardar el acolchado en verano sin hongos | Aquabon";
 const metaDescription = "Cómo guardar acolchados en verano sin olor a humedad ni hongos: qué evitar antes de cerrar el placard. Lo lavamos y secamos en Aquabon, Mar del Plata.";
-const image = "/blog/comprobar-humedad-acolchado.webp";
+const image = illustration.image;
 const whatsapp = "Hola Aquabon, quiero lavar el acolchado antes de guardarlo. Es de __ plazas y el relleno es __. ¿Me lo pueden pasar a buscar por __ (barrio)?";
 
 const faqs = [
@@ -24,12 +25,12 @@ const faqs = [
 
 export const metadata: Metadata = {
   title: metaTitle, description: metaDescription, alternates: { canonical: path },
-  openGraph: { title, description: metaDescription, type: "article", locale: "es_AR", url: path, publishedTime: "2026-11-20", images: [{ url: image, width: 1400, height: 788, alt: "Comprobación de humedad en el relleno de un acolchado antes de guardarlo" }] },
+  openGraph: { title, description: metaDescription, type: "article", locale: "es_AR", url: path, publishedTime: "2026-11-20", images: [{ url: image, width: 1400, height: 788, alt: illustration.alt }] },
 };
 
 export default function Page() {
   const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(f => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) };
-  return <ArticleLayout title={title} description={lead} slug={slug} date="2026-11-20" readingTime="5 MIN DE LECTURA" cluster="Acolchados" image={image} service="acolchados">
+  return <ArticleLayout updated="2026-11-20" title={title} description={lead} slug={slug} date="2026-11-20" readingTime="5 MIN DE LECTURA" cluster="Acolchados" image={image} service="acolchados">
     <p className="article-lead"><strong>Limpio, seco hasta el centro del relleno y en una funda que respire.</strong> Guardar el acolchado sin lavar le deja sudor, polvo y ácaros encerrados toda la temporada, y si entra con algo de humedad, aparece el olor a encierro y el moho. En marzo sale amarillo, con manchas y con menos volumen que cuando lo guardaste.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#por-que">Qué le pasa en el placard</a></li><li><a href="#errores">Errores al guardarlo</a></li><li><a href="#mdp">Placares de Mar del Plata</a></li><li><a href="#aquabon">Cómo lo dejamos listo</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li></ol></nav>
 

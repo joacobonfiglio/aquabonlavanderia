@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("como-secar-ropa-dentro-de-casa");
 const title="Cómo secar ropa dentro de casa sin olor a humedad";
 const description="Un método práctico para tender ropa en interiores: centrifugado, separación, ventilación y control de humedad para que se seque de forma pareja.";
 const path="/blog/como-secar-ropa-dentro-de-casa";
@@ -16,11 +18,11 @@ const faqs=[
   {question:"¿Qué hago si la ropa ya tomó olor a humedad?",answer:"No lo tapes con perfume ni la guardes. Ventilala y, si el olor persiste, volvé a lavarla con la dosis correcta y secala por completo. Revisá también el lavarropas y el ambiente."}
 ];
 
-export const metadata:Metadata={title:"Cómo secar ropa dentro de casa | Aquabon",description:"Cómo secar ropa dentro de casa sin olor a humedad: centrifugado, separación, ventilación y control de humedad con un método práctico.",alternates:{canonical:path},openGraph:{title,description,url:path,type:"article",locale:"es_AR",publishedTime:"2026-10-14",images:[{url:"/blog/secar-ropa-adentro-ventilacion.webp",width:1400,height:788,alt:"Ropa separada en un tendedero interior junto a una ventana abierta, un ventilador y un deshumidificador"}]}};
+export const metadata:Metadata={title:"Cómo secar ropa dentro de casa | Aquabon",description:"Cómo secar ropa dentro de casa sin olor a humedad: centrifugado, separación, ventilación y control de humedad con un método práctico.",alternates:{canonical:path},openGraph:{title,description,url:path,type:"article",locale:"es_AR",publishedTime:"2026-10-14",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}};
 
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
-  return <ArticleLayout title={title} description={description} slug="como-secar-ropa-dentro-de-casa" date="2026-10-14" readingTime="7 MIN DE LECTURA" cluster="Secado" image="/blog/secar-ropa-adentro-ventilacion.webp" service="valet"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
+  return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="como-secar-ropa-dentro-de-casa" date="2026-10-14" readingTime="7 MIN DE LECTURA" cluster="Secado" image={illustration.image} service="valet"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
     <p className="article-lead"><strong>Para secar ropa dentro de casa necesitás combinar menos agua inicial, espacio entre prendas y renovación del aire.</strong> Tendé apenas termina el lavado, abrí bien cada prenda y ventilá el ambiente. Si afuera hay mucha humedad o no podés abrir, un deshumidificador puede retirar del aire el agua que libera la ropa.</p>
 
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#metodo">Método paso a paso</a></li><li><a href="#espacio">Dónde ubicar el tendedero</a></li><li><a href="#aire">Ventilador o deshumidificador</a></li><li><a href="#prendas">Cómo colgar cada prenda</a></li><li><a href="#errores">Errores frecuentes</a></li><li><a href="#seca">Cómo comprobar el secado</a></li></ol></nav>
@@ -41,7 +43,7 @@ export default function Page(){
     <p>Elegí una habitación ventilable y evitá dormitorios ocupados, placares, pasillos sin circulación o rincones pegados a paredes frías. Separá el tendedero de cortinas y muebles para que el aire pueda rodearlo. Si aparece condensación en ventanas o paredes, el ambiente necesita más ventilación o deshumidificación.</p>
     <p>En Mar del Plata, los días húmedos pueden volver menos eficaz la apertura permanente de una ventana. En esas condiciones, ventilá en intervalos y considerá un deshumidificador adecuado al ambiente. No existe un tiempo universal: cambia con el tejido, el centrifugado, la cantidad de ropa, la temperatura y la humedad relativa.</p>
 
-    <figure className="article-image"><Image src="/blog/secar-ropa-adentro-ventilacion.webp" alt="Ropa separada en un tendedero interior junto a una ventana abierta, un ventilador y un deshumidificador" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>El espacio entre prendas y la circulación de aire permiten que la humedad abandone el tejido y el ambiente.</figcaption></figure>
+    <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>El espacio entre prendas y la circulación de aire permiten que la humedad abandone el tejido y el ambiente.</figcaption></figure>
 
     <h2 id="aire">Ventana, ventilador o deshumidificador: qué aporta cada uno</h2>
     <div className="frequency-grid">

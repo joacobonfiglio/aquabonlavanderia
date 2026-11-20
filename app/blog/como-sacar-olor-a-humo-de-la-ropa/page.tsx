@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("como-sacar-olor-a-humo-de-la-ropa");
 const title="Cómo sacar olor a humo de la ropa sin dañar el tejido";
 const description="Qué hacer con olor a cigarrillo, cocina, parrilla o humo intenso: aireado, lavado según etiqueta y señales para consultar antes de tratar la prenda.";
 const path="/blog/como-sacar-olor-a-humo-de-la-ropa";
@@ -16,11 +18,11 @@ const faqs=[
   {question:"¿Cuándo conviene llevarla a tintorería?",answer:"Cuando la etiqueta indica cuidado profesional, la prenda tiene estructura o forro, el humo es intenso, hay hollín visible o el olor persiste después de un lavado compatible."}
 ];
 
-export const metadata:Metadata={title:"Cómo sacar olor a humo de la ropa | Aquabon",description:"Cómo sacar olor a humo de la ropa según su origen y etiqueta. Aireado, lavado, secado y cuidados si hay hollín o una prenda delicada.",alternates:{canonical:path},openGraph:{title,description,url:path,type:"article",locale:"es_AR",publishedTime:"2026-10-15",images:[{url:"/blog/revisar-ropa-con-olor-a-humo.webp",width:1400,height:788,alt:"Persona revisando la etiqueta de una campera con olor a humo mientras separa la ropa afectada de prendas limpias"}]}};
+export const metadata:Metadata={title:"Cómo sacar olor a humo de la ropa | Aquabon",description:"Cómo sacar olor a humo de la ropa según su origen y etiqueta. Aireado, lavado, secado y cuidados si hay hollín o una prenda delicada.",alternates:{canonical:path},openGraph:{title,description,url:path,type:"article",locale:"es_AR",publishedTime:"2026-10-15",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}};
 
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
-  return <ArticleLayout title={title} description={description} slug="como-sacar-olor-a-humo-de-la-ropa" date="2026-10-15" readingTime="7 MIN DE LECTURA" cluster="Olores" image="/blog/revisar-ropa-con-olor-a-humo.webp" service="camperas"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
+  return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="como-sacar-olor-a-humo-de-la-ropa" date="2026-10-15" readingTime="7 MIN DE LECTURA" cluster="Olores" image={illustration.image} service="camperas"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
     <p className="article-lead"><strong>Para sacar olor a humo, primero separá la prenda, aireala y revisá su etiqueta.</strong> Si es lavable, tratala en una carga pequeña con detergente y el ciclo permitido; después secala al aire para comprobar el resultado. No tapes el olor con perfume ni frotes el hollín.</p>
 
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#tipo">Identificar el tipo de humo</a></li><li><a href="#pasos">Método para ropa lavable</a></li><li><a href="#hollin">Qué hacer si hay hollín</a></li><li><a href="#productos">Productos y mezclas</a></li><li><a href="#delicadas">Prendas delicadas</a></li><li><a href="#errores">Errores frecuentes</a></li></ol></nav>
@@ -43,7 +45,7 @@ export default function Page(){
       <li><strong>Secá al aire y evaluá.</strong><span>Antes de usar secadora, revisá el olor en costuras, cuello, puños y forro. Si persiste, repetí solo un proceso compatible o consultá.</span></li>
     </ol>
 
-    <figure className="article-image"><Image src="/blog/revisar-ropa-con-olor-a-humo.webp" alt="Persona revisando la etiqueta de una campera con olor a humo mientras separa la ropa afectada de prendas limpias" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Separar la ropa afectada y revisar su etiqueta evita transferir olor y elegir un proceso incompatible.</figcaption></figure>
+    <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Separar la ropa afectada y revisar su etiqueta evita transferir olor y elegir un proceso incompatible.</figcaption></figure>
 
     <h2 id="hollin">Si hay hollín o ceniza visible</h2>
     <p><strong>No frotes:</strong> podés empujar las partículas hacia el interior de las fibras y extender la marca. Mantené la prenda alejada de la ropa limpia. Una cantidad superficial pequeña puede retirarse con mucho cuidado al aire libre antes de seguir la etiqueta, pero una exposición importante, un tejido delicado o una prenda proveniente de un incendio necesitan evaluación profesional.</p>

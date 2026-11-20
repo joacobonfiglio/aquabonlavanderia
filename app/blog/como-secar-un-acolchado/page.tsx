@@ -1,3 +1,4 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
@@ -6,12 +7,13 @@ import LocalCta from "../LocalCta";
 import WhatsAppLink from "../../WhatsAppLink";
 import { CareSymbol, WhatsAppIcon } from "../../ui";
 
+const illustration = guide("como-secar-un-acolchado");
 const title="Cómo secar un acolchado sin que quede húmedo o apelmazado";
 const description="Revisá la etiqueta antes de empezar, elegí un método que el acolchado admita y comprobá costuras, esquinas y zonas gruesas antes de guardarlo. La funda puede sentirse seca mientras el relleno todavía conserva humedad.";
 
-export const metadata:Metadata={title:"Cómo secar un acolchado sin que quede húmedo | Aquabon",description:"Cómo secar un acolchado sin humedad ni relleno apelmazado. En Aquabon, Mar del Plata, evaluamos su tejido y relleno para lavar y secar con cuidado.",alternates:{canonical:"/blog/como-secar-un-acolchado"},openGraph:{title,description:"Cómo secar un acolchado sin humedad ni relleno apelmazado. En Aquabon, Mar del Plata, evaluamos su tejido y relleno para lavar y secar con cuidado.",type:"article",locale:"es_AR",url:"/blog/como-secar-un-acolchado",publishedTime:"2026-09-17",images:[{url:"/blog/comprobar-secado-acolchado.webp",width:1400,height:933,alt:"Revisión del relleno de un acolchado durante el secado"}]}};
+export const metadata:Metadata={title:"Cómo secar un acolchado sin que quede húmedo | Aquabon",description:"Cómo secar un acolchado sin humedad ni relleno apelmazado. En Aquabon, Mar del Plata, evaluamos su tejido y relleno para lavar y secar con cuidado.",alternates:{canonical:"/blog/como-secar-un-acolchado"},openGraph:{title,description:"Cómo secar un acolchado sin humedad ni relleno apelmazado. En Aquabon, Mar del Plata, evaluamos su tejido y relleno para lavar y secar con cuidado.",type:"article",locale:"es_AR",url:"/blog/como-secar-un-acolchado",publishedTime:"2026-09-17",images:[{url:illustration.image,width:1400,height:933,alt: illustration.alt}]}};
 
-export default function Page(){return <ArticleLayout service="acolchados" title={title} description={description} slug="como-secar-un-acolchado" date="2026-09-17" readingTime="8 MIN DE LECTURA" cluster="Acolchados" image="/blog/comprobar-secado-acolchado.webp">
+export default function Page(){return <ArticleLayout updated="2026-11-20" service="acolchados" title={title} description={description} slug="como-secar-un-acolchado" date="2026-09-17" readingTime="8 MIN DE LECTURA" cluster="Acolchados" image={illustration.image}>
   <p className="article-lead"><strong>Respuesta corta:</strong> secá el acolchado únicamente con el método y el nivel de calor que autoriza su etiqueta. Si admite secadora, necesita un tambor amplio y revisiones periódicas para redistribuir el relleno. Si debe secarse al aire, apoyalo según las indicaciones del fabricante en un espacio bien ventilado y cambialo de posición. No lo guardes hasta que costuras, esquinas y zonas gruesas estén completamente secas.</p>
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#antes">Qué revisar antes del secado</a></li><li><a href="#secadora">Cómo secarlo en secadora</a></li><li><a href="#aire">Cómo secarlo al aire</a></li><li><a href="#comprobar">Cómo saber si está completamente seco</a></li><li><a href="#errores">Errores frecuentes</a></li><li><a href="#profesional">Cuándo pedir ayuda profesional</a></li></ol></nav>
@@ -40,7 +42,7 @@ export default function Page(){return <ArticleLayout service="acolchados" title=
   <p>Algunas recomendaciones mencionan pelotas de secado para ayudar a mover el relleno, pero no deben considerarse obligatorias. Usalas únicamente si el fabricante del acolchado y el manual de la secadora no lo desaconsejan.</p>
 
   <figure className="article-image">
-    <Image src="/blog/comprobar-secado-acolchado.webp" alt="Trabajadora revisando y redistribuyendo el relleno de un acolchado blanco durante el secado" width={1400} height={933} sizes="(max-width: 900px) 100vw, 760px"/>
+    <Image src={illustration.image} alt={illustration.alt} width={1400} height={933} sizes="(max-width: 900px) 100vw, 760px"/>
     <figcaption>Separar y redistribuir el relleno durante el proceso ayuda a detectar sectores compactos o todavía húmedos.</figcaption>
   </figure>
 

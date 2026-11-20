@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("como-lavar-jeans-sin-perder-color");
 const title="Cómo lavar jeans sin que pierdan color";
 const description="Una rutina práctica para cuidar jeans azules, negros o con elastano: etiqueta, lavado del revés, poca fricción y secado sin calor innecesario.";
 const path="/blog/como-lavar-jeans-sin-perder-color";
@@ -20,12 +22,12 @@ export const metadata:Metadata={
   title:"Cómo lavar jeans sin perder color | Aquabon",
   description:"Cómo lavar jeans azules o negros sin perder color: del revés, con poca fricción y secado adecuado. Guía de Aquabon en Mar del Plata.",
   alternates:{canonical:path},
-  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-10",images:[{url:"/blog/preparar-jeans-antes-lavar.webp",width:1400,height:788,alt:"Preparación de un jean azul oscuro del revés antes de lavarlo con prendas de colores similares"}]}
+  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-10",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}
 };
 
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
-  return <ArticleLayout title={title} description={description} slug="como-lavar-jeans-sin-perder-color" date="2026-10-10" readingTime="7 MIN DE LECTURA" cluster="Jeans" image="/blog/preparar-jeans-antes-lavar.webp" service="valet">
+  return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="como-lavar-jeans-sin-perder-color" date="2026-10-10" readingTime="7 MIN DE LECTURA" cluster="Jeans" image={illustration.image} service="valet">
     <p className="article-lead"><strong>Para que el jean no pierda color: etiqueta, lavado del revés con prendas oscuras similares, y la menor temperatura, fricción y exposición al sol posibles.</strong> El color no se conserva con un único truco: depende del tinte, el acabado, la composición y de todo el ciclo de cuidado.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#antes">Antes de lavar</a></li><li><a href="#maquina">Lavado en máquina</a></li><li><a href="#tipos">Qué cambia según el jean</a></li><li><a href="#secado">Secado</a></li><li><a href="#errores">Errores frecuentes</a></li><li><a href="#frecuencia">Cuándo lavarlos</a></li></ol></nav>
 
@@ -41,7 +43,7 @@ export default function Page(){
     </ol>
     <div className="article-callout"><strong>Respuesta directa</strong><p>El método más prudente es: jean del revés, carga oscura y no saturada, detergente bien dosificado, ciclo corto o suave si la etiqueta lo admite, agua fría y secado a la sombra cuando sea compatible con la prenda.</p></div>
 
-    <figure className="article-image"><Image src="/blog/preparar-jeans-antes-lavar.webp" alt="Manos dando vuelta un jean azul oscuro con el cierre cerrado y la etiqueta visible, junto a prendas oscuras separadas" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Dar vuelta el jean y separarlo con colores similares reduce el roce sobre la cara visible y el riesgo de transferencia.</figcaption></figure>
+    <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Dar vuelta el jean y separarlo con colores similares reduce el roce sobre la cara visible y el riesgo de transferencia.</figcaption></figure>
 
     <h2 id="maquina">Cómo lavar jeans en el lavarropas</h2>
     <ul>

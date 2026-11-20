@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("como-evitar-que-la-ropa-destina");
 const title="Cómo evitar que la ropa destiña al lavarla";
 const description="Cómo detectar una prenda con color inestable, separar la carga y actuar si ya hubo transferencia de tinte sin empeorar el problema.";
 const path="/blog/como-evitar-que-la-ropa-destina";
@@ -20,12 +22,12 @@ export const metadata:Metadata={
   title:"Cómo evitar que la ropa destiña | Aquabon",
   description:"Cómo evitar que la ropa destiña: prueba de color, separación de cargas y qué hacer ante una transferencia. Guía de Aquabon en Mar del Plata.",
   alternates:{canonical:path},
-  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-11",images:[{url:"/blog/probar-prenda-que-destine.webp",width:1400,height:788,alt:"Prueba de transferencia de color con un paño blanco en la costura interior de una prenda roja"}]}
+  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-11",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}
 };
 
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
-  return <ArticleLayout title={title} description={description} slug="como-evitar-que-la-ropa-destina" date="2026-10-11" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image="/blog/probar-prenda-que-destine.webp" service="valet">
+  return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="como-evitar-que-la-ropa-destina" date="2026-10-11" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image={illustration.image} service="valet">
     <p className="article-lead"><strong>Para evitar que una prenda tiña a las demás, identificá los colores de riesgo antes de cargar el lavarropas.</strong> Leé la etiqueta, separá blancos, claros, colores intensos y oscuros, probá la estabilidad en una costura interior cuando haya dudas y lavá sola una prenda nueva que transfiera color.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#por-que">Por qué destiñe</a></li><li><a href="#prueba">Cómo hacer una prueba</a></li><li><a href="#separar">Cómo separar la ropa</a></li><li><a href="#lavado">Durante el lavado</a></li><li><a href="#transferencia">Si ya se tiñó</a></li><li><a href="#errores">Errores frecuentes</a></li></ol></nav>
 
@@ -49,7 +51,7 @@ export default function Page(){
       <li><strong>Lavá por separado.</strong><span>Si hay transferencia, respetá la etiqueta y no la mezcles con otras prendas hasta conocer su comportamiento.</span></li>
     </ol>
 
-    <figure className="article-image"><Image src="/blog/probar-prenda-que-destine.webp" alt="Manos comprobando con un paño blanco la transferencia de color en la costura interior de una prenda roja, junto a ropa clara y oscura separada" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Una prueba en una costura interior ayuda a detectar color inestable antes de comprometer una carga completa.</figcaption></figure>
+    <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Una prueba en una costura interior ayuda a detectar color inestable antes de comprometer una carga completa.</figcaption></figure>
 
     <h2 id="separar">Cómo separar la ropa para reducir transferencias</h2>
     <p>No alcanza con dividir entre “blanco” y “color”. Agrupá prendas que compartan color, temperatura, ciclo y tipo de tejido. Si una pieza tiene varios colores o adornos, revisá también la estabilidad de sus detalles.</p>

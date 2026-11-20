@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("como-lavar-camisas-sin-arruinarlas");
 const title="Cómo lavar camisas sin arruinar cuello, puños ni forma";
 const description="Preparación, lavado, secado y planchado de camisas según tejido y etiqueta, con una rutina práctica para cuidar cuello, puños y calce.";
 const path="/blog/como-lavar-camisas-sin-arruinarlas";
@@ -19,12 +21,12 @@ export const metadata:Metadata={
   title:"Cómo lavar camisas sin arruinarlas | Aquabon",
   description:"Cómo lavar camisas sin arruinar cuello, puños ni forma. Guía práctica de Aquabon, lavandería y planchado en el centro de Mar del Plata.",
   alternates:{canonical:path},
-  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-07",images:[{url:"/blog/preparar-camisa-antes-lavar.webp",width:1400,height:788,alt:"Preparación de una camisa celeste antes del lavado, con puños abiertos, etiqueta y ballenas del cuello a la vista"}]}
+  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-07",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}
 };
 
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
-  return <ArticleLayout title={title} description={description} slug="como-lavar-camisas-sin-arruinarlas" date="2026-10-07" readingTime="7 MIN DE LECTURA" cluster="Camisas" image="/blog/preparar-camisa-antes-lavar.webp" service="camisas">
+  return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="como-lavar-camisas-sin-arruinarlas" date="2026-10-07" readingTime="7 MIN DE LECTURA" cluster="Camisas" image={illustration.image} service="camisas">
     <p className="article-lead"><strong>Una camisa se cuida antes de encender el lavarropas.</strong> Leé la etiqueta, separá por color y tejido, desabrochá cuello y puños, retirale las ballenas removibles y tratá las zonas más usadas sin frotar de más. Después elegí lavado, secado y planchado según esa prenda, no con una receta única.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#antes">Antes de lavar</a></li><li><a href="#lavado">Ciclo y temperatura</a></li><li><a href="#tejidos">Qué cambia según el tejido</a></li><li><a href="#secado">Secado y planchado</a></li><li><a href="#errores">Errores frecuentes</a></li></ol></nav>
 
@@ -39,7 +41,7 @@ export default function Page(){
     </ol>
     <div className="article-callout"><strong>Respuesta directa</strong><p>Para lavar una camisa sin arruinarla, desabrochala, tratá cuello y puños con suavidad, elegí el programa indicado en la etiqueta y retirala apenas termina. El calor y la fricción excesivos suelen afectar antes el color, el calce y las terminaciones.</p></div>
 
-    <figure className="article-image"><Image src="/blog/preparar-camisa-antes-lavar.webp" alt="Manos revisando la etiqueta de una camisa celeste con cuello y puños abiertos y ballenas removibles apartadas" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Abrir cuello y puños y retirar las ballenas removibles evita tensión y ayuda a revisar toda la prenda.</figcaption></figure>
+    <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Abrir cuello y puños y retirar las ballenas removibles evita tensión y ayuda a revisar toda la prenda.</figcaption></figure>
 
     <h2 id="lavado">Cómo elegir ciclo, detergente y temperatura</h2>
     <p>Usá la cantidad de detergente indicada para el producto, el tamaño de la carga y la dureza del agua. Más producto no significa más limpieza: el exceso puede enjuagarse mal. Elegí un ciclo compatible con la fibra y el nivel de suciedad, sin sobrecargar el tambor para que la camisa pueda moverse y enjuagarse.</p>

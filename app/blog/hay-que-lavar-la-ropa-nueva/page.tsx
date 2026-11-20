@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("hay-que-lavar-la-ropa-nueva");
 const title="¿Hay que lavar la ropa nueva antes de usarla?";
 const description="Cuándo conviene lavar una prenda nueva, qué revisar antes del primer lavado y cómo evitar irritación, desteñido o deformación.";
 const path="/blog/hay-que-lavar-la-ropa-nueva";
@@ -16,11 +18,11 @@ const faqs=[
   {question:"¿Hay que lavar la ropa nueva de bebé?",answer:"Sí, es especialmente prudente. Organismos de salud y dermatología aconsejan lavarla antes del primer uso con un producto compatible y sin fragancias o colorantes si la piel es sensible."}
 ];
 
-export const metadata:Metadata={title:"¿Hay que lavar la ropa nueva? | Aquabon",description:"¿Hay que lavar la ropa nueva antes de usarla? Cuándo conviene, cómo hacer el primer lavado y qué prendas necesitan cuidado especial.",alternates:{canonical:path},openGraph:{title,description,url:path,type:"article",locale:"es_AR",publishedTime:"2026-10-13",images:[{url:"/blog/revisar-ropa-nueva-primer-lavado.webp",width:1400,height:788,alt:"Revisión de la etiqueta y una costura interior de una prenda nueva antes del primer lavado"}]}};
+export const metadata:Metadata={title:"¿Hay que lavar la ropa nueva? | Aquabon",description:"¿Hay que lavar la ropa nueva antes de usarla? Cuándo conviene, cómo hacer el primer lavado y qué prendas necesitan cuidado especial.",alternates:{canonical:path},openGraph:{title,description,url:path,type:"article",locale:"es_AR",publishedTime:"2026-10-13",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}};
 
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
-  return <ArticleLayout title={title} description={description} slug="hay-que-lavar-la-ropa-nueva" date="2026-10-13" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image="/blog/revisar-ropa-nueva-primer-lavado.webp" service="valet"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
+  return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="hay-que-lavar-la-ropa-nueva" date="2026-10-13" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image={illustration.image} service="valet"><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(faqSchema)}}/>
     <p><strong>Sí: en general conviene lavar la ropa nueva antes de estrenarla.</strong> Es especialmente importante cuando va a quedar en contacto directo con la piel, si es ropa interior o de bebé, o si la usará una persona con piel sensible. La etiqueta de cuidado sigue siendo la guía principal.</p>
 
     <h2>¿Por qué conviene lavar una prenda nueva?</h2>
@@ -33,7 +35,7 @@ export default function Page(){
     <h2>Primer lavado: una rutina segura</h2>
     <ol><li><strong>Leé la etiqueta:</strong> identifica temperatura, ciclo, secado y cuidado profesional. Esta <Link href="/blog/simbolos-de-lavado-de-la-ropa">guía de símbolos de lavado</Link> ayuda a interpretarla.</li><li><strong>Retirá solo lo desprendible:</strong> sacá cartones, stickers, alfileres y etiquetas comerciales, sin cortar la etiqueta de composición y cuidado.</li><li><strong>Separá por color y tejido:</strong> una prenda intensa se lava sola o con tonos parecidos la primera vez.</li><li><strong>Elegí una dosis medida:</strong> más producto no significa más limpieza. Revisá <Link href="/blog/cuanto-detergente-usar">cuánto detergente usar</Link> según el envase, la carga y la suciedad.</li><li><strong>Secá como indica el fabricante:</strong> el calor innecesario puede encoger, fijar arrugas o dañar elásticos.</li></ol>
 
-    <figure className="article-image"><Image src="/blog/revisar-ropa-nueva-primer-lavado.webp" alt="Revisión de la etiqueta y una costura interior de una prenda nueva antes del primer lavado" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>La etiqueta y una costura interior permiten decidir el primer lavado antes de mezclar la prenda con el resto.</figcaption></figure>
+    <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>La etiqueta y una costura interior permiten decidir el primer lavado antes de mezclar la prenda con el resto.</figcaption></figure>
 
     <h2>Cómo comprobar si puede desteñir</h2>
     <p>Los colores intensos pueden liberar tinte en los primeros lavados. Si la etiqueta permite mojar la prenda, probá una zona oculta con un paño blanco húmedo y observá si transfiere color. Ante la duda, lavala separada. En nuestra guía sobre <Link href="/blog/como-evitar-que-la-ropa-destina">cómo evitar que la ropa destiña</Link> explicamos cómo clasificar la carga y qué hacer si ya hubo transferencia.</p>

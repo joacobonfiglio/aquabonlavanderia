@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("que-es-la-limpieza-en-seco");
 const title="¿Qué es la limpieza en seco y cómo funciona?";
 const description="La limpieza en seco no se hace sin líquidos: utiliza un solvente distinto del agua en equipos profesionales. Conocé sus etapas, qué indica la etiqueta y cuándo puede convenir.";
 const path="/blog/que-es-la-limpieza-en-seco";
@@ -15,9 +17,9 @@ const faqs=[
   {question:"¿Puedo hacer limpieza en seco en casa?",answer:"No con productos o solventes domésticos. Los símbolos de cuidado profesional están dirigidos a especialistas con equipos, procesos y terminaciones que no reproduce un lavarropas doméstico."}
 ];
 
-export const metadata:Metadata={title:"Limpieza en seco: qué es y cuándo conviene | Aquabon",description:"Qué es la limpieza en seco, cuándo conviene según la etiqueta y dónde hacerla en Mar del Plata. Aquabon recibe y coordina prendas de tintorería.",alternates:{canonical:path},openGraph:{title,description:"Qué es la limpieza en seco y cuándo conviene según la etiqueta. En Aquabon, Mar del Plata, recibimos y coordinamos prendas que requieren tintorería.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-24",images:[{url:"/blog/inspeccion-limpieza-en-seco.webp",width:1400,height:788,alt:"Inspección profesional de un saco antes de su tratamiento en una máquina especializada"}]}};
+export const metadata:Metadata={title:"Limpieza en seco: qué es y cuándo conviene | Aquabon",description:"Qué es la limpieza en seco, cuándo conviene según la etiqueta y dónde hacerla en Mar del Plata. Aquabon recibe y coordina prendas de tintorería.",alternates:{canonical:path},openGraph:{title,description:"Qué es la limpieza en seco y cuándo conviene según la etiqueta. En Aquabon, Mar del Plata, recibimos y coordinamos prendas que requieren tintorería.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-24",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}};
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="que-es-la-limpieza-en-seco" date="2026-09-24" readingTime="6 MIN DE LECTURA" cluster="Tintorería" image="/blog/inspeccion-limpieza-en-seco.webp" service="tintoreria">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="que-es-la-limpieza-en-seco" date="2026-09-24" readingTime="6 MIN DE LECTURA" cluster="Tintorería" image={illustration.image} service="tintoreria">
   <p className="article-lead"><strong>La limpieza en seco sí utiliza líquido.</strong> La diferencia es que la prenda se trata con un solvente profesional distinto del agua dentro de una máquina especializada. El objetivo es limpiar ciertos tejidos y prendas estructuradas respetando los límites de su etiqueta; no es el mejor proceso para todo ni garantiza eliminar cualquier mancha.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#significa">Qué significa “en seco”</a></li><li><a href="#proceso">Cómo es el proceso</a></li><li><a href="#etiqueta">Qué dice la etiqueta</a></li><li><a href="#conviene">Cuándo puede convenir</a></li><li><a href="#entrega">Cómo entregar una prenda</a></li><li><a href="#mdp">Dónde hacerla en Mar del Plata</a></li></ol></nav>
 
@@ -38,7 +40,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
     <li><strong>Extracción y secado.</strong><span>El equipo retira el solvente y completa un secado controlado. No equivale al ciclo de una secadora doméstica.</span></li>
     <li><strong>Terminación y control.</strong><span>Se revisa el resultado, se realiza la terminación apropiada y se comprueba el estado de la prenda antes de devolverla.</span></li>
   </ol>
-  <figure className="article-image"><Image src="/blog/inspeccion-limpieza-en-seco.webp" alt="Profesional inspeccionando etiqueta, forro, botones y una mancha de un saco junto a una máquina cerrada de cuidado textil" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>La inspección previa define si la prenda y todos sus componentes son compatibles con el proceso indicado.</figcaption></figure>
+  <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>La inspección previa define si la prenda y todos sus componentes son compatibles con el proceso indicado.</figcaption></figure>
 
   <h2 id="etiqueta">Cómo reconocer la indicación en la etiqueta</h2>
   <p>El círculo corresponde al cuidado profesional. Las letras que aparecen dentro orientan al profesional sobre los solventes posibles; una barra inferior señala restricciones de acción mecánica, humedad o temperatura. El círculo tachado prohíbe la limpieza en seco.</p>

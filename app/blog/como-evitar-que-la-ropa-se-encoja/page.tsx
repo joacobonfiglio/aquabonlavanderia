@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("como-evitar-que-la-ropa-se-encoja");
 const title="Cómo evitar que la ropa se encoja al lavarla";
 const description="Cómo interpretar la etiqueta, elegir temperatura, ciclo y secado, y cuidar algodón, lana y prendas mixtas para reducir el riesgo de encogimiento.";
 const path="/blog/como-evitar-que-la-ropa-se-encoja";
@@ -15,9 +17,9 @@ const faqs=[
   {question:"¿Qué hago si no entiendo la etiqueta?",answer:"No uses el programa más intenso por defecto. Elegí una alternativa conservadora o consultá antes de lavar, especialmente si la prenda es de lana, seda, tiene forro, entretela o mezcla de materiales."}
 ];
 
-export const metadata:Metadata={title:"Cómo evitar que la ropa se encoja | Aquabon",description:"Cómo evitar que la ropa se encoja: etiqueta, temperatura y secado según tejido. En Aquabon, Mar del Plata, te orientamos sobre el cuidado de tus prendas.",alternates:{canonical:path},openGraph:{title,description:"Cómo evitar que la ropa se encoja: etiqueta, temperatura y secado según tejido. En Aquabon, Mar del Plata, te orientamos sobre el cuidado de tus prendas.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-30",images:[{url:"/blog/evitar-encogimiento-ropa.webp",width:1400,height:788,alt:"Revisión de la etiqueta de una remera junto a un sweater secándose en plano"}]}};
+export const metadata:Metadata={title:"Cómo evitar que la ropa se encoja | Aquabon",description:"Cómo evitar que la ropa se encoja: etiqueta, temperatura y secado según tejido. En Aquabon, Mar del Plata, te orientamos sobre el cuidado de tus prendas.",alternates:{canonical:path},openGraph:{title,description:"Cómo evitar que la ropa se encoja: etiqueta, temperatura y secado según tejido. En Aquabon, Mar del Plata, te orientamos sobre el cuidado de tus prendas.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-30",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}};
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="como-evitar-que-la-ropa-se-encoja" date="2026-09-30" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image="/blog/evitar-encogimiento-ropa.webp" service="valet">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="como-evitar-que-la-ropa-se-encoja" date="2026-09-30" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image={illustration.image} service="valet">
   <p className="article-lead"><strong>La mejor prevención está en la etiqueta y en el secado, y en Mar del Plata casi siempre falla el secado.</strong> Usá la temperatura máxima permitida, reducí fricción y centrifugado cuando el símbolo indique un proceso suave, y no lleves una prenda a la secadora si no está autorizada. “Agua fría para todo” tampoco reemplaza las instrucciones específicas.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#causas">Por qué encoge la ropa</a></li><li><a href="#pasos">Cómo prevenirlo</a></li><li><a href="#tejidos">Cuidados por tejido</a></li><li><a href="#secado">El secado importa</a></li><li><a href="#encogida">Si ya encogió</a></li></ol></nav>
 
@@ -42,7 +44,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
     <li><strong>Decidí el secado por separado.</strong><span>Que una prenda admita lavarropas no significa que también admita secadora.</span></li>
   </ol>
 
-  <figure className="article-image"><Image src="/blog/evitar-encogimiento-ropa.webp" alt="Persona revisando la etiqueta de una remera blanca junto a un lavarropas y un sweater azul secándose en plano" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>La etiqueta define el tratamiento máximo; el sweater muestra el secado en plano recomendado para muchas prendas de punto.</figcaption></figure>
+  <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>La etiqueta define el tratamiento máximo; el sweater muestra el secado en plano recomendado para muchas prendas de punto.</figcaption></figure>
 
   <h2 id="tejidos">Cuidados según el tejido</h2>
   <h3>Algodón</h3><p>Puede modificar su tamaño con calor y secado intenso, sobre todo si la prenda no fue preencogida. Seguí la temperatura de la etiqueta y evitá prolongar la secadora más de lo necesario.</p>

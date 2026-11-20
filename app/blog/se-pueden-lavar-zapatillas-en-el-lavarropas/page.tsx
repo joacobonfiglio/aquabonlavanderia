@@ -1,3 +1,4 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
@@ -6,6 +7,7 @@ import LocalCta from "../LocalCta";
 
 // AQB-012 del plan de contenidos (docs/AquaBon_Plan_Contenidos.xlsx): se mejoró esta guía en lugar de crear otra
 // para la misma búsqueda. Actualizada el 19/11/2026.
+const illustration = guide("se-pueden-lavar-zapatillas-en-el-lavarropas");
 const title="¿Se pueden lavar zapatillas en el lavarropas? Riesgos que nadie te cuenta";
 const whatsapp="Hola Aquabon, quería consultar por el lavado de unas zapatillas. Son de __ (tela, cuero, gamuza) y les mando una foto del par.";
 const description="El centrifugado, los golpes y el calor pueden despegar la suela, deformar la horma y dañar el tambor. Qué revisar en el par antes de arriesgarlo.";
@@ -18,9 +20,9 @@ const faqs=[
   {question:"¿El lavado profesional deja las zapatillas como nuevas?",answer:"No se puede garantizar. La limpieza puede mejorar suciedad y algunas manchas, pero no revierte desgaste, decoloración, grietas, amarilleo, daños de espuma ni uniones deterioradas."}
 ];
 
-export const metadata:Metadata={title:"¿Se pueden lavar zapatillas en el lavarropas? | Aquabon",description:"¿Se pueden lavar zapatillas en el lavarropas? Los riesgos para la suela, la horma y el tambor, y cómo las lavamos en Aquabon, Mar del Plata.",alternates:{canonical:path},openGraph:{title,description:"¿Se pueden lavar zapatillas en el lavarropas? Los riesgos para la suela, la horma y el tambor, y cómo las lavamos en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-25",images:[{url:"/blog/revisar-zapatillas-antes-lavar.webp",width:1400,height:788,alt:"Revisión de materiales, uniones, cordones y plantilla de dos zapatillas antes de limpiarlas"}]}};
+export const metadata:Metadata={title:"¿Se pueden lavar zapatillas en el lavarropas? | Aquabon",description:"¿Se pueden lavar zapatillas en el lavarropas? Los riesgos para la suela, la horma y el tambor, y cómo las lavamos en Aquabon, Mar del Plata.",alternates:{canonical:path},openGraph:{title,description:"¿Se pueden lavar zapatillas en el lavarropas? Los riesgos para la suela, la horma y el tambor, y cómo las lavamos en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-25",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}};
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="se-pueden-lavar-zapatillas-en-el-lavarropas" date="2026-09-25" updated="2026-11-19" readingTime="7 MIN DE LECTURA" cluster="Zapatillas" image="/blog/revisar-zapatillas-antes-lavar.webp" service="zapatillas">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="se-pueden-lavar-zapatillas-en-el-lavarropas" date="2026-09-25" readingTime="7 MIN DE LECTURA" cluster="Zapatillas" image={illustration.image} service="zapatillas">
   <p className="article-lead"><strong>Solo cuando el fabricante del modelo lo permite, y aun así con riesgo.</strong> El centrifugado y los golpes contra el tambor despegan suelas y deforman la horma, el calor afloja el pegamento y una zapatilla pesada puede dañar el lavarropas. Que parezca de tela no alcanza: también tiene espuma, adhesivos y tintes que reaccionan distinto.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#respuesta">La respuesta corta</a></li><li><a href="#adentro">Qué le pasa adentro del lavarropas</a></li><li><a href="#revisar">Qué revisar</a></li><li><a href="#evitar">Cuándo evitar el lavarropas</a></li><li><a href="#permitido">Si el fabricante lo permite</a></li><li><a href="#secar">Cómo secarlas</a></li></ol></nav>
 
@@ -48,7 +50,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
     <li><strong>Espuma y estructura.</strong><span>Una mediasuela muy blanda, deformada o cuarteada no recupera su estado con limpieza y puede dañarse más.</span></li>
     <li><strong>Color y detalles.</strong><span>Probá cualquier producto en una zona poco visible. Apliques, bordados, luces y partes rígidas requieren especial cuidado.</span></li>
   </ol>
-  <figure className="article-image"><Image src="/blog/revisar-zapatillas-antes-lavar.webp" alt="Profesional revisando la unión entre suela y capellada de una zapatilla, junto a otro par de malla, cordones, plantilla y cepillo" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>El material exterior es solo una parte: también importan las uniones, la espuma, la plantilla y el estado general.</figcaption></figure>
+  <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>El material exterior es solo una parte: también importan las uniones, la espuma, la plantilla y el estado general.</figcaption></figure>
 
   <h2 id="evitar">Cuándo conviene evitar el lavarropas</h2>
   <div className="frequency-grid">

@@ -1,3 +1,4 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
@@ -6,6 +7,7 @@ import LocalCta from "../LocalCta";
 
 // 07/11/2026: fusiona las guías de manchas de sangre, vino y aceite. Las tres competían entre sí,
 // estaban en posición 28 a 57 y no traían clics. Las URLs viejas redirigen acá (next.config.ts).
+const illustration = guide("como-sacar-manchas-dificiles-de-la-ropa");
 const title = "Cómo sacar manchas difíciles de la ropa";
 const description = "Vino, aceite, sangre, transpiración y protector solar: qué hacer en los primeros minutos, cómo tratar una mancha seca y cuándo conviene no insistir en casa.";
 const path = "/blog/como-sacar-manchas-dificiles-de-la-ropa";
@@ -23,12 +25,12 @@ export const metadata: Metadata = {
   title: "Cómo sacar manchas difíciles de la ropa | Aquabon",
   description: "Vino, aceite, sangre y protector solar: qué hacer en los primeros minutos y cuándo conviene tintorería. Aquabon, Gascón 2189, Mar del Plata.",
   alternates: { canonical: path },
-  openGraph: { title, description: "Vino, aceite, sangre y protector solar: qué hacer en los primeros minutos y cuándo conviene tintorería. Aquabon, Mar del Plata.", type: "article", locale: "es_AR", url: path, publishedTime: "2026-11-07", images: [{ url: "/blog/tratar-mancha-vino-ropa.webp", width: 1400, height: 788, alt: "Paño blanco absorbiendo una mancha fresca de vino en una prenda clara" }] },
+  openGraph: { title, description: "Vino, aceite, sangre y protector solar: qué hacer en los primeros minutos y cuándo conviene tintorería. Aquabon, Mar del Plata.", type: "article", locale: "es_AR", url: path, publishedTime: "2026-11-07", images: [{ url: illustration.image, width: 1400, height: 788, alt: illustration.alt }] },
 };
 
 export default function Page() {
   const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(f => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) };
-  return <ArticleLayout title={title} description={description} slug="como-sacar-manchas-dificiles-de-la-ropa" date="2026-11-07" readingTime="9 MIN DE LECTURA" cluster="Manchas" image="/blog/tratar-mancha-vino-ropa.webp" service="tintoreria">
+  return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="como-sacar-manchas-dificiles-de-la-ropa" date="2026-11-07" readingTime="9 MIN DE LECTURA" cluster="Manchas" image={illustration.image} service="tintoreria">
     <p className="article-lead"><strong>Lo que define si una mancha sale no es el producto que uses: es lo que hacés en los primeros minutos y, sobre todo, el calor que evitás.</strong> Absorbé en lugar de frotar, usá agua fría y no la seques con calor hasta haber revisado el resultado. Una mancha que pasó por secadora o plancha suele quedar para siempre.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#primeros-minutos">Los primeros minutos</a></li><li><a href="#vino">Vino</a></li><li><a href="#aceite">Aceite y grasa</a></li><li><a href="#sangre">Sangre</a></li><li><a href="#mar-del-plata">Las manchas de acá: arena, salitre y protector solar</a></li><li><a href="#secas">Manchas secas</a></li><li><a href="#errores">Errores que empeoran todo</a></li></ol></nav>
 
@@ -41,7 +43,7 @@ export default function Page() {
       <li><strong>No la seques con calor hasta revisar.</strong><span>Ni secadora, ni plancha, ni estufa, ni sol fuerte. Si al mojarla todavía se ve la marca, repetí el tratamiento. El calor es el paso que vuelve permanente lo que todavía tenía solución.</span></li>
     </ol>
     <div className="article-callout"><strong>La idea clave</strong><p>Una mancha húmeda y sin tratar todavía tiene chances. Una mancha que pasó por calor, o que recibió tres productos distintos, casi siempre pierde esas chances.</p></div>
-    <figure className="article-image"><Image src="/blog/tratar-mancha-vino-ropa.webp" alt="Paño blanco absorbiendo por presión una mancha fresca de vino en una prenda clara, sin frotar" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px" /><figcaption>Absorber por presión con un paño blanco, sin frotar, es lo primero y lo que más cambia el resultado.</figcaption></figure>
+    <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px" /><figcaption>Absorber por presión con un paño blanco, sin frotar, es lo primero y lo que más cambia el resultado.</figcaption></figure>
 
     <h2 id="vino">Manchas de vino</h2>
     <p>El vino tinto tiene color y azúcar. El color es lo que ves en el momento; el azúcar es lo que, meses después, aparece como una marca amarilla en una prenda que vos creías limpia. Por eso una mancha de vino que ya no se ve igual necesita lavado: si la guardás, vuelve.</p>
