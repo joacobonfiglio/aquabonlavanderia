@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("como-sacar-manchas-de-transpiracion");
 const title="Cómo sacar manchas de transpiración de la ropa";
 const description="Qué hacer con marcas amarillas o rígidas en axilas: identificar la prenda, pretratar con cuidado y evitar calor hasta comprobar el resultado.";
 const path="/blog/como-sacar-manchas-de-transpiracion";
@@ -19,12 +21,12 @@ export const metadata:Metadata={
   title:"Cómo sacar manchas de transpiración | Aquabon",
   description:"Cómo tratar manchas amarillas de transpiración y desodorante sin dañar la ropa. Guía de Aquabon, lavandería en el centro de Mar del Plata.",
   alternates:{canonical:path},
-  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-09",images:[{url:"/blog/tratar-mancha-transpiracion-camisa.webp",width:1400,height:788,alt:"Pretratamiento suave de una marca de transpiración en la axila de una camisa celeste"}]}
+  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-09",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}
 };
 
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
-  return <ArticleLayout title={title} description={description} slug="como-sacar-manchas-de-transpiracion" date="2026-10-09" readingTime="7 MIN DE LECTURA" cluster="Manchas" image="/blog/tratar-mancha-transpiracion-camisa.webp" service="camisas">
+  return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="como-sacar-manchas-de-transpiracion" date="2026-10-09" readingTime="7 MIN DE LECTURA" cluster="Manchas" image={illustration.image} service="camisas">
     <p className="article-lead"><strong>Para tratar una mancha de transpiración, primero revisá la etiqueta y distinguí si hay residuo, rigidez o cambio de color.</strong> Retirá el exceso, pretratá con un producto compatible durante el tiempo indicado, lavá según la prenda y comprobá la zona antes de aplicar secadora o plancha.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#identificar">Qué tipo de marca es</a></li><li><a href="#pasos">Paso a paso</a></li><li><a href="#tejidos">Qué cambia según la prenda</a></li><li><a href="#errores">Errores frecuentes</a></li><li><a href="#profesional">Cuándo consultar</a></li></ol></nav>
 
@@ -48,7 +50,7 @@ export default function Page(){
     </ol>
     <div className="article-callout"><strong>Seguridad primero</strong><p>No mezcles lavandina con vinagre, amoníaco, alcohol ni otros limpiadores. Además del riesgo para la prenda, algunas combinaciones liberan gases peligrosos. Usá un solo producto a la vez y seguí su etiqueta.</p></div>
 
-    <figure className="article-image"><Image src="/blog/tratar-mancha-transpiracion-camisa.webp" alt="Manos tratando con un paño blanco una marca de transpiración en la costura de la axila de una camisa celeste" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Trabajar desde el reverso y sin cepillado agresivo ayuda a proteger la cara visible y las costuras.</figcaption></figure>
+    <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Trabajar desde el reverso y sin cepillado agresivo ayuda a proteger la cara visible y las costuras.</figcaption></figure>
 
     <h2 id="tejidos">Qué cambia según el color y el tejido</h2>
     <h3>Camisas blancas de algodón</h3><p>Que sean blancas no habilita cualquier blanqueador. El triángulo de la etiqueta indica si admite blanqueo, y la prenda puede incluir hilos, elastano o acabados sensibles. Empezá con detergente o quitamanchas apto y evaluá el resultado antes de escalar.</p>

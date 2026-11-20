@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("como-limpiar-un-saco");
 const title="Cómo limpiar un saco sin deformarlo";
 const description="Cómo cuidar un saco de vestir: qué revisar en la etiqueta, cómo ventilarlo entre usos, qué hacer con una mancha y cuándo conviene llevarlo a tintorería.";
 const path="/blog/como-limpiar-un-saco";
@@ -15,9 +17,9 @@ const faqs=[
   {question:"¿Cómo guardar un saco correctamente?",answer:"Cuando esté seco y ventilado, colgalo en una percha ancha que sostenga los hombros. Vaciá los bolsillos y dejá espacio alrededor para no aplastar solapas ni estructura."}
 ];
 
-export const metadata:Metadata={title:"Cómo limpiar un saco sin deformarlo | Aquabon",description:"Cómo limpiar un saco sin deformarlo: etiqueta, manchas y cuidado del forro. Consultá recepción y seguimiento de tintorería en Aquabon, Mar del Plata.",alternates:{canonical:path},openGraph:{title,description:"Cómo limpiar un saco sin deformarlo: etiqueta, manchas y cuidado del forro. Consultá recepción y seguimiento de tintorería en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-23",images:[{url:"/blog/revisar-mancha-saco-estructurado.webp",width:1400,height:788,alt:"Revisión de una mancha y el forro de un saco estructurado"}]}};
+export const metadata:Metadata={title:"Cómo limpiar un saco sin deformarlo | Aquabon",description:"Cómo limpiar un saco sin deformarlo: etiqueta, manchas y cuidado del forro. Consultá recepción y seguimiento de tintorería en Aquabon, Mar del Plata.",alternates:{canonical:path},openGraph:{title,description:"Cómo limpiar un saco sin deformarlo: etiqueta, manchas y cuidado del forro. Consultá recepción y seguimiento de tintorería en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-23",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}};
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="como-limpiar-un-saco" date="2026-09-23" readingTime="6 MIN DE LECTURA" cluster="Sacos" image="/blog/revisar-mancha-saco-estructurado.webp" service="tintoreria">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="como-limpiar-un-saco" date="2026-09-23" readingTime="6 MIN DE LECTURA" cluster="Sacos" image={illustration.image} service="tintoreria">
   <p className="article-lead"><strong>La regla más segura es no lavar un saco sin leer antes su etiqueta.</strong> Aunque el tejido exterior parezca resistente, las hombreras, entretelas, solapas y el forro pueden reaccionar de manera distinta. Entre usos, ventilación, una percha adecuada y una inspección suave suelen ser preferibles a limpiar toda la prenda por rutina.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#antes">Qué revisar antes</a></li><li><a href="#entre-usos">Cuidado entre usos</a></li><li><a href="#mancha">Qué hacer con una mancha</a></li><li><a href="#arrugas">Arrugas y guardado</a></li><li><a href="#profesional">Cuándo consultar</a></li></ol></nav>
 
@@ -33,7 +35,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
 
   <h2 id="entre-usos">Cómo mantenerlo entre usos sin limpiarlo de más</h2>
   <ol className="article-steps"><li><strong>Vaciá los bolsillos.</strong><span>El peso de llaves, billeteras o papeles puede marcar la tela y deformar bolsillos mientras el saco está guardado.</span></li><li><strong>Ventilalo.</strong><span>Después de usarlo, dejalo en una percha ancha en un espacio aireado antes de volver al placard. Evitá sol fuerte y fuentes directas de calor.</span></li><li><strong>Retirá polvo superficial.</strong><span>Si la tela lo tolera, pasá un cepillo para prendas con suavidad y en una sola dirección. Probá primero en una zona discreta.</span></li><li><strong>Revisá puntos de roce.</strong><span>Cuello, puños, axilas y bordes de bolsillos muestran antes la suciedad. Detectarla temprano evita frotar toda la prenda.</span></li></ol>
-  <figure className="article-image"><Image src="/blog/revisar-mancha-saco-estructurado.webp" alt="Persona revisando una pequeña mancha en la solapa y el forro de un saco gris colgado en una percha ancha" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Una inspección localizada permite describir la mancha sin someter solapas, forro y hombros a un tratamiento innecesario.</figcaption></figure>
+  <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Una inspección localizada permite describir la mancha sin someter solapas, forro y hombros a un tratamiento innecesario.</figcaption></figure>
 
   <h2 id="mancha">Si aparece una mancha, no la frotes</h2>
   <p>Retirá con cuidado solo un residuo sólido que esté apoyado, sin raspar ni extenderlo. No uses agua caliente, alcohol, lavandina, quitamanchas o solventes domésticos: pueden afectar el color, dejar aureola o alterar las piezas internas.</p>

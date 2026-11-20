@@ -1,18 +1,19 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
 // AQB-028 del plan de contenidos (docs/AquaBon_Plan_Contenidos.xlsx). Tema: Consejos para Mar del Plata.
-// TODO(joaco): foto propia para reemplazar la imagen de stock: bolso de playa volcado sobre el mostrador
-// con toallas, malla y remeras con arena.
+// Ilustración editorial generada; no representa un caso real del local.
+const illustration = guide("como-lavar-la-ropa-despues-de-la-playa");
 const slug = "como-lavar-la-ropa-despues-de-la-playa";
 const path = `/blog/${slug}`;
 const title = "Ropa de playa: lo que la sal y la arena le hacen a tus prendas";
 const lead = "Toallas ásperas, mallas que pierden color y un lavarropas lleno de arena. Lo que trae el bolso de playa además de recuerdos.";
 const metaTitle = "Cómo lavar la ropa después de la playa | Aquabon";
 const metaDescription = "Cómo lavar la ropa después de la playa: lo que la sal, la arena y el protector solar le hacen a tus prendas. Dejá la bolsa en Aquabon, Mar del Plata.";
-const image = "/blog/secar-ropa-adentro-ventilacion.webp";
+const image = illustration.image;
 const whatsapp = "Hola Aquabon, vuelvo de la playa y tengo __ (toallas, remeras, mallas). Son más o menos __ prendas. ¿Me pasan importe y plazo?";
 
 const faqs = [
@@ -24,12 +25,12 @@ const faqs = [
 
 export const metadata: Metadata = {
   title: metaTitle, description: metaDescription, alternates: { canonical: path },
-  openGraph: { title, description: metaDescription, type: "article", locale: "es_AR", url: path, publishedTime: "2026-11-20", images: [{ url: image, width: 1400, height: 788, alt: "Toallas y ropa tendidas junto a una ventana ventilada" }] },
+  openGraph: { title, description: metaDescription, type: "article", locale: "es_AR", url: path, publishedTime: "2026-11-20", images: [{ url: image, width: 1400, height: 788, alt: illustration.alt }] },
 };
 
 export default function Page() {
   const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(f => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) };
-  return <ArticleLayout title={title} description={lead} slug={slug} date="2026-11-20" readingTime="5 MIN DE LECTURA" cluster="Mar del Plata" image={image} service="valet">
+  return <ArticleLayout updated="2026-11-20" title={title} description={lead} slug={slug} date="2026-11-20" readingTime="5 MIN DE LECTURA" cluster="Mar del Plata" image={image} service="valet">
     <p className="article-lead"><strong>Cuanto antes, sin sal y sin arena.</strong> La sal que se seca en la tela la endurece y ayuda a que pierda color; la arena se mete en costuras y toallas y raspa la ropa, y el lavarropas, en cada vuelta. Lo que más la daña es el bolso cerrado hasta el otro día.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#por-que">Qué le hacen la sal y la arena</a></li><li><a href="#errores">Errores con la ropa de playa</a></li><li><a href="#mdp">Temporada en Mar del Plata</a></li><li><a href="#aquabon">Cómo la lavamos en Aquabon</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li></ol></nav>
 

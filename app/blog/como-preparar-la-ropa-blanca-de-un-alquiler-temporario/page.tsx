@@ -1,3 +1,4 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
@@ -6,13 +7,14 @@ import LocalCta from "../LocalCta";
 import WhatsAppLink from "../../WhatsAppLink";
 import { WhatsAppIcon } from "../../ui";
 
+const illustration = guide("como-preparar-la-ropa-blanca-de-un-alquiler-temporario");
 const title="Cómo preparar la ropa blanca de un alquiler temporario para la temporada";
 const description="Antes de la temporada, contá cuántos juegos tenés por cama y por baño, lavá todo lo que estuvo guardado, separá lo manchado o gastado y armá kits listos para cada recambio. Y dejá resuelto quién lava antes de que llegue el primer huésped.";
 const path="/blog/como-preparar-la-ropa-blanca-de-un-alquiler-temporario";
-const image="/blog/secar-ropa-adentro-ventilacion.webp";
+const image=illustration.image;
 const seo="Cómo preparar sábanas y toallas de tu alquiler temporario antes de la temporada en Mar del Plata: inventario, lavado, kits y quién lava. Guía de Aquabon.";
 
-export const metadata:Metadata={title:"Ropa blanca para tu alquiler temporario: guía | Aquabon",description:seo,alternates:{canonical:path},openGraph:{title,description:seo,type:"article",locale:"es_AR",url:path,publishedTime:"2026-11-05",images:[{url:image,width:1400,height:788,alt:"Toallas y ropa blanca tendidas junto a una ventana ventilada"}]}};
+export const metadata:Metadata={title:"Ropa blanca para tu alquiler temporario: guía | Aquabon",description:seo,alternates:{canonical:path},openGraph:{title,description:seo,type:"article",locale:"es_AR",url:path,publishedTime:"2026-11-05",images:[{url:image,width:1400,height:788,alt: illustration.alt}]}};
 
 const faqs=[
   {question:"¿Cuántos juegos de sábanas necesito por cama?",answer:"Una referencia habitual en alojamientos es tener al menos tres juegos por cama: uno puesto, uno lavándose y uno de reserva. Si los recambios son muy seguidos o dependés de que otro lave, conviene sumar uno más."},
@@ -22,7 +24,7 @@ const faqs=[
   {question:"¿Aquabon retira la ropa blanca del alojamiento?",answer:"Sí, en once barrios de Mar del Plata. Contanos la dirección, cuántas piezas son y cada cuánto hacés recambio, y coordinamos días y costo antes de empezar."}
 ];
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="como-preparar-la-ropa-blanca-de-un-alquiler-temporario" date="2026-11-05" readingTime="7 MIN DE LECTURA" cluster="Alquiler temporario" image={image} service="airbnb">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="como-preparar-la-ropa-blanca-de-un-alquiler-temporario" date="2026-11-05" readingTime="7 MIN DE LECTURA" cluster="Alquiler temporario" image={image} service="airbnb">
   <p className="article-lead"><strong>Respuesta corta:</strong> antes de la temporada, contá cuántos juegos de sábanas y toallas tenés por cama y por baño, lavá todo lo que estuvo guardado, separá lo manchado o gastado y armá kits listos para cada recambio. Y dejá resuelto quién lava y en qué tiempos antes de que llegue el primer huésped: en plena temporada no hay margen para improvisar.</p>
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#inventario">Hacé el inventario</a></li><li><a href="#lavar">Lavá lo que estuvo guardado</a></li><li><a href="#revisar">Revisá manchas y desgaste</a></li><li><a href="#kits">Armá kits por unidad</a></li><li><a href="#quien">Definí quién lava</a></li></ol></nav>
@@ -51,8 +53,8 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <div className="article-callout"><strong>Lo que el huésped ve primero</strong><p>Una sábana con una mancha o una toalla áspera se nota más que cualquier detalle de decoración, y suele aparecer en las reseñas. Revisar la ropa blanca antes de la temporada es parte de cuidar la calificación del alojamiento.</p></div>
 
   <figure className="article-image">
-    <Image src={image} alt="Toallas y ropa blanca tendidas junto a una ventana abierta para secarse por completo antes de guardarlas" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/>
-    <figcaption>Antes de guardarla o armar los kits, la ropa blanca tiene que estar seca del todo.</figcaption>
+    <Image src={image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/>
+    <figcaption>Separá los juegos de sábanas y las toallas por unidad, y guardalos solo cuando estén secos del todo.</figcaption>
   </figure>
 
   <h2 id="kits">Armá kits por unidad</h2>

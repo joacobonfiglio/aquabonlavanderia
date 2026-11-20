@@ -1,14 +1,16 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("como-sacar-olor-a-humedad-de-un-acolchado");
 const title="Cómo sacar el olor a humedad de un acolchado";
 const description="Primero identificá si el olor viene del encierro, de humedad retenida después del lavado o de moho visible. Ventilar puede ayudar en el primer caso; los demás requieren secado completo, lavado compatible con la etiqueta o una evaluación profesional.";
 const path="/blog/como-sacar-olor-a-humedad-de-un-acolchado";
 
-export const metadata:Metadata={title:"Cómo sacar olor a humedad de un acolchado | Aquabon",description:"Cómo sacar olor a humedad de un acolchado y comprobar su secado. Consultá lavado y secado según tejido y relleno en Aquabon, Mar del Plata.",alternates:{canonical:path},openGraph:{title,description:"Cómo sacar olor a humedad de un acolchado y comprobar su secado. Consultá lavado y secado según tejido y relleno en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-19",images:[{url:"/blog/comprobar-humedad-acolchado.webp",width:1400,height:788,alt:"Comprobación de humedad en las costuras y el relleno de un acolchado"}]}};
+export const metadata:Metadata={title:"Cómo sacar olor a humedad de un acolchado | Aquabon",description:"Cómo sacar olor a humedad de un acolchado y comprobar su secado. Consultá lavado y secado según tejido y relleno en Aquabon, Mar del Plata.",alternates:{canonical:path},openGraph:{title,description:"Cómo sacar olor a humedad de un acolchado y comprobar su secado. Consultá lavado y secado según tejido y relleno en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-19",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}};
 
 const faqs=[
   {question:"¿Se puede sacar el olor a humedad sin lavar el acolchado?",answer:"Si está completamente seco, no tiene manchas y el olor apareció por permanecer guardado, una ventilación amplia puede ser suficiente. Si el relleno está frío, pesado o húmedo, hay que completar el secado; si el olor persiste, el lavado debe seguir la etiqueta."},
@@ -17,7 +19,7 @@ const faqs=[
   {question:"¿Qué hago si veo puntos de moho?",answer:"Dejá de usar el acolchado y evitá sacudirlo dentro de la casa. Los materiales porosos pueden ser difíciles de descontaminar por completo; si el área es extensa, hubo agua contaminada o existen problemas de salud, consultá a un especialista."}
 ];
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout service="acolchados" title={title} description={description} slug="como-sacar-olor-a-humedad-de-un-acolchado" date="2026-09-19" readingTime="8 MIN DE LECTURA" cluster="Acolchados" image="/blog/comprobar-humedad-acolchado.webp">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout updated="2026-11-20" service="acolchados" title={title} description={description} slug="como-sacar-olor-a-humedad-de-un-acolchado" date="2026-09-19" readingTime="8 MIN DE LECTURA" cluster="Acolchados" image={illustration.image}>
   <p className="article-lead"><strong>Respuesta corta:</strong> no tapes el olor con perfume ni guardes el acolchado otra vez. Extendelo, revisá manchas, costuras y relleno, y comprobá si está realmente seco. El olor leve por encierro puede mejorar con ventilación; la humedad interna exige completar un secado permitido por la etiqueta y el olor persistente puede requerir un nuevo lavado. Si hay moho visible, tratá el caso como contaminación, no como un simple mal olor.</p>
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#origen">Identificar de dónde viene el olor</a></li><li><a href="#encierro">Qué hacer si estuvo guardado</a></li><li><a href="#humedo">Qué hacer si quedó húmedo</a></li><li><a href="#lavado">Cuándo volver a lavarlo</a></li><li><a href="#moho">Qué hacer si hay moho visible</a></li><li><a href="#prevenir">Cómo evitar que vuelva</a></li></ol></nav>
@@ -39,7 +41,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <h2 id="humedo">Si el relleno todavía está húmedo</h2>
   <p>Un exterior seco no garantiza que el centro también lo esté. Si una zona se siente más fría, pesada o apelmazada, continuá el secado con el método autorizado: secadora con el nivel de calor indicado o secado natural en la posición que marque la etiqueta.</p>
   <figure className="article-image">
-    <Image src="/blog/comprobar-humedad-acolchado.webp" alt="Manos presionando una costura gruesa de un acolchado extendido sobre una rejilla de secado" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/>
+    <Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/>
     <figcaption>Costuras, esquinas y zonas compactas necesitan una revisión manual: pueden conservar humedad aunque la superficie parezca seca.</figcaption>
   </figure>
   <ol className="article-steps">

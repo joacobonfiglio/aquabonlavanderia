@@ -1,3 +1,4 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
@@ -6,15 +7,15 @@ import LocalCta from "../LocalCta";
 // AQB-029 del plan de contenidos (docs/AquaBon_Plan_Contenidos.xlsx). Tema: Tintorería.
 // Complementa a /blog/cuando-llevar-la-campera-a-la-tintoreria (señales para llevar cualquier abrigo):
 // esta guía va por "lavar campera de plumas" y el riesgo del secado.
-// TODO(joaco): foto propia para reemplazar la imagen de stock: campera inflable apelmazada al lado de la
-// misma campera con el volumen recuperado, sobre el mostrador.
+// Ilustración editorial generada; no representa un caso real del local.
+const illustration = guide("lavar-campera-de-plumas");
 const slug = "lavar-campera-de-plumas";
 const path = `/blog/${slug}`;
 const title = "Campera de plumas: cómo limpiarla antes de guardarla";
 const lead = "Se apelmaza, pierde abrigo y, si queda húmeda, aparecen hongos durante el verano. Por qué el secado es lo que la salva o la arruina.";
 const metaTitle = "Lavar campera de plumas antes de guardarla | Aquabon";
 const metaDescription = "Lavar una campera de plumas sin apelmazarla: qué la arruina y por qué el secado es clave antes de guardarla. Te la dejamos lista en Aquabon, Mar del Plata.";
-const image = "/blog/revisar-tapado-etiqueta-forro.webp";
+const image = illustration.image;
 const whatsapp = "Hola Aquabon, quiero limpiar una campera de plumas antes de guardarla. Les mando una foto de la campera y de la etiqueta.";
 
 const faqs = [
@@ -26,12 +27,12 @@ const faqs = [
 
 export const metadata: Metadata = {
   title: metaTitle, description: metaDescription, alternates: { canonical: path },
-  openGraph: { title, description: metaDescription, type: "article", locale: "es_AR", url: path, publishedTime: "2026-11-20", images: [{ url: image, width: 1400, height: 788, alt: "Revisión del forro y la etiqueta de un abrigo antes de definir cómo limpiarlo" }] },
+  openGraph: { title, description: metaDescription, type: "article", locale: "es_AR", url: path, publishedTime: "2026-11-20", images: [{ url: image, width: 1400, height: 788, alt: illustration.alt }] },
 };
 
 export default function Page() {
   const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(f => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) };
-  return <ArticleLayout title={title} description={lead} slug={slug} date="2026-11-20" readingTime="5 MIN DE LECTURA" cluster="Camperas" image={image} service="camperas">
+  return <ArticleLayout updated="2026-11-20" title={title} description={lead} slug={slug} date="2026-11-20" readingTime="5 MIN DE LECTURA" cluster="Camperas" image={image} service="camperas">
     <p className="article-lead"><strong>Limpia, seca hasta adentro y sin comprimir.</strong> Una campera de plumas se arruina más en el secado que en el lavado: si la pluma queda húmeda, se apelmaza, pierde abrigo y, guardada así, aparecen olor y hongos durante el verano. Antes de guardarla, lo que manda es la etiqueta y un secado completo y parejo.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#por-que">Por qué se apelmaza</a></li><li><a href="#errores">Errores que la arruinan</a></li><li><a href="#mdp">Guardarla en Mar del Plata</a></li><li><a href="#aquabon">Cómo la trabajamos</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li></ol></nav>
 

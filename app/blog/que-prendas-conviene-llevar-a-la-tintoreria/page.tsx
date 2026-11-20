@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("que-prendas-conviene-llevar-a-la-tintoreria");
 const title="¿Qué prendas conviene llevar a la tintorería?";
 const description="Sacos, trajes, tapados, vestidos de fiesta y prendas con forros o adornos merecen una evaluación profesional. La etiqueta y la construcción completa deciden el tratamiento: no todas necesitan limpieza en seco.";
 const path="/blog/que-prendas-conviene-llevar-a-la-tintoreria";
@@ -14,9 +16,9 @@ const faqs=[
   {question:"¿Hay que limpiar un traje después de cada uso?",answer:"No hay una frecuencia universal. Ventilalo y revisá olor, manchas y uso real; el exceso de limpieza también puede desgastar. Si hay una mancha, consultá antes de frotar o guardar la prenda."}
 ];
 
-export const metadata:Metadata={title:"Qué prendas llevar a tintorería: lista y criterios | Aquabon",description:"Qué prendas conviene llevar a la tintorería: sacos, tapados y ropa delicada. Consultá recepción y seguimiento en Aquabon, Gascón 2189, Mar del Plata.",alternates:{canonical:path},openGraph:{title,description:"Qué prendas conviene llevar a la tintorería: sacos, tapados y ropa delicada. Consultá recepción y seguimiento en Aquabon, Gascón 2189, Mar del Plata.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-21",images:[{url:"/blog/revisar-prendas-tintoreria.webp",width:1400,height:788,alt:"Revisión del forro y la etiqueta de un saco junto a vestido y tapado"}]}};
+export const metadata:Metadata={title:"Qué prendas llevar a tintorería: lista y criterios | Aquabon",description:"Qué prendas conviene llevar a la tintorería: sacos, tapados y ropa delicada. Consultá recepción y seguimiento en Aquabon, Gascón 2189, Mar del Plata.",alternates:{canonical:path},openGraph:{title,description:"Qué prendas conviene llevar a la tintorería: sacos, tapados y ropa delicada. Consultá recepción y seguimiento en Aquabon, Gascón 2189, Mar del Plata.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-21",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}};
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="que-prendas-conviene-llevar-a-la-tintoreria" date="2026-09-21" readingTime="7 MIN DE LECTURA" cluster="Tintorería" image="/blog/revisar-prendas-tintoreria.webp" service="tintoreria">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="que-prendas-conviene-llevar-a-la-tintoreria" date="2026-09-21" readingTime="7 MIN DE LECTURA" cluster="Tintorería" image={illustration.image} service="tintoreria">
   <p className="article-lead"><strong>Respuesta corta:</strong> llevá a evaluación los sacos y trajes estructurados, tapados, vestidos de fiesta, prendas con forros, bordados o aplicaciones y cualquier pieza cuya etiqueta indique cuidado profesional. Una prenda cara o de lana no es automáticamente “solo limpieza en seco”: el método depende de toda su construcción y de las indicaciones del fabricante.</p>
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#lista">Prendas que conviene evaluar</a></li><li><a href="#revisar">Qué revisar antes de llevarlas</a></li><li><a href="#no-siempre">Cuándo no hace falta tintorería</a></li><li><a href="#manchas">Qué hacer ante una mancha</a></li><li><a href="#aquabon">Cómo consultar en Aquabon</a></li></ol></nav>
@@ -37,7 +39,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
     <li><strong>Inspeccioná toda la construcción.</strong><span>Forro, hombreras, botones, apliques, cierres y partes pegadas pueden reaccionar de forma distinta al tejido exterior.</span></li>
     <li><strong>Registrá el estado.</strong><span>Identificá manchas, roturas, decoloración y tratamientos previos para comunicarlos al entregar la prenda.</span></li>
   </ol>
-  <figure className="article-image"><Image src="/blog/revisar-prendas-tintoreria.webp" alt="Manos revisando el forro y la etiqueta de un saco estructurado junto a un vestido con adornos y un tapado" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>La etiqueta se interpreta junto con el forro, las costuras y los adornos: el exterior no cuenta toda la historia.</figcaption></figure>
+  <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>La etiqueta se interpreta junto con el forro, las costuras y los adornos: el exterior no cuenta toda la historia.</figcaption></figure>
   <p>Los <Link href="/blog/simbolos-de-lavado-de-un-acolchado">símbolos de cuidado</Link> establecen límites de lavado, secado y tratamiento profesional. Si falta la etiqueta, la evaluación presencial es especialmente importante.</p>
 
   <h2 id="no-siempre">Cuándo puede alcanzar una lavandería</h2>

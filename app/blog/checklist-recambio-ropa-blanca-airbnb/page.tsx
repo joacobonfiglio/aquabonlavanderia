@@ -1,3 +1,4 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
@@ -6,13 +7,14 @@ import LocalCta from "../LocalCta";
 import WhatsAppLink from "../../WhatsAppLink";
 import { WhatsAppIcon } from "../../ui";
 
+const illustration = guide("checklist-recambio-ropa-blanca-airbnb");
 const title="Checklist de recambio de ropa blanca entre huéspedes";
 const description="Un recambio ordenado tiene cuatro momentos: sacar y contar, revisar manchas y daños, embolsar para lavar y armar la cama con un kit completo. Esta lista te ayuda a no olvidar nada entre un huésped y el siguiente.";
 const path="/blog/checklist-recambio-ropa-blanca-airbnb";
-const image="/blog/medir-detergente-para-lavar.webp";
+const image=illustration.image;
 const seo="Checklist de recambio de ropa blanca para Airbnb y alquileres temporarios: qué sacar, contar, revisar y reponer entre huéspedes. Aquabon, Mar del Plata.";
 
-export const metadata:Metadata={title:"Checklist de recambio de ropa blanca para Airbnb | Aquabon",description:seo,alternates:{canonical:path},openGraph:{title,description:seo,type:"article",locale:"es_AR",url:path,publishedTime:"2026-11-05",images:[{url:image,width:1400,height:788,alt:"Carga de ropa preparada para lavar después de un recambio"}]}};
+export const metadata:Metadata={title:"Checklist de recambio de ropa blanca para Airbnb | Aquabon",description:seo,alternates:{canonical:path},openGraph:{title,description:seo,type:"article",locale:"es_AR",url:path,publishedTime:"2026-11-05",images:[{url:image,width:1400,height:788,alt: illustration.alt}]}};
 
 const faqs=[
   {question:"¿Hay que cambiar toda la ropa blanca entre huéspedes?",answer:"Sí. Sábanas, fundas, toallas, toallones, toallas de mano y alfombra de baño se cambian siempre entre un huésped y otro, aunque parezcan sin usar."},
@@ -22,7 +24,7 @@ const faqs=[
   {question:"¿Aquabon puede encargarse del lavado de los recambios?",answer:"Sí. Lavamos, secamos y doblamos la ropa blanca de alquileres temporarios, y la retiramos y entregamos en once barrios de Mar del Plata. Acordamos frecuencia y cantidades antes de empezar."}
 ];
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="checklist-recambio-ropa-blanca-airbnb" date="2026-11-05" readingTime="5 MIN DE LECTURA" cluster="Alquiler temporario" image={image} service="airbnb">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="checklist-recambio-ropa-blanca-airbnb" date="2026-11-05" readingTime="5 MIN DE LECTURA" cluster="Alquiler temporario" image={image} service="airbnb">
   <p className="article-lead"><strong>Respuesta corta:</strong> un recambio de ropa blanca ordenado tiene cuatro momentos: sacar y contar todo lo usado, revisar manchas y daños, embolsar para lavar y armar la cama y el baño con un kit completo y bien seco. Esta lista sirve para hacerlo igual en cada recambio, lo hagas vos o una persona de limpieza.</p>
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#sacar">Sacar y contar</a></li><li><a href="#revisar">Revisar</a></li><li><a href="#lavar">Embolsar para lavar</a></li><li><a href="#reponer">Reponer con un kit</a></li><li><a href="#despues">Después del recambio</a></li></ol></nav>
@@ -43,8 +45,8 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   </ol>
 
   <figure className="article-image">
-    <Image src={image} alt="Ropa separada y detergente medido antes de lavar la ropa blanca de un recambio" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/>
-    <figcaption>Separar por tipo y lavar según la etiqueta: sábanas y toallas no siempre van juntas.</figcaption>
+    <Image src={image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/>
+    <figcaption>Organizá sábanas, fundas y toallas por juego y contá las piezas antes de cada recambio.</figcaption>
   </figure>
 
   <h2 id="reponer">4. Reponer con un kit completo</h2>

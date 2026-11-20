@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("como-secar-zapatillas-sin-deformarlas");
 const title="Cómo secar zapatillas sin deformarlas";
 const description="Secalas con aire, ventilación y paciencia: aprendé a retirar humedad, conservar la forma y evitar el calor que puede afectar espuma, adhesivos y materiales.";
 const path="/blog/como-secar-zapatillas-sin-deformarlas";
@@ -15,9 +17,9 @@ const faqs=[
   {question:"¿Conviene sacar las plantillas y los cordones?",answer:"Si el modelo lo permite, retirarlos o aflojarlos abre el interior y ayuda a que cada pieza se seque por separado. No vuelvas a colocar las plantillas hasta que todo esté seco."}
 ];
 
-export const metadata:Metadata={title:"Cómo secar zapatillas sin deformarlas | Aquabon",description:"Cómo secar zapatillas sin deformarlas y evitar el calor excesivo. Consultá limpieza y secado según el material de tu par en Aquabon, Mar del Plata.",alternates:{canonical:path},openGraph:{title,description:"Cómo secar zapatillas sin deformarlas y evitar el calor excesivo. Consultá limpieza y secado según el material de tu par en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-26",images:[{url:"/blog/secar-zapatillas-aire-ventilado.webp",width:1400,height:788,alt:"Zapatillas abiertas secándose sobre una toalla con papel absorbente, plantillas y cordones separados"}]}};
+export const metadata:Metadata={title:"Cómo secar zapatillas sin deformarlas | Aquabon",description:"Cómo secar zapatillas sin deformarlas y evitar el calor excesivo. Consultá limpieza y secado según el material de tu par en Aquabon, Mar del Plata.",alternates:{canonical:path},openGraph:{title,description:"Cómo secar zapatillas sin deformarlas y evitar el calor excesivo. Consultá limpieza y secado según el material de tu par en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-26",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}};
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="como-secar-zapatillas-sin-deformarlas" date="2026-09-26" readingTime="6 MIN DE LECTURA" cluster="Zapatillas" image="/blog/secar-zapatillas-aire-ventilado.webp" service="zapatillas">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="como-secar-zapatillas-sin-deformarlas" date="2026-09-26" readingTime="6 MIN DE LECTURA" cluster="Zapatillas" image={illustration.image} service="zapatillas">
   <p className="article-lead"><strong>La forma más prudente es secarlas al aire, a temperatura ambiente y con buena ventilación.</strong> Retirá el exceso de agua sin retorcer, abrí el calzado, separá las piezas removibles y evitá fuentes de calor. El objetivo no es secar lo más rápido posible, sino sacar la humedad sin alterar la forma, la espuma ni los adhesivos.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#pasos">Secado paso a paso</a></li><li><a href="#forma">Cómo conservar la forma</a></li><li><a href="#evitar">Qué conviene evitar</a></li><li><a href="#materiales">Cuidados por material</a></li><li><a href="#listas">Cómo saber si están secas</a></li></ol></nav>
 
@@ -31,7 +33,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
     <li><strong>Comprobá el interior.</strong><span>Esperá hasta que plantilla, lengüeta, puntera y acolchado estén secos antes de armarlas y volver a usarlas.</span></li>
   </ol>
 
-  <figure className="article-image"><Image src="/blog/secar-zapatillas-aire-ventilado.webp" alt="Par de zapatillas abiertas secándose sobre una toalla, con papel blanco absorbente en el interior y plantillas y cordones separados" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Abrir el calzado y separar plantillas y cordones permite que el aire alcance las zonas que suelen retener humedad.</figcaption></figure>
+  <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Abrir el calzado y separar plantillas y cordones permite que el aire alcance las zonas que suelen retener humedad.</figcaption></figure>
 
   <h2 id="forma">Cómo conservar la forma mientras se secan</h2>
   <p>El papel absorbente cumple dos funciones: toma parte de la humedad interior y sostiene suavemente la puntera. No lo aprietes hasta ensanchar el calzado ni lo dejes empapado muchas horas. Reemplazalo y acomodá la forma con las manos, sin forzar costuras o refuerzos.</p>

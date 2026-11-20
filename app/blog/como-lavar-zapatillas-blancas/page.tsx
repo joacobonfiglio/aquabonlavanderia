@@ -1,18 +1,19 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
 // AQB-011 del plan de contenidos (docs/AquaBon_Plan_Contenidos.xlsx). Pilar: Zapatillas.
-// TODO(joaco): foto propia para reemplazar la imagen de stock: un par de zapatillas blancas sucias junto
-// al mismo par limpio, sobre el mostrador, con cepillos suaves y cordones aparte.
+// Ilustración editorial generada; no representa un caso real del local.
+const illustration = guide("como-lavar-zapatillas-blancas");
 const slug = "como-lavar-zapatillas-blancas";
 const path = `/blog/${slug}`;
 const title = "Cómo lavar zapatillas blancas sin dañarlas: lo que tenés que saber";
 const lead = "El blanco no perdona: un cepillo duro, agua caliente o el producto equivocado dejan marcas que no se van. Qué las arruina y cómo las trabajamos.";
 const metaTitle = "Cómo lavar zapatillas blancas sin dañarlas | Aquabon";
 const metaDescription = "Cómo lavar zapatillas blancas sin rayarlas, despegarlas ni amarillearlas. Qué evitar y cómo las lavamos en Aquabon, Mar del Plata. Consultá por WhatsApp.";
-const image = "/blog/revisar-zapatillas-antes-lavar.webp";
+const image = illustration.image;
 const whatsapp = "Hola Aquabon, quiero lavar unas zapatillas blancas. Son de __ (tela, cuero, gamuza) y tienen __ (barro, manchas, suela gris). Les mando una foto del par.";
 
 const faqs = [
@@ -25,12 +26,12 @@ const faqs = [
 
 export const metadata: Metadata = {
   title: metaTitle, description: metaDescription, alternates: { canonical: path },
-  openGraph: { title, description: metaDescription, type: "article", locale: "es_AR", url: path, publishedTime: "2026-11-19", images: [{ url: image, width: 1400, height: 788, alt: "Revisión de la unión entre suela y capellada de una zapatilla antes de limpiarla" }] },
+  openGraph: { title, description: metaDescription, type: "article", locale: "es_AR", url: path, publishedTime: "2026-11-19", images: [{ url: image, width: 1400, height: 788, alt: illustration.alt }] },
 };
 
 export default function Page() {
   const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(f => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })) };
-  return <ArticleLayout title={title} description={lead} slug={slug} date="2026-11-19" readingTime="5 MIN DE LECTURA" cluster="Zapatillas" image={image} service="zapatillas">
+  return <ArticleLayout updated="2026-11-20" title={title} description={lead} slug={slug} date="2026-11-19" readingTime="5 MIN DE LECTURA" cluster="Zapatillas" image={image} service="zapatillas">
     <p className="article-lead"><strong>Por zonas, con cepillo suave, agua tibia o fría y secado a la sombra.</strong> Las zapatillas blancas se arruinan más por cómo se lavan que por lo sucias que estén: los cepillos duros rayan, el agua caliente afloja el pegamento de la suela y algunos químicos dejan la tela o la goma amarilla. Cada material lleva su proceso.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#por-que">Por qué se arruinan las zapatillas blancas</a></li><li><a href="#errores">Errores comunes</a></li><li><a href="#mdp">Arena, humedad y salitre</a></li><li><a href="#aquabon">Cómo las lavamos en Aquabon</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li></ol></nav>
 

@@ -1,13 +1,15 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("simbolos-de-lavado-de-un-acolchado");
 const title="Símbolos de lavado de un acolchado: cómo leer la etiqueta";
 const description="La tina indica el lavado, el triángulo el blanqueo, el cuadrado el secado, la plancha el calor y el círculo el cuidado profesional. Te explicamos qué mirar antes de lavar un acolchado.";
 
-export const metadata:Metadata={title:"Símbolos de lavado de un acolchado: guía práctica | Aquabon",description:"Símbolos de lavado de un acolchado: temperatura, secadora y cuidado del relleno. Consultá lavado y secado de acolchados en Aquabon, Mar del Plata.",alternates:{canonical:"/blog/simbolos-de-lavado-de-un-acolchado"},openGraph:{title,description:"Símbolos de lavado de un acolchado: temperatura, secadora y cuidado del relleno. Consultá lavado y secado de acolchados en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:"/blog/simbolos-de-lavado-de-un-acolchado",publishedTime:"2026-09-16",images:[{url:"/blog/leer-etiqueta-acolchado.webp",width:1400,height:933,alt:"Persona revisando los símbolos de cuidado de la etiqueta de un acolchado"}]}};
+export const metadata:Metadata={title:"Símbolos de lavado de un acolchado: guía práctica | Aquabon",description:"Símbolos de lavado de un acolchado: temperatura, secadora y cuidado del relleno. Consultá lavado y secado de acolchados en Aquabon, Mar del Plata.",alternates:{canonical:"/blog/simbolos-de-lavado-de-un-acolchado"},openGraph:{title,description:"Símbolos de lavado de un acolchado: temperatura, secadora y cuidado del relleno. Consultá lavado y secado de acolchados en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:"/blog/simbolos-de-lavado-de-un-acolchado",publishedTime:"2026-09-16",images:[{url:illustration.image,width:1400,height:933,alt: illustration.alt}]}};
 
 type SymbolKind="wash"|"bleach"|"dry"|"iron"|"professional";
 function SymbolMark({kind}:{kind:SymbolKind}){const common={fill:"none",stroke:"currentColor",strokeWidth:2,strokeLinecap:"round" as const,strokeLinejoin:"round" as const};return <svg viewBox="0 0 48 48" aria-hidden="true">{kind==="wash"&&<><path {...common} d="M7 17h34l-3 23H10L7 17Z"/><path {...common} d="M8 23c5-4 9 4 14 0s9 4 17 0"/><text x="24" y="35" textAnchor="middle" fontSize="10" fill="currentColor">30°</text></>}{kind==="bleach"&&<><path {...common} d="M24 7 42 40H6L24 7Z"/><path {...common} d="m11 11 27 27M37 11 11 38"/></>}{kind==="dry"&&<><rect {...common} x="7" y="7" width="34" height="34"/><circle {...common} cx="24" cy="24" r="11"/><circle cx="24" cy="24" r="2.4" fill="currentColor"/></>}{kind==="iron"&&<><path {...common} d="M7 34h35l-4-15H18c-5 0-8 5-11 15Z"/><path {...common} d="M18 19v-6h13c4 0 6 2 7 6"/><circle cx="24" cy="27" r="2.2" fill="currentColor"/></>}{kind==="professional"&&<><circle {...common} cx="24" cy="24" r="17"/><text x="24" y="29" textAnchor="middle" fontSize="15" fill="currentColor">P</text></>}</svg>}
@@ -20,7 +22,7 @@ const symbols=[
   {kind:"professional" as const,title:"Círculo: cuidado profesional",copy:"Las letras y líneas orientan al profesional sobre el proceso permitido. Un círculo tachado prohíbe ese tratamiento; no significa que la prenda pueda lavarse de cualquier otra manera."}
 ];
 
-export default function Page(){return <ArticleLayout service="acolchados" title={title} description={description} slug="simbolos-de-lavado-de-un-acolchado" date="2026-09-16" readingTime="7 MIN DE LECTURA" cluster="Acolchados" image="/blog/leer-etiqueta-acolchado.webp">
+export default function Page(){return <ArticleLayout updated="2026-11-20" service="acolchados" title={title} description={description} slug="simbolos-de-lavado-de-un-acolchado" date="2026-09-16" readingTime="7 MIN DE LECTURA" cluster="Acolchados" image={illustration.image}>
   <p className="article-lead"><strong>Respuesta corta:</strong> leé la etiqueta de izquierda a derecha y no interpretes un símbolo de forma aislada. La tina habla del lavado, el triángulo del blanqueo, el cuadrado del secado, la plancha del planchado y el círculo del cuidado profesional. Los números y puntos fijan límites máximos; las líneas inferiores piden un tratamiento más suave y una cruz prohíbe ese proceso.</p>
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#orden">En qué orden leer los símbolos</a></li><li><a href="#significado">Qué significa cada familia</a></li><li><a href="#acolchado">Cómo aplicar la etiqueta al acolchado</a></li><li><a href="#ejemplos">Ejemplos frecuentes</a></li><li><a href="#dudas">Qué hacer si la etiqueta no se entiende</a></li></ol></nav>
@@ -30,7 +32,7 @@ export default function Page(){return <ArticleLayout service="acolchados" title=
   <p>Los símbolos indican el tratamiento máximo permitido. Podés elegir uno más suave, pero no deberías superar la temperatura, la acción mecánica o el calor que marca el fabricante. La composición del relleno no reemplaza esta información: dos acolchados que parecen iguales pueden tener instrucciones distintas.</p>
 
   <figure className="article-image">
-    <Image src="/blog/leer-etiqueta-acolchado.webp" alt="Manos sosteniendo la etiqueta con símbolos de cuidado de un acolchado azul" width={1400} height={933} sizes="(max-width: 900px) 100vw, 760px"/>
+    <Image src={illustration.image} alt={illustration.alt} width={1400} height={933} sizes="(max-width: 900px) 100vw, 760px"/>
     <figcaption>La etiqueta del fabricante es el punto de partida: revisala antes de elegir programa, temperatura o secado.</figcaption>
   </figure>
 

@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("como-lavar-ropa-delicada");
 const title="Cómo lavar ropa delicada a mano o en lavarropas";
 const description="Una guía para decidir el método según la etiqueta, proteger la prenda, reducir fricción y secarla sin deformarla.";
 const path="/blog/como-lavar-ropa-delicada";
@@ -19,12 +21,12 @@ export const metadata:Metadata={
   title:"Cómo lavar ropa delicada sin dañarla | Aquabon",
   description:"Cómo lavar ropa delicada a mano o en lavarropas y secarla sin deformar. Guía de Aquabon, lavandería en el centro de Mar del Plata.",
   alternates:{canonical:path},
-  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-08",images:[{url:"/blog/preparar-ropa-delicada.webp",width:1400,height:788,alt:"Preparación de prendas delicadas con revisión de etiqueta, bolsa de malla, toalla y recipiente con agua"}]}
+  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-08",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}
 };
 
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
-  return <ArticleLayout title={title} description={description} slug="como-lavar-ropa-delicada" date="2026-10-08" readingTime="8 MIN DE LECTURA" cluster="Cuidado de ropa" image="/blog/preparar-ropa-delicada.webp" service="tintoreria">
+  return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="como-lavar-ropa-delicada" date="2026-10-08" readingTime="8 MIN DE LECTURA" cluster="Cuidado de ropa" image={illustration.image} service="tintoreria">
     <p className="article-lead"><strong>“Delicada” no significa automáticamente “lavar a mano”.</strong> Primero mirá la etiqueta y la construcción de la prenda. Recién después elegí entre ciclo suave, lavado manual o cuidado profesional. La menor temperatura no compensa un método que la etiqueta prohíbe.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#decidir">Cómo elegir el método</a></li><li><a href="#maquina">Lavado en máquina</a></li><li><a href="#mano">Lavado a mano</a></li><li><a href="#secado">Secado sin deformar</a></li><li><a href="#tejidos">Cuidados por tejido</a></li><li><a href="#consulta">Cuándo consultar</a></li></ol></nav>
 
@@ -36,7 +38,7 @@ export default function Page(){
     </ol>
     <div className="article-callout"><strong>Respuesta directa</strong><p>Si la etiqueta permite lavar ropa delicada en casa, reducí temperatura, fricción, carga y tiempo de humedad. Si prohíbe el lavado o la prenda tiene estructura, adornos o colores inestables, consultá antes de mojarla.</p></div>
 
-    <figure className="article-image"><Image src="/blog/preparar-ropa-delicada.webp" alt="Manos revisando la etiqueta de una blusa celeste junto a una bolsa de malla, una prenda de punto, una toalla y un recipiente con agua" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Separar, revisar la etiqueta y proteger encajes o piezas pequeñas evita improvisar una vez iniciado el lavado.</figcaption></figure>
+    <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Separar, revisar la etiqueta y proteger encajes o piezas pequeñas evita improvisar una vez iniciado el lavado.</figcaption></figure>
 
     <h2 id="maquina">Cómo lavar ropa delicada en el lavarropas</h2>
     <p>Usá la máquina únicamente si la etiqueta lo admite. Las líneas debajo de la tina indican que la prenda necesita menor acción mecánica: una línea corresponde a un proceso suave y dos, a uno muy suave. Elegí el programa equivalente de tu equipo y no superes la temperatura indicada.</p>

@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("cuanto-detergente-usar");
 const title="Cuánto detergente usar en el lavarropas";
 const description="Una guía para ajustar la dosis según el producto, el tamaño de la carga, la suciedad y el agua, sin dejar residuos ni lavar de menos.";
 const path="/blog/cuanto-detergente-usar";
@@ -20,12 +22,12 @@ export const metadata:Metadata={
   title:"Cuánto detergente usar en el lavarropas | Aquabon",
   description:"Cuánto detergente usar según carga, suciedad, concentración y dureza del agua. Evitá residuos y espuma excesiva con esta guía de Aquabon.",
   alternates:{canonical:path},
-  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-12",images:[{url:"/blog/medir-detergente-para-lavar.webp",width:1400,height:788,alt:"Detergente líquido medido en su tapa junto a una carga de ropa antes del lavado"}]}
+  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-12",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}
 };
 
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
-  return <ArticleLayout title={title} description={description} slug="cuanto-detergente-usar" date="2026-10-12" readingTime="7 MIN DE LECTURA" cluster="Lavado" image="/blog/medir-detergente-para-lavar.webp" service="valet">
+  return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="cuanto-detergente-usar" date="2026-10-12" readingTime="7 MIN DE LECTURA" cluster="Lavado" image={illustration.image} service="valet">
     <p className="article-lead"><strong>La cantidad correcta no se puede resumir en un número válido para todos los lavados.</strong> Tomá como base la tabla del detergente para el tamaño de tu carga y ajustá solo por nivel de suciedad, dureza del agua, concentración del producto y tipo de lavarropas. Más detergente no significa ropa más limpia.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#respuesta">La respuesta corta</a></li><li><a href="#factores">Qué cambia la dosis</a></li><li><a href="#medir">Cómo medirla</a></li><li><a href="#exceso">Señales de exceso</a></li><li><a href="#poco">Señales de falta</a></li><li><a href="#formatos">Líquido, polvo o cápsulas</a></li></ol></nav>
 
@@ -56,7 +58,7 @@ export default function Page(){
       <li><strong>Colocalo donde corresponde.</strong><span>Seguí el manual: cajón, tambor o sistema automático no son intercambiables.</span></li>
       <li><strong>Observá el resultado.</strong><span>Revisá limpieza, olor, tacto, residuos y enjuague antes de modificar la dosis siguiente.</span></li>
     </ol>
-    <figure className="article-image"><Image src="/blog/medir-detergente-para-lavar.webp" alt="Persona midiendo detergente líquido con la tapa graduada junto a una carga media de ropa y un lavarropas abierto" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Medir con el dosificador del propio producto permite seguir su escala y evita verter detergente a ojo.</figcaption></figure>
+    <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Medir con el dosificador del propio producto permite seguir su escala y evita verter detergente a ojo.</figcaption></figure>
 
     <h2 id="exceso">Cómo saber si usaste demasiado detergente</h2>
     <p>Un exceso no siempre se ve como una montaña de espuma. En lavarropas de bajo consumo puede manifestarse como enjuague deficiente, ciclos que se alargan, olor demasiado intenso o residuos que quedan atrapados entre pliegues.</p>

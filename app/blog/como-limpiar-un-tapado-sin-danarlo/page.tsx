@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("como-limpiar-un-tapado-sin-danarlo");
 const title="Cómo limpiar un tapado sin dañarlo";
 const description="Antes de lavar un tapado de paño o lana, revisá etiqueta, forro y estructura. Qué podés hacer en casa, cuándo no mojarlo y cómo prepararlo para una limpieza profesional.";
 const path="/blog/como-limpiar-un-tapado-sin-danarlo";
@@ -14,9 +16,9 @@ const faqs=[
   {question:"¿Cómo guardo el tapado después de limpiarlo?",answer:"Esperá a que esté completamente seco, usá una percha ancha para conservar la forma y dejale espacio para ventilar. Evitá guardarlo húmedo o comprimido en plástico."}
 ];
 
-export const metadata:Metadata={title:"Cómo limpiar un tapado de paño o lana sin dañarlo | Aquabon",description:"Cómo limpiar un tapado sin dañarlo: etiqueta, paño, lana y manchas. En Aquabon, Mar del Plata, evaluamos su cuidado y recibimos prendas de tintorería.",alternates:{canonical:path},openGraph:{title,description:"Cómo limpiar un tapado sin dañarlo: etiqueta, paño, lana y manchas. En Aquabon, Mar del Plata, evaluamos su cuidado y recibimos prendas de tintorería.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-22",images:[{url:"/blog/revisar-tapado-etiqueta-forro.webp",width:1400,height:788,alt:"Revisión del forro y etiqueta de un tapado de paño azul"}]}};
+export const metadata:Metadata={title:"Cómo limpiar un tapado de paño o lana sin dañarlo | Aquabon",description:"Cómo limpiar un tapado sin dañarlo: etiqueta, paño, lana y manchas. En Aquabon, Mar del Plata, evaluamos su cuidado y recibimos prendas de tintorería.",alternates:{canonical:path},openGraph:{title,description:"Cómo limpiar un tapado sin dañarlo: etiqueta, paño, lana y manchas. En Aquabon, Mar del Plata, evaluamos su cuidado y recibimos prendas de tintorería.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-22",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}};
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="como-limpiar-un-tapado-sin-danarlo" date="2026-09-22" readingTime="6 MIN DE LECTURA" cluster="Tapados" image="/blog/revisar-tapado-etiqueta-forro.webp" service="camperas">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="como-limpiar-un-tapado-sin-danarlo" date="2026-09-22" readingTime="6 MIN DE LECTURA" cluster="Tapados" image={illustration.image} service="camperas">
   <p className="article-lead"><strong>Primero, no lo mojes por reflejo.</strong> Un tapado de paño combina tejido exterior, forro, entretelas y, a veces, hombreras o apliques. Buscá la etiqueta interior: si permite lavado doméstico, seguí sus límites; si lo prohíbe o la estructura genera dudas, pedí una evaluación profesional. Mientras tanto, ventilar y retirar pelusa sin frotar suelen ser cuidados menos invasivos.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#etiqueta">La decisión según etiqueta</a></li><li><a href="#rutina">Cuidados entre usos</a></li><li><a href="#lavado">Si permite lavado</a></li><li><a href="#manchas">Manchas y errores</a></li><li><a href="#consulta">Cuándo consultar</a></li></ol></nav>
 
@@ -32,7 +34,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
 
   <h2 id="rutina">Cómo cuidarlo entre usos sin lavar de más</h2>
   <ol className="article-steps"><li><strong>Ventilalo.</strong><span>Colgalo un rato en una percha ancha, en un lugar aireado y sin sol intenso directo, antes de volver a guardarlo.</span></li><li><strong>Retirá pelusas con suavidad.</strong><span>Usá un cepillo apto para prendas y probá primero en un sector discreto, sin presionar ni raspar el paño.</span></li><li><strong>Revisá cuello, puños y forro.</strong><span>Buscá marcas, humedad o costuras flojas. Es más fácil describir el problema antes de intentar limpiarlo.</span></li></ol>
-  <figure className="article-image"><Image src="/blog/revisar-tapado-etiqueta-forro.webp" alt="Manos revisando la etiqueta y el forro de un tapado azul junto a un cepillo de prendas y una percha ancha" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Antes de tratar una mancha, revisá el forro y la etiqueta; un cepillo suave sirve para pelusa superficial, no para frotar manchas.</figcaption></figure>
+  <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Antes de tratar una mancha, revisá el forro y la etiqueta; un cepillo suave sirve para pelusa superficial, no para frotar manchas.</figcaption></figure>
 
   <h2 id="lavado">Si la etiqueta permite lavado doméstico</h2>
   <p>Vaciá bolsillos, cerrá cierres y separá el tapado de prendas que destiñan. Elegí el ciclo y producto compatibles con la etiqueta; la lana lavable suele requerir movimiento muy suave. Dejá espacio en el tambor para que no se comprima y evitá retorcerlo.</p>

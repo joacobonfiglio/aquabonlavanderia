@@ -57,7 +57,7 @@ export default function ArticleLayout({ title, description, slug, date, readingT
   const sameTopic = (g: (typeof guides)[number]) => !!mainTopic && pillarsOfGuide(g).some(t => t.id === mainTopic.id);
   const rank = (g: (typeof guides)[number]) => g.cluster.toLowerCase() === cluster.toLowerCase() ? 0 : sameTopic(g) ? 1 : 2;
   const more = guides.filter(g => g.href !== path).map((g, i) => ({ g, i })).sort((a, b) => rank(a.g) - rank(b.g) || a.i - b.i).slice(0, 3).map(x => x.g);
-  const heroImage = image ?? "/laundry-hero-v2.webp";
+  const heroImage = image ?? entry?.image ?? "/laundry-hero-v2.webp";
   const serviceImage = services.find(x => x.href === info.path)?.image ?? businessLinks.find(x => x.href === info.path)?.image ?? "/laundry-hero-v2.webp";
   return <>
     <SiteHeader overlay />
@@ -74,7 +74,7 @@ export default function ArticleLayout({ title, description, slug, date, readingT
               <div className="a-meta"><time dateTime={date}>{displayDate}</time><span>{sentence(readingTime)}</span><span>Aquabon, Mar del Plata</span></div>
               {topics.length ? <ul className="a-tags" aria-label="Temas de esta guía">{topics.map(t => <li key={t.id}><Link href={pillarPath(t.id)}>{t.name}</Link></li>)}</ul> : null}
             </div>
-            <div className="p-hero__media"><div className="p-hero__photo"><Img src={heroImage} alt={guides.find(g => g.href === path)?.alt ?? title} width={1400} height={933} sizes="(max-width: 960px) 92vw, 520px" priority /></div></div>
+            <div className="p-hero__media"><div className="p-hero__photo"><Img src={heroImage} alt={entry?.alt ?? title} width={1400} sizes="(max-width: 960px) 92vw, 520px" priority /></div></div>
           </div>
         </div>
         <Waves className="waves--hero" />

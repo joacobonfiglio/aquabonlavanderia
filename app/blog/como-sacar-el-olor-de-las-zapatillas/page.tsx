@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("como-sacar-el-olor-de-las-zapatillas");
 const title="Cómo sacar el olor de las zapatillas sin dañarlas";
 const description="Una guía para encontrar la causa del olor, secar el interior, tratar las plantillas y evitar que la humedad vuelva a acumularse.";
 const path="/blog/como-sacar-el-olor-de-las-zapatillas";
@@ -15,9 +17,9 @@ const faqs=[
   {question:"¿Cuándo conviene llevarlas a una limpieza profesional?",answer:"Cuando el olor persiste después del secado, hay suciedad profunda, las plantillas no se pueden retirar o el par combina materiales delicados. La evaluación previa permite elegir un proceso compatible, aunque no todos los olores o daños pueden eliminarse por completo."}
 ];
 
-export const metadata:Metadata={title:"Cómo sacar el olor de las zapatillas | Aquabon",description:"Cómo sacar el olor de las zapatillas: secado, plantillas y prevención de humedad. Consultá limpieza y secado de tu par en Aquabon, Mar del Plata.",alternates:{canonical:path},openGraph:{title,description:"Cómo sacar el olor de las zapatillas: secado, plantillas y prevención de humedad. Consultá limpieza y secado de tu par en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-27",images:[{url:"/blog/ventilar-plantillas-olor-zapatillas.webp",width:1400,height:788,alt:"Zapatillas abiertas junto a sus plantillas, una toalla limpia y bicarbonato para tratar el olor"}]}};
+export const metadata:Metadata={title:"Cómo sacar el olor de las zapatillas | Aquabon",description:"Cómo sacar el olor de las zapatillas: secado, plantillas y prevención de humedad. Consultá limpieza y secado de tu par en Aquabon, Mar del Plata.",alternates:{canonical:path},openGraph:{title,description:"Cómo sacar el olor de las zapatillas: secado, plantillas y prevención de humedad. Consultá limpieza y secado de tu par en Aquabon, Mar del Plata.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-27",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}};
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="como-sacar-el-olor-de-las-zapatillas" date="2026-09-27" readingTime="6 MIN DE LECTURA" cluster="Zapatillas" image="/blog/ventilar-plantillas-olor-zapatillas.webp" service="zapatillas">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="como-sacar-el-olor-de-las-zapatillas" date="2026-09-27" readingTime="6 MIN DE LECTURA" cluster="Zapatillas" image={illustration.image} service="zapatillas">
   <p className="article-lead"><strong>Para sacar el olor hay que eliminar la humedad y tratar el interior, no solamente perfumarlo.</strong> Empezá por abrir el calzado, retirar las plantillas si son removibles y dejar secar todo por separado. Recién después evaluá si alcanza con airear, si conviene usar un absorbente seco o si hace falta una limpieza compatible con los materiales.</p>
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#causa">Identificar la causa</a></li><li><a href="#pasos">Qué hacer paso a paso</a></li><li><a href="#bicarbonato">Cómo usar bicarbonato</a></li><li><a href="#errores">Errores frecuentes</a></li><li><a href="#prevenir">Cómo prevenir el olor</a></li></ol></nav>
 
@@ -39,7 +41,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
     <li><strong>Aireá antes de usar.</strong><span>Retirá por completo el absorbente y verificá que no queden polvo, humedad ni olor intenso.</span></li>
   </ol>
 
-  <figure className="article-image"><Image src="/blog/ventilar-plantillas-olor-zapatillas.webp" alt="Par de zapatillas abierto y ventilado con las plantillas separadas, una toalla limpia y un recipiente con bicarbonato" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Separar las plantillas y abrir el calzado ayuda a ventilar las zonas porosas donde suele quedar humedad.</figcaption></figure>
+  <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Separar las plantillas y abrir el calzado ayuda a ventilar las zonas porosas donde suele quedar humedad.</figcaption></figure>
 
   <h2 id="bicarbonato">Bicarbonato: útil, pero con cuidado</h2>
   <p>Adidas aconseja retirar las plantillas para combatir el olor y, cuando es intenso, utilizar una cantidad pequeña de bicarbonato. Nike también lo presenta como una opción absorbente. Para reducir residuos y facilitar la retirada, en lugar de volcarlo sobre toda la plantilla podés contenerlo en una media fina o bolsita permeable limpia.</p>

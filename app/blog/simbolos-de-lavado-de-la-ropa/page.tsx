@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("simbolos-de-lavado-de-la-ropa");
 const title="Símbolos de lavado de ropa: cómo leer la etiqueta";
 const description="Una guía visual para entender lavado, blanqueo, secado, planchado y cuidado profesional antes de tratar una prenda.";
 const path="/blog/simbolos-de-lavado-de-la-ropa";
@@ -31,12 +33,12 @@ export const metadata:Metadata={
   title:"Símbolos de lavado de ropa: guía visual | Aquabon",
   description:"Símbolos de lavado de ropa: qué significan tina, triángulo, cuadrado, plancha y círculo. Guía de Aquabon, Mar del Plata.",
   alternates:{canonical:path},
-  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-05",images:[{url:"/blog/leer-simbolos-etiqueta-ropa.webp",width:1400,height:788,alt:"Persona revisando la etiqueta de cuidado de una prenda azul antes del lavado"}]}
+  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-05",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}
 };
 
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
-  return <ArticleLayout title={title} description={description} slug="simbolos-de-lavado-de-la-ropa" date="2026-10-05" readingTime="8 MIN DE LECTURA" cluster="Cuidado de ropa" image="/blog/leer-simbolos-etiqueta-ropa.webp" service="valet">
+  return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="simbolos-de-lavado-de-la-ropa" date="2026-10-05" readingTime="8 MIN DE LECTURA" cluster="Cuidado de ropa" image={illustration.image} service="valet">
     <p className="article-lead"><strong>Para leer una etiqueta, identificá primero la forma base.</strong> La tina habla del lavado, el triángulo del blanqueo, el cuadrado del secado, la plancha del planchado y el círculo del cuidado profesional. Después mirá números, puntos, líneas y tachados.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#familias">Las cinco familias</a></li><li><a href="#modificadores">Puntos, líneas y cruces</a></li><li><a href="#orden">Cómo leer una etiqueta completa</a></li><li><a href="#ejemplos">Ejemplos frecuentes</a></li><li><a href="#dudas">Etiqueta ausente o dudosa</a></li></ol></nav>
 
@@ -46,7 +48,7 @@ export default function Page(){
       {symbols.map(symbol=><article key={symbol.kind}><div><SymbolMark kind={symbol.kind}/></div><h3>{symbol.title}</h3><p>{symbol.copy}</p></article>)}
     </section>
 
-    <figure className="article-image"><Image src="/blog/leer-simbolos-etiqueta-ropa.webp" alt="Manos revisando la etiqueta de cuidado cosida a una prenda azul antes de lavarla" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Leé toda la secuencia antes de lavar: el secado y el planchado pueden ser tan importantes como la temperatura del agua.</figcaption></figure>
+    <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Leé toda la secuencia antes de lavar: el secado y el planchado pueden ser tan importantes como la temperatura del agua.</figcaption></figure>
 
     <h2 id="modificadores">Qué significan puntos, líneas y cruces</h2>
     <div className="frequency-grid">

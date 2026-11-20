@@ -1,9 +1,11 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("como-sacar-maquillaje-de-la-ropa");
 const title="Cómo sacar maquillaje de la ropa sin extender la mancha";
 const description="Qué hacer con base, labial, polvo o máscara: retirar el exceso, pretratar según el tejido y revisar antes de secar.";
 const path="/blog/como-sacar-maquillaje-de-la-ropa";
@@ -19,12 +21,12 @@ export const metadata:Metadata={
   title:"Cómo sacar maquillaje de la ropa | Aquabon",
   description:"Cómo tratar manchas de base, labial, polvo y máscara sin extenderlas. Guía de Aquabon, lavandería en el centro de Mar del Plata.",
   alternates:{canonical:path},
-  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-06",images:[{url:"/blog/tratar-mancha-maquillaje-ropa.webp",width:1400,height:788,alt:"Paño blanco absorbiendo una mancha de base de maquillaje en el cuello de una camisa clara"}]}
+  openGraph:{title,description,type:"article",locale:"es_AR",url:path,publishedTime:"2026-10-06",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}
 };
 
 export default function Page(){
   const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};
-  return <ArticleLayout title={title} description={description} slug="como-sacar-maquillaje-de-la-ropa" date="2026-10-06" readingTime="7 MIN DE LECTURA" cluster="Manchas" image="/blog/tratar-mancha-maquillaje-ropa.webp" service="tintoreria">
+  return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="como-sacar-maquillaje-de-la-ropa" date="2026-10-06" readingTime="7 MIN DE LECTURA" cluster="Manchas" image={illustration.image} service="tintoreria">
     <p className="article-lead"><strong>Primero retirás el exceso; después elegís el tratamiento.</strong> Base, labial, polvo y máscara no dejan la misma mancha. Evitá frotar, revisá la etiqueta y no uses secadora ni plancha hasta comprobar que la marca desapareció.</p>
     <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#primeros-pasos">Qué hacer enseguida</a></li><li><a href="#tipo">Tratamiento según el maquillaje</a></li><li><a href="#tejido">Cuidados según la prenda</a></li><li><a href="#errores">Errores frecuentes</a></li><li><a href="#consulta">Cuándo consultar</a></li></ol></nav>
 
@@ -39,7 +41,7 @@ export default function Page(){
     </ol>
     <div className="article-callout"><strong>Respuesta directa</strong><p>Para maquillaje lavable, el American Cleaning Institute recomienda pretratar y luego lavar a la temperatura más alta que sea segura para el tejido. La clave es que “segura” la define la etiqueta, no el color ni la apariencia de la prenda.</p></div>
 
-    <figure className="article-image"><Image src="/blog/tratar-mancha-maquillaje-ropa.webp" alt="Manos absorbiendo con un paño blanco una pequeña mancha de base de maquillaje en el cuello de una camisa clara" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Presioná con un paño limpio: frotar puede llevar el pigmento a una superficie mayor.</figcaption></figure>
+    <figure className="article-image"><Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/><figcaption>Presioná con un paño limpio: frotar puede llevar el pigmento a una superficie mayor.</figcaption></figure>
 
     <h2 id="tipo">El tratamiento cambia según el tipo de maquillaje</h2>
     <div className="frequency-grid">

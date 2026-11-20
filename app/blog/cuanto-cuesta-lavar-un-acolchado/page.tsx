@@ -1,3 +1,4 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
@@ -6,13 +7,14 @@ import LocalCta from "../LocalCta";
 import WhatsAppLink from "../../WhatsAppLink";
 import { WhatsAppIcon } from "../../ui";
 
+const illustration = guide("cuanto-cuesta-lavar-un-acolchado");
 const title="¿Cuánto cuesta lavar un acolchado? De qué depende el precio";
 const description="No hay un precio único: depende del tamaño, el relleno, el estado y las manchas del acolchado, y de si necesitás retiro y entrega. Con una foto de la etiqueta y del acolchado se puede pasar un importe antes de dejarlo.";
 const path="/blog/cuanto-cuesta-lavar-un-acolchado";
-const image="/blog/revisar-cuando-lavar-acolchado.webp";
+const image=illustration.image;
 const seo="Cuánto cuesta lavar un acolchado y de qué depende el precio: tamaño, relleno y estado. En Aquabon, Mar del Plata, te pasamos el importe antes de dejarlo.";
 
-export const metadata:Metadata={title:"Cuánto cuesta lavar un acolchado: de qué depende | Aquabon",description:seo,alternates:{canonical:path},openGraph:{title,description:seo,type:"article",locale:"es_AR",url:path,publishedTime:"2026-11-05",images:[{url:image,width:1400,height:788,alt:"Revisión de una mancha y el relleno de un acolchado antes de pasar el precio"}]}};
+export const metadata:Metadata={title:"Cuánto cuesta lavar un acolchado: de qué depende | Aquabon",description:seo,alternates:{canonical:path},openGraph:{title,description:seo,type:"article",locale:"es_AR",url:path,publishedTime:"2026-11-05",images:[{url:image,width:1400,height:788,alt: illustration.alt}]}};
 
 const faqs=[
   {question:"¿Por qué no publican un precio fijo para lavar un acolchado?",answer:"Porque dos acolchados del mismo tamaño pueden necesitar trabajos distintos según el relleno, el estado y las manchas. Preferimos verlo, o ver una foto, y pasarte el importe antes de que lo dejes."},
@@ -22,7 +24,7 @@ const faqs=[
   {question:"¿Conviene más lavarlo en casa?",answer:"Si la etiqueta lo permite y entra holgado en tu lavarropas y tu secadora, se puede. Si no entra, si es de pluma o si no tenés dónde secarlo bien, el ahorro puede terminar en un relleno apelmazado o con olor a humedad."}
 ];
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="cuanto-cuesta-lavar-un-acolchado" date="2026-11-05" readingTime="6 MIN DE LECTURA" cluster="Acolchados" image={image} service="acolchados">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="cuanto-cuesta-lavar-un-acolchado" date="2026-11-05" readingTime="6 MIN DE LECTURA" cluster="Acolchados" image={image} service="acolchados">
   <p className="article-lead"><strong>Respuesta corta:</strong> lavar un acolchado no tiene un precio único. Depende del tamaño, del tipo de relleno, del estado en que llega y de si tiene manchas que tratar; el retiro y la entrega, si los necesitás, se suman aparte. La forma más rápida de saberlo es mandar una foto del acolchado y de su etiqueta: con eso te pasamos el importe antes de que lo dejes.</p>
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#factores">Qué cambia el precio</a></li><li><a href="#pedir">Cómo pedir un precio sin vueltas</a></li><li><a href="#casa">Lavarlo en casa: el costo que no se ve</a></li><li><a href="#cuando">Cuándo conviene llevarlo</a></li></ol></nav>
@@ -49,7 +51,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   </ol>
 
   <figure className="article-image">
-    <Image src={image} alt="Revisión de una mancha y del relleno de un acolchado antes de pasar el precio del lavado" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/>
+    <Image src={image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/>
     <figcaption>Tamaño, relleno, estado y manchas: lo que se mira antes de pasar un importe.</figcaption>
   </figure>
 

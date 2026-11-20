@@ -1,14 +1,16 @@
+import { guide } from "../../guides";
 import type { Metadata } from "next";
 import Image from "../../Img";
 import Link from "next/link";
 import ArticleLayout from "../ArticleLayout";
 import LocalCta from "../LocalCta";
 
+const illustration = guide("diferencia-entre-lavanderia-y-tintoreria");
 const title="¿Cuál es la diferencia entre lavandería, lavadero y tintorería?";
 const description="Lavandería y lavadero se usan casi como sinónimos: resuelven la ropa de todos los días con agua, secado y doblado. La tintorería evalúa prendas estructuradas, delicadas o con cuidados profesionales y puede usar limpieza en seco o limpieza húmeda profesional según la etiqueta.";
 const path="/blog/diferencia-entre-lavanderia-y-tintoreria";
 
-export const metadata:Metadata={title:"Lavandería, lavadero o tintorería: cuál elegir | Aquabon",description:"Diferencia entre lavandería, lavadero y tintorería: qué llevar a cada uno. En Aquabon, Mar del Plata, hacemos valet y recibimos prendas de tintorería.",alternates:{canonical:path},openGraph:{title,description:"Diferencia entre lavandería, lavadero y tintorería: qué llevar a cada uno. En Aquabon, Mar del Plata, hacemos valet y recibimos prendas de tintorería.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-20",images:[{url:"/blog/elegir-lavanderia-o-tintoreria.webp",width:1400,height:788,alt:"Ropa cotidiana y prendas estructuradas separadas para elegir el servicio de limpieza"}]}};
+export const metadata:Metadata={title:"Lavandería, lavadero o tintorería: cuál elegir | Aquabon",description:"Diferencia entre lavandería, lavadero y tintorería: qué llevar a cada uno. En Aquabon, Mar del Plata, hacemos valet y recibimos prendas de tintorería.",alternates:{canonical:path},openGraph:{title,description:"Diferencia entre lavandería, lavadero y tintorería: qué llevar a cada uno. En Aquabon, Mar del Plata, hacemos valet y recibimos prendas de tintorería.",type:"article",locale:"es_AR",url:path,publishedTime:"2026-09-20",images:[{url:illustration.image,width:1400,height:788,alt: illustration.alt}]}};
 
 const faqs=[
   {question:"¿Lavadero y lavandería son lo mismo?",answer:"En el uso de todos los días, casi siempre sí: los dos nombres se usan para el lugar donde dejás la ropa y te la devuelven lavada, seca y doblada. A veces “lavadero” también se refiere a un autoservicio, donde lavás vos con las máquinas del local."},
@@ -18,7 +20,7 @@ const faqs=[
   {question:"¿La tintorería garantiza que salgan todas las manchas?",answer:"No. El resultado depende del origen, la antigüedad, el tejido, los tratamientos anteriores y los límites de la etiqueta. Conviene informar qué produjo la mancha y no aplicar remedios caseros antes de la evaluación."}
 ];
 
-export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout title={title} description={description} slug="diferencia-entre-lavanderia-y-tintoreria" date="2026-09-20" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image="/blog/elegir-lavanderia-o-tintoreria.webp" service="tintoreria">
+export default function Page(){const faqSchema={"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqs.map(f=>({"@type":"Question",name:f.question,acceptedAnswer:{"@type":"Answer",text:f.answer}}))};return <ArticleLayout updated="2026-11-20" title={title} description={description} slug="diferencia-entre-lavanderia-y-tintoreria" date="2026-09-20" readingTime="7 MIN DE LECTURA" cluster="Cuidado de ropa" image={illustration.image} service="tintoreria">
   <p className="article-lead"><strong>Respuesta corta:</strong> lavandería y lavadero se usan casi como sinónimos. La lavandería se ocupa principalmente de ropa cotidiana y textiles lavables con agua, además del secado y doblado. La tintorería recibe prendas que necesitan una evaluación profesional por su tejido, estructura, forro, color o terminación. Eso no significa que toda prenda de tintorería se limpie en seco: el proceso se elige después de leer la etiqueta y revisar la pieza completa.</p>
 
   <nav className="article-toc" aria-label="Índice de la guía"><strong>En esta guía</strong><ol><li><a href="#comparacion">La diferencia principal</a></li><li><a href="#lavadero">¿Y un lavadero?</a></li><li><a href="#lavanderia">Qué llevar a lavandería</a></li><li><a href="#tintoreria">Qué llevar a tintorería</a></li><li><a href="#seco">Qué significa limpieza en seco</a></li><li><a href="#elegir">Cómo elegir el servicio</a></li><li><a href="#mar-del-plata">Qué llevar a cada uno en Mar del Plata</a></li><li><a href="#aquabon">Cómo funciona en Aquabon</a></li></ol></nav>
@@ -43,7 +45,7 @@ export default function Page(){const faqSchema={"@context":"https://schema.org",
   <p>Dentro de Aquabon, el <Link href="/servicios/valet-de-ropa">servicio de valet</Link> incluye lavado, secado y doblado de ropa cotidiana. Las prendas especiales se separan y evalúan antes de aceptar el trabajo.</p>
 
   <figure className="article-image">
-    <Image src="/blog/elegir-lavanderia-o-tintoreria.webp" alt="Canasta con ropa cotidiana junto a un saco, una blusa y un tapado revisados por separado" width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/>
+    <Image src={illustration.image} alt={illustration.alt} width={1400} height={788} sizes="(max-width: 900px) 100vw, 760px"/>
     <figcaption>La clasificación empieza por la prenda completa: etiqueta, tejido, forro, estructura, adornos y estado.</figcaption>
   </figure>
 
