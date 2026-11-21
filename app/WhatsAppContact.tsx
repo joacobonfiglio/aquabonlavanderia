@@ -20,11 +20,13 @@ export default function WhatsAppContact() {
   const slug = pathname?.split("/").at(-1) || "";
   const service = services[slug];
   const isBusiness = pathname?.startsWith("/empresas");
+  const isHome = pathname === "/";
   const message = service ? `Hola Aquabon, quiero consultar por ${service}.`
+    : isHome ? "Hola Aquabon, quiero consultar precio y plazo para lavar __. Mi barrio es __."
     : isBusiness ? "Hola Aquabon, quería consultar por un servicio de lavandería para mi negocio."
     : "Hola Aquabon, quería hacer una consulta.";
-  return <WhatsAppLink className="wa-fab" message={message} ubicacion="flotante" aria-label="Escribinos por WhatsApp">
+  return <WhatsAppLink className="wa-fab" message={message} ubicacion="flotante" aria-label={isHome ? "Consultar precio por WhatsApp" : "Escribinos por WhatsApp"}>
     <span className="wa-fab__icon"><WhatsAppIcon /><i aria-hidden="true" /></span>
-    <span className="wa-fab__text" aria-hidden="true"><strong>¿Te ayudamos?</strong><small>Escribinos por WhatsApp</small></span>
+    <span className="wa-fab__text" aria-hidden="true"><strong>{isHome ? "Consultar precio" : "¿Te ayudamos?"}</strong><small>Escribinos por WhatsApp</small></span>
   </WhatsAppLink>;
 }

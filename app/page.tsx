@@ -2,54 +2,23 @@ import Link from "next/link";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import WhatsAppLink from "./WhatsAppLink";
-import ChatPreview, { type ChatData } from "./ChatPreview";
-
-type TicketData = { rows: { label: string; value: string }[]; message: string; servicio?: string; link?: { href: string; label: string } };
-const toChat = (t: TicketData): ChatData => ({ service: t.rows.find(r => r.label === "Servicio")?.value, next: t.rows.find(r => r.label === "Cómo sigue")?.value, message: t.message, servicio: t.servicio, link: t.link });
 import Faq, { type FaqItem } from "./Faq";
 import Reviews from "./Reviews";
 import Img from "./Img";
-import { CareSymbol, WhatsAppIcon } from "./ui";
+import { CareSymbol, PinIcon, WhatsAppIcon } from "./ui";
 import { Clothesline, Process, Ribbon, Waves } from "./Blocks";
 import { business, businessLinks, hours, hoursSentence, pickupZones, services } from "./site";
 
-type Option = { id: string; label: string; image: string; ticket: TicketData };
-
-const options: Option[] = [
-  { id: "semana", label: "Ropa de la semana", image: "/laundry-detail-v2.webp", ticket: {
-    rows: [{ label: "Prenda", value: "ropa de la semana" }, { label: "Servicio", value: "valet: lavado, secado y doblado" }, { label: "Cómo sigue", value: "la dejás en el local y te avisamos cuando está lista" }],
-    message: "Hola Aquabon, tengo ropa de la semana para el valet. Son más o menos __ prendas. ¿Me pasan importe y plazo?",
-    servicio: "valet", link: { href: "/servicios/valet-de-ropa", label: "Cómo funciona el valet" } } },
-  { id: "acolchado", label: "Acolchado", image: "/blog/revisar-cuando-lavar-acolchado.webp", ticket: {
-    rows: [{ label: "Prenda", value: "acolchado, cubrecama o frazada" }, { label: "Servicio", value: "lavado de acolchados" }, { label: "Cómo sigue", value: "revisamos tamaño, etiqueta y relleno" }],
-    message: "Hola Aquabon, quiero lavar un acolchado. Es de __ plazas y el relleno es __. ¿Me pasan importe y plazo?",
-    servicio: "acolchados", link: { href: "/servicios/lavado-de-acolchados", label: "Lavado de acolchados" } } },
-  { id: "campera", label: "Campera o tapado", image: "/blog/revisar-tapado-etiqueta-forro.webp", ticket: {
-    rows: [{ label: "Prenda", value: "campera o tapado" }, { label: "Servicio", value: "camperas y tapados" }, { label: "Cómo sigue", value: "miramos etiqueta, forro y relleno" }],
-    message: "Hola Aquabon, quiero consultar por la limpieza de una campera o tapado. Les mando una foto de la prenda y de la etiqueta.",
-    servicio: "camperas_y_tapados", link: { href: "/servicios/lavado-de-camperas-y-tapados", label: "Camperas y tapados" } } },
-  { id: "zapatillas", label: "Zapatillas", image: "/blog/revisar-zapatillas-antes-lavar.webp", ticket: {
-    rows: [{ label: "Prenda", value: "un par de zapatillas" }, { label: "Servicio", value: "lavado de zapatillas" }, { label: "Cómo sigue", value: "revisamos material, uniones y desgaste" }],
-    message: "Hola Aquabon, quiero consultar por el lavado de unas zapatillas. Les mando una foto del par.",
-    servicio: "zapatillas", link: { href: "/servicios/lavado-de-zapatillas", label: "Lavado de zapatillas" } } },
-  { id: "traje", label: "Traje o vestido", image: "/blog/revisar-prendas-tintoreria.webp", ticket: {
-    rows: [{ label: "Prenda", value: "traje, saco o vestido" }, { label: "Servicio", value: "tintorería" }, { label: "Cómo sigue", value: "la registramos y seguimos el tratamiento" }],
-    message: "Hola Aquabon, tengo una prenda para tintorería (traje, saco o vestido). Les mando una foto de la prenda y de la etiqueta.",
-    servicio: "tintoreria", link: { href: "/servicios/tintoreria", label: "Tintorería" } } },
-  { id: "camisas", label: "Camisas", image: "/blog/preparar-camisa-antes-lavar.webp", ticket: {
-    rows: [{ label: "Prenda", value: "camisas" }, { label: "Servicio", value: "lavado y planchado de camisas" }, { label: "Cómo sigue", value: "revisamos cuello, puños y etiqueta" }],
-    message: "Hola Aquabon, quiero lavar y planchar camisas. Son __. ¿Me pasan importe y plazo?",
-    servicio: "camisas", link: { href: "/servicios/lavado-y-planchado-de-camisas", label: "Lavado y planchado de camisas" } } },
-  { id: "arreglo", label: "Un arreglo", image: "/services/costura-v3.webp", ticket: {
-    rows: [{ label: "Prenda", value: "una prenda para arreglar" }, { label: "Servicio", value: "arreglos y costura" }, { label: "Cómo sigue", value: "medidas y alcance se ven en el local" }],
-    message: "Hola Aquabon, quiero consultar por un arreglo de costura. Necesito __.",
-    servicio: "arreglos", link: { href: "/servicios/arreglos-y-costura", label: "Arreglos y costura" } } },
+// Cada opción abre una consulta de WhatsApp con el servicio ya elegido.
+const options = [
+  { id: "semana", label: "Valet de ropa", image: "/laundry-detail-v2.webp", servicio: "valet", message: "Hola Aquabon, quiero consultar precio y plazo para el valet. Tengo unas __ prendas. Mi barrio es __." },
+  { id: "acolchado", label: "Acolchados", image: "/blog/revisar-cuando-lavar-acolchado.webp", servicio: "acolchados", message: "Hola Aquabon, quiero lavar un acolchado. Es de __ plazas y el relleno es __. ¿Me pasan importe y plazo?" },
+  { id: "zapatillas", label: "Zapatillas", image: "/blog/revisar-zapatillas-antes-lavar.webp", servicio: "zapatillas", message: "Hola Aquabon, quiero consultar precio y plazo para lavar unas zapatillas. Les mando una foto del par." },
+  { id: "traje", label: "Trajes y vestidos", image: "/blog/revisar-prendas-tintoreria.webp", servicio: "tintoreria", message: "Hola Aquabon, quiero consultar precio y plazo para una prenda de tintorería. Les mando una foto de la prenda y de la etiqueta." },
+  { id: "campera", label: "Camperas y tapados", image: "/blog/revisar-tapado-etiqueta-forro.webp", servicio: "camperas_y_tapados", message: "Hola Aquabon, quiero consultar precio y plazo para limpiar una campera o un tapado. Les mando una foto de la prenda y de la etiqueta." },
+  { id: "camisas", label: "Camisas", image: "/blog/preparar-camisa-antes-lavar.webp", servicio: "camisas", message: "Hola Aquabon, quiero lavar y planchar __ camisas. ¿Me pasan importe y plazo?" },
+  { id: "arreglo", label: "Arreglos de ropa", image: "/services/costura-v3.webp", servicio: "arreglos", message: "Hola Aquabon, quiero consultar por un arreglo de costura. Necesito __. ¿Me pasan importe y plazo?" },
 ];
-
-const general: TicketData = {
-  rows: [{ label: "Prenda", value: "lo que tengas pendiente" }, { label: "Servicio", value: "te ayudamos a elegirlo" }, { label: "Cómo sigue", value: "mandanos una foto de la prenda y su etiqueta" }],
-  message: "Hola Aquabon, quería consultar qué servicio necesita mi ropa.",
-};
 
 const featured = services.slice(0, 3);
 const line = services.filter(s => !featured.includes(s));
@@ -95,10 +64,10 @@ export default function Home() {
               <span className="h-hero__kicker">Lavandería y tintorería en Mar del Plata</span>
               <span className="h-hero__title"><span>Olvidate</span> <span>de lavar,</span> <span className="is-azul">nosotros</span> <span className="is-azul">nos ocupamos</span></span>
             </h1>
-            <p className="h-hero__lead">Dejás tu ropa en {business.street}, o la pasamos a buscar si llegamos a tu zona, y te la devolvemos lavada, seca y doblada. Sin lavarropas, sin tender, sin doblar. Más de 10 años cuidando la ropa de Mar del Plata.</p>
+            <p className="h-hero__lead">Valet, acolchados, zapatillas y tintorería. Traé tu ropa a {business.street} o consultá por retiro a domicilio. Te confirmamos importe y plazo antes de empezar.</p>
             <div className="h-hero__actions">
-              <WhatsAppLink className="btn btn--azul btn--xl" message="Hola Aquabon, quiero consultar por el lavado de mi ropa." ubicacion="hero" data-primary-cta=""><WhatsAppIcon />Escribinos por WhatsApp</WhatsAppLink>
-              <a className="btn btn--outline-light btn--xl" href="#pendiente">¿Qué tenés para lavar?</a>
+              <WhatsAppLink className="btn btn--azul btn--xl" message="Hola Aquabon, quiero consultar precio y plazo para lavar __. Mi barrio es __." ubicacion="hero" data-primary-cta=""><WhatsAppIcon />Consultar precio por WhatsApp</WhatsAppLink>
+              <a className="btn btn--outline-light btn--xl" href="#pendiente">Elegir por prenda</a>
             </div>
             <dl className="h-hero__facts">
               <div><dt>Dirección</dt><dd>{business.street}</dd></div>
@@ -123,41 +92,42 @@ export default function Home() {
         <Waves className="waves--hero" />
       </section>
 
-      {/* 2. Cinta + por qué Aquabon */}
       <Ribbon words={words} />
+
+      {/* Consulta directa por servicio: sin pasos intermedios */}
+      <section className="h-pick h-quote" id="pendiente" aria-labelledby="pick-titulo">
+        <div className="wrap">
+          <div className="h-head">
+            <h2 id="pick-titulo">¿Qué necesitás lavar?</h2>
+            <p>Elegí tu prenda y consultá precio y plazo por WhatsApp. El mensaje ya queda preparado y podés editarlo antes de enviarlo.</p>
+          </div>
+          <ul className="h-quote__list" aria-label="Consultar por un servicio">
+            {options.map(o => <li key={o.id}>
+              <WhatsAppLink className="h-quote__link" message={o.message} ubicacion="home_servicio" servicio={o.servicio} data-primary-cta="">
+                <Img src={o.image} alt="" width={80} height={80} sizes="64px" />
+                <span><strong>{o.label}</strong><small>Consultar precio y plazo</small></span>
+                <WhatsAppIcon />
+              </WhatsAppLink>
+            </li>)}
+            <li>
+              <WhatsAppLink className="h-quote__link h-quote__link--help" message="Hola Aquabon, no sé qué servicio necesita mi prenda. Les mando una foto de la prenda y de su etiqueta." ubicacion="home_ayuda">
+                <span className="h-quote__symbol"><CareSymbol name="wash" /></span>
+                <span><strong>¿No sabés qué elegir?</strong><small>Mandanos una foto</small></span>
+                <WhatsAppIcon />
+              </WhatsAppLink>
+            </li>
+          </ul>
+          <p className="h-quote__note">Sin turno para traerla al local. ¿Querés que la busquemos? <a className="link" href="#barrios">Mirá los barrios con retiro y entrega</a>.</p>
+        </div>
+      </section>
+
+      {/* Confianza antes de ampliar los servicios */}
       <section className="p-sec" aria-labelledby="porque-titulo">
         <div className="wrap">
           <div className="h-head h-head--split" data-reveal><h2 id="porque-titulo">Por qué Aquabon</h2><p>Te sacamos el lavado de encima, con el cuidado de alguien que conoce cada prenda.</p></div>
           <ul className="feature-grid feature-grid--tres">{pillars.map((p, i) => <li key={p.title} data-reveal style={{ transitionDelay: `${i * 70}ms` }}><h3>{p.title}</h3><p>{p.copy}</p></li>)}</ul>
           {/* Enlace en el primer scroll al servicio con más búsqueda estacional (plan SEO 07/11/2026). */}
           <p className="note" data-reveal>Lo que más nos piden al cambiar de estación: <Link className="link" href="/servicios/lavado-de-acolchados">lavado de acolchados en Mar del Plata</Link>, con secado completo y retiro a domicilio.</p>
-        </div>
-      </section>
-
-      {/* 3. Selector */}
-      <section className="h-pick" id="pendiente" aria-labelledby="pick-titulo">
-        <div className="wrap">
-          <div className="h-head" data-reveal>
-            <h2 id="pick-titulo">¿Qué tenés pendiente?</h2>
-            <p>Tocá lo que querés lavar y te armamos el mensaje de WhatsApp. Lo revisás y lo enviás.</p>
-          </div>
-          <div className="h-pick__grid">
-            <fieldset className="tiles" data-reveal>
-              <legend className="pick-step"><b>1</b>Elegí qué querés lavar</legend>
-              {options.map(o => <span key={o.id} className="tile">
-                <input type="radio" name="pendiente" id={"p-" + o.id} value={o.id} aria-controls="tickets" />
-                <label htmlFor={"p-" + o.id}>
-                  <Img src={o.image} alt="" width={480} height={360} sizes="(max-width: 640px) 45vw, 220px" />
-                  <span>{o.label}</span>
-                </label>
-              </span>)}
-            </fieldset>
-            <div className="tickets h-pick__ticket" id="tickets" data-reveal>
-              <p className="pick-step"><b>2</b>Tu mensaje, listo para enviar</p>
-              <ChatPreview data={toChat(general)} dataFor="general" primary />
-              {options.map(o => <ChatPreview key={o.id} data={toChat(o.ticket)} dataFor={o.id} primary />)}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -194,18 +164,28 @@ export default function Home() {
       {/* 7. Barrios donde retiramos */}
       <section className="p-sec p-sec--espuma" id="barrios" aria-labelledby="barrios-titulo">
         <div className="wrap">
-          <div className="h-head h-head--split" data-reveal>
-            <h2 id="barrios-titulo">Barrios donde retiramos</h2>
-            <p>Pasamos a buscar la ropa y te la llevamos cuando está lista. Elegí tu barrio o mandanos tu dirección: te confirmamos costo y disponibilidad antes de pasar.</p>
+          <div className="h-zones">
+            <div className="h-zones__intro">
+              <p className="h-zones__eyebrow">Retiro y entrega a domicilio</p>
+              <h2 id="barrios-titulo">Barrios donde retiramos</h2>
+              <p>Pasamos a buscar tu ropa y te la llevamos cuando está lista. Un pendiente menos, sin salir de casa.</p>
+              <WhatsAppLink className="btn btn--light" message="Hola Aquabon, quiero consultar retiro y entrega. Mi dirección es __ y tengo __ para lavar." ubicacion="retiro" servicio="retiro_y_entrega"><WhatsAppIcon />Consultar mi dirección</WhatsAppLink>
+              <p className="h-zones__conditions">Te confirmamos costo y disponibilidad antes de pasar.</p>
+            </div>
+            <div className="h-zones__directory">
+              <div className="h-zones__heading">
+                <p><PinIcon />Elegí tu barrio</p>
+                <span>{pickupZones.length} barrios</span>
+              </div>
+              <ul className="h-zones__list" aria-label="Barrios con retiro y entrega">
+                {[...pickupZones].sort((a, b) => a.name.localeCompare(b.name, "es")).map(z => <li key={z.slug}>
+                  <Link href={"/" + z.slug}>{z.name}</Link>
+                </li>)}
+                <li className="h-zones__other"><WhatsAppLink message="Hola Aquabon, estoy en __ y necesito lavar __. ¿Pueden retirar en mi dirección?" ubicacion="otras_zonas" servicio="retiro_y_entrega">¿Otro barrio? Consultanos</WhatsAppLink></li>
+              </ul>
+              <p className="h-zones__local">¿Preferís traerla? Estamos en {business.street}. <Link className="link" href="/lavanderia-mar-del-plata">Conocé el local y cómo llegar</Link>.</p>
+            </div>
           </div>
-          <ul className="feature-grid feature-grid--zonas">
-            {pickupZones.map(z => <li key={z.slug}>
-              <h3>{z.name}</h3>
-              <p>Ropa de la semana, acolchados y prendas especiales.</p>
-              <Link className="link" href={"/" + z.slug}>Lavandería en {z.name}</Link>
-            </li>)}
-          </ul>
-          <p className="note">¿Estás en otra zona? <WhatsAppLink className="link" message="Hola Aquabon, estoy en __ y necesito lavar __. ¿Pueden retirar en mi dirección?" ubicacion="otras_zonas">Consultanos tu dirección</WhatsAppLink>. También podés ver la <Link className="link" href="/lavanderia-mar-del-plata">lavandería en Mar del Plata</Link> y cómo llegar al local.</p>
         </div>
       </section>
 
